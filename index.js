@@ -409,7 +409,7 @@ bot.on('message', function (event) {
                         arr.push(template)
                         for(var k = 1; k<=i; k++){
                             console.log(arrCart[k][0]+", "+arrCart[k][1])
-                            arr[0].contents.body.contents[4].contents[k].push(
+                            arr[0].contents.body.contents[4].contents.push(
                                 {
                                     "type": "box",
                                     "layout": "baseline",
