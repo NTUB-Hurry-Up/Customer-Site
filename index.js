@@ -97,7 +97,7 @@ bot.on('message', function (event) {
                             var arr = [];
                             // var o = temp.temp_store_contents
                             arr.push(temp.temp_store);
-                            console.log("first-> arr: " + arr.length)
+                            // console.log("first-> arr: " + arr.length)
 
                             for (var i = 0; i < data.length; i++) {
                                 // (function(o){
@@ -401,8 +401,12 @@ bot.on('message', function (event) {
 
                         const template = temp.temp_cart;
                         template.contents.body.contents[0].text = userName+"的購物車";
-                        template.contents.body.contents[0].text = arrCart[0][1];
-                        event.reply(template);
+                        template.contents.body.contents[1].contents.text = arrCart[0][1];
+
+                        var arr=[];
+                        arr.push(template)
+
+                        event.reply(arr);
                     }else{
                         event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
                     }
