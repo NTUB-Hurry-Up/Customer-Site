@@ -382,7 +382,7 @@ bot.on('message', function (event) {
                     })
                 } else if (status == "arrCartAmt") {
                     status = "";
-                    var i = arrCart.length+1
+                    var i = arrCart.length
 
                     var a = arrCartAmt
                     arrCart[i]=[a, msg1];
