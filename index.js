@@ -403,6 +403,8 @@ bot.on('message', function (event) {
                         template.contents.body.contents[0].text = userName+" 的購物車";
                         template.contents.body.contents[1].contents[0].text = arrCart[0][1];
 
+                        var arr=[];
+                        arr.push(template)
                         for(var k = 1; k<i; k++){
                             arr[0].contents.body.contents[4].contents[k].push(
                                 {
@@ -436,8 +438,6 @@ bot.on('message', function (event) {
                                   }
                             );
                         }
-                        var arr=[];
-                        arr.push(template)
 
                         event.reply(arr);
                     }else{
