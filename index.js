@@ -402,7 +402,7 @@ bot.on('message', function (event) {
                             if(arrCart[m][0]==a){
                                 console.log("1->")
                                 var oldAmt = parseInt(arrCart[m][1]);
-                                var newAmt = oldAmt+parseInt(msg);
+                                var newAmt = (oldAmt+parseInt(msg)).toString();
                                 arrCart[m]=[a, newAmt];
                                 console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
