@@ -41,9 +41,7 @@ bot.on('follow', function (event) {
 
 var status = "";
 var arrCart = [];
-arrCart[0] = [1,2]
-arrCart[1] = [2,4]
-
+var arrCartAmt = []
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -349,17 +347,14 @@ bot.on('message', function (event) {
                     })
                     event.reply();
                 } else if(msg2 == "加入購物車"){
-                    // if(arrCart[1] != null){ 
-                    //     console.log(arrCart);
-                    //     if(arrCart[1] == msg3){
-                    //         arrCart.push(msg4);
-                    //     }else{
-                    //         console.log("nonononoononononono");
-                    //     }
-                    // }else {
-                    //     console.log(arrCart);
-                    //     arrCart.push(userId, msg3, msg4);
-                    // }
+                    if(arrCart.length == 0){ 
+                        arrCart[0]=[userId,msg3];
+                    }
+                    arrCartAmt.length=0;
+                    arrCartAmt.push(msg4);
+                    status = "arrCartAmt";
+                    event.reply("數量 ?");
+                    
                     
                     console.log(arrCart.length);
                 }
@@ -386,6 +381,15 @@ bot.on('message', function (event) {
                             event.reply('姓名已修改完成');
                         }
                     })
+                } else if (status == "arrCartAmt") {
+                    status = "";
+                    var i = arrCart.length+1
+                    arrCartAmt.push(msg1);
+                    for(var j = 0; j<2; j++){
+                        arrCart[i].push(arrCartAmt[j])
+                    }
+                    arrCartAmt.length=0;
+                    console.log(arrCart)
                 }
             }
         }
