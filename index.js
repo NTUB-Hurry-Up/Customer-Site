@@ -401,48 +401,48 @@ bot.on('message', function (event) {
                         arrCartAmt.length="";
                         // console.log(arrCart)
 
-                        // const template = temp.temp_cart;
-                        // template.contents.body.contents[0].text = userName+" 的購物車";
-                        // template.contents.body.contents[1].contents[0].text = arrCart[0][1];
+                        const template = temp.temp_cart;
+                        template.contents.body.contents[0].text = userName+" 的購物車";
+                        template.contents.body.contents[1].contents[0].text = arrCart[0][1];
 
-                        // var arr=[];
-                        // arr.push(template)
+                        var arr=[];
+                        arr.push(template)
                         for(var k = 1; k<=i; k++){
                             console.log(arrCart[k][0]+", "+arrCart[k][1])
-                            // arr[0].contents.body.contents[4].contents[k].push(
-                            //     {
-                            //         "type": "box",
-                            //         "layout": "baseline",
-                            //         "contents": [
-                            //           {
-                            //             "type": "text",
-                            //             "text": "arrCart[k][0]",
-                            //             "flex": 0,
-                            //             "margin": "sm",
-                            //             "size": "md",
-                            //             "weight": "bold"
-                            //           },
-                            //           {
-                            //             "type": "text",
-                            //             "text": "arrCart[k][1]",
-                            //             "size": "xs",
-                            //             "align": "center",
-                            //             "color": "#AAAAAA",
-                            //             "wrap": true
-                            //           },
-                            //           {
-                            //             "type": "text",
-                            //             "text": "$ -4,000",
-                            //             "size": "sm",
-                            //             "align": "end",
-                            //             "color": "#000000"
-                            //           }
-                            //         ]
-                            //       }
-                            // );
+                            arr[0].contents.body.contents[4].contents[k].push(
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": arrCart[k][0],
+                                        "flex": 0,
+                                        "margin": "sm",
+                                        "size": "md",
+                                        "weight": "bold"
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": arrCart[k][1],
+                                        "size": "xs",
+                                        "align": "center",
+                                        "color": "#AAAAAA",
+                                        "wrap": true
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "$ -4,000",
+                                        "size": "sm",
+                                        "align": "end",
+                                        "color": "#000000"
+                                      }
+                                    ]
+                                  }
+                            );
                         }
 
-                        // event.reply(arr);
+                        event.reply(arr);
                     }else{
                         event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
                     }
