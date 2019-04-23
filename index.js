@@ -40,7 +40,7 @@ bot.on('follow', function (event) {
 // --------------------------------
 
 var status = "";
-
+var arrCart = [];
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -53,6 +53,7 @@ bot.on('message', function (event) {
             var msg1 = NewArray[0];
             var msg2 = NewArray[1];
             var msg3 = NewArray[2];
+            var msg4 = NewArray[3];
 
             if (msg1 == "會員") {
                 console.log("if1 status: " + status);
@@ -314,7 +315,7 @@ bot.on('message', function (event) {
                                                 "action": {
                                                     "type": "message",
                                                     "label": "Add to Cart",
-                                                    "text": "加入購物車,"+data[i].foodid
+                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid
                                                 },
                                                 "color": "#905C44",
                                                 "style": "primary"
@@ -344,6 +345,13 @@ bot.on('message', function (event) {
                         }
                     })
                     event.reply();
+                } else if(msg2 == "加入購物車"){
+                    arrCart.push(userId, msg2, msg3);
+                    for(var i = 0; i<4; i++){
+                    
+                        console.log(arrCart);
+
+                    }
                 }
             } else if (status != "") {
                 if (status == "進入修改電話程序") {
