@@ -41,7 +41,7 @@ bot.on('follow', function (event) {
 
 var status = "";
 var arrCart = [];
-var arrCartAmt = []
+var arrCartAmt = "";
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -350,8 +350,7 @@ bot.on('message', function (event) {
                     if(arrCart.length == 0){ 
                         arrCart[0]=[userId,msg3];
                     }
-                    arrCartAmt.length=0;
-                    arrCartAmt.push(msg4);
+                    arrCartAmt=msg4;
                     status = "arrCartAmt";
                     event.reply("數量 ?");
                     
@@ -384,11 +383,11 @@ bot.on('message', function (event) {
                 } else if (status == "arrCartAmt") {
                     status = "";
                     var i = arrCart.length+1
-                    arrCartAmt.push(msg1);
-                    for(var j = 0; j<2; j++){
-                        arrCart[i].push(arrCartAmt[j])
-                    }
-                    arrCartAmt.length=0;
+
+                    var a = arrCartAmt
+                    arrCart[i]=[a, msg1];
+
+                    arrCartAmt.length="";
                     console.log(arrCart)
                 }
             }
