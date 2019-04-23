@@ -346,12 +346,9 @@ bot.on('message', function (event) {
                     })
                     event.reply();
                 } else if(msg2 == "加入購物車"){
-                    arrCart.push(userId, msg2, msg3);
-                    for(var i = 0; i<4; i++){
+                    arrCart.push(userId, msg3, msg4);
                     
-                        console.log(arrCart);
-
-                    }
+                    console.log(arrCart[i]);
                 }
             } else if (status != "") {
                 if (status == "進入修改電話程序") {
