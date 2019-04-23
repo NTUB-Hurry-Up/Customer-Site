@@ -350,9 +350,11 @@ bot.on('message', function (event) {
                     if(arrCart.length == 0){ 
                         arrCart[0]=[userId,msg3];
                     }
-                    arrCartAmt=msg4;
-                    status = "arrCartAmt";
-                    event.reply("數量 ?");
+                    if(arrCart[0][1] == msg3){
+                        arrCartAmt=msg4;
+                        status = "arrCartAmt";
+                        event.reply("數量 ?");
+                    }
                     
                     
                     console.log(arrCart.length);
