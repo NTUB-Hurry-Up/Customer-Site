@@ -407,7 +407,7 @@ bot.on('message', function (event) {
 
                         // var arr=[];
                         // arr.push(template)
-                        for(var k = 1; k<i; k++){
+                        for(var k = 0; k<=i; k++){
                             console.log(arrCart[k][0]+", "+arrCart[k][1])
                             // arr[0].contents.body.contents[4].contents[k].push(
                             //     {
