@@ -346,9 +346,12 @@ bot.on('message', function (event) {
                     })
                     event.reply();
                 } else if(msg2 == "加入購物車"){
-                    arrCart.push(userId, msg3, msg4);
+                    // if(arrCart != null){
+                    // }else {
+                        arrCart.push(userId, msg3, msg4);
+                    // }
                     
-                    console.log(arrCart);
+                    console.log(arrCart+", "+ arrCart[1]);
                 }
             } else if (status != "") {
                 if (status == "進入修改電話程序") {
