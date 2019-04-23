@@ -400,8 +400,8 @@ bot.on('message', function (event) {
                         console.log(arrCart)
 
                         const template = temp.temp_cart;
-                        template.contents.body.contents[0].text = userName+"的購物車";
-                        template.contents.body.contents[1].contents.text = arrCart[0][1];
+                        template.contents.body.contents[0].text = userName+" 的購物車";
+                        template.contents.body.contents[1].contents[0].text = arrCart[0][1];
 
                         var arr=[];
                         arr.push(template)
