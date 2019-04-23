@@ -407,6 +407,7 @@ bot.on('message', function (event) {
 
                         var arr=[];
                         arr.push(template)
+                        arr[0].contents.body.contents[4].contents.length=0
                         for(var k = 1; k<=i; k++){
                             console.log(arrCart[k][0]+", "+arrCart[k][1])
                             arr[0].contents.body.contents[4].contents.push(
@@ -432,7 +433,7 @@ bot.on('message', function (event) {
                                       },
                                       {
                                         "type": "text",
-                                        "text": "$ -4,000",
+                                        "text": "$ ",
                                         "size": "sm",
                                         "align": "end",
                                         "color": "#000000"
