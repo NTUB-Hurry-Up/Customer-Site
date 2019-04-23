@@ -346,12 +346,17 @@ bot.on('message', function (event) {
                     })
                     event.reply();
                 } else if(msg2 == "加入購物車"){
-                    // if(arrCart != null){
-                    // }else {
+                    if(arrCart != null){
+                        if(addCart[1] == msg3){
+                            arrCart.push(msg4);
+                        }else {
+                            
+                        }
+                    }else {
                         arrCart.push(userId, msg3, msg4);
-                    // }
+                    }
                     
-                    console.log(arrCart+", "+ arrCart[1]);
+                    console.log(arrCart);
                 }
             } else if (status != "") {
                 if (status == "進入修改電話程序") {
