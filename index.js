@@ -396,7 +396,7 @@ bot.on('message', function (event) {
                         var i = arrCart.length
 
                         var a = arrCartAmt
-                        for(var k = 0; k<=2; k++){
+                        for(var k = 0; k<=1; k++){
                             if(arrCart[k][0]==a){
                                 arrCart[k][1]+=msg1;
                             }else{
