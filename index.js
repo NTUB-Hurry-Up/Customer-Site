@@ -415,7 +415,7 @@ bot.on('message', function (event) {
                         }
                         console.log("i="+i)
                         arrCartAmt.length="";
-                        // console.log(arrCart)
+                        console.log(arrCart)
 
                         const template = temp.temp_cart;
                         template.contents.body.contents[0].text = userName+" 的購物車";
@@ -425,7 +425,7 @@ bot.on('message', function (event) {
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
                         for(var k = 1; k<=i; k++){
-                            console.log(arrCart)
+                            // console.log(arrCart)
                             // console.log(arrCart[k][0]+", "+arrCart[k][1])
                             arr[0].contents.body.contents[4].contents.push(
                                 {
