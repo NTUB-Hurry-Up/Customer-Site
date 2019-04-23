@@ -346,13 +346,11 @@ bot.on('message', function (event) {
                     })
                     event.reply();
                 } else if(msg2 == "加入購物車"){
-                    if(arrCart != null){
-                        if(addCart[1] == msg3){
-                            arrCart.push(msg4);
-                        }else {
-                            
-                        }
+                    if(arrCart != null){ 
+                        console.log(arrCart);
+                        
                     }else {
+                        console.log(arrCart);
                         arrCart.push(userId, msg3, msg4);
                     }
                     
