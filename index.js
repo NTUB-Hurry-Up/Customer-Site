@@ -413,7 +413,7 @@ bot.on('message', function (event) {
                                 break;
                             }                            
                         }
-
+                        console.log("i="+i)
                         arrCartAmt.length="";
                         // console.log(arrCart)
 
