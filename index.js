@@ -401,9 +401,10 @@ bot.on('message', function (event) {
                                 arrCart[k][1]+=msg1;
                                 console.log("1 "+arrCart[k][0]+", "+arrCart[k][1])
                                 break;
-                            }else{
+                            }else if (k==(i-1)){
                                 arrCart[i]=[a, msg1];
                                 console.log("2 "+arrCart[k][0]+", "+arrCart[k][1])
+                                break;
                             }                            
                         }
 
