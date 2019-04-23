@@ -107,118 +107,120 @@ bot.on('message', function (event) {
                                 //     arr[0].contents.contents.push(o);
                                 // })(Object.assign({}, o));
 
-                                arr[0].contents.contents.push({
-                                    "type": "bubble",
-                                    "hero": {
-                                        "type": "image",
-                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                                        "size": "full",
-                                        "aspectRatio": "20:13",
-                                        "aspectMode": "cover",
-                                        "action": {
-                                            "type": "uri",
-                                            "label": "Line",
-                                            "uri": "https://linecorp.com/"
-                                        }
-                                    },
-                                    "body": {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "contents": [
-                                            {
-                                                "type": "text",
-                                                "text": data[i].storeName,
-                                                "size": "xl",
-                                                "weight": "bold"
-                                            },
-                                            {
-                                                "type": "box",
-                                                "layout": "vertical",
-                                                "spacing": "sm",
-                                                "margin": "lg",
-                                                "contents": [
-                                                    {
-                                                        "type": "box",
-                                                        "layout": "baseline",
-                                                        "spacing": "sm",
-                                                        "contents": [
-                                                            {
-                                                                "type": "text",
-                                                                "text": "Place",
-                                                                "flex": 1,
-                                                                "size": "sm",
-                                                                "color": "#AAAAAA"
-                                                            },
-                                                            {
-                                                                "type": "text",
-                                                                "text": data[i].storeAdd,
-                                                                "flex": 5,
-                                                                "size": "sm",
-                                                                "color": "#666666",
-                                                                "wrap": true
-                                                            }
-                                                        ]
+                                arr[0].contents.contents.push(
+                                    {
+                                        "type": "bubble",
+                                        "hero": {
+                                            "type": "image",
+                                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                                            "size": "full",
+                                            "aspectRatio": "20:13",
+                                            "aspectMode": "cover",
+                                            "action": {
+                                                "type": "uri",
+                                                "label": "Line",
+                                                "uri": "https://linecorp.com/"
+                                            }
+                                        },
+                                        "body": {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": [
+                                                {
+                                                    "type": "text",
+                                                    "text": data[i].storeName,
+                                                    "size": "xl",
+                                                    "weight": "bold"
+                                                },
+                                                {
+                                                    "type": "box",
+                                                    "layout": "vertical",
+                                                    "spacing": "sm",
+                                                    "margin": "lg",
+                                                    "contents": [
+                                                        {
+                                                            "type": "box",
+                                                            "layout": "baseline",
+                                                            "spacing": "sm",
+                                                            "contents": [
+                                                                {
+                                                                    "type": "text",
+                                                                    "text": "Place",
+                                                                    "flex": 1,
+                                                                    "size": "sm",
+                                                                    "color": "#AAAAAA"
+                                                                },
+                                                                {
+                                                                    "type": "text",
+                                                                    "text": data[i].storeAdd,
+                                                                    "flex": 5,
+                                                                    "size": "sm",
+                                                                    "color": "#666666",
+                                                                    "wrap": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "box",
+                                                            "layout": "baseline",
+                                                            "spacing": "sm",
+                                                            "contents": [
+                                                                {
+                                                                    "type": "text",
+                                                                    "text": "Tel",
+                                                                    "flex": 1,
+                                                                    "size": "sm",
+                                                                    "color": "#AAAAAA"
+                                                                },
+                                                                {
+                                                                    "type": "text",
+                                                                    "text": data[i].storeTel,
+                                                                    "flex": 5,
+                                                                    "size": "sm",
+                                                                    "color": "#666666",
+                                                                    "wrap": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        "footer": {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "flex": 0,
+                                            "spacing": "sm",
+                                            "contents": [
+                                                {
+                                                    "type": "button",
+                                                    "action": {
+                                                        "type": "message",
+                                                        "label": "查看菜單",
+                                                        "text": "店家,查看菜單," + data[i].storeid
                                                     },
-                                                    {
-                                                        "type": "box",
-                                                        "layout": "baseline",
-                                                        "spacing": "sm",
-                                                        "contents": [
-                                                            {
-                                                                "type": "text",
-                                                                "text": "Tel",
-                                                                "flex": 1,
-                                                                "size": "sm",
-                                                                "color": "#AAAAAA"
-                                                            },
-                                                            {
-                                                                "type": "text",
-                                                                "text": data[i].storeTel,
-                                                                "flex": 5,
-                                                                "size": "sm",
-                                                                "color": "#666666",
-                                                                "wrap": true
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    "footer": {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "flex": 0,
-                                        "spacing": "sm",
-                                        "contents": [
-                                            {
-                                                "type": "button",
-                                                "action": {
-                                                    "type": "message",
-                                                    "label": "查看菜單",
-                                                    "text": "店家,查看菜單," + data[i].storeid
+                                                    "height": "sm",
+                                                    "style": "link"
                                                 },
-                                                "height": "sm",
-                                                "style": "link"
-                                            },
-                                            {
-                                                "type": "button",
-                                                "action": {
-                                                    "type": "message",
-                                                    "label": "聯絡店家",
-                                                    "text": "店家,聯絡店家," + data[i].storeid
+                                                {
+                                                    "type": "button",
+                                                    "action": {
+                                                        "type": "message",
+                                                        "label": "聯絡店家",
+                                                        "text": "店家,聯絡店家," + data[i].storeid
+                                                    },
+                                                    "height": "sm",
+                                                    "style": "link"
                                                 },
-                                                "height": "sm",
-                                                "style": "link"
-                                            },
-                                            {
-                                                "type": "spacer",
-                                                "size": "sm"
-                                            }
-                                        ]
-                                    }
+                                                {
+                                                    "type": "spacer",
+                                                    "size": "sm"
+                                                }
+                                            ]
+                                        }
 
-                                });
+                                    }
+                                );
 
                             }
                             event.reply(arr[0]);
@@ -397,49 +399,50 @@ bot.on('message', function (event) {
                         arrCart[i]=[a, msg1];
 
                         arrCartAmt.length="";
-                        console.log(arrCart)
+                        // console.log(arrCart)
 
-                        const template = temp.temp_cart;
-                        template.contents.body.contents[0].text = userName+" 的購物車";
-                        template.contents.body.contents[1].contents[0].text = arrCart[0][1];
+                        // const template = temp.temp_cart;
+                        // template.contents.body.contents[0].text = userName+" 的購物車";
+                        // template.contents.body.contents[1].contents[0].text = arrCart[0][1];
 
                         var arr=[];
                         arr.push(template)
                         for(var k = 1; k<i; k++){
-                            arr[0].contents.body.contents[4].contents[k].push(
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [
-                                      {
-                                        "type": "text",
-                                        "text": "arrCart[k][0]",
-                                        "flex": 0,
-                                        "margin": "sm",
-                                        "size": "md",
-                                        "weight": "bold"
-                                      },
-                                      {
-                                        "type": "text",
-                                        "text": "arrCart[k][1]",
-                                        "size": "xs",
-                                        "align": "center",
-                                        "color": "#AAAAAA",
-                                        "wrap": true
-                                      },
-                                      {
-                                        "type": "text",
-                                        "text": "$ -4,000",
-                                        "size": "sm",
-                                        "align": "end",
-                                        "color": "#000000"
-                                      }
-                                    ]
-                                  }
-                            );
+                            console.log(arrCart[k][0]+", "+arrCart[k][1])
+                            // arr[0].contents.body.contents[4].contents[k].push(
+                            //     {
+                            //         "type": "box",
+                            //         "layout": "baseline",
+                            //         "contents": [
+                            //           {
+                            //             "type": "text",
+                            //             "text": "arrCart[k][0]",
+                            //             "flex": 0,
+                            //             "margin": "sm",
+                            //             "size": "md",
+                            //             "weight": "bold"
+                            //           },
+                            //           {
+                            //             "type": "text",
+                            //             "text": "arrCart[k][1]",
+                            //             "size": "xs",
+                            //             "align": "center",
+                            //             "color": "#AAAAAA",
+                            //             "wrap": true
+                            //           },
+                            //           {
+                            //             "type": "text",
+                            //             "text": "$ -4,000",
+                            //             "size": "sm",
+                            //             "align": "end",
+                            //             "color": "#000000"
+                            //           }
+                            //         ]
+                            //       }
+                            // );
                         }
 
-                        event.reply(arr);
+                        // event.reply(arr);
                     }else{
                         event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
                     }
