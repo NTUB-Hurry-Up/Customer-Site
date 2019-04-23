@@ -398,7 +398,9 @@ bot.on('message', function (event) {
                         var a = arrCartAmt
                         for(var m = 0; m<i; m++){
                             if(arrCart[m][0]==a){
-                                arrCart[m][1]+=msg1;
+                                var oldAmt = arrCart[m][1];
+                                var newAmt = oldAmt+msg;
+                                arrCart[i]=[a, newAmt];
                                 console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
                             }else if (m==(i-1)){
