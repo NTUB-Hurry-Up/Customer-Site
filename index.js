@@ -403,7 +403,7 @@ bot.on('message', function (event) {
                                 console.log("1->")
                                 var oldAmt = arrCart[m][1];
                                 var newAmt = oldAmt+msg;
-                                arrCart[i]=[a, newAmt];
+                                arrCart[m]=[a, newAmt];
                                 console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
                             }else if (m==(i-1)){
