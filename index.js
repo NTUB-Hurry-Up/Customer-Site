@@ -396,14 +396,14 @@ bot.on('message', function (event) {
                         var i = arrCart.length
                         console.log("i="+i)
                         var a = arrCartAmt
-                        for(var k = 0; k<i; k++){
-                            if(arrCart[k][0]==a){
-                                arrCart[k][1]+=msg1;
-                                console.log("1 "+arrCart[k][0]+", "+arrCart[k][1])
+                        for(var m = 0; m<i; m++){
+                            if(arrCart[m][0]==a){
+                                arrCart[m][1]+=msg1;
+                                console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
-                            }else if (k==(i-1)){
+                            }else if (m==(i-1)){
                                 arrCart[i]=[a, msg1];
-                                console.log("2 "+arrCart[k][0]+", "+arrCart[k][1])
+                                console.log("2 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
                             }                            
                         }
@@ -419,7 +419,7 @@ bot.on('message', function (event) {
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
                         for(var k = 1; k<=i; k++){
-                            console.log(arrCart[k][0]+", "+arrCart[k][1])
+                            // console.log(arrCart[k][0]+", "+arrCart[k][1])
                             arr[0].contents.body.contents[4].contents.push(
                                 {
                                     "type": "box",
