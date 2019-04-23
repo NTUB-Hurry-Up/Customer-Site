@@ -385,14 +385,23 @@ bot.on('message', function (event) {
                         }
                     })
                 } else if (status == "arrCartAmt") {
-                    status = "";
-                    var i = arrCart.length
 
-                    var a = arrCartAmt
-                    arrCart[i]=[a, msg1];
+                    var isNum = /^[0-9]+$/;
+                    
+                    if(isNum.test(msg1)){
+                        
+                        status = "";
+                        var i = arrCart.length
 
-                    arrCartAmt.length="";
-                    console.log(arrCart)
+                        var a = arrCartAmt
+                        arrCart[i]=[a, msg1];
+
+                        arrCartAmt.length="";
+                        console.log(arrCart)
+                    }else{
+                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
+                    }
+                    
                 }
             }
         }
