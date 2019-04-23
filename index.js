@@ -399,8 +399,10 @@ bot.on('message', function (event) {
                         for(var k = 0; k<=1; k++){
                             if(arrCart[k][0]==a){
                                 arrCart[k][1]+=msg1;
+                                console.log("1 "+arrCart[k][0]+", "+arrCart[k][0])
                             }else{
                                 arrCart[i]=[a, msg1];
+                                console.log("2 "+arrCart[k][0]+", "+arrCart[k][0])
                             }                            
                         }
 
