@@ -31,6 +31,189 @@ var temp_store=
     ]
   }
 }
+var temp_cart={
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "hero": {
+      "type": "image",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "label": "Action",
+        "uri": "https://linecorp.com"
+      }
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "action": {
+        "type": "uri",
+        "label": "Action",
+        "uri": "https://linecorp.com"
+      },
+      "contents": [
+        {
+          "type": "text",
+          "text": "購物車",
+          "size": "xl",
+          "align": "start",
+          "weight": "bold"
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "阿使巴樂",
+              "size": "lg",
+              "align": "start",
+              "weight": "regular"
+            }
+          ]
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "餐點名稱",
+              "size": "md"
+            },
+            {
+              "type": "text",
+              "text": "份量",
+              "size": "md",
+              "align": "center"
+            },
+            {
+              "type": "text",
+              "text": "價格",
+              "size": "md",
+              "align": "end"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "巴拉八八八",
+                  "flex": 0,
+                  "margin": "sm",
+                  "size": "md",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "100",
+                  "size": "xs",
+                  "align": "center",
+                  "color": "#AAAAAA",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "$ -4,000",
+                  "size": "sm",
+                  "align": "end",
+                  "color": "#000000"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "巴拉八八八",
+                  "flex": 0,
+                  "margin": "sm",
+                  "size": "md",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "100",
+                  "size": "xs",
+                  "align": "center",
+                  "color": "#AAAAAA",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "$ -4,000",
+                  "size": "sm",
+                  "align": "end",
+                  "color": "#000000"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "總價 : $-3,400",
+              "size": "xl",
+              "align": "end",
+              "color": "#000000"
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "繼續點餐",
+            "text": "繼續點餐"
+          },
+          "color": "#58290C"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "完成訂單",
+            "text": "完成訂單"
+          },
+          "color": "#58290C"
+        }
+      ]
+    }
+  }
+}
 // var temp_store_contents={
 //   "type": "bubble",
 //   "hero": {
@@ -153,4 +336,4 @@ var temp_menu={
     }
   }
 //匯出
-module.exports = {temp1, temp_store, temp_menu};
+module.exports = {temp1, temp_store, temp_menu, temp_cart};

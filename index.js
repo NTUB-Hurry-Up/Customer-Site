@@ -398,6 +398,8 @@ bot.on('message', function (event) {
 
                         arrCartAmt.length="";
                         console.log(arrCart)
+                        const template = temp.temp_cart;
+                        event.reply(template);
                     }else{
                         event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
                     }
