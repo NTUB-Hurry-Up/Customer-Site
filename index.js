@@ -413,6 +413,7 @@ bot.on('message', function (event) {
                                 break;
                             }                            
                         }
+                        i = arrCart.length
                         console.log("i="+i)
                         arrCartAmt.length="";
                         console.log(arrCart)
@@ -424,7 +425,7 @@ bot.on('message', function (event) {
                         // var arr=[];
                         // arr.push(template)
                         // arr[0].contents.body.contents[4].contents.length=0
-                        for(var k = 0; k<=i; k++){
+                        for(var k = 0; k<i; k++){
                             console.log("i="+i+" ,k="+k)
 
                             // console.log(arrCart)
