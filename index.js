@@ -346,7 +346,7 @@ bot.on('message', function (event) {
                     })
                     event.reply();
                 } else if(msg2 == "加入購物車"){
-                    if(arrCart != null){ 
+                    if(arrCart[1] != null){ 
                         console.log(arrCart);
                         
                     }else {
