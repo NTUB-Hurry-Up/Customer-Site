@@ -41,6 +41,9 @@ bot.on('follow', function (event) {
 
 var status = "";
 var arrCart = [];
+arrCart[0] = [1,2]
+arrCart[1] = [2,4]
+
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -346,15 +349,19 @@ bot.on('message', function (event) {
                     })
                     event.reply();
                 } else if(msg2 == "加入購物車"){
-                    if(arrCart[1] != null){ 
-                        console.log(arrCart);
-                        
-                    }else {
-                        console.log(arrCart);
-                        arrCart.push(userId, msg3, msg4);
-                    }
+                    // if(arrCart[1] != null){ 
+                    //     console.log(arrCart);
+                    //     if(arrCart[1] == msg3){
+                    //         arrCart.push(msg4);
+                    //     }else{
+                    //         console.log("nonononoononononono");
+                    //     }
+                    // }else {
+                    //     console.log(arrCart);
+                    //     arrCart.push(userId, msg3, msg4);
+                    // }
                     
-                    console.log(arrCart);
+                    console.log(arrCart.length);
                 }
             } else if (status != "") {
                 if (status == "進入修改電話程序") {
