@@ -413,7 +413,7 @@ bot.on('message', function (event) {
                                     "contents": [
                                       {
                                         "type": "text",
-                                        "text": arrCart[k][0],
+                                        "text": "arrCart[k][0]",
                                         "flex": 0,
                                         "margin": "sm",
                                         "size": "md",
@@ -421,7 +421,7 @@ bot.on('message', function (event) {
                                       },
                                       {
                                         "type": "text",
-                                        "text": arrCart[k][1],
+                                        "text": "arrCart[k][1]",
                                         "size": "xs",
                                         "align": "center",
                                         "color": "#AAAAAA",
