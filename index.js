@@ -401,8 +401,8 @@ bot.on('message', function (event) {
                             console.log("i="+i+" ,m="+m)
                             if(arrCart[m][0]==a){
                                 console.log("1->")
-                                var oldAmt = arrCart[m][1];
-                                var newAmt = oldAmt+msg;
+                                var oldAmt = parseInt(arrCart[m][1]);
+                                var newAmt = oldAmt+parseInt(msg);
                                 arrCart[m]=[a, newAmt];
                                 console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
