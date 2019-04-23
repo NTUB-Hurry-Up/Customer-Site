@@ -354,6 +354,8 @@ bot.on('message', function (event) {
                         arrCartAmt=msg4;
                         status = "arrCartAmt";
                         event.reply("數量 ?");
+                    }else{
+                        event.reply("你科成為喔 ?");
                     }
                     
                     
