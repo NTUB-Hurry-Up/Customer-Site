@@ -403,6 +403,39 @@ bot.on('message', function (event) {
                         template.contents.body.contents[0].text = userName+" 的購物車";
                         template.contents.body.contents[1].contents[0].text = arrCart[0][1];
 
+                        for(var k = 0; k<i; k++){
+                            arr[0].contents.body.contents[4].contents[k].push(
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": msg4,
+                                        "flex": 0,
+                                        "margin": "sm",
+                                        "size": "md",
+                                        "weight": "bold"
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "100",
+                                        "size": "xs",
+                                        "align": "center",
+                                        "color": "#AAAAAA",
+                                        "wrap": true
+                                      },
+                                      {
+                                        "type": "text",
+                                        "text": "$ -4,000",
+                                        "size": "sm",
+                                        "align": "end",
+                                        "color": "#000000"
+                                      }
+                                    ]
+                                  }
+                            );
+                        }
                         var arr=[];
                         arr.push(template)
 

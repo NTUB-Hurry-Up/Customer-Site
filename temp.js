@@ -110,64 +110,7 @@ var temp_cart={
           "layout": "vertical",
           "spacing": "sm",
           "contents": [
-            {
-              "type": "box",
-              "layout": "baseline",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "巴拉八八八",
-                  "flex": 0,
-                  "margin": "sm",
-                  "size": "md",
-                  "weight": "bold"
-                },
-                {
-                  "type": "text",
-                  "text": "100",
-                  "size": "xs",
-                  "align": "center",
-                  "color": "#AAAAAA",
-                  "wrap": true
-                },
-                {
-                  "type": "text",
-                  "text": "$ -4,000",
-                  "size": "sm",
-                  "align": "end",
-                  "color": "#000000"
-                }
-              ]
-            },
-            {
-              "type": "box",
-              "layout": "baseline",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "巴拉八八八",
-                  "flex": 0,
-                  "margin": "sm",
-                  "size": "md",
-                  "weight": "bold"
-                },
-                {
-                  "type": "text",
-                  "text": "100",
-                  "size": "xs",
-                  "align": "center",
-                  "color": "#AAAAAA",
-                  "wrap": true
-                },
-                {
-                  "type": "text",
-                  "text": "$ -4,000",
-                  "size": "sm",
-                  "align": "end",
-                  "color": "#000000"
-                }
-              ]
-            }
+            
           ]
         },
         {
