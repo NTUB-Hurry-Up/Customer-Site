@@ -475,10 +475,10 @@ bot.on('message', function (event) {
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
                         
-                        var cartTotalPrice = 0;
+                        // var cartTotalPrice = 0;
 
                         for(var k = 1; k<i; k++){
-                            cartTotalPrice += arrCart[k][2]*arrCart[k][3]
+                            // cartTotalPrice += arrCart[k][2]*arrCart[k][3]
                             console.log("i="+i+" ,k="+k)
 
                             console.log(arrCart)
