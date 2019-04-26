@@ -57,18 +57,18 @@ bot.on('message', function (event) {
             var msg2 = NewArray[1];
             var msg3 = NewArray[2];
             var msg4 = NewArray[3];
-            if(msg1 == "123"){
-                cart.Cartfetchfood(msg2).then(data => {
-                    if (data == -1) {
-                        event.reply('找不到資料');
-                    } else if (data == -9) {
-                        event.reply('執行錯誤');
-                    } else {
-                        console.log(data.foodPrice)
-                        event.reply(data.foodName)
-                    }
-                });
-            } 
+            // if(msg1 == "123"){
+            //     cart.Cartfetchfood(msg2).then(data => {
+            //         if (data == -1) {
+            //             event.reply('找不到資料');
+            //         } else if (data == -9) {
+            //             event.reply('執行錯誤');
+            //         } else {
+            //             console.log(data.foodPrice)
+            //             event.reply(data.foodName)
+            //         }
+            //     });
+            // } 
             if (msg1 == "會員") {
                 console.log("if1 status: " + status);
                 if (msg2 == "資訊") {
@@ -436,12 +436,12 @@ bot.on('message', function (event) {
                         console.log("i="+i)
                         var foodid = arrCartAmt
                         for(var m = 0; m<i; m++){
-                            cart.Cartfetchfood(foodid).then(data => {
-                                if (data == -1) {
-                                    event.reply('找不到資料');
-                                } else if (data == -9) {
-                                    event.reply('執行錯誤');
-                                } else {
+                            // cart.Cartfetchfood(foodid).then(data => {
+                            //     if (data == -1) {
+                            //         event.reply('找不到資料');
+                            //     } else if (data == -9) {
+                            //         event.reply('執行錯誤');
+                            //     } else {
                                     console.log("i="+i+" ,m="+m)
                                     // var foodName = data.foodName;
                                     // var storeName = data.storeName;
@@ -460,8 +460,8 @@ bot.on('message', function (event) {
                                         console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
                                         break;
                                     }
-                                }
-                            });
+                            //     }
+                            // });
                         }
                         i = arrCart.length
                         console.log("i="+i)
