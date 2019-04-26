@@ -468,61 +468,53 @@ bot.on('message', function (event) {
 
                         const template = temp.temp_cart;
                         template.contents.body.contents[0].text = userName+" 的購物車";
-                        template.contents.body.contents[1].contents[0].text = arrCart[0][1];
-                        // template.contents.footer.contents[0].text="店家查看菜單"
+                        template.contents.body.contents[1].contents[0].text = arrCart[0][2];
+                        template.contents.footer.contents[0].text="店家,查看菜單"+arrCart[0][1]
                         // template.contents.footer.contents[0].action.text=""
                         var arr=[];
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
                         
-                        
-                        for(var k = 1; k<i; k++){
-                            // var foodid = arrCart[k][0]
-                            // console.log("foodid"+foodid)
-                            // cart.Cartfetchfood(foodid).then(data => {
-                            //     if (data == -1) {
-                            //         event.reply('找不到資料');
-                            //     } else if (data == -9) {
-                            //         event.reply('執行錯誤');
-                            //     } else {
-                            //         console.log(data.foodPrice)
-                                    console.log("i="+i+" ,k="+k)
+                        var cartTotalPrice = 0;
 
-                                    console.log(arrCart)
-                                    console.log(arrCart[k][0]+", "+arrCart[k][1])
-                                    arr[0].contents.body.contents[4].contents.push(
-                                        {
-                                            "type": "box",
-                                            "layout": "baseline",
-                                            "contents": [
-                                            {
-                                                "type": "text",
-                                                "text": arrCart[k][1],
-                                                "flex": 0,
-                                                "margin": "sm",
-                                                "size": "md",
-                                                "weight": "bold"
-                                            },
-                                            {
-                                                "type": "text",
-                                                "text": arrCart[k][3],
-                                                "size": "xs",
-                                                "align": "center",
-                                                "color": "#AAAAAA",
-                                                "wrap": true
-                                            },
-                                            {
-                                                "type": "text",
-                                                "text": "$ "+arrCart[k][2]*arrCart[k][3],
-                                                "size": "sm",
-                                                "align": "end",
-                                                "color": "#000000"
-                                            }
-                                            ]
-                                        }
-                                    );
-                            //     }
-                            // });
+                        for(var k = 1; k<i; k++){
+                            cartTotalPrice += arrCart[k][2]*arrCart[k][3]
+                            console.log("i="+i+" ,k="+k)
+
+                            console.log(arrCart)
+                            console.log(arrCart[k][0]+", "+arrCart[k][1])
+                            arr[0].contents.body.contents[4].contents.push(
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": arrCart[k][1],
+                                        "flex": 0,
+                                        "margin": "sm",
+                                        "size": "md",
+                                        "weight": "bold"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": arrCart[k][3],
+                                        "size": "xs",
+                                        "align": "center",
+                                        "color": "#AAAAAA",
+                                        "wrap": true
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "$ "+arrCart[k][2]*arrCart[k][3],
+                                        "size": "sm",
+                                        "align": "end",
+                                        "color": "#000000"
+                                    }
+                                    ]
+                                }
+                            );
+
                         }
                             
                         statusTime=0;
