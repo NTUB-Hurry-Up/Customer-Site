@@ -378,8 +378,19 @@ bot.on('message', function (event) {
 
                     console.log(arrCart.length);
                 }
-            }else if(msg1 == "送出訂單"){
+            }else if(msg1 == "購物車"){
+                if(msg2 == "清空"){
+                    status = "";
+                    statusTime = 0;
+                    arrCart.length = 0;
+                    arrCartAmt.length = 0;
+                    event.reply([
+                        {'type':'text', 'text':'已清空'},
+                        {'type':'text', 'text':'請重新點餐'}]
+                    );
+                }else if(msg2 == "送出訂單"){
 
+                }
             }else if (status != "") {
                 if (status == "進入修改電話程序") {
                     status = "";
@@ -518,9 +529,9 @@ bot.on('message', function (event) {
                         }
                         
                         template.contents.body.contents[6].contents[0].text = "總價 : $"+cartTotalPrice;
-                        template.contents.footer.contents[0].action.text="清空購物車"
+                        template.contents.footer.contents[0].action.text="購物車,清空"
                         template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];
-                        template.contents.footer.contents[2].action.text="送出訂單"
+                        template.contents.footer.contents[2].action.text="購物車,送出訂單"
                         console.log("total "+cartTotalPrice);
                         statusTime=0;
                         event.reply(arr);
