@@ -469,8 +469,6 @@ bot.on('message', function (event) {
                         const template = temp.temp_cart;
                         template.contents.body.contents[0].text = userName+" 的購物車";
                         template.contents.body.contents[1].contents[0].text = arrCart[0][2];
-                        // template.contents.footer.contents[0].text="店家,查看菜單,"+arrCart[0][1]
-                        // template.contents.footer.contents[0].action.text=""
                         var arr=[];
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
@@ -518,6 +516,8 @@ bot.on('message', function (event) {
                         }
                         
                         template.contents.body.contents[6].contents[0].text = "總價 : $"+cartTotalPrice;
+                        template.contents.footer.contents[0].action.text="店家,查看菜單,"+arrCart[0][1]
+                        // template.contents.footer.contents[0].action.text=""
                         console.log("total "+cartTotalPrice);
                         statusTime=0;
                         event.reply(arr);
