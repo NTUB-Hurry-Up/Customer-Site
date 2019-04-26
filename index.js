@@ -365,10 +365,10 @@ bot.on('message', function (event) {
                     })
                 } else if(msg2 == "加入購物車"){
                     if(arrCart.length == 0){ 
-                        arrCart[0]=[userId,msg3];
+                        arrCart[0]=[userId,msg3,msg5];
                     }
                     if(arrCart[0][1] == msg3){
-                        arrCartAmt=[msg3,msg4, msg5, msg6, msg7];
+                        arrCartAmt=[msg4, msg6, msg7];
                         status = "arrCartAmt";
                         statusTime = 2;
                         event.reply("數量 ?");
@@ -437,39 +437,29 @@ bot.on('message', function (event) {
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
-                        var cstoreid = arrCartAmt[0]
-                        var cfoodid = arrCartAmt[1]
-                        var cstoreName = arrCartAmt[2]
-                        var cfoodName = arrCartAmt[3]
-                        var cfoodPrice = arrCartAmt[4]
-                        console.log(cstoreid+", "+cfoodid+", "+cstoreName+", "+cfoodName+", "+cfoodPrice)
+                        var cstoreid = arrCart[0][1]
+                        var cstoreName = arrCart[0][2]
+                        var cfoodid = arrCartAmt[0]
+                        var cfoodName = arrCartAmt[1]
+                        var cfoodPrice = arrCartAmt[2]
+                        console.log(cstoreid+", "+cstoreName+", "+cfoodid+", "+cfoodName+", "+cfoodPrice)
+
                         for(var m = 0; m<i; m++){
-                            // cart.Cartfetchfood(foodid).then(data => {
-                            //     if (data == -1) {
-                            //         event.reply('找不到資料');
-                            //     } else if (data == -9) {
-                            //         event.reply('執行錯誤');
-                            //     } else {
-                                    console.log("i="+i+" ,m="+m)
-                                    // var foodName = data.foodName;
-                                    // var storeName = data.storeName;
-                                    // console.log("foodName "+data.foodName);
-                                    if(arrCart[m][0]==cfoodid){
-                                        console.log("1->")
-                                        var oldAmt = parseInt(arrCart[m][5]);
-                                        var newAmt = (oldAmt+parseInt(msg1)).toString();
-                                        arrCart[m][5]=newAmt;
-                                        console.log("1 "+arrCart[m][0]+", "+arrCart[m][5])
-                                        break;
-                                    }else if (m==(i-1)){
-                                        console.log("2->")
-                                        var amt=parseInt(msg1)+""
-                                        arrCart[i]=[cstoreid, cfoodid, cstoreName, cfoodName, cfoodPrice, amt];
-                                        console.log("2 "+arrCart[i][0]+", "+arrCart[i][5])
-                                        break;
-                                    }
-                            //     }
-                            // });
+                            console.log("i="+i+" ,m="+m)
+                            if(arrCart[m][0]==cfoodid){
+                                console.log("1->")
+                                var oldAmt = parseInt(arrCart[m][3]);
+                                var newAmt = (oldAmt+parseInt(msg1)).toString();
+                                arrCart[m][3]=newAmt;
+                                console.log("1 "+arrCart[m][0]+", "+arrCart[m][3])
+                                break;
+                            }else if (m==(i-1)){
+                                console.log("2->")
+                                var amt=parseInt(msg1)+""
+                                arrCart[i]=[cfoodid, cfoodName, cfoodPrice, amt];
+                                console.log("2 "+arrCart[i][0]+", "+arrCart[i][3])
+                                break;
+                            }
                         }
                         i = arrCart.length
                         console.log("i="+i)
