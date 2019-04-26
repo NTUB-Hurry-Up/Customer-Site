@@ -385,60 +385,6 @@ bot.on('message', function (event) {
                     arrCart.length = 0;
                     arrCartAmt.length = 0;
                     //--cart-start--
-                    var i = arrCart.length
-                    const template = temp.temp_cart;
-                    template.contents.body.contents[0].text = userName+" 的購物車";
-                    template.contents.body.contents[1].contents[0].text = arrCart[0][2];
-                    var arr=[];
-                    arr.push(template)
-                    arr[0].contents.body.contents[4].contents.length=0
-                    
-                    var cartTotalPrice = 0;
-
-                    for(var k = 1; k<i; k++){
-                        cartTotalPrice += arrCart[k][2]*arrCart[k][3]
-                        console.log("i="+i+" ,k="+k)
-
-                        console.log(arrCart)
-                        console.log(arrCart[k][0]+", "+arrCart[k][1])
-                        arr[0].contents.body.contents[4].contents.push(
-                            {
-                                "type": "box",
-                                "layout": "baseline",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": arrCart[k][1],
-                                        "flex": 0,
-                                        "margin": "sm",
-                                        "size": "md",
-                                        "weight": "bold"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": arrCart[k][3],
-                                        "size": "xs",
-                                        "align": "center",
-                                        "color": "#AAAAAA",
-                                        "wrap": true
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "$ "+arrCart[k][2]*arrCart[k][3],
-                                        "size": "sm",
-                                        "align": "end",
-                                        "color": "#000000"
-                                    }
-                                ]
-                            }
-                        );
-
-                    }
-                    
-                    template.contents.body.contents[6].contents[0].text = "總價 : $"+cartTotalPrice;
-                    template.contents.footer.contents[0].action.text="購物車,清空"
-                    template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];
-                    template.contents.footer.contents[2].action.text="購物車,送出訂單"
                     
                     //--cart-end--
                     event.reply([
