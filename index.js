@@ -7,6 +7,7 @@ var express = require('express');
 const member = require('./member');
 const store = require('./store');
 const temp = require('./temp');
+const temp = require('./cart');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -348,7 +349,6 @@ bot.on('message', function (event) {
                             );  
                         }
                     })
-                    event.reply();
                 } else if(msg2 == "加入購物車"){
                     if(arrCart.length == 0){ 
                         arrCart[0]=[userId,msg3];
@@ -414,13 +414,13 @@ bot.on('message', function (event) {
                             status = ""
                             event.reply('請你閉嘴')
                         }else if(z){
-                            
                             event.reply([
                                 {'type':'text', 'text':'輸入大於0的數字啦 ! 幹, 你科成為喔 ?'},
                                 {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
                             );
                         }
                     }else if(z){
+                        
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
@@ -456,44 +456,54 @@ bot.on('message', function (event) {
                         var arr=[];
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
+                        
+                        
                         for(var k = 1; k<i; k++){
-                            console.log("i="+i+" ,k="+k)
+                            cart.Cartfetchfood(arrCart[k][0]).then(data => {
+                                if (data == -1) {
+                                    event.reply('找不到資料');
+                                } else if (data == -9) {
+                                    event.reply('執行錯誤');
+                                } else {
+                                    console.log("i="+i+" ,k="+k)
 
-                            console.log(arrCart)
-                            console.log(arrCart[k][0]+", "+arrCart[k][1])
-                            arr[0].contents.body.contents[4].contents.push(
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [
-                                      {
-                                        "type": "text",
-                                        "text": arrCart[k][0],
-                                        "flex": 0,
-                                        "margin": "sm",
-                                        "size": "md",
-                                        "weight": "bold"
-                                      },
-                                      {
-                                        "type": "text",
-                                        "text": arrCart[k][1],
-                                        "size": "xs",
-                                        "align": "center",
-                                        "color": "#AAAAAA",
-                                        "wrap": true
-                                      },
-                                      {
-                                        "type": "text",
-                                        "text": "$ ",
-                                        "size": "sm",
-                                        "align": "end",
-                                        "color": "#000000"
-                                      }
-                                    ]
-                                  }
-                            );
+                                    console.log(arrCart)
+                                    console.log(arrCart[k][0]+", "+arrCart[k][1])
+                                    arr[0].contents.body.contents[4].contents.push(
+                                        {
+                                            "type": "box",
+                                            "layout": "baseline",
+                                            "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": arrCart[k][0],
+                                                "flex": 0,
+                                                "margin": "sm",
+                                                "size": "md",
+                                                "weight": "bold"
+                                            },
+                                            {
+                                                "type": "text",
+                                                "text": arrCart[k][1],
+                                                "size": "xs",
+                                                "align": "center",
+                                                "color": "#AAAAAA",
+                                                "wrap": true
+                                            },
+                                            {
+                                                "type": "text",
+                                                "text": "$ "+data.foodPrice,
+                                                "size": "sm",
+                                                "align": "end",
+                                                "color": "#000000"
+                                            }
+                                            ]
+                                        }
+                                    );
+                                }
+                            });
                         }
-
+                            
                         statusTime=0;
                         event.reply(arr);
                     }
@@ -544,3 +554,5 @@ var server = app.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;
     console.log("正在監聽埠號:", port);
 });
+
+
