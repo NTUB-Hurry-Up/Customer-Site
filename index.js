@@ -384,9 +384,6 @@ bot.on('message', function (event) {
                     statusTime = 0;
                     arrCart.length = 0;
                     arrCartAmt.length = 0;
-                    //--cart-start--
-                    
-                    //--cart-end--
                     event.reply([
                         {'type':'text', 'text':'已清空'},
                         {'type':'text', 'text':'請重新點餐'}]
