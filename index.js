@@ -410,16 +410,17 @@ bot.on('message', function (event) {
                             if(arrCart[m][0]==a){
                                 console.log("1->")
                                 var oldAmt = parseInt(arrCart[m][1]);
-                                var newAmt = (oldAmt+parseInt(msg)).toString();
+                                var newAmt = (oldAmt+parseInt(msg1)).toString();
                                 arrCart[m]=[a, newAmt];
                                 console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
                             }else if (m==(i-1)){
                                 console.log("2->")
-                                arrCart[i]=[a, msg1];
+                                var amt=parseInt(msg1)
+                                arrCart[i]=[a, amt];
                                 console.log("2 "+arrCart[m][0]+", "+arrCart[m][1])
                                 break;
-                            }                            
+                            }
                         }
                         i = arrCart.length
                         console.log("i="+i)
