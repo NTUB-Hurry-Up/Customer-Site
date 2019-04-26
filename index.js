@@ -390,8 +390,11 @@ bot.on('message', function (event) {
 
                     var isNum = /^[0-9]+$/;
                     
-                    if(isNum.test(msg1)){
-                        
+                    if(!isNum.test(msg1)){
+                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
+                    }else if(parseInt(msg1)<1){
+                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
+                    }else{
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
@@ -421,7 +424,8 @@ bot.on('message', function (event) {
                         const template = temp.temp_cart;
                         template.contents.body.contents[0].text = userName+" 的購物車";
                         template.contents.body.contents[1].contents[0].text = arrCart[0][1];
-
+                        template.contents.footer.contents[0].text="店家查看菜單"
+                        template.contents.footer.contents[0].action.text=""
                         var arr=[];
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
@@ -464,8 +468,6 @@ bot.on('message', function (event) {
                         }
 
                         event.reply(arr);
-                    }else{
-                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
                     }
                     
                 }
