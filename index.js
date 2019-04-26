@@ -334,7 +334,7 @@ bot.on('message', function (event) {
                                                 "action": {
                                                     "type": "message",
                                                     "label": "Add to Cart",
-                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid+","+data[i].storeName+","+data[i].foodName+","+data[i].foodid
+                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid+","+data[i].storeName+","+data[i].foodName+","+data[i].foodPrice
                                                 },
                                                 "color": "#905C44",
                                                 "style": "primary"
@@ -368,7 +368,7 @@ bot.on('message', function (event) {
                         arrCart[0]=[userId,msg3];
                     }
                     if(arrCart[0][1] == msg3){
-                        arrCartAmt=[msg4, msg5, msg6, msg7];
+                        arrCartAmt=[msg3,msg4, msg5, msg6, msg7];
                         status = "arrCartAmt";
                         statusTime = 2;
                         event.reply("數量 ?");
@@ -437,7 +437,12 @@ bot.on('message', function (event) {
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
-                        var foodid = arrCartAmt
+                        var cstoreid = arrCartAmt[0]
+                        var cfoodid = arrCartAmt[1]
+                        var cstoreName = arrCartAmt[2]
+                        var cfoodName = arrCartAmt[3]
+                        var cfoodPrice = arrCartAmt[4]
+                        console.log(cstoreid+", "+cfoodid+", "+cstoreName+", "+cfoodName+", "+cfoodPrice)
                         for(var m = 0; m<i; m++){
                             // cart.Cartfetchfood(foodid).then(data => {
                             //     if (data == -1) {
