@@ -468,41 +468,41 @@ bot.on('message', function (event) {
                                     event.reply('執行錯誤');
                                 } else {
                                     console.log(data.foodPrice)
-                                    // console.log("i="+i+" ,k="+k)
+                                    console.log("i="+i+" ,k="+k)
 
-                                    // console.log(arrCart)
-                                    // console.log(arrCart[k][0]+", "+arrCart[k][1])
-                                    // arr[0].contents.body.contents[4].contents.push(
-                                    //     {
-                                    //         "type": "box",
-                                    //         "layout": "baseline",
-                                    //         "contents": [
-                                    //         {
-                                    //             "type": "text",
-                                    //             "text": arrCart[k][0],
-                                    //             "flex": 0,
-                                    //             "margin": "sm",
-                                    //             "size": "md",
-                                    //             "weight": "bold"
-                                    //         },
-                                    //         {
-                                    //             "type": "text",
-                                    //             "text": arrCart[k][1],
-                                    //             "size": "xs",
-                                    //             "align": "center",
-                                    //             "color": "#AAAAAA",
-                                    //             "wrap": true
-                                    //         },
-                                    //         {
-                                    //             "type": "text",
-                                    //             "text": "$ "+,
-                                    //             "size": "sm",
-                                    //             "align": "end",
-                                    //             "color": "#000000"
-                                    //         }
-                                    //         ]
-                                    //     }
-                                    // );
+                                    console.log(arrCart)
+                                    console.log(arrCart[k][0]+", "+arrCart[k][1])
+                                    arr[0].contents.body.contents[4].contents.push(
+                                        {
+                                            "type": "box",
+                                            "layout": "baseline",
+                                            "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": arrCart[k][0],
+                                                "flex": 0,
+                                                "margin": "sm",
+                                                "size": "md",
+                                                "weight": "bold"
+                                            },
+                                            {
+                                                "type": "text",
+                                                "text": arrCart[k][1],
+                                                "size": "xs",
+                                                "align": "center",
+                                                "color": "#AAAAAA",
+                                                "wrap": true
+                                            },
+                                            {
+                                                "type": "text",
+                                                "text": "$ "+data.foodPrice,
+                                                "size": "sm",
+                                                "align": "end",
+                                                "color": "#000000"
+                                            }
+                                            ]
+                                        }
+                                    );
                                 }
                             });
                         }
