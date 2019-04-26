@@ -29,7 +29,7 @@ var addOrder = async function(storeid, userid){
     let result;  
 
     //新增會員資料
-    await query('insert into order (storeid, userid) values ($1, $2)', [storeid, userid])
+    await query('INSERT INTO "order"("storeid", "userid") VALUES ($1, $2)', [storeid, userid])
         .then((data) => {
             result = data.rowCount;  //新增資料數 
         }, (error) => {
