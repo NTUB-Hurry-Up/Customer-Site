@@ -402,21 +402,24 @@ bot.on('message', function (event) {
                         if(statusTime==0){
                             status = ""
                             event.reply('請你閉嘴')
+                        }else if(z){
+                            event.reply([
+                                {'type':'text', 'text':'輸入數字啦 ! 幹, 你科成為喔 ?'},
+                                {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
+                            );
                         }
-                        event.reply([
-                            {'type':'text', 'text':'輸入數字啦 ! 幹, 你科成為喔 ?'},
-                            {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
-                        );
                     }else if(y && z){
                         statusTime--;
                         if(statusTime==0){
                             status = ""
                             event.reply('請你閉嘴')
+                        }else if(z){
+                            
+                            event.reply([
+                                {'type':'text', 'text':'輸入大於0的數字啦 ! 幹, 你科成為喔 ?'},
+                                {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
+                            );
                         }
-                        event.reply([
-                            {'type':'text', 'text':'輸入大於0的數字啦 ! 幹, 你科成為喔 ?'},
-                            {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
-                        );
                     }else if(z){
                         status = "";
                         var i = arrCart.length
