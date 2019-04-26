@@ -4,7 +4,7 @@
 const query = require('./asyncDB');
 
 
-var Cartfetchfood = async function(id){
+var Cartfetchfood = async function(foodid){
     //存放結果
     let result;  
 
