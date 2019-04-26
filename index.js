@@ -516,6 +516,8 @@ bot.on('message', function (event) {
                             );
 
                         }
+                        
+                        template.contents.body.contents[6].contents[0].text = "總價 : $"+cartTotalPrice;
                         console.log("total "+cartTotalPrice);
                         statusTime=0;
                         event.reply(arr);
