@@ -454,18 +454,18 @@ bot.on('message', function (event) {
                                     // var foodName = data.foodName;
                                     // var storeName = data.storeName;
                                     // console.log("foodName "+data.foodName);
-                                    if(arrCart[m][0]==foodid){
+                                    if(arrCart[m][0]==cfoodid){
                                         console.log("1->")
-                                        var oldAmt = parseInt(arrCart[m][1]);
+                                        var oldAmt = parseInt(arrCart[m][5]);
                                         var newAmt = (oldAmt+parseInt(msg1)).toString();
-                                        arrCart[m]=[foodid, newAmt];
-                                        console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
+                                        arrCart[m][5]=newAmt;
+                                        console.log("1 "+arrCart[m][0]+", "+arrCart[m][5])
                                         break;
                                     }else if (m==(i-1)){
                                         console.log("2->")
                                         var amt=parseInt(msg1)+""
-                                        arrCart[i]=[foodid, amt];
-                                        console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
+                                        arrCart[i]=[cstoreid, cfoodid, cstoreName, cfoodName, cfoodPrice, amt];
+                                        console.log("2 "+arrCart[i][0]+", "+arrCart[i][5])
                                         break;
                                     }
                             //     }
