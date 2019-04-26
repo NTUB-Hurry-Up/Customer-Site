@@ -7,7 +7,7 @@ var express = require('express');
 const member = require('./member');
 const store = require('./store');
 const temp = require('./temp');
-const cart = require('./cart');
+const order = require('./order');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -378,7 +378,9 @@ bot.on('message', function (event) {
 
                     console.log(arrCart.length);
                 }
-            } else if (status != "") {
+            }else if(msg1 == "送出訂單"){
+
+            }else if (status != "") {
                 if (status == "進入修改電話程序") {
                     status = "";
                     member.UpdatePhone(msg, userId).then(data => {
@@ -516,8 +518,9 @@ bot.on('message', function (event) {
                         }
                         
                         template.contents.body.contents[6].contents[0].text = "總價 : $"+cartTotalPrice;
-                        template.contents.footer.contents[0].action.text="店家,查看菜單,"+arrCart[0][1]
-                        // template.contents.footer.contents[0].action.text=""
+                        template.contents.footer.contents[0].action.text="清空購物車"
+                        template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];
+                        template.contents.footer.contents[2].action.text="送出訂單"
                         console.log("total "+cartTotalPrice);
                         statusTime=0;
                         event.reply(arr);

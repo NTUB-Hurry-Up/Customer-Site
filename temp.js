@@ -139,6 +139,15 @@ var temp_cart={
           "type": "button",
           "action": {
             "type": "message",
+            "label": "清空購物車",
+            "text": "清空購物車"
+          },
+          "color": "#58290C"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
             "label": "繼續點餐",
             "text": "繼續點餐"
           },
