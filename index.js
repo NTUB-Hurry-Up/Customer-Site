@@ -389,12 +389,17 @@ bot.on('message', function (event) {
                 } else if (status == "arrCartAmt") {
 
                     var isNum = /^[0-9]+$/;
-                    var x = Boolean(isNum.test(msg1)); 
+                    var x = Boolean(!isNum.test(msg1)); 
                     var y = Boolean(parseInt(msg1) < 1); 
                     
                     console.log("x-> "+x)
                     console.log("y-> "+y)
-                    if(isNum.test(msg1)){
+
+                    if(x){
+                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
+                    }else if(y){
+                        event.reply('輸入大於0的數字啦 ! 幹, 你科成為喔 ?');
+                    }else{
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
@@ -468,8 +473,6 @@ bot.on('message', function (event) {
                         }
 
                         event.reply(arr);
-                    }else{
-                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
                     }
                     
                 }
