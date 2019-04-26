@@ -9,7 +9,7 @@ var Cartfetchfood = async function(foodid){
     let result;  
 
     //讀取資料庫
-    await query('SELECT * from food where foodid = $1', [foodid])
+    await query('SELECT a.foodid, b."storeName",a."foodName", a."foodPrice", a.foodimg FROM food AS a , store AS b where a.storeid = b.storeid and foodid = $1', [foodid])
         .then((data) => {
             if(data.rows.length > 0){
                 result = data.rows[0];  //學生資料(物件)

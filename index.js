@@ -320,7 +320,7 @@ bot.on('message', function (event) {
                                                 "action": {
                                                     "type": "message",
                                                     "label": "Add to Cart",
-                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid+","+data[i].storeName+","+data[i].foodName
+                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid
                                                 },
                                                 "color": "#905C44",
                                                 "style": "primary"
@@ -425,22 +425,31 @@ bot.on('message', function (event) {
                         console.log("i="+i)
                         var a = arrCartAmt
                         for(var m = 0; m<i; m++){
-                            
-                            console.log("i="+i+" ,m="+m)
-                            if(arrCart[m][0]==a){
-                                console.log("1->")
-                                var oldAmt = parseInt(arrCart[m][1]);
-                                var newAmt = (oldAmt+parseInt(msg1)).toString();
-                                arrCart[m]=[a, newAmt];
-                                console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
-                                break;
-                            }else if (m==(i-1)){
-                                console.log("2->")
-                                var amt=parseInt(msg1)+""
-                                arrCart[i]=[a, amt];
-                                console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
-                                break;
-                            }
+                            cart.Cartfetchfood(a).then(data => {
+                                if (data == -1) {
+                                    event.reply('找不到資料');
+                                } else if (data == -9) {
+                                    event.reply('執行錯誤');
+                                } else {
+                                    console.log("i="+i+" ,m="+m)
+                                    var foodName = data.foodName;
+                                    var storeName = data.storeName;
+                                    if(arrCart[m][0]==a){
+                                        console.log("1->")
+                                        var oldAmt = parseInt(arrCart[m][1]);
+                                        var newAmt = (oldAmt+parseInt(msg1)).toString();
+                                        arrCart[m]=[a, newAmt, foodName, storeName];
+                                        console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
+                                        break;
+                                    }else if (m==(i-1)){
+                                        console.log("2->")
+                                        var amt=parseInt(msg1)+""
+                                        arrCart[i]=[a, amt, foodName, storeName];
+                                        console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
+                                        break;
+                                    }
+                                }
+                            });
                         }
                         i = arrCart.length
                         console.log("i="+i)
