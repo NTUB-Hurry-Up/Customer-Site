@@ -459,15 +459,15 @@ bot.on('message', function (event) {
                         
                         
                         for(var k = 1; k<i; k++){
-                            var foodid = arrCart[k][0]
-                            console.log("foodid"+foodid)
-                            cart.Cartfetchfood(foodid).then(data => {
-                                if (data == -1) {
-                                    event.reply('找不到資料');
-                                } else if (data == -9) {
-                                    event.reply('執行錯誤');
-                                } else {
-                                    console.log(data.foodPrice)
+                            // var foodid = arrCart[k][0]
+                            // console.log("foodid"+foodid)
+                            // cart.Cartfetchfood(foodid).then(data => {
+                            //     if (data == -1) {
+                            //         event.reply('找不到資料');
+                            //     } else if (data == -9) {
+                            //         event.reply('執行錯誤');
+                            //     } else {
+                            //         console.log(data.foodPrice)
                                     console.log("i="+i+" ,k="+k)
 
                                     console.log(arrCart)
@@ -495,7 +495,7 @@ bot.on('message', function (event) {
                                             },
                                             {
                                                 "type": "text",
-                                                "text": "$ "+data.foodPrice,
+                                                "text": "$ ",
                                                 "size": "sm",
                                                 "align": "end",
                                                 "color": "#000000"
@@ -503,8 +503,8 @@ bot.on('message', function (event) {
                                             ]
                                         }
                                     );
-                                }
-                            });
+                            //     }
+                            // });
                         }
                             
                         statusTime=0;
