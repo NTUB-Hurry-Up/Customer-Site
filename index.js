@@ -92,7 +92,7 @@ bot.on('message', function (event) {
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             }else if(msg1 == "店家") {
-                if (msg2 == "資訊") {
+                if(msg2 == "資訊") {
                     store.fetchStore().then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
