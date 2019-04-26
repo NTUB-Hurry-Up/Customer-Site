@@ -43,7 +43,7 @@ bot.on('follow', function (event) {
 var status = "";
 var statusTime = 0;
 var arrCart = [];
-var arrCartAmt = "";
+var arrCartAmt = [];
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -57,6 +57,9 @@ bot.on('message', function (event) {
             var msg2 = NewArray[1];
             var msg3 = NewArray[2];
             var msg4 = NewArray[3];
+            var msg5 = NewArray[4];
+            var msg6 = NewArray[5];
+            var msg7 = NewArray[6];
             // if(msg1 == "123"){
             //     cart.Cartfetchfood(msg2).then(data => {
             //         if (data == -1) {
@@ -331,7 +334,7 @@ bot.on('message', function (event) {
                                                 "action": {
                                                     "type": "message",
                                                     "label": "Add to Cart",
-                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid
+                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid+","+data[i].storeName+","+data[i].foodName+","+data[i].foodid
                                                 },
                                                 "color": "#905C44",
                                                 "style": "primary"
@@ -365,7 +368,7 @@ bot.on('message', function (event) {
                         arrCart[0]=[userId,msg3];
                     }
                     if(arrCart[0][1] == msg3){
-                        arrCartAmt=msg4;
+                        arrCartAmt=[msg4, msg5, msg6, msg7];
                         status = "arrCartAmt";
                         statusTime = 2;
                         event.reply("數量 ?");
