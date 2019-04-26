@@ -7,7 +7,7 @@ var express = require('express');
 const member = require('./member');
 const store = require('./store');
 const temp = require('./temp');
-const temp = require('./cart');
+const cart = require('./cart');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
