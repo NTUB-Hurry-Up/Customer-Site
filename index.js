@@ -400,7 +400,7 @@ bot.on('message', function (event) {
                     if(x && z){
                         statusTime--;
                         if(statusTime==0){
-                            status = "";
+                            status = ""
                             event.reply('請你閉嘴')
                         }
                         event.reply([
@@ -410,7 +410,7 @@ bot.on('message', function (event) {
                     }else if(y && z){
                         statusTime--;
                         if(statusTime==0){
-                            status = "";
+                            status = ""
                             event.reply('請你閉嘴')
                         }
                         event.reply([
