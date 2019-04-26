@@ -323,7 +323,7 @@ bot.on('message', function (event) {
                                                 "action": {
                                                     "type": "message",
                                                     "label": "Add to Cart",
-                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid+","+data[i].storeName+","+data[i].foodName+","+data[i].foodPrice
+                                                    "text": "店家,加入購物車,"+data[i].storeid+","+data[i].foodid
                                                 },
                                                 "color": "#905C44",
                                                 "style": "primary"
