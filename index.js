@@ -497,7 +497,7 @@ bot.on('message', function (event) {
                                             "contents": [
                                             {
                                                 "type": "text",
-                                                "text": arrCart[k][0],
+                                                "text": arrCart[k][1],
                                                 "flex": 0,
                                                 "margin": "sm",
                                                 "size": "md",
@@ -505,7 +505,7 @@ bot.on('message', function (event) {
                                             },
                                             {
                                                 "type": "text",
-                                                "text": arrCart[k][1],
+                                                "text": arrCart[k][3],
                                                 "size": "xs",
                                                 "align": "center",
                                                 "color": "#AAAAAA",
@@ -513,7 +513,7 @@ bot.on('message', function (event) {
                                             },
                                             {
                                                 "type": "text",
-                                                "text": "$ ",
+                                                "text": "$ "+arrCart[k][2]*arrCart[k][3],
                                                 "size": "sm",
                                                 "align": "end",
                                                 "color": "#000000"
