@@ -40,6 +40,7 @@ bot.on('follow', function (event) {
 // --------------------------------
 
 var status = "";
+var statusTime = 0;
 var arrCart = [];
 var arrCartAmt = "";
 bot.on('message', function (event) {
@@ -355,12 +356,12 @@ bot.on('message', function (event) {
                     if(arrCart[0][1] == msg3){
                         arrCartAmt=msg4;
                         status = "arrCartAmt";
+                        statusTime = 2;
                         event.reply("數量 ?");
                     }else{
                         event.reply("你科成為喔 ?");
                     }
-                    
-                    
+
                     console.log(arrCart.length);
                 }
             } else if (status != "") {
@@ -391,15 +392,26 @@ bot.on('message', function (event) {
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
                     var y = Boolean(parseInt(msg1) < 1); 
+                    var z = Boolean(statusTime > 0); 
                     
                     console.log("x-> "+x)
                     console.log("y-> "+y)
 
-                    if(x){
-                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
-                    }else if(y){
-                        event.reply('輸入大於0的數字啦 ! 幹, 你科成為喔 ?');
-                    }else{
+                    if(x && z){
+                        statusTime--;
+                        if(statusTime==0){event.reply('請你閉嘴')}
+                        event.reply([
+                            {'type':'text', 'text':'輸入數字啦 ! 幹, 你科成為喔 ?'},
+                            {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
+                        );
+                    }else if(y && z){
+                        statusTime--;
+                        if(statusTime==0){event.reply('請你閉嘴')}
+                        event.reply([
+                            {'type':'text', 'text':'輸入大於0的數字啦 ! 幹, 你科成為喔 ?'},
+                            {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
+                        );
+                    }else if(z){
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
@@ -473,6 +485,7 @@ bot.on('message', function (event) {
                             );
                         }
 
+                        statusTime=0;
                         event.reply(arr);
                     }
                     
