@@ -355,26 +355,33 @@ bot.on('message', function (event) {
                 }else if(msg2 == "加入購物車"){
                     var cstoreid = msg3;
                     var cfoodid = msg4;
+                    var cstoreName = "";
+                    var cfoodName = "";
+                    var cfoodPrice = "";
                     order.Cartfetchfood(cfoodid).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
                         } else if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
-                            // if(arrCart.length == 0){ 
-                            //     arrCart[0]=[userId,msg3,msg5];
-                            // }
-                            // if(arrCart[0][1] == msg3){
-                            //     arrCartAmt=[msg4, msg6, msg7];
-                            //     status = "arrCartAmt";
-                            //     statusTime = 2;
-                            //     event.reply("數量 ?");
-                            // }else{
-                            //     event.reply("你科成為喔 ?");
-                            // }
+                            cstoreName = data.storeName;
+                            cfoodName = data.foodName;
+                            cfoodPrice = data.foodPrice;
 
-                            // console.log(arrCart.length);
+                            console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
+                            if(arrCart.length == 0){ 
+                                arrCart[0]=[userId,cstoreid,cstoreName];
+                            }
+                            if(arrCart[0][1] == cstoreid){
+                                arrCartAmt=[cfoodid, cfoodName, cfoodPrice];
+                                status = "arrCartAmt";
+                                statusTime = 2;
+                                event.reply("數量 ?");
+                            }else{
+                                event.reply("你科成為喔 ?");
+                            }
+
+                            console.log(arrCart.length);
                         }
                     })
                 }
