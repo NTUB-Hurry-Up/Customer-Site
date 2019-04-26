@@ -419,7 +419,7 @@ bot.on('message', function (event) {
                                 var amt=parseInt(msg1)
                                 var StringAmt = amt.toString
                                 arrCart[i]=[a, StringAmt];
-                                console.log("2 "+arrCart[m][0]+", "+arrCart[m][1])
+                                console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
                                 break;
                             }
                         }
