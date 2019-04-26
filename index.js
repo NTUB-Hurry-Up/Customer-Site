@@ -389,10 +389,10 @@ bot.on('message', function (event) {
                 } else if (status == "arrCartAmt") {
 
                     var isNum = /^[0-9]+$/;
-                    
-                    if(!(isNum.test(msg1))){
-                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
-                    }else{
+                    console.log(isNum.test(msg1))
+                    // if(){
+                    //     event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
+                    // }else{
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
@@ -466,7 +466,7 @@ bot.on('message', function (event) {
                         }
 
                         event.reply(arr);
-                    }
+                    // }
                     
                 }
             }
