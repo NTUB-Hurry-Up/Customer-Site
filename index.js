@@ -425,15 +425,16 @@ bot.on('message', function (event) {
                         console.log("i="+i)
                         var a = arrCartAmt
                         for(var m = 0; m<i; m++){
-                            // cart.Cartfetchfood(a).then(data => {
-                            //     if (data == -1) {
-                            //         event.reply('找不到資料');
-                            //     } else if (data == -9) {
-                            //         event.reply('執行錯誤');
-                            //     } else {
+                            cart.Cartfetchfood(a).then(data => {
+                                if (data == -1) {
+                                    event.reply('找不到資料');
+                                } else if (data == -9) {
+                                    event.reply('執行錯誤');
+                                } else {
                                     console.log("i="+i+" ,m="+m)
-                                    // var foodName = data.foodName;
-                                    // var storeName = data.storeName;
+                                    var foodName = data.foodName;
+                                    var storeName = data.storeName;
+                                    console.log("foodName "+foodName+", storeName "+storeName);
                                     if(arrCart[m][0]==a){
                                         console.log("1->")
                                         var oldAmt = parseInt(arrCart[m][1]);
@@ -448,8 +449,8 @@ bot.on('message', function (event) {
                                         console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
                                         break;
                                     }
-                            //     }
-                            // });
+                                }
+                            });
                         }
                         i = arrCart.length
                         console.log("i="+i)
