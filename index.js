@@ -418,6 +418,7 @@ bot.on('message', function (event) {
                                 console.log("2->")
                                 var amt=parseInt(msg1)
                                 var StringAmt = amt.toString
+                                console.log("msg1 "+msg1+" ,amt "+amt+", StringAmt "+StringAmt);
                                 arrCart[i]=[a, StringAmt];
                                 console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
                                 break;
