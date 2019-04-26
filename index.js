@@ -396,7 +396,15 @@ bot.on('message', function (event) {
                         {'type':'text', 'text':'請重新點餐'}]
                     );
                 }else if(msg2 == "送出訂單"){
-
+                    var cUserid = arrCart[0][0]
+                    var cStoreid = arrCart[0][1]
+                    order.addOrder(cUserid, cStoreid).then(data => {
+                        if (data == -9) {
+                            event.reply('執行錯誤');
+                        } else {
+                            event.reply('已新增, 廢物 !');
+                        }
+                    })
                 }
             }else if(status != "") {
                 if (status == "進入修改電話程序") {

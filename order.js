@@ -23,6 +23,23 @@ var Cartfetchfood = async function(foodid){
     //回傳執行結果
     return result;
 }
+//---------------------------------------------------------
+var addOrder = async function(storeid, userid){
+    //存放結果
+    let result;  
+
+    //新增會員資料
+    await query('insert into order (storeid, userid) values ($1, $2)', [storeid, userid])
+        .then((data) => {
+            result = data.rowCount;  //新增資料數 
+        }, (error) => {
+            result = -9;  //執行錯誤
+        });
+
+    //回傳執行結果
+    return result;  
+}
+
 //匯出
-module.exports = {Cartfetchfood};
+module.exports = {Cartfetchfood, addOrder};
 
