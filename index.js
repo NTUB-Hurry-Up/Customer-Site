@@ -58,7 +58,7 @@ bot.on('message', function (event) {
             var msg3 = NewArray[2];
             var msg4 = NewArray[3];
             if(msg1 == "123"){
-                cart.Cartfetchfood(foodid).then(data => {
+                cart.Cartfetchfood(msg2).then(data => {
                     if (data == -1) {
                         event.reply('找不到資料');
                     } else if (data == -9) {
