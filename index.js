@@ -423,34 +423,34 @@ bot.on('message', function (event) {
                         status = "";
                         var i = arrCart.length
                         console.log("i="+i)
-                        var a = arrCartAmt
+                        var foodid = arrCartAmt
                         for(var m = 0; m<i; m++){
-                            cart.Cartfetchfood(a).then(data => {
-                                if (data == -1) {
-                                    event.reply('找不到資料');
-                                } else if (data == -9) {
-                                    event.reply('執行錯誤');
-                                } else {
+                            // cart.Cartfetchfood(foodid).then(data => {
+                            //     if (data == -1) {
+                            //         event.reply('找不到資料');
+                            //     } else if (data == -9) {
+                            //         event.reply('執行錯誤');
+                            //     } else {
                                     console.log("i="+i+" ,m="+m)
                                     // var foodName = data.foodName;
                                     // var storeName = data.storeName;
                                     // console.log("foodName "+foodName+", storeName "+storeName);
-                                    if(arrCart[m][0]==a){
+                                    if(arrCart[m][0]==foodid){
                                         console.log("1->")
                                         var oldAmt = parseInt(arrCart[m][1]);
                                         var newAmt = (oldAmt+parseInt(msg1)).toString();
-                                        arrCart[m]=[a, newAmt];
+                                        arrCart[m]=[foodid, newAmt];
                                         console.log("1 "+arrCart[m][0]+", "+arrCart[m][1])
                                         break;
                                     }else if (m==(i-1)){
                                         console.log("2->")
                                         var amt=parseInt(msg1)+""
-                                        arrCart[i]=[a, amt];
+                                        arrCart[i]=[foodid, amt];
                                         console.log("2 "+arrCart[i][0]+", "+arrCart[i][1])
                                         break;
                                     }
-                                }
-                            });
+                            //     }
+                            // });
                         }
                         i = arrCart.length
                         console.log("i="+i)
