@@ -390,9 +390,7 @@ bot.on('message', function (event) {
 
                     var isNum = /^[0-9]+$/;
                     
-                    if(!isNum.test(msg1)){
-                        event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
-                    }else if(parseInt(msg1)<1){
+                    if(!(isNum.test(msg1))){
                         event.reply('輸入數字啦 ! 幹, 你科成為喔 ?');
                     }else{
                         status = "";
