@@ -424,8 +424,8 @@ bot.on('message', function (event) {
                         const template = temp.temp_cart;
                         template.contents.body.contents[0].text = userName+" 的購物車";
                         template.contents.body.contents[1].contents[0].text = arrCart[0][1];
-                        template.contents.footer.contents[0].text="店家查看菜單"
-                        template.contents.footer.contents[0].action.text=""
+                        // template.contents.footer.contents[0].text="店家查看菜單"
+                        // template.contents.footer.contents[0].action.text=""
                         var arr=[];
                         arr.push(template)
                         arr[0].contents.body.contents[4].contents.length=0
