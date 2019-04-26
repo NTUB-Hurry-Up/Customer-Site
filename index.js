@@ -460,6 +460,7 @@ bot.on('message', function (event) {
                         
                         for(var k = 1; k<i; k++){
                             var foodid = arrCart[k][0]
+                            console.log("foodid "+foodid)
                             cart.Cartfetchfood(foodid).then(data => {
                                 if (data == -1) {
                                     event.reply('找不到資料');
