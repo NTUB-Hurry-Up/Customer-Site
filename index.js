@@ -432,9 +432,9 @@ bot.on('message', function (event) {
                                     event.reply('執行錯誤');
                                 } else {
                                     console.log("i="+i+" ,m="+m)
-                                    var foodName = data.foodName;
-                                    var storeName = data.storeName;
-                                    console.log("foodName "+foodName+", storeName "+storeName);
+                                    // var foodName = data.foodName;
+                                    // var storeName = data.storeName;
+                                    // console.log("foodName "+foodName+", storeName "+storeName);
                                     if(arrCart[m][0]==a){
                                         console.log("1->")
                                         var oldAmt = parseInt(arrCart[m][1]);
