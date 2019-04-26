@@ -445,7 +445,7 @@ bot.on('message', function (event) {
                                     console.log("i="+i+" ,m="+m)
                                     // var foodName = data.foodName;
                                     // var storeName = data.storeName;
-                                    console.log("foodName "+data.foodName);
+                                    // console.log("foodName "+data.foodName);
                                     if(arrCart[m][0]==foodid){
                                         console.log("1->")
                                         var oldAmt = parseInt(arrCart[m][1]);
