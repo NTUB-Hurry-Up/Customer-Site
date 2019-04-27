@@ -395,38 +395,45 @@ bot.on('message', function (event) {
                         {'type':'text', 'text':'已清空'},
                         {'type':'text', 'text':'請重新點餐'}]
                     );
-                }else if(msg2 == "送出訂單" && arrCart[1][3].length != 0){
-                    var cUserid = arrCart[0][0]
-                    var cStoreid = arrCart[0][1]
-                    var today=new Date();
-                    var cOrderDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
-                    var cOrderTime =(today.getHours()+8)+':'+today.getMinutes();
-                    order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime).then(data => {
-                        if (data == -9) {
-                            event.reply('執行錯誤');
-                        } else {
-                            var cOrderid = "";
-                            var i = arrCart.length;
-                            for(var k = 1; k<i; k++){
-                                var cfoodid = arrCart[k][0];
-                                var cfoodPrice = arrCart[k][2];
-                                var cfoodQty = arrCart[k][3];
-                                var foodAmt = cfoodPrice*cfoodQty;
-                                cOrderid = data.orderid
-                                order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
-                                    if (data == -9) {
-                                        event.reply("執行錯誤");
-                                    } else {
-                                        event.reply("訂單已送出, 廢物 !, "+cOrderid);
-                                    }
-                                })
+                }else if(msg2 == "送出訂單"){
+                    if(arrCart.length > 1){
+                        var cUserid = arrCart[0][0]
+                        var cStoreid = arrCart[0][1]
+                        var today=new Date();
+                        var cOrderDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
+                        var cOrderTime =(today.getHours()+8)+':'+today.getMinutes();
+                        order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime).then(data => {
+                            if (data == -9) {
+                                event.reply('執行錯誤');
+                            } else {
+                                var cOrderid = "";
+                                var i = arrCart.length;
+                                for(var k = 1; k<i; k++){
+                                    var cfoodid = arrCart[k][0];
+                                    var cfoodPrice = arrCart[k][2];
+                                    var cfoodQty = arrCart[k][3];
+                                    var foodAmt = cfoodPrice*cfoodQty;
+                                    cOrderid = data.orderid
+                                    order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
+                                        if (data == -9) {
+                                            event.reply("執行錯誤");
+                                        } else {
+                                            event.reply("訂單已送出, 廢物 !, "+cOrderid);
+                                        }
+                                    })
+                                }
+                                arrCart.length = 0;
+                                arrCartQty.length = 0;
+                                console.log(arrCart);
+                                console.log(arrCartQty);
                             }
-                            arrCart.length = 0;
-                            arrCartQty.length = 0;
-                            console.log(arrCart);
-                            console.log(arrCartQty);
-                        }
-                    })
+                        })
+                    }else{
+                        event.reply([
+                            {'type':'text', 'text':'購物車是空的 !'},
+                            {'type':'text', 'text':'幹 ! 你科成為喔 ?'}]
+                        ); 
+                    }
                 }
             }else if(status != "") {
                 if (status == "進入修改電話程序") {
