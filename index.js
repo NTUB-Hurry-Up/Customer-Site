@@ -399,13 +399,13 @@ bot.on('message', function (event) {
                     var cUserid = arrCart[0][0]
                     var cStoreid = arrCart[0][1]
                     var today=new Date();
-                    var cDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
-                    var cTime =(today.getHours()+8)+':'+today.getMinutes();
-                    order.addOrder(cUserid, cStoreid).then(data => {
+                    var cOrderDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
+                    var cOrderTime =(today.getHours()+8)+':'+today.getMinutes();
+                    order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime).then(data => {
                         if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            event.reply('已新增, 廢物 !'+cDate+", "+cTime);
+                            event.reply('已新增, 廢物 !'+cOrderDate+", "+cOrderTime);
                         }
                     })
                 }

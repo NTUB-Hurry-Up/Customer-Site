@@ -24,12 +24,12 @@ var Cartfetchfood = async function(foodid){
     return result;
 }
 //---------------------------------------------------------
-var addOrder = async function(storeid, userid){
+var addOrder = async function(storeid, userid, orderDate, orderTime){
     //存放結果
     let result;  
 
     //新增會員資料
-    await query('INSERT INTO "order"("storeid", "userid") VALUES ($1, $2)', [storeid, userid])
+    await query('INSERT INTO "order"("storeid", "userid", "orderDate", "orderTime") VALUES ($1, $2, $3, $4)', [storeid, userid, orderDate, orderTime])
         .then((data) => {
             result = data.rowCount;  //新增資料數 
         }, (error) => {
