@@ -447,7 +447,8 @@ bot.on('message', function (event) {
                         ); 
                     }
                 }
-            }else if(status != "") {
+            }
+            if(status != "") {
                 if (status == "進入修改電話程序") {
                     status = "";
                     member.UpdatePhone(msg, userId).then(data => {
@@ -600,6 +601,9 @@ bot.on('message', function (event) {
                     }else if(msg4 == "否"){
                         arrCartQty.length = 0;
                     }
+                    console.log(arrCart)
+                    console.log(arrCartQty)
+
                 }
             }
         }
