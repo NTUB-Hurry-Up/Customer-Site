@@ -421,11 +421,11 @@ bot.on('message', function (event) {
                                     if (data == -9) {
                                         result = "執行錯誤";
                                     } else {
-                                        result = "訂單已送出, 廢物 !";
+                                        event.reply("訂單已送出, 廢物 !, "+cOrderid);
                                     }
                                 })
                             }
-                            event.reply(result+", "+cOrderid);
+                            
                         }
                     })
                 }
