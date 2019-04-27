@@ -43,7 +43,7 @@ bot.on('follow', function (event) {
 var status = "";
 var statusTime = 0;
 var arrCart = [];
-var Quantity = [];Quantity
+var arrCartQty = [];Quantity
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -373,8 +373,8 @@ bot.on('message', function (event) {
                                 arrCart[0]=[userId,cstoreid,cstoreName];
                             }
                             if(arrCart[0][1] == cstoreid){
-                                Quantity=[cfoodid, cfoodName, cfoodPrice];
-                                status = "Quantity";
+                                arrCartQty=[cfoodid, cfoodName, cfoodPrice];
+                                status = "arrCartQty";
                                 statusTime = 2;
                                 event.reply("數量 ?");
                             }else{
@@ -390,7 +390,7 @@ bot.on('message', function (event) {
                     status = "";
                     statusTime = 0;
                     arrCart.length = 0;
-                    Quantity.length = 0;
+                    arrCartQty.length = 0;
                     event.reply([
                         {'type':'text', 'text':'已清空'},
                         {'type':'text', 'text':'請重新點餐'}]
@@ -406,10 +406,10 @@ bot.on('message', function (event) {
                             event.reply('執行錯誤');
                         } else {
                             event.reply('訂單送出, 廢物 !'+data.orderid);
-                            // var i = arrCart.length;
-                            // for(var k = 1; k<i; k++){
+                            var i = arrCart.length;
+                            for(var k = 1; k<i; k++){
 
-                            // }
+                            }
                             // order.addOrderDetail(data.orderid, cStoreid, cOrderDate, cOrderTime).then(data => {
                             //     if (data == -9) {
                             //         event.reply('執行錯誤');
@@ -444,7 +444,7 @@ bot.on('message', function (event) {
                             event.reply('姓名已修改完成');
                         }
                     })
-                }else if(status == "Quantity") {
+                }else if(status == "arrCartQty") {
 
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
@@ -482,31 +482,31 @@ bot.on('message', function (event) {
                         console.log("i="+i)
                         var cstoreid = arrCart[0][1]
                         var cstoreName = arrCart[0][2]
-                        var cfoodid = Quantity[0]
-                        var cfoodName = Quantity[1]
-                        var cfoodPrice = Quantity[2]
+                        var cfoodid = arrCartQty[0]
+                        var cfoodName = arrCartQty[1]
+                        var cfoodPrice = arrCartQty[2]
                         console.log(cstoreid+", "+cstoreName+", "+cfoodid+", "+cfoodName+", "+cfoodPrice)
 
                         for(var m = 0; m<i; m++){
                             console.log("i="+i+" ,m="+m)
                             if(arrCart[m][0]==cfoodid){
                                 console.log("1->")
-                                var oldQuantity = parseInt(arrCart[m][3]);
-                                var newQuantity = (oldQuantity+parseInt(msg1)).toString();
-                                arrCart[m][3]=newQuantity;
+                                var oldQty = parseInt(arrCart[m][3]);
+                                var newQty = (oldQty+parseInt(msg1)).toString();
+                                arrCart[m][3]=newQty;
                                 console.log("1 "+arrCart[m][0]+", "+arrCart[m][3])
                                 break;
                             }else if (m==(i-1)){
                                 console.log("2->")
-                                var Quantity=parseInt(msg1)+""
-                                arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Quantity];
+                                var Qty=parseInt(msg1)+""
+                                arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
                                 console.log("2 "+arrCart[i][0]+", "+arrCart[i][3])
                                 break;
                             }
                         }
                         i = arrCart.length
                         console.log("i="+i)
-                        Quantity.length="";
+                        arrCartQty.length="";
                         console.log(arrCart)
 
                         const template = temp.temp_cart;
