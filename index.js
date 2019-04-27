@@ -43,7 +43,7 @@ bot.on('follow', function (event) {
 var status = "";
 var statusTime = 0;
 var arrCart = [];
-var arrCartQty = [];Quantity
+var arrCartQty = [];
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
