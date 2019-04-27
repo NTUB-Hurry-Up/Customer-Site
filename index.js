@@ -595,6 +595,11 @@ bot.on('message', function (event) {
                     
                 }else if(status == "changeStore") {
                     status=""
+                    if(msg4 == "是"){
+                        arrCart.length = 0;
+                    }else if(msg4 == "否"){
+                        arrCartQty.length = 0;
+                    }
                 }
             }
         }
