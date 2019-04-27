@@ -395,7 +395,7 @@ bot.on('message', function (event) {
                         {'type':'text', 'text':'已清空'},
                         {'type':'text', 'text':'請重新點餐'}]
                     );
-                }else if(msg2 == "送出訂單"){
+                }else if(msg2 == "送出訂單" && arrCart[1][3].length != 0){
                     var cUserid = arrCart[0][0]
                     var cStoreid = arrCart[0][1]
                     var today=new Date();
