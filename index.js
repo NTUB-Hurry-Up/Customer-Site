@@ -405,11 +405,14 @@ bot.on('message', function (event) {
                         if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
+                            console.log("orderInsert-Complete")
                             var i = arrCart.length;
+                            console.log("i")
                             for(var k = 1; k<i; k++){
-                                var cfoodid = arrCartQty[k][0];
-                                var cfoodPrice = arrCartQty[k][2];
-                                var cfoodQty = arrCartQty[k][3];
+                                console.log(arrCart[k][0]+", "+arrCart[k][2]+", "+arrCart[k][3])
+                                var cfoodid = arrCart[k][0];
+                                var cfoodPrice = arrCart[k][2];
+                                var cfoodQty = arrCart[k][3];
                                 var foodAmt = cfoodPrice*cfoodQty;
                                 order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                                     if (data == -9) {
