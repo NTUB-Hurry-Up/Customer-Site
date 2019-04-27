@@ -405,6 +405,8 @@ bot.on('message', function (event) {
                         if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
+                            var result = "";
+                            var cOrderid = "";
                             console.log("orderInsert-Complete")
                             var i = arrCart.length;
                             console.log("i")
@@ -414,7 +416,7 @@ bot.on('message', function (event) {
                                 var cfoodPrice = arrCart[k][2];
                                 var cfoodQty = arrCart[k][3];
                                 var foodAmt = cfoodPrice*cfoodQty;
-                                var result = "";
+                                cOrderid = data.orderid
                                 order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                                     if (data == -9) {
                                         result = "執行錯誤";
@@ -423,7 +425,7 @@ bot.on('message', function (event) {
                                     }
                                 })
                             }
-                            event.reply(result);
+                            event.reply(result+", "+cOrderid);
                         }
                     })
                 }
