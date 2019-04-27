@@ -414,16 +414,16 @@ bot.on('message', function (event) {
                                 var cfoodPrice = arrCart[k][2];
                                 var cfoodQty = arrCart[k][3];
                                 var foodAmt = cfoodPrice*cfoodQty;
+                                var result = "";
                                 order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                                     if (data == -9) {
-                                        event.reply('執行錯誤');
+                                        result = "執行錯誤";
                                     } else {
-                                        event.reply('訂單送出, 廢物 !'+data.orderid);
-                                        
+                                        result = "訂單已送出, 廢物 !";
                                     }
                                 })
                             }
-                            
+                            event.reply(result);
                         }
                     })
                 }
