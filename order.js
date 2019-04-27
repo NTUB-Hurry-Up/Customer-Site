@@ -44,7 +44,7 @@ var addOrder = async function(storeid, userid, orderDate, orderTime){
     return result;  
 }
 //---------------------------------------------------------
-var addOrder = async function(orderid, foodid, foodPrice, foodQty, foodAmt){
+var addOrderDetail = async function(orderid, foodid, foodPrice, foodQty, foodAmt){
     //存放結果
     let result;  
 
@@ -61,5 +61,5 @@ var addOrder = async function(orderid, foodid, foodPrice, foodQty, foodAmt){
 }
 
 //匯出
-module.exports = {Cartfetchfood, addOrder};
+module.exports = {Cartfetchfood, addOrder, addOrderDetail};
 
