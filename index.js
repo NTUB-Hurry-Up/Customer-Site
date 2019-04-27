@@ -405,7 +405,7 @@ bot.on('message', function (event) {
                         if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            event.reply('訂單送出, 廢物 !'+cOrderDate+", "+cOrderTime);
+                            event.reply('訂單送出, 廢物 !'+data.orderid);
                         }
                     })
                 }
