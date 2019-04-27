@@ -405,19 +405,22 @@ bot.on('message', function (event) {
                         if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            event.reply('訂單送出, 廢物 !'+data.orderid);
                             var i = arrCart.length;
                             for(var k = 1; k<i; k++){
-
+                                var cfoodid = arrCartQty[k][0];
+                                var cfoodPrice = arrCartQty[k][2];
+                                var cfoodQty = arrCartQty[k][3];
+                                var foodAmt = cfoodPrice*cfoodQty;
+                                order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
+                                    if (data == -9) {
+                                        event.reply('執行錯誤');
+                                    } else {
+                                        event.reply('訂單送出, 廢物 !'+data.orderid);
+                                        
+                                    }
+                                })
                             }
-                            // order.addOrderDetail(data.orderid, cStoreid, cOrderDate, cOrderTime).then(data => {
-                            //     if (data == -9) {
-                            //         event.reply('執行錯誤');
-                            //     } else {
-                            //         event.reply('訂單送出, 廢物 !'+data.orderid);
-                                    
-                            //     }
-                            // })
+                            
                         }
                     })
                 }

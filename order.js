@@ -43,6 +43,22 @@ var addOrder = async function(storeid, userid, orderDate, orderTime){
     //回傳執行結果
     return result;  
 }
+//---------------------------------------------------------
+var addOrder = async function(orderid, foodid, foodPrice, foodQty, foodAmt){
+    //存放結果
+    let result;  
+
+    //新增會員資料
+    await query('INSERT INTO "orderDetail"("orderid", "foodid", "quantity", "unitPrice", "amount") VALUES ($1, $2, $3, $4, $5)', [orderid, foodid, foodPrice, foodQty, foodAmt])
+        .then((data) => {
+            result = data.rowCount;  //新增資料數  
+        }, (error) => {
+            result = -9;  //執行錯誤
+        });
+
+    //回傳執行結果
+    return result;  
+}
 
 //匯出
 module.exports = {Cartfetchfood, addOrder};
