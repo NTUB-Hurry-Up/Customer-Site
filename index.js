@@ -381,11 +381,11 @@ bot.on('message', function (event) {
                                 const template = temp.temp1.template;
                                 template.actions[0].type = "message";
                                 template.actions[0].label = "是";
-                                template.actions[0].text = msg1+",查看菜單"+cstoreid+",是";
+                                template.actions[0].text = msg1+",查看菜單,"+cstoreid+",是";
     
                                 template.actions[1].type = "message";
                                 template.actions[1].label = "否";
-                                template.actions[1].text = msg1+",查看菜單"+arrCart[0][1]+",否";
+                                template.actions[1].text = msg1+",查看菜單,"+arrCart[0][1]+",否";
                                 template.title = "購物車訊息"
                                 template.text = "要改下訂這家店嗎 ?\n你科成為喔 ?"
                                 status = "changeStore";
