@@ -398,11 +398,15 @@ bot.on('message', function (event) {
                 }else if(msg2 == "送出訂單"){
                     var cUserid = arrCart[0][0]
                     var cStoreid = arrCart[0][1]
+                    var today=new Date();
+
+                    var cDate =today.getDate();
+                    var cTime =today.getTime();
                     order.addOrder(cUserid, cStoreid).then(data => {
                         if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            event.reply('已新增, 廢物 !');
+                            event.reply('已新增, 廢物 !'+cDate+", "+cTime);
                         }
                     })
                 }
