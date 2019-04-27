@@ -29,9 +29,13 @@ var addOrder = async function(storeid, userid, orderDate, orderTime){
     let result;  
 
     //新增會員資料
-    await query('INSERT INTO "order"("storeid", "userid", "orderDate", "orderTime", "status") VALUES ($1, $2, $3, $4, $5)', [storeid, userid, orderDate, orderTime, "未接單"])
+    await query('INSERT INTO "order"("storeid", "userid", "orderDate", "orderTime", "status") VALUES ($1, $2, $3, $4, $5) RETURNING orderid;', [storeid, userid, orderDate, orderTime, "未接單"])
         .then((data) => {
-            result = data.rowCount;  //新增資料數 
+            if(data.rows.length > 0){
+                result = data.rows[0];  //學生資料(物件)
+            }else{
+                result = -1;  //找不到資料
+            }    
         }, (error) => {
             result = -9;  //執行錯誤
         });
