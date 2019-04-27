@@ -378,7 +378,19 @@ bot.on('message', function (event) {
                                 statusTime = 2;
                                 event.reply("數量 ?");
                             }else{
-                                event.reply("你科成為喔 ?");
+                                const template = temp.temp1.template;
+                                template.actions[0].type = "message";
+                                template.actions[0].label = "是";
+                                template.actions[0].text = msg+",是";
+    
+                                template.actions[1].type = "message";
+                                template.actions[1].label = "否";
+                                template.actions[1].text = msg+",否";
+                                template.title = "購物車訊息"
+                                template.text = "要改下訂這家店嗎 ?\n你科成為喔 ?"
+                                status = "changeStore";
+                                event.reply(temp.temp1);
+                                
                             }
 
                             console.log(arrCart.length);
@@ -581,6 +593,8 @@ bot.on('message', function (event) {
                         event.reply(arr);
                     }
                     
+                }else if(status == "changeStore") {
+                    status=""
                 }
             }
         }
