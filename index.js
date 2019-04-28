@@ -644,10 +644,12 @@ bot.on('postback', function (event) {
             if(data === "datetime"){
                 data += `${JSON.stringify(event.postback.params)}`;
                 console.log(`${JSON.stringify(event.postback.params)}`)
-                var NewArray = data.split(":");
-                for(var i = 0; i<NewArray.length; i++){
-                    console.log("arr+"+NewArray[i])
-                }
+                var NewArray = data.substr(13,10)
+                // for(var i = 0; i<NewArray.length; i++){
+                //     console.log("arr+"+NewArray[i])
+                // }
+                console.log(NewArray)
+
                 event.reply(`Got postback: ${data}`);
             }
         }
