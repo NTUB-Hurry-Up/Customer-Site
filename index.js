@@ -612,8 +612,13 @@ bot.on('message', function (event) {
                             );
 
                         }
+                        if(arrCart[0].length>3){
+                            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+", "+arrCart[0][4];
+                        }else{
+                            template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
+                        }
                         
-                        template.contents.body.contents[6].contents[0].text = "總價 : $"+cartTotalPrice;
+                        template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
                         template.contents.footer.contents[0].action.text="購物車,清空"
                         template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];
                         template.contents.footer.contents[2].action.text="購物車,送出訂單"

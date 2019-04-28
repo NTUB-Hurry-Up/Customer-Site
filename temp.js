@@ -72,7 +72,7 @@ var temp_cart={
           "contents": [
             {
               "type": "text",
-              "text": "阿使巴樂",
+              "text": "阿屎巴辣",
               "size": "lg",
               "align": "start",
               "weight": "regular"
@@ -80,17 +80,7 @@ var temp_cart={
           ]
         },
         {
-          "type": "box",
-          "layout": "horizontal",
-          "contents": [
-            {
-              "type": "text",
-              "text": "0",
-              "size": "lg",
-              "align": "start",
-              "weight": "regular"
-            }
-          ]
+          "type": "separator"
         },
         {
           "type": "box",
@@ -125,6 +115,19 @@ var temp_cart={
         },
         {
           "type": "separator"
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "取餐時間 : ",
+              "size": "lg",
+              "align": "start",
+              "weight": "regular"
+            }
+          ]
         },
         {
           "type": "box",
