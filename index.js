@@ -642,7 +642,7 @@ bot.on('postback', function (event) {
             event.reply(data);
             if(data === "datetime"){
                 data += `(${JSON.stringify(event.postback.params)})`;
-                event.reply(event.replyToken, `Got postback: ${data}`);
+                event.reply(`Got postback: ${data}`);
             }
         }
     );
