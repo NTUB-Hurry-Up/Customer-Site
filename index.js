@@ -653,6 +653,7 @@ var storeList = function (){
                 );
 
             }
+            console.log(arr[0])
             return arr[0];
 
             arr[0].contents.contents.length = 0;
