@@ -162,7 +162,8 @@ var temp_cart={
                 "mode": "datetime",
                 "data": "datetime"
               }
-          ]
+          ],
+          "color": "#58290C"
         },
         {
           "type": "button",
