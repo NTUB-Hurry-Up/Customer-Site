@@ -93,8 +93,9 @@ bot.on('message', function (event) {
                 }
             }else if(msg1 == "店家") {
                 if(msg2 == "資訊") {
-                        
-                    event.reply(storeList());                
+                    var arr2=[]
+                    arr2[0]=storeList();
+                    event.reply(arr2[0]);                
                 }else if(msg2 == "查看菜單") {
                     store.fetchStorefood(msg3).then(data => {
                         if (data == -1) {
@@ -649,7 +650,7 @@ function  storeList(){
 
             }
             return arr[0];
-            
+
             arr[0].contents.contents.length = 0;
             arr.length = 0;
             data.length = 0;
