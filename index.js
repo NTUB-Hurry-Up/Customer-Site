@@ -646,7 +646,7 @@ bot.on('postback', function (event) {
                 console.log(`${JSON.stringify(event.postback.params)}`)
                 var NewArray = data.split(":");
                 for(var i = 0; i<NewArray.length; i++){
-                    console.log("arr+"+NewArray[0])
+                    console.log("arr+"+NewArray[i])
                 }
                 event.reply(`Got postback: ${data}`);
             }
