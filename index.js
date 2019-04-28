@@ -428,7 +428,7 @@ bot.on('message', function (event) {
                             } else {
                                 var cOrderid = "";
                                 var i = arrCart.length;
-                                var cresult = "";
+                                
                                 for(var k = 1; k<i; k++){
                                     var cfoodid = arrCart[k][0];
                                     var cfoodPrice = arrCart[k][2];
@@ -437,15 +437,12 @@ bot.on('message', function (event) {
                                     cOrderid = data.orderid
                                     order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                                         if (data == -9) {
-                                            // event.reply("執行錯誤");
-                                            cresult = "執行錯誤"
+                                            event.reply("執行錯誤");
                                         } else {
-                                            // event.reply("訂單已送出, 廢物 !, "+cOrderid);
-                                            cresult = "訂單已送出, 廢物 !, "+cOrderid
+                                            event.reply("訂單已送出, 廢物 !, "+cOrderid);
                                         }
                                     })
                                 }
-                                event.reply(cresult);
                                 arrCart.length = 0;
                                 arrCartQty.length = 0;
                                 console.log(arrCart);
