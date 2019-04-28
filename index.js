@@ -655,6 +655,7 @@ bot.on('postback', function (event) {
                 console.log(takedate+", "+taketime)
                 arrCart[0][3]=takedate
                 arrCart[0][4]=taketime
+                console.log(arrCart)
 
 
 
