@@ -438,14 +438,14 @@ bot.on('message', function (event) {
                                     order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                                         if (data == -9) {
                                             // event.reply("執行錯誤");
-                                            result = "執行錯誤"
+                                            cresult = "執行錯誤"
                                         } else {
                                             // event.reply("訂單已送出, 廢物 !, "+cOrderid);
-                                            result = "訂單已送出, 廢物 !, "+cOrderid
+                                            cresult = "訂單已送出, 廢物 !, "+cOrderid
                                         }
                                     })
                                 }
-                                event.reply(result);
+                                event.reply(cresult);
                                 arrCart.length = 0;
                                 arrCartQty.length = 0;
                                 console.log(arrCart);
