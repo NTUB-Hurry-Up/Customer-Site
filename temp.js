@@ -76,6 +76,13 @@ var temp_cart={
               "size": "lg",
               "align": "start",
               "weight": "regular"
+            },
+            {
+              "type": "text",
+              "text": "阿使巴樂",
+              "size": "lg",
+              "align": "start",
+              "weight": "regular"
             }
           ]
         },
