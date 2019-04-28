@@ -649,6 +649,8 @@ bot.on('postback', function (event) {
             let data = event.postback.data;
             if(data === "輸入取餐時間"){
                 console.log("輸入取餐時間")
+                postStatus = "setDateTime"
+                event.reply(temp.datetimepicker)
             }else if(data === "datetime" && postStatus == "setDateTime"){
                 setDateTime="";
                 data += `${JSON.stringify(event.postback.params)}`;                
