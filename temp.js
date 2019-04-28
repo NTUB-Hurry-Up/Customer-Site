@@ -156,6 +156,16 @@ var temp_cart={
         {
           "type": "button",
           "action": {
+            "type": "datetimepicker",
+            "label": "設定取餐的日期時間",
+            "data": "datetime",
+            "mode": "datetime"
+          },
+          "color": "#58290C"
+        },
+        {
+          "type": "button",
+          "action": {
             "type": "message",
             "label": "完成訂單",
             "text": "完成訂單"
