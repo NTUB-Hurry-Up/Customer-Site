@@ -639,7 +639,7 @@ bot.on('postback', function (event) {
             
             let data = event.postback.data;
             // for(var i =0; i<20; i++){
-                console.log("data->"+event.postback.params.date);
+                console.log(`${event.postback.params.date}`);
             // }
             if(data === "datetime"){
                 data += `(${JSON.stringify(event.postback.params)})`;
