@@ -154,15 +154,13 @@ var temp_cart={
           "color": "#58290C"
         },
         {
-          "type": "buttons",
-          "actions": [
-              {
-                "type": "datetimepicker",
-                "label": "時間日期",
-                "mode": "datetime",
-                "data": "datetime"
-              }
-          ],
+          "type": "button",
+          "actions":{
+            "type": "datetimepicker",
+            "label": "時間日期",
+            "mode": "datetime",
+            "data": "datetime"
+          },
           "color": "#58290C"
         },
         {
