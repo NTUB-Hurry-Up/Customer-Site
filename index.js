@@ -44,6 +44,7 @@ var status = "";
 var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
+var arrStoreList = [];
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -93,8 +94,10 @@ bot.on('message', function (event) {
                 }
             }else if(msg1 == "店家") {
                 if(msg2 == "資訊") {
-                    
-                    console.log(storeList());
+                    storeList()
+                    console.log(arrStoreList[0]);
+                    // arrStoreList[0].contents.contents.length = 0;
+                    // arrStoreList.length = 0;
                     // event.reply(arr2[0]);
                     // storeList();                
                 }else if(msg2 == "查看菜單") {
@@ -524,9 +527,9 @@ var storeList = function (){
             event.reply('執行錯誤');
         } else {
             console.log("fuction ff");
-            var arr = [];
+            arrStoreList = [];
             // var o = temp.temp_store_contents
-            arr.push(temp.temp_store);
+            arrStoreList.push(temp.temp_store);
             // console.log("first-> arr: " + arr.length)
 
             for (var i = 0; i < data.length; i++) {
@@ -537,7 +540,7 @@ var storeList = function (){
                 //     arr[0].contents.contents.push(o);
                 // })(Object.assign({}, o));
 
-                arr[0].contents.contents.push(
+                arrStoreList[0].contents.contents.push(
                     {
                         "type": "bubble",
                         "hero": {
@@ -653,11 +656,10 @@ var storeList = function (){
                 );
 
             }
-            console.log(arr[0])
-            return arr[0];
+            console.log(arrStoreList[0])
+            return arrStoreList[0];
 
-            arr[0].contents.contents.length = 0;
-            arr.length = 0;
+            
             data.length = 0;
         }
     })
