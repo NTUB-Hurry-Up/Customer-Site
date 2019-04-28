@@ -642,8 +642,12 @@ bot.on('postback', function (event) {
                 console.log(`${event.postback.params.date}`);
             // }
             if(data === "datetime"){
-                data += `(${JSON.stringify(event.postback.params)})`;
+                data += `${JSON.stringify(event.postback.params)}`;
                 console.log(`${JSON.stringify(event.postback.params)}`)
+                var NewArray = data.split(":");
+                for(var i = 0; i<NewArray.length; i++){
+                    console.log("arr+"+NewArray[0])
+                }
                 event.reply(`Got postback: ${data}`);
             }
         }
