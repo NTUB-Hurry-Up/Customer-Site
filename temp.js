@@ -172,12 +172,12 @@ datetimepicker = {
   "altText": "this is a buttons template",
   "template": {
       "type": "buttons",
-      "title": "時間日期",
-      "text": "Please select",
+      "title": "購物車訊息",
+      "text": "請輸入取餐時間",
       "actions": [
           {
             "type": "datetimepicker",
-            "label": "時間日期",
+            "label": "設定時間日期",
             "mode": "datetime",
             "data": "datetime"
           }
