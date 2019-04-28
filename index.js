@@ -656,7 +656,7 @@ bot.on('postback', function (event) {
                 arrCart[0][3]=takedate
                 arrCart[0][4]=taketime
                 console.log(arrCart)
-
+                event.reply(arrCart[0][0]+", "+arrCart[0][1]+", "+arrCart[0][2]+", "+arrCart[0][3]+", "+arrCart[0][4]);
 
 
                 // event.reply(`Got postback: ${data}`);
