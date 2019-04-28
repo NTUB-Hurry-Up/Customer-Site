@@ -637,7 +637,7 @@ bot.on('message', function (event) {
 bot.on('postback', function (event) {
     event.source.profile().then(
         function (profile) {
-            console.log(postBack);
+            console.log("p->"+postBack);
             event.reply(postBack);
         }
     );
