@@ -76,18 +76,21 @@ var temp_cart={
               "size": "lg",
               "align": "start",
               "weight": "regular"
-            },
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
             {
               "type": "text",
-              "text": "阿使巴樂",
+              "text": "",
               "size": "lg",
               "align": "start",
               "weight": "regular"
             }
           ]
-        },
-        {
-          "type": "separator"
         },
         {
           "type": "box",
