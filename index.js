@@ -614,7 +614,7 @@ bot.on('message', function (event) {
                         }
                         if(arrCart[0].length>3){
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+" "+arrCart[0][4];
-                            template.contents.footer.contents[2].action.lable="修改取餐時間"
+                            template.contents.footer.contents[2].action.label="修改取餐時間"
                         }else{
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
                         }
