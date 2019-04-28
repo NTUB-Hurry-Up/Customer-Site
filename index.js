@@ -445,7 +445,7 @@ bot.on('message', function (event) {
                                 console.log(arrCartQty);
                             }
                         })
-                    }else if(arrCart.length > 1 && arrCart[0] < 2){
+                    }else if(arrCart.length > 1 && arrCart[1] > 1){
                         event.reply(temp.datetimepicker)
                     }else{
                         event.reply([
