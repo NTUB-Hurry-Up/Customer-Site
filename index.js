@@ -634,6 +634,7 @@ bot.on('postback', function (event) {
             
             let data = event.postback.data;
             
+            var today=new Date();
             var cOrderDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
             var cOrderTime =(today.getHours()+8)+':'+today.getMinutes();
             temp.datetimepicker.template.actions[0].min = cOrderDate+"t"+cOrderTime
