@@ -85,7 +85,7 @@ var temp_cart={
           "contents": [
             {
               "type": "text",
-              "text": "",
+              "text": "0",
               "size": "lg",
               "align": "start",
               "weight": "regular"
