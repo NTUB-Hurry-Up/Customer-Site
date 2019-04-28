@@ -41,7 +41,7 @@ bot.on('follow', function (event) {
 // --------------------------------
 // 機器人接受訊息的處理
 // --------------------------------
-var postBack = "";
+
 var status = "";
 var statusTime = 0;
 var arrCart = [];
@@ -452,7 +452,7 @@ bot.on('message', function (event) {
                         ); 
                     }
                 }
-            }else if(msg1 == "a"){
+            }else if(msg1 == "A"){
                 const messageObject = {
                     "type": "template",
                     "altText": "this is a buttons template",
@@ -633,13 +633,13 @@ bot.on('message', function (event) {
         }
     );
 });
-
 bot.on('postback', function (event) {
     event.source.profile().then(
         function (profile) {
-            postBack = ReceivedMessage.events[0].postback.data
-            console.log("p->"+postBack);
-            event.reply(postBack);
+            
+            let data = event.postback.data;
+            console.log("p->"+data);
+            event.reply(data);
         }
     );
 });
