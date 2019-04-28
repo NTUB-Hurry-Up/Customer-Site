@@ -155,16 +155,6 @@ var temp_cart={
         },
         {
           "type": "button",
-          "actions":{
-            "type": "datetimepicker",
-            "label": "時間日期",
-            "mode": "datetime",
-            "data": "datetime"
-          },
-          "color": "#58290C"
-        },
-        {
-          "type": "button",
           "action": {
             "type": "message",
             "label": "完成訂單",
