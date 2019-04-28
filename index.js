@@ -650,7 +650,7 @@ bot.on('postback', function (event) {
                 for(var i = 0; i<NewArray.length; i++){
                     console.log(NewArray[i])
                 }
-                console.log(NewArray)
+                console.log("---datetime---"+NewArray[3])
 
                 event.reply(`Got postback: ${data}`);
             }
