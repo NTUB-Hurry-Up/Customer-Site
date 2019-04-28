@@ -647,9 +647,6 @@ bot.on('postback', function (event) {
         function (profile) {
             
             let data = event.postback.data;
-            // for(var i =0; i<20; i++){
-                console.log(`${event.postback.params.date}`);
-            // }
             if(data === "輸入取餐時間"){
                 console.log("輸入取餐時間")
             }else if(data === "datetime" && postStatus == "setDateTime"){
