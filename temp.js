@@ -123,7 +123,7 @@ var temp_cart={
             {
               "type": "text",
               "text": "取餐時間 : ",
-              "size": "lg",
+              "size": "sm",
               "align": "start",
               "weight": "regular"
             }
@@ -169,9 +169,18 @@ var temp_cart={
         {
           "type": "button",
           "action": {
+            "type": "postback",
+            "label": "輸入取餐時間",
+            "data": "輸入取餐時間"
+          },
+          "color": "#58290C"
+        },
+        {
+          "type": "button",
+          "action": {
             "type": "message",
             "label": "完成訂單",
-            "text": "完成訂單"
+            "text": "購物車,送出訂單"
           },
           "color": "#58290C"
         }

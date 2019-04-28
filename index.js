@@ -613,7 +613,7 @@ bot.on('message', function (event) {
 
                         }
                         if(arrCart[0].length>3){
-                            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+", "+arrCart[0][4];
+                            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+" "+arrCart[0][4];
                         }else{
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
                         }
@@ -650,7 +650,9 @@ bot.on('postback', function (event) {
             // for(var i =0; i<20; i++){
                 console.log(`${event.postback.params.date}`);
             // }
-            if(data === "datetime" && postStatus == "setDateTime"){
+            if(data === "輸入取餐時間"){
+                console.log("輸入取餐時間")
+            }else if(data === "datetime" && postStatus == "setDateTime"){
                 setDateTime="";
                 data += `${JSON.stringify(event.postback.params)}`;                
                 var NewArray = data.split("\"");
