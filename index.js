@@ -512,8 +512,7 @@ var server = app.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;
     console.log("正在監聽埠號:", port);
 });
-
-function  storeList(){
+var storeList = function (){
     store.fetchStore().then(data => {
         if (data == -1) {
             event.reply('找不到資料');
