@@ -95,10 +95,10 @@ bot.on('message', function (event) {
             }else if(msg1 == "店家") {
                 if(msg2 == "資訊") {
                     storeList()
-                    console.log(arrStoreList[0]);
-                    // arrStoreList[0].contents.contents.length = 0;
-                    // arrStoreList.length = 0;
-                    // event.reply(arr2[0]);
+                    
+                    event.reply(arrStoreList[0]);
+                    arrStoreList[0].contents.contents.length = 0;
+                    arrStoreList.length = 0;
                     // storeList();                
                 }else if(msg2 == "查看菜單") {
                     store.fetchStorefood(msg3).then(data => {
