@@ -41,7 +41,7 @@ bot.on('follow', function (event) {
 // --------------------------------
 // 機器人接受訊息的處理
 // --------------------------------
-var postback = "";
+var postBack = "";
 var status = "";
 var statusTime = 0;
 var arrCart = [];
@@ -637,7 +637,7 @@ bot.on('message', function (event) {
 bot.on('postback', function (event) {
     event.source.profile().then(
         function (profile) {
-            console.log("p->"+postback);
+            console.log("p->"+postBack = ReceivedMessage.events[0].postback.data);
             event.reply(postBack);
         }
     );
