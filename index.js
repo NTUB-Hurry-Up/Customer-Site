@@ -641,7 +641,8 @@ bot.on('postback', function (event) {
             console.log("data->"+data);
             event.reply(data);
             if(data === "datetime"){
-                event.reply(event.postback.params);
+                data += `(${JSON.stringify(event.postback.params)})`;
+                event.reply(event.replyToken, `Got postback: ${data}`);
             }
         }
     );
