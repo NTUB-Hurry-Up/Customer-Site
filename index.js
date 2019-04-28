@@ -93,9 +93,8 @@ bot.on('message', function (event) {
                 }
             }else if(msg1 == "店家") {
                 if(msg2 == "資訊") {
-                    var arr2=[]
-                    arr2[0]=storeList();
-                    console.log(arr2[0]);
+                    
+                    console.log(storeList());
                     // event.reply(arr2[0]);
                     // storeList();                
                 }else if(msg2 == "查看菜單") {
