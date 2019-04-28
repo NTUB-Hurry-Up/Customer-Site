@@ -613,7 +613,7 @@ bot.on('message', function (event) {
                             {
                               "type": "datetimepicker",
                               "label": "時間日期",
-                              "mode": "date",
+                              "mode": "datetime",
                               "data": "action=datetemp&selectId=1"
                             }
                         ]
