@@ -93,9 +93,10 @@ bot.on('message', function (event) {
                 }
             }else if(msg1 == "店家") {
                 if(msg2 == "資訊") {
-                    var arr2=[]
-                    arr2[0]=storeList();
-                    event.reply(arr2[0]);                
+                    // var arr2=[]
+                    // arr2[0]=storeList();
+                    // event.reply(arr2[0]);
+                    storeList();                
                 }else if(msg2 == "查看菜單") {
                     store.fetchStorefood(msg3).then(data => {
                         if (data == -1) {
@@ -512,6 +513,9 @@ var server = app.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;
     console.log("正在監聽埠號:", port);
 });
+//----------------------------------------
+//function
+//----------------------------------------
 var storeList = function (){
     store.fetchStore().then(data => {
         if (data == -1) {
@@ -519,140 +523,141 @@ var storeList = function (){
         } else if (data == -9) {
             event.reply('執行錯誤');
         } else {
-            var arr = [];
-            // var o = temp.temp_store_contents
-            arr.push(temp.temp_store);
-            // console.log("first-> arr: " + arr.length)
+            console.log("fuction ff");
+            // var arr = [];
+            // // var o = temp.temp_store_contents
+            // arr.push(temp.temp_store);
+            // // console.log("first-> arr: " + arr.length)
 
-            for (var i = 0; i < data.length; i++) {
-                // (function(o){
-                //     o.body.contents[0].text=data[i].storeName;
-                //     o.body.contents[1].contents[0].contents[1].text=data[i].storeAdd;
-                //     o.body.contents[1].contents[1].contents[1].text=data[i].storeTel;
-                //     arr[0].contents.contents.push(o);
-                // })(Object.assign({}, o));
+            // for (var i = 0; i < data.length; i++) {
+            //     // (function(o){
+            //     //     o.body.contents[0].text=data[i].storeName;
+            //     //     o.body.contents[1].contents[0].contents[1].text=data[i].storeAdd;
+            //     //     o.body.contents[1].contents[1].contents[1].text=data[i].storeTel;
+            //     //     arr[0].contents.contents.push(o);
+            //     // })(Object.assign({}, o));
 
-                arr[0].contents.contents.push(
-                    {
-                        "type": "bubble",
-                        "hero": {
-                            "type": "image",
-                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                            "size": "full",
-                            "aspectRatio": "20:13",
-                            "aspectMode": "cover",
-                            "action": {
-                                "type": "uri",
-                                "label": "Line",
-                                "uri": "https://linecorp.com/"
-                            }
-                        },
-                        "body": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": data[i].storeName,
-                                    "size": "xl",
-                                    "weight": "bold"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "spacing": "sm",
-                                    "margin": "lg",
-                                    "contents": [
-                                        {
-                                            "type": "box",
-                                            "layout": "baseline",
-                                            "spacing": "sm",
-                                            "contents": [
-                                                {
-                                                    "type": "text",
-                                                    "text": "Place",
-                                                    "flex": 1,
-                                                    "size": "sm",
-                                                    "color": "#AAAAAA"
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": data[i].storeAdd,
-                                                    "flex": 5,
-                                                    "size": "sm",
-                                                    "color": "#666666",
-                                                    "wrap": true
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "box",
-                                            "layout": "baseline",
-                                            "spacing": "sm",
-                                            "contents": [
-                                                {
-                                                    "type": "text",
-                                                    "text": "Tel",
-                                                    "flex": 1,
-                                                    "size": "sm",
-                                                    "color": "#AAAAAA"
-                                                },
-                                                {
-                                                    "type": "text",
-                                                    "text": data[i].storeTel,
-                                                    "flex": 5,
-                                                    "size": "sm",
-                                                    "color": "#666666",
-                                                    "wrap": true
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        "footer": {
-                            "type": "box",
-                            "layout": "vertical",
-                            "flex": 0,
-                            "spacing": "sm",
-                            "contents": [
-                                {
-                                    "type": "button",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "查看菜單",
-                                        "text": "店家,查看菜單," + data[i].storeid
-                                    },
-                                    "height": "sm",
-                                    "style": "link"
-                                },
-                                {
-                                    "type": "button",
-                                    "action": {
-                                        "type": "message",
-                                        "label": "聯絡店家",
-                                        "text": "店家,聯絡店家," + data[i].storeid
-                                    },
-                                    "height": "sm",
-                                    "style": "link"
-                                },
-                                {
-                                    "type": "spacer",
-                                    "size": "sm"
-                                }
-                            ]
-                        }
+            //     arr[0].contents.contents.push(
+            //         {
+            //             "type": "bubble",
+            //             "hero": {
+            //                 "type": "image",
+            //                 "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+            //                 "size": "full",
+            //                 "aspectRatio": "20:13",
+            //                 "aspectMode": "cover",
+            //                 "action": {
+            //                     "type": "uri",
+            //                     "label": "Line",
+            //                     "uri": "https://linecorp.com/"
+            //                 }
+            //             },
+            //             "body": {
+            //                 "type": "box",
+            //                 "layout": "vertical",
+            //                 "contents": [
+            //                     {
+            //                         "type": "text",
+            //                         "text": data[i].storeName,
+            //                         "size": "xl",
+            //                         "weight": "bold"
+            //                     },
+            //                     {
+            //                         "type": "box",
+            //                         "layout": "vertical",
+            //                         "spacing": "sm",
+            //                         "margin": "lg",
+            //                         "contents": [
+            //                             {
+            //                                 "type": "box",
+            //                                 "layout": "baseline",
+            //                                 "spacing": "sm",
+            //                                 "contents": [
+            //                                     {
+            //                                         "type": "text",
+            //                                         "text": "Place",
+            //                                         "flex": 1,
+            //                                         "size": "sm",
+            //                                         "color": "#AAAAAA"
+            //                                     },
+            //                                     {
+            //                                         "type": "text",
+            //                                         "text": data[i].storeAdd,
+            //                                         "flex": 5,
+            //                                         "size": "sm",
+            //                                         "color": "#666666",
+            //                                         "wrap": true
+            //                                     }
+            //                                 ]
+            //                             },
+            //                             {
+            //                                 "type": "box",
+            //                                 "layout": "baseline",
+            //                                 "spacing": "sm",
+            //                                 "contents": [
+            //                                     {
+            //                                         "type": "text",
+            //                                         "text": "Tel",
+            //                                         "flex": 1,
+            //                                         "size": "sm",
+            //                                         "color": "#AAAAAA"
+            //                                     },
+            //                                     {
+            //                                         "type": "text",
+            //                                         "text": data[i].storeTel,
+            //                                         "flex": 5,
+            //                                         "size": "sm",
+            //                                         "color": "#666666",
+            //                                         "wrap": true
+            //                                     }
+            //                                 ]
+            //                             }
+            //                         ]
+            //                     }
+            //                 ]
+            //             },
+            //             "footer": {
+            //                 "type": "box",
+            //                 "layout": "vertical",
+            //                 "flex": 0,
+            //                 "spacing": "sm",
+            //                 "contents": [
+            //                     {
+            //                         "type": "button",
+            //                         "action": {
+            //                             "type": "message",
+            //                             "label": "查看菜單",
+            //                             "text": "店家,查看菜單," + data[i].storeid
+            //                         },
+            //                         "height": "sm",
+            //                         "style": "link"
+            //                     },
+            //                     {
+            //                         "type": "button",
+            //                         "action": {
+            //                             "type": "message",
+            //                             "label": "聯絡店家",
+            //                             "text": "店家,聯絡店家," + data[i].storeid
+            //                         },
+            //                         "height": "sm",
+            //                         "style": "link"
+            //                     },
+            //                     {
+            //                         "type": "spacer",
+            //                         "size": "sm"
+            //                     }
+            //                 ]
+            //             }
 
-                    }
-                );
+            //         }
+            //     );
 
-            }
-            return arr[0];
+            // }
+            // return arr[0];
 
-            arr[0].contents.contents.length = 0;
-            arr.length = 0;
-            data.length = 0;
+            // arr[0].contents.contents.length = 0;
+            // arr.length = 0;
+            // data.length = 0;
         }
     })
 }
