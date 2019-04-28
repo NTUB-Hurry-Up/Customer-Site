@@ -465,7 +465,7 @@ bot.on('message', function (event) {
                               "type": "datetimepicker",
                               "label": "時間日期",
                               "mode": "datetime",
-                              "data": "ABC"
+                              "data": "datetime"
                             }
                         ]
                     }
@@ -638,8 +638,11 @@ bot.on('postback', function (event) {
         function (profile) {
             
             let data = event.postback.data;
-            console.log("p->"+data);
+            console.log("data->"+data);
             event.reply(data);
+            if(data === "datetime"){
+                event.reply(event.postback.params);
+            }
         }
     );
 });
