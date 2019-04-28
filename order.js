@@ -24,12 +24,12 @@ var Cartfetchfood = async function(foodid){
     return result;
 }
 //---------------------------------------------------------
-var addOrder = async function(storeid, userid, orderDate, orderTime){
+var addOrder = async function(storeid, userid, orderDate, orderTime, takeDate, takeTime){
     //存放結果
     let result;  
 
     //新增會員資料
-    await query('INSERT INTO "order"("storeid", "userid", "orderDate", "orderTime", "status") VALUES ($1, $2, $3, $4, $5) RETURNING orderid;', [storeid, userid, orderDate, orderTime, "未接單"])
+    await query('INSERT INTO "order"("storeid", "userid", "orderDate", "orderTime", "takeDate", "takeTime", "status") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING orderid;', [storeid, userid, orderDate, orderTime, takeDate, takeTime, "未接單"])
         .then((data) => {
             if(data.rows.length > 0){
                 result = data.rows[0];  //學生資料(物件)

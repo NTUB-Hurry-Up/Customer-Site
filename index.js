@@ -420,7 +420,9 @@ bot.on('message', function (event) {
                         var today=new Date();
                         var cOrderDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
                         var cOrderTime =(today.getHours()+8)+':'+today.getMinutes();
-                        order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime).then(data => {
+                        var cTakeDate = arrCart[0][3];
+                        var cTakeTime = arrCart[0][4];
+                        order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
                             if (data == -9) {
                                 event.reply('執行錯誤');
                             } else {
@@ -456,25 +458,6 @@ bot.on('message', function (event) {
                         ); 
                     }
                 }
-            }else if(msg1 == "A"){
-                const messageObject = {
-                    "type": "template",
-                    "altText": "this is a buttons template",
-                    "template": {
-                        "type": "buttons",
-                        "title": "時間日期",
-                        "text": "Please select",
-                        "actions": [
-                            {
-                              "type": "datetimepicker",
-                              "label": "時間日期",
-                              "mode": "datetime",
-                              "data": "datetime"
-                            }
-                        ]
-                    }
-                };
-                event.reply(messageObject);
             }
             if(status != "") {
                 if (status == "進入修改電話程序") {
