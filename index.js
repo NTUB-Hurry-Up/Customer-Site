@@ -638,9 +638,9 @@ bot.on('postback', function (event) {
         function (profile) {
             
             let data = event.postback.data;
-            for(var i =0; i<20; i++){
-                console.log("data["+i+"]->"+data[1][i]);
-            }
+            // for(var i =0; i<20; i++){
+                console.log("data->"+event.postback.params.date);
+            // }
             if(data === "datetime"){
                 data += `(${JSON.stringify(event.postback.params)})`;
                 event.reply(`Got postback: ${data}`);
