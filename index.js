@@ -601,6 +601,30 @@ bot.on('message', function (event) {
                         ); 
                     }
                 }
+            }else if(msg1 == "a"){
+                const messageObject = {
+                    "type": "template",
+                    "altText": "this is a buttons template",
+                    "template": {
+                        "type": "buttons",
+                        "title": "空いてる日程教えてよ",
+                        "text": "Please select",
+                        "actions": [
+                            {
+                              "type": "datetimepicker",
+                              "label": "いいよ",
+                              "mode": "date",
+                              "data": "action=datetemp&selectId=1"
+                            },
+                            {
+                              "type": "postback",
+                              "label": "やっぱりやめたい",
+                              "data": "action=cancel&selectId=2"
+                            },
+                        ]
+                    }
+                };
+                event.reply(messageObject);
             }
             if(status != "") {
                 if (status == "進入修改電話程序") {
