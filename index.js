@@ -43,6 +43,7 @@ bot.on('follow', function (event) {
 // --------------------------------
 
 var status = "";
+var postStatus = "";
 var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
@@ -446,6 +447,7 @@ bot.on('message', function (event) {
                             }
                         })
                     }else if(arrCart.length > 1 && arrCart[1].length >= 1){
+                        postStatus = "setDateTime"
                         event.reply(temp.datetimepicker)
                     }else{
                         event.reply([
@@ -643,18 +645,20 @@ bot.on('postback', function (event) {
             // for(var i =0; i<20; i++){
                 console.log(`${event.postback.params.date}`);
             // }
-            if(data === "datetime"){
-                data += `${JSON.stringify(event.postback.params)}`;
-                console.log(`${JSON.stringify(event.postback.params)}`)
-                
+            if(data === "datetime" && postStatus == "setDateTime"){
+                setDateTime="";
+                data += `${JSON.stringify(event.postback.params)}`;                
                 var NewArray = data.split("\"");
                 var cdatetime = NewArray[3].split("T");
-                // for(var i = 0; i<NewArray.length; i++){
-                //     console.log(NewArray[i])
-                // }
-                console.log(cdatetime[0]+", "+cdatetime[1])
+                var takedate = cdatetime[0];
+                var taketime = cdatetime[1];
+                console.log(takedate+", "+taketime)
+                arrCart[0][3]=takedate
+                arrCart[0][4]=taketime
 
-                event.reply(`Got postback: ${data}`);
+
+
+                // event.reply(`Got postback: ${data}`);
             }
         }
     );
