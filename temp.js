@@ -201,7 +201,9 @@ datetimepicker = {
             "type": "datetimepicker",
             "label": "設定時間日期",
             "mode": "datetime",
-            "data": "datetime"
+            "data": "datetime",
+            "max":"2020-01-24t23:59",
+            "min":"2017-12-25t00:00"
           }
       ]
   }

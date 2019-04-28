@@ -47,6 +47,7 @@ var postStatus = "";
 var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
+
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -632,6 +633,10 @@ bot.on('postback', function (event) {
         function (profile) {
             
             let data = event.postback.data;
+            
+            var cOrderDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
+            var cOrderTime =(today.getHours()+8)+':'+today.getMinutes();
+            temp.datetimepicker.template.actions[0].min = cOrderDate+"t"+cOrderTime
             if(data === "輸入取餐時間"){
                 console.log("輸入取餐時間")
                 postStatus = "setDateTime"
