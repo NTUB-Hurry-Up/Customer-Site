@@ -413,7 +413,7 @@ bot.on('message', function (event) {
                         {'type':'text', 'text':'請重新點餐'}]
                     );
                 }else if(msg2 == "送出訂單"){
-                    if(arrCart.length > 1 && arrCart[0]>2){
+                    if(arrCart.length > 1 && arrCart[0].length>2){
                         var cUserid = arrCart[0][0]
                         var cStoreid = arrCart[0][1]
                         var today=new Date();
@@ -445,7 +445,7 @@ bot.on('message', function (event) {
                                 console.log(arrCartQty);
                             }
                         })
-                    }else if(arrCart.length > 1 && arrCart[1] > 1){
+                    }else if(arrCart.length > 1 && arrCart[1].length >= 1){
                         event.reply(temp.datetimepicker)
                     }else{
                         event.reply([
