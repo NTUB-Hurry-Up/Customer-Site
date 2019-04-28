@@ -646,11 +646,11 @@ bot.on('postback', function (event) {
                 console.log(`${JSON.stringify(event.postback.params)}`)
                 
                 var NewArray = data.split("\"");
-                
-                for(var i = 0; i<NewArray.length; i++){
-                    console.log(NewArray[i])
-                }
-                console.log("---datetime---"+NewArray[3])
+                var cdatetime = NewArray[3].split("T");
+                // for(var i = 0; i<NewArray.length; i++){
+                //     console.log(NewArray[i])
+                // }
+                console.log(cdatetime[0]+", "+cdatetime[1])
 
                 event.reply(`Got postback: ${data}`);
             }
