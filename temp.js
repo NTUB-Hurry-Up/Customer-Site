@@ -166,6 +166,24 @@ var temp_cart={
     }
   }
 }
+
+datetimepicker = {
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+      "type": "buttons",
+      "title": "時間日期",
+      "text": "Please select",
+      "actions": [
+          {
+            "type": "datetimepicker",
+            "label": "時間日期",
+            "mode": "datetime",
+            "data": "datetime"
+          }
+      ]
+  }
+};
 // var temp_store_contents={
 //   "type": "bubble",
 //   "hero": {
@@ -288,4 +306,4 @@ var temp_menu={
     }
   }
 //匯出
-module.exports = {temp1, temp_store, temp_menu, temp_cart};
+module.exports = {temp1, temp_store, temp_menu, temp_cart, datetimepicker};
