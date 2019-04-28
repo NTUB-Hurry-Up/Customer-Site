@@ -638,8 +638,8 @@ bot.on('postback', function (event) {
         function (profile) {
             
             let data = event.postback.data;
-            console.log("data->"+data);
-            event.reply(data[0]+data[1]);
+            console.log("data[0]->"+data[0]);
+            console.log("data[1]->"+data[1]);
             if(data === "datetime"){
                 data += `(${JSON.stringify(event.postback.params)})`;
                 event.reply(`Got postback: ${data}`);
