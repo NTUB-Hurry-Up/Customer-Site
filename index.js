@@ -611,23 +611,23 @@ bot.on('message', function (event) {
                             template.contents.footer.contents[2].action.label = "輸入取餐時間"
                         }
                         console.log(temp.temp_cart.contents.footer.contents[2].action[0])
-                        var today=new Date();
 
-                        //--date-time-formate---start------
-                        var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
-                        var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
-                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
+                        // var today=new Date();
+                        // //--date-time-formate---start------
+                        // var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                        // var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
+                        // var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
 
-                        var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
-                        var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
-                        //--date-time-formate---end--------
-                        var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"t"+cHours+':'+cMinutes;
-                        var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"t"+cHours+':'+cMinutes;
-                        // var cOrderTime =cHours+':'+cMinutes;
+                        // var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                        // var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
+                        // //--date-time-formate---end--------
+                        // var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"t"+cHours+':'+cMinutes;
+                        // var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"t"+cHours+':'+cMinutes;
+                        // // var cOrderTime =cHours+':'+cMinutes;
 
-                        console.log(cOrderMIN);
-                        console.log(cOrderMAX);
-                        cOrderMIN.toString();
+                        // console.log(cOrderMIN);
+                        // console.log(cOrderMAX);
+                        // cOrderMIN.toString();
                         // template.contents.footer.contents[2].action.min = cOrderMIN
                         // template.contents.footer.contents[2].action.max = cOrderMAXDate+"t"+cOrderTime
 
