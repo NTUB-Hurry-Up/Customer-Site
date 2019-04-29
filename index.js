@@ -648,7 +648,7 @@ bot.on('postback', function (event) {
                 //--date-time formate
                 var cOrderDate =today.getFullYear()+"-"+cMonth+"-"+cDay;
                 var cOrderTime =cHours+':'+cMinutes;
-                temp.datetimepicker.template.actions[0].min = cOrderDate+"t"+cOrderTime
+                // temp.datetimepicker.template.actions[0].min = cOrderDate+"t"+cOrderTime
                 console.log(cOrderDate+"t"+cOrderTime);
                 event.reply(temp.datetimepicker)
             }else if(data === "datetime" && postStatus == "setDateTime"){

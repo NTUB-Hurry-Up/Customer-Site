@@ -203,7 +203,7 @@ datetimepicker = {
             "mode": "datetime",
             "data": "datetime",
             "max":"2020-01-24t23:59",
-            "min":"2017-12-25t00:00"
+            "min":"2019-04-29t14:35"
           }
       ]
   }
