@@ -605,9 +605,9 @@ bot.on('message', function (event) {
                         }
                         if(arrCart[0].length>3){
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+" "+arrCart[0][4];
-                            template.contents.footer.contents[2].actions[0].label="修改取餐時間"
+                            template.contents.footer.contents[2].action[0].label="修改取餐時間"
                         }else{
-                            template.contents.footer.contents[2].actions[0].label="輸入取餐時間"
+                            template.contents.footer.contents[2].action[0].label="輸入取餐時間"
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
                         }
 
@@ -624,8 +624,8 @@ bot.on('message', function (event) {
                         var cOrderMAXDate =today.getFullYear()+"-"+cMAXMonth+"-"+cDay;
                         var cOrderTime =cHours+':'+cMinutes;
 
-                        template.contents.footer.contents[2].actions[0].min = cOrderMINDate+"t"+cOrderTime
-                        template.contents.footer.contents[2].actions[0].max = cOrderMAXDate+"t"+cOrderTime
+                        template.contents.footer.contents[2].action[0].min = cOrderMINDate+"t"+cOrderTime
+                        template.contents.footer.contents[2].action[0].max = cOrderMAXDate+"t"+cOrderTime
 
                         template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
                         template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
