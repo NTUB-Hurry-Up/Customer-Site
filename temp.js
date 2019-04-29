@@ -170,7 +170,7 @@ var temp_cart={
           "type": "button",
           "action": {
             "type": "datetimepicker",
-            "label": "設定時間日期",
+            "label": "設定取餐時間",
             "mode": "datetime",
             "data": "datetime",
             "max":"2020-01-24t23:59",

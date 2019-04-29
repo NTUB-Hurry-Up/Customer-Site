@@ -610,7 +610,7 @@ bot.on('message', function (event) {
                             // template.contents.footer.contents[2].action[0].label = "輸入取餐時間"
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
                         }
-
+                        temp.temp_cart.contents.footer.contents[2].label = "time"
                         var today=new Date();
                         //--date-time-formate---start------
                         var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
