@@ -32,7 +32,7 @@ bot.on('follow', function (event) {
                 if (data == -9) {
                     event.reply('執行錯誤');
                 } else {
-                    event.reply('已加入會員, 廢物 !');
+                    event.reply('已加入會員, Hi !');
                 }
             })
         }
@@ -449,7 +449,7 @@ bot.on('message', function (event) {
                                         if (data == -9) {
                                             event.reply("執行錯誤");
                                         } else {
-                                            event.reply("訂單已送出, 廢物 !, "+cOrderid);
+                                            event.reply("訂單已送出 ! "+cOrderid);
                                         }
                                     })
                                 }
@@ -645,15 +645,18 @@ bot.on('postback', function (event) {
                 postStatus = "setDateTime"
                 var today=new Date();
                 //--date-time-formate---start------
-                var cMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
                 var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
 
                 var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
                 var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
                 //--date-time-formate---end--------
-                var cOrderDate =today.getFullYear()+"-"+cMonth+"-"+cDay;
+                var cOrderMINDate =today.getFullYear()+"-"+cMINMonth+"-"+cDay;
+                var cOrderMAXDate =today.getFullYear()+"-"+cMAXMonth+"-"+cDay;
                 var cOrderTime =cHours+':'+cMinutes;
-                temp.datetimepicker.template.actions[0].min = cOrderDate+"t"+cOrderTime
+                temp.datetimepicker.template.actions[0].min = cOrderMINDate+"t"+cOrderTime
+                temp.datetimepicker.template.actions[0].max = cOrderMAXDate+"t"+cOrderTime
                 console.log(cOrderDate+"t"+cOrderTime);
                 event.reply(temp.datetimepicker)
 
