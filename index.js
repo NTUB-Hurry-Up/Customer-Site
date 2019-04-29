@@ -88,6 +88,7 @@ bot.on('message', function (event) {
                     })
                 } else if (msg2 == "修改姓名") {
                     status = "進入修改姓名程序";
+                    console.log(status);
                     event.reply('請輸入您的姓名');
 
                 } else if (msg2 == "修改電話") {
@@ -478,7 +479,11 @@ bot.on('message', function (event) {
                         }
                     })
                 }else if(status == "進入修改姓名程序") {
+                    
+                    console.log(status);
                     status = "";
+                    
+                    console.log(status);
                     member.UpdateName(msg, userId).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
