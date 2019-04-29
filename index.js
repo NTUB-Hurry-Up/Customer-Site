@@ -661,7 +661,7 @@ bot.on('postback', function (event) {
             
             let data = event.postback.data;
             
-            /*if(data === "輸入取餐時間"){
+            if(data === "輸入取餐時間"){
                 console.log("輸入取餐時間")
                 postStatus = "setDateTime"
                 var today=new Date();
@@ -684,8 +684,7 @@ bot.on('postback', function (event) {
                 console.log(cOrderMAXDate+"t"+cOrderTime);
                 event.reply(temp.datetimepicker)
 
-            }else*/
-            if(data === "datetime"){
+            }else if(data === "datetime"){
                 setDateTime="";
                 data += `${JSON.stringify(event.postback.params)}`;                
                 var NewArray = data.split("\"");
