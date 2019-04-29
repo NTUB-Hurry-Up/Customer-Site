@@ -601,13 +601,27 @@ bot.on('message', function (event) {
                                     ]
                                 }
                             );
-
                         }
                         if(arrCart[0].length>3){
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+" "+arrCart[0][4];
                             // template.contents.footer.contents[2].action[0].label = "修改取餐時間"
+                            template.contents.footer.contents[2].action[0]={
+                                "type": "datetimepicker",
+                                "label": "修改取餐時間",
+                                "mode": "datetime",
+                                "data": "datetime",
+                                "max":"2020-01-24t23:59",
+                                "min":"2019-04-29t14:33"
+                              }
                         }else{
-                            // template.contents.footer.contents[2].action[0].label = "輸入取餐時間"
+                            template.contents.footer.contents[2].action[0]={
+                                "type": "datetimepicker",
+                                "label": "輸入取餐時間",
+                                "mode": "datetime",
+                                "data": "datetime",
+                                "max":"2020-01-24t23:59",
+                                "min":"2019-04-29t14:33"
+                              }
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
                         }
                         console.log(temp.temp_cart.contents.footer.contents[2].action[0])
