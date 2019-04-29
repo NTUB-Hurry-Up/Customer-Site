@@ -181,12 +181,9 @@ var temp_cart={
         {
           "type": "button",
           "action": {
-            // "type": "message",
-            // "label": "完成訂單",
-            // "text": "購物車,送出訂單"
-                "type": "postback",
-                "label": "輸入取餐時間",
-                "data": "輸入取餐時間"
+            "type": "message",
+            "label": "完成訂單",
+            "text": "購物車,送出訂單"
           },
           "color": "#58290C"
         }
