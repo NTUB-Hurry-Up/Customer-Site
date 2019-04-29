@@ -168,14 +168,14 @@ var temp_cart={
         },
         {
           "type": "button",
-          "action": {
+          "action": [{
             "type": "datetimepicker",
             "label": "設定取餐時間",
             "mode": "datetime",
             "data": "datetime",
             "max":"2019-04-30t23:59",
             "min":"2017-12-25t00:00"
-          },
+          }],
           "color": "#58290C"
         },
         {
