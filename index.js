@@ -629,7 +629,7 @@ bot.on('message', function (event) {
                         console.log(cOrderMAX);
                         cOrderMIN.toString();
                         template.contents.footer.contents[2].action.min = cOrderMIN
-                        template.contents.footer.contents[2].action.max = cOrderMAXDate+"t"+cOrderTime
+                        template.contents.footer.contents[2].action.max = cOrderMAX
 
                         template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
                         template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
