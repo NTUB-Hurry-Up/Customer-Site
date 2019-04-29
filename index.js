@@ -612,6 +612,7 @@ bot.on('message', function (event) {
                         }
                         console.log(temp.temp_cart.contents.footer.contents[2].action[0])
                         var today=new Date();
+
                         //--date-time-formate---start------
                         var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
                         var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
@@ -620,15 +621,15 @@ bot.on('message', function (event) {
                         var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
                         var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
                         //--date-time-formate---end--------
-                        var cOrderMINDate =today.getFullYear()+"-"+cMINMonth+"-"+cDay;
-                        var cOrderMAXDate =today.getFullYear()+"-"+cMAXMonth+"-"+cDay;
-                        var cOrderTime =cHours+':'+cMinutes;
+                        var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"t"+cHours+':'+cMinutes;
+                        var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"t"+cHours+':'+cMinutes;
+                        // var cOrderTime =cHours+':'+cMinutes;
 
-                        console.log(cOrderMINDate+"t"+cOrderTime);
-                        console.log(cOrderMAXDate+"t"+cOrderTime);
-
-                        template.contents.footer.contents[2].action[0].min = cOrderMINDate+"t"+cOrderTime
-                        template.contents.footer.contents[2].action[0].max = cOrderMAXDate+"t"+cOrderTime
+                        console.log(cOrderMIN);
+                        console.log(cOrderMAX);
+                        cOrderMIN.toString();
+                        template.contents.footer.contents[2].action.min = cOrderMIN
+                        // template.contents.footer.contents[2].action.max = cOrderMAXDate+"t"+cOrderTime
 
                         template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
                         template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
