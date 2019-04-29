@@ -624,8 +624,8 @@ bot.on('message', function (event) {
                         var cOrderMAXDate =today.getFullYear()+"-"+cMAXMonth+"-"+cDay;
                         var cOrderTime =cHours+':'+cMinutes;
 
-                        template.contents.footer.contents[2].action[0].min = cOrderMINDate+"t"+cOrderTime
-                        template.contents.footer.contents[2].action[0].max = cOrderMAXDate+"t"+cOrderTime
+                        // template.contents.footer.contents[2].action[0].min = cOrderMINDate+"t"+cOrderTime
+                        // template.contents.footer.contents[2].action[0].max = cOrderMAXDate+"t"+cOrderTime
 
                         template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
                         template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
