@@ -43,7 +43,6 @@ bot.on('follow', function (event) {
 // --------------------------------
 
 var status = "";
-var postStatus = "";
 var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
@@ -460,8 +459,7 @@ bot.on('message', function (event) {
                             }
                         })
                     }else if(arrCart.length > 1 && arrCart[1].length >= 1){
-                        postStatus = "setDateTime"
-                        event.reply(temp.datetimepicker)
+                        event.reply('請先輸入取餐時間')
                     }else{
                         event.reply('購物車是空的 !'); 
                     }
@@ -661,9 +659,8 @@ bot.on('postback', function (event) {
             
             let data = event.postback.data;
             
-            if(data === "輸入取餐時間"){
+            /*if(data === "輸入取餐時間"){
                 console.log("輸入取餐時間")
-                postStatus = "setDateTime"
                 var today=new Date();
                 //--date-time-formate---start------
                 var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
@@ -684,8 +681,8 @@ bot.on('postback', function (event) {
                 console.log(cOrderMAXDate+"t"+cOrderTime);
                 event.reply(temp.datetimepicker)
 
-            }else if(data === "datetime"){
-                setDateTime="";
+            } */
+            if(data === "datetime"){
                 data += `${JSON.stringify(event.postback.params)}`;                
                 var NewArray = data.split("\"");
                 var cdatetime = NewArray[3].split("T");
