@@ -394,7 +394,7 @@ bot.on('message', function (event) {
                                 template.actions[1].label = "否";
                                 template.actions[1].text = msg1+",查看菜單,"+arrCart[0][1]+",否";
                                 template.title = "購物車訊息"
-                                template.text = "要改下訂這家店嗎 ?\n你科成為喔 ?"
+                                template.text = "要改下訂這家店嗎 ?"
                                 status = "changeStore";
                                 event.reply(temp.temp1);
                                 
@@ -419,8 +419,17 @@ bot.on('message', function (event) {
                         var cUserid = arrCart[0][0]
                         var cStoreid = arrCart[0][1]
                         var today=new Date();
-                        var cOrderDate =today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();
-                        var cOrderTime =(today.getHours()+8)+':'+today.getMinutes();
+                        
+                        //--date-time-formate---start------
+                        var cMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
+
+                        var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                        var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
+                        //--date-time-formate---end--------
+                        var cOrderDate =today.getFullYear()+"-"+cMonth+"-"+cDay;
+                        var cOrderTime =cHours+':'+cMinutes;
+                        
                         var cTakeDate = arrCart[0][3];
                         var cTakeTime = arrCart[0][4];
                         order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
@@ -454,10 +463,7 @@ bot.on('message', function (event) {
                         postStatus = "setDateTime"
                         event.reply(temp.datetimepicker)
                     }else{
-                        event.reply([
-                            {'type':'text', 'text':'購物車是空的 !'},
-                            {'type':'text', 'text':'幹 ! 你科成為喔 ?'}]
-                        ); 
+                        event.reply('購物車是空的 !'); 
                     }
                 }
             }
@@ -501,7 +507,7 @@ bot.on('message', function (event) {
                             event.reply('請你閉嘴')
                         }else if(z){
                             event.reply([
-                                {'type':'text', 'text':'輸入數字啦 ! 幹, 你科成為喔 ?'},
+                                {'type':'text', 'text':'請輸入數字 ! '},
                                 {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
                             );
                         }
@@ -512,7 +518,7 @@ bot.on('message', function (event) {
                             event.reply('請你閉嘴')
                         }else if(z){
                             event.reply([
-                                {'type':'text', 'text':'輸入大於0的數字啦 ! 幹, 你科成為喔 ?'},
+                                {'type':'text', 'text':'請輸入大於0的數字啦 ! '},
                                 {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
                             );
                         }
@@ -638,19 +644,19 @@ bot.on('postback', function (event) {
                 console.log("輸入取餐時間")
                 postStatus = "setDateTime"
                 var today=new Date();
-                //--date-time formate
+                //--date-time-formate---start------
                 var cMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
                 var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
 
                 var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
                 var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
-
-                //--date-time formate
+                //--date-time-formate---end--------
                 var cOrderDate =today.getFullYear()+"-"+cMonth+"-"+cDay;
                 var cOrderTime =cHours+':'+cMinutes;
-                // temp.datetimepicker.template.actions[0].min = cOrderDate+"t"+cOrderTime
+                temp.datetimepicker.template.actions[0].min = cOrderDate+"t"+cOrderTime
                 console.log(cOrderDate+"t"+cOrderTime);
                 event.reply(temp.datetimepicker)
+
             }else if(data === "datetime" && postStatus == "setDateTime"){
                 setDateTime="";
                 data += `${JSON.stringify(event.postback.params)}`;                
