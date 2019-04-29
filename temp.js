@@ -169,9 +169,12 @@ var temp_cart={
         {
           "type": "button",
           "action": {
-            "type": "postback",
-            "label": "輸入取餐時間",
-            "data": "輸入取餐時間"
+            "type": "datetimepicker",
+            "label": "設定時間日期",
+            "mode": "datetime",
+            "data": "datetime",
+            "max":"2020-01-24t23:59",
+            "min":"2019-04-29t14:33"
           },
           "color": "#58290C"
         },
@@ -208,6 +211,17 @@ datetimepicker = {
       ]
   }
 };
+// {
+//   "type": "button",
+//   "action": {
+//     "type": "postback",
+//     "label": "輸入取餐時間",
+//     "data": "輸入取餐時間"
+//   },
+//   "color": "#58290C"
+// }
+
+
 // var temp_store_contents={
 //   "type": "bubble",
 //   "hero": {
