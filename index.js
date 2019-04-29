@@ -655,9 +655,12 @@ bot.on('postback', function (event) {
                 var cOrderMINDate =today.getFullYear()+"-"+cMINMonth+"-"+cDay;
                 var cOrderMAXDate =today.getFullYear()+"-"+cMAXMonth+"-"+cDay;
                 var cOrderTime =cHours+':'+cMinutes;
+
                 temp.datetimepicker.template.actions[0].min = cOrderMINDate+"t"+cOrderTime
                 temp.datetimepicker.template.actions[0].max = cOrderMAXDate+"t"+cOrderTime
-                console.log(cOrderDate+"t"+cOrderTime);
+
+                console.log(cOrderMINDate+"t"+cOrderTime);
+                console.log(cOrderMAXDate+"t"+cOrderTime);
                 event.reply(temp.datetimepicker)
 
             }else if(data === "datetime" && postStatus == "setDateTime"){
