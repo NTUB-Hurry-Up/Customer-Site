@@ -65,7 +65,7 @@ bot.on('message', function (event) {
             var msg7 = NewArray[6];
 
             if (msg1 == "會員") {
-                console.log("if1 status: " + status);
+                console.log("one-status: " + status);
                 if (msg2 == "資訊") {
                     member.fetchMember(userId).then(data => {
                         if (data == -1) {
@@ -465,8 +465,7 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-            }
-            if(status != "") {
+            }else if(status != "") {
                 if (status == "進入修改電話程序") {
                     status = "";
                     member.UpdatePhone(msg, userId).then(data => {
