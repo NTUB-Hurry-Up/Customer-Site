@@ -615,17 +615,22 @@ bot.on('message', function (event) {
                         console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
                         var today=new Date();
+                        Date.prototype.addDays = function(days) {
+                            this.setDate(this.getDate() + days);
+                            return this;
+                        }
                         //--date-time-formate---start------
-                        var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
-                        var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
-                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
-                        var cHours = '';
                         // var cHours = (today.getHours()+9 < 10 ? '0' : '')+(today.getHours()+8);
+                        var cHours = '';
                         if(today.getHours()+8 >= 24){
+                            today.addDays(30);
                             cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
                         }else{
                             cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
                         }
+                        var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                        var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
+                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
                         var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
                         //--date-time-formate---end--------
                         var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
