@@ -433,6 +433,7 @@ bot.on('message', function (event) {
                         var cTakeDate = arrCart[0][3];
                         var cTakeTime = arrCart[0][4];
                         order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
+                            console.log(cUserid+"-"+cStoreid+"-"+cOrderDate+"-"+cOrderTime+"-"+cTakeDate+"-"+cTakeTime);
                             if (data == -9) {
                                 event.reply('執行錯誤a');
                             } else {
