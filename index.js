@@ -64,6 +64,12 @@ bot.on('message', function (event) {
             var msg6 = NewArray[5];
             var msg7 = NewArray[6];
 
+            var today=new Date();
+            Date.prototype.addDays = function(days) {
+                this.setDate(this.getDate() + days);
+                return this;
+            }
+
             if (msg1 == "會員") {
                 console.log("one-status: " + status);
                 if (msg2 == "資訊") {
@@ -419,11 +425,6 @@ bot.on('message', function (event) {
                         var cUserid = arrCart[0][0]
                         var cStoreid = arrCart[0][1]
                         //--cOrderDate-cOrderTime--end--------
-                        var today=new Date();
-                        Date.prototype.addDays = function(days) {
-                            this.setDate(this.getDate() + days);
-                            return this;
-                        }
                         //--date-time-formate---start------
                         var cHours = '';
                         if(today.getHours()+8 >= 24){
@@ -629,11 +630,11 @@ bot.on('message', function (event) {
                         }
                         console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
-                        var today=new Date();
-                        Date.prototype.addDays = function(days) {
-                            this.setDate(this.getDate() + days);
-                            return this;
-                        }
+                        // var today=new Date();
+                        // Date.prototype.addDays = function(days) {
+                        //     this.setDate(this.getDate() + days);
+                        //     return this;
+                        // }
                         //--date-time-formate---start------
                         var cHours = '';
                         if(today.getHours()+8 >= 24){
