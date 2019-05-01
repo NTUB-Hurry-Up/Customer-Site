@@ -434,7 +434,7 @@ bot.on('message', function (event) {
                         var cTakeTime = arrCart[0][4];
                         order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
                             if (data == -9) {
-                                event.reply('執行錯誤');
+                                event.reply('執行錯誤a');
                             } else {
                                 var cOrderid = "";
                                 var i = arrCart.length;
@@ -447,7 +447,7 @@ bot.on('message', function (event) {
                                     cOrderid = data.orderid
                                     order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                                         if (data == -9) {
-                                            event.reply("執行錯誤");
+                                            event.reply("執行錯誤b");
                                         } else {
                                             event.reply("訂單已送出 ! "+cOrderid);
                                         }
@@ -614,31 +614,31 @@ bot.on('message', function (event) {
                         }
                         console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
-                        var today=new Date();
-                        Date.prototype.addDays = function(days) {
-                            this.setDate(this.getDate() + days);
-                            return this;
-                        }
-                        //--date-time-formate---start------
-                        var cHours = '';
-                        if(today.getHours()+8 >= 24){
-                            cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
-                            today.addDays(1);
-                        }else{
-                            cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
-                        }
-                        var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
-                        var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
-                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
-                        var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
-                        //--date-time-formate---end--------
-                        var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
-                        var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
-                        // var cOrderTime =cHours+':'+cMinutes;
+                        // var today=new Date();
+                        // Date.prototype.addDays = function(days) {
+                        //     this.setDate(this.getDate() + days);
+                        //     return this;
+                        // }
+                        // //--date-time-formate---start------
+                        // var cHours = '';
+                        // if(today.getHours()+8 >= 24){
+                        //     cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
+                        //     today.addDays(1);
+                        // }else{
+                        //     cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                        // }
+                        // var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                        // var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
+                        // var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
+                        // var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
+                        // //--date-time-formate---end--------
+                        // var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                        // var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                        // // var cOrderTime =cHours+':'+cMinutes;
 
-                        console.log(cOrderMIN);
-                        console.log(cOrderMAX);
-                        cOrderMIN.toString();
+                        // console.log(cOrderMIN);
+                        // console.log(cOrderMAX);
+                        // cOrderMIN.toString();
                         // template.contents.footer.contents[2].action.min = cOrderMIN
                         // template.contents.footer.contents[2].action.max = cOrderMAX
 
