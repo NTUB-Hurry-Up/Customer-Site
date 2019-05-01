@@ -418,18 +418,32 @@ bot.on('message', function (event) {
                     if(arrCart.length > 1 && arrCart[0].length>3){
                         var cUserid = arrCart[0][0]
                         var cStoreid = arrCart[0][1]
+                        //--cOrderDate-cOrderTime--end--------
                         var today=new Date();
-                        
+                        Date.prototype.addDays = function(days) {
+                            this.setDate(this.getDate() + days);
+                            return this;
+                        }
                         //--date-time-formate---start------
+                        var cHours = '';
+                        if(today.getHours()+8 >= 24){
+                            cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
+                            today.addDays(1);
+                        }else{
+                            cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                        }
                         var cMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
                         var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
 
-                        var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                        // var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
                         var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
                         //--date-time-formate---end--------
                         var cOrderDate =today.getFullYear()+"-"+cMonth+"-"+cDay;
                         var cOrderTime =cHours+':'+cMinutes;
                         
+
+                        //--cOrderDate-cOrderTime--end--------
+
                         var cTakeDate = arrCart[0][3];
                         var cTakeTime = arrCart[0][4];
                         order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
@@ -615,33 +629,33 @@ bot.on('message', function (event) {
                         }
                         console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
-                        // var today=new Date();
-                        // Date.prototype.addDays = function(days) {
-                        //     this.setDate(this.getDate() + days);
-                        //     return this;
-                        // }
-                        // //--date-time-formate---start------
-                        // var cHours = '';
-                        // if(today.getHours()+8 >= 24){
-                        //     cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
-                        //     today.addDays(1);
-                        // }else{
-                        //     cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
-                        // }
-                        // var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
-                        // var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
-                        // var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
-                        // var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
-                        // //--date-time-formate---end--------
-                        // var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
-                        // var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
-                        // // var cOrderTime =cHours+':'+cMinutes;
+                        var today=new Date();
+                        Date.prototype.addDays = function(days) {
+                            this.setDate(this.getDate() + days);
+                            return this;
+                        }
+                        //--date-time-formate---start------
+                        var cHours = '';
+                        if(today.getHours()+8 >= 24){
+                            cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
+                            today.addDays(1);
+                        }else{
+                            cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                        }
+                        var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                        var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
+                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
+                        var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
+                        //--date-time-formate---end--------
+                        var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                        var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                        // var cOrderTime =cHours+':'+cMinutes;
 
-                        // console.log(cOrderMIN);
-                        // console.log(cOrderMAX);
-                        // cOrderMIN.toString();
-                        // template.contents.footer.contents[2].action.min = cOrderMIN
-                        // template.contents.footer.contents[2].action.max = cOrderMAX
+                        console.log(cOrderMIN);
+                        console.log(cOrderMAX);
+                        cOrderMIN.toString();
+                        template.contents.footer.contents[2].action.min = cOrderMIN
+                        template.contents.footer.contents[2].action.max = cOrderMAX
 
                         template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
                         template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
