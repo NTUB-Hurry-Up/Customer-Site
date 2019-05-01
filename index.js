@@ -627,8 +627,8 @@ bot.on('message', function (event) {
                         // var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
                         // var cOrderTime =cHours+':'+cMinutes;
 
-                        console.log(cOrderMIN);
-                        console.log(cOrderMAX);
+                        // console.log(cOrderMIN);
+                        // console.log(cOrderMAX);
                         cOrderMIN.toString();
                         template.contents.footer.contents[2].action.min = cOrderMIN
                         template.contents.footer.contents[2].action.max = cOrderMAX
