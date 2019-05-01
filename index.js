@@ -623,8 +623,8 @@ bot.on('message', function (event) {
                         var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
                         var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
                         //--date-time-formate---end--------
-                        var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
-                        var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                        // var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                        // var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
                         // var cOrderTime =cHours+':'+cMinutes;
 
                         console.log(cOrderMIN);
