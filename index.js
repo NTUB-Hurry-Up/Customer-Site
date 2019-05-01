@@ -623,8 +623,8 @@ bot.on('message', function (event) {
                         // var cHours = (today.getHours()+9 < 10 ? '0' : '')+(today.getHours()+8);
                         var cHours = '';
                         if(today.getHours()+8 >= 24){
-                            today.addDays(30);
                             cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
+                            today.addDays(1);
                         }else{
                             cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
                         }
