@@ -619,8 +619,13 @@ bot.on('message', function (event) {
                         var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
                         var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
                         var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
-
-                        var cHours = (today.getHours()+9 < 10 ? '0' : '')+(today.getHours()+9);
+                        var cHours = '';
+                        // var cHours = (today.getHours()+9 < 10 ? '0' : '')+(today.getHours()+8);
+                        if(today.getHours()+8 >= 24){
+                            cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
+                        }else{
+                            cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                        }
                         var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
                         //--date-time-formate---end--------
                         var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
