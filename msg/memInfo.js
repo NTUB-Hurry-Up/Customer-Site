@@ -3,44 +3,23 @@
 //引用操作資料庫的物件
 const temp = require('./../temp');
 const member = require('./../member');
-
+var test = require('./../test');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
 var memInfo = function(id){
     //存放結果
-    var result={
-        "type": "template",
-        "altText": "this is a buttons template",
-        "template": {
-            "type": "buttons",
-            "actions": [
-                {
-                "type": "message",
-                "label": "修改姓名",
-                "text": "會員,修改姓名"
-                },
-                {
-                "type": "message",
-                "label": "修改電話",
-                "text": "會員,修改電話"
-                }
-            ],
-            "title": "會員資訊",
-            "text": "顆顆"
-        }
-    } 
+   
 
     //新增會員資料
     
-    member.fetchMember(id).then(data,callback => {
+    member.fetchMember(id).then(data => {
         if (data == -1) {
             console.log("找不到資料")
         } else if (data == -9) {
             console.log("執行錯誤")
         } else {
-            result.template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
-            return callback(result)
+            test.result.template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
         }
     })
 

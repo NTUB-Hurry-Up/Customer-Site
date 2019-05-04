@@ -74,7 +74,8 @@ bot.on('message', function (event) {
             if (msg1 == "會員") {
                 console.log("one-status: " + status);
                 if (msg2 == "資訊") {
-                    console.log(memInfo.memInfo(userId))
+                    var test = require('./test');
+                    console.log(test.result)
                     // event.reply(memInfo.memInfo(userId));
 
                 } else if (msg2 == "修改姓名") {
