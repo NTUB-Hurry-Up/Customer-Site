@@ -74,12 +74,12 @@ bot.on('message', function (event) {
                 this.setDate(this.getDate() + days);
                 return this;
             }
-            var CartQ = 10;
+            var CartQ = null;
             for(var q = 0; q < objCartQty.arrQty.length; q++){
                 if(userId == objCartQty.arrQty[0].userid){
                     CartQ = q;
                 }else{
-                    CartQ = 8;
+                    CartQ = -1;
                 }
             }
             console.log('cartQ----->'+CartQ)
@@ -135,11 +135,16 @@ bot.on('message', function (event) {
                             }
                             if(arrCart[0][1] == cstoreid){
                                 arrCartQty=[cfoodid, cfoodName, cfoodPrice];
-                                objCartQty.arrQty[0].userid = userId
-                                objCartQty.arrQty[0].foodid = cfoodid
-                                objCartQty.arrQty[0].foodName = cfoodName
-                                objCartQty.arrQty[0].foodPrice = cfoodPrice
-                                console.log(objCartQty.arrQty[0])
+                                if(CartQ == -1){
+                                    CartQ=objCartQty.arrQty.length
+                                }
+                                objCartQty.arrQty[CartQ].userid = userId
+                                objCartQty.arrQty[CartQ].foodid = cfoodid
+                                objCartQty.arrQty[CartQ].foodName = cfoodName
+                                objCartQty.arrQty[CartQ].foodPrice = cfoodPrice
+                                console.log('cartQ2----->'+CartQ)
+                                console.log(objCartQty.arrQty[CartQ])
+                                
                                 status = "arrCartQty";
                                 statusTime = 2;
                                 event.reply("數量 ?");
