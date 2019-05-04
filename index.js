@@ -136,15 +136,16 @@ bot.on('message', function (event) {
                             if(arrCart[0][1] == cstoreid){
                                 arrCartQty=[cfoodid, cfoodName, cfoodPrice];
                                 if(CartQ == -1){
-                                    console.log('length----->'+objCartQty.arrQty.length)
-                                    CartQ=objCartQty.arrQty.length
+                                    console.log("-1------->"+CartQ);
+                                }else{
+                                    objCartQty.arrQty[CartQ].userid = userId
+                                    objCartQty.arrQty[CartQ].foodid = cfoodid
+                                    objCartQty.arrQty[CartQ].foodName = cfoodName
+                                    objCartQty.arrQty[CartQ].foodPrice = cfoodPrice
+                                    console.log('cartQ2----->'+CartQ)
+                                    console.log(objCartQty.arrQty[CartQ])
+
                                 }
-                                objCartQty.arrQty[CartQ].userid = userId
-                                objCartQty.arrQty[CartQ].foodid = cfoodid
-                                objCartQty.arrQty[CartQ].foodName = cfoodName
-                                objCartQty.arrQty[CartQ].foodPrice = cfoodPrice
-                                console.log('cartQ2----->'+CartQ)
-                                console.log(objCartQty.arrQty[CartQ])
                                 
                                 status = "arrCartQty";
                                 statusTime = 2;
