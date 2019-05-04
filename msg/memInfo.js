@@ -42,7 +42,8 @@ var memInfo = function(id){
             console.log(result)
         }
     })
-    console.log(result)
+    setTimeout(function(){ console.log(result)},10000)
+   
     return result; 
 
     //回傳執行結果
