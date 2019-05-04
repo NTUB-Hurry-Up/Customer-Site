@@ -73,7 +73,6 @@ bot.on('message', function (event) {
 
             if (msg1 == "會員") {
                 if (msg2 == "資訊") {
-                    console.log(test.result)
                     memInfo.memInfo(userId).then(function(){
                         
                         event.reply(temp.temp1);
