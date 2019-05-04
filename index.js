@@ -162,6 +162,7 @@ bot.on('message', function (event) {
                                 arrCart[0]=[userId,cstoreid,cstoreName];
                                 if(CartA == -1){
                                     CartA = objCart.arrCart.length
+                                    console.log("CartA->"+CartA+", objCart.arrCart.length->"+objCart.arrCart.length)
                                 }
                                 objCart.arrCart[CartA]={
                                     'userid' : userId,
