@@ -158,6 +158,7 @@ bot.on('message', function (event) {
                                 console.log('cartQ2----->'+CartQ)
                                 console.log(objCartQty.arrQty[CartQ])
                                 console.log(objCartQty.length)
+                                console.log(objCartQty.arrQty.length)
 
                                 
                                 
