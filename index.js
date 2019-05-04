@@ -49,7 +49,9 @@ var status = "";
 var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
-
+var objCartQty={
+    arrQty:[{}]
+}
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -120,11 +122,16 @@ bot.on('message', function (event) {
                             cfoodPrice = data.foodPrice;
 
                             console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
-                            if(arrCart.length == 0){ 
+                            if(arrCart.length == 0){
                                 arrCart[0]=[userId,cstoreid,cstoreName];
                             }
                             if(arrCart[0][1] == cstoreid){
                                 arrCartQty=[cfoodid, cfoodName, cfoodPrice];
+                                objCartQty.arrQty[0].userid = userId
+                                objCartQty.arrQty[0].foodid = cfoodid
+                                objCartQty.arrQty[0].foodName = cfoodName
+                                objCartQty.arrQty[0].foodPrice = cfoodPrice
+                                console.log(objCartQty.arrQty[0])
                                 status = "arrCartQty";
                                 statusTime = 2;
                                 event.reply("數量 ?");
