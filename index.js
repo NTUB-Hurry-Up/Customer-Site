@@ -158,7 +158,7 @@ bot.on('message', function (event) {
                             cfoodPrice = data.foodPrice;
 
                             //console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
-                            if(CartA == -1 ||objCart.arrCart[CartA].arrfood.length == 0){
+                            if(CartA == -1 || objCart.arrCart[CartA].arrfood.length == 0){
                                 arrCart[0]=[userId,cstoreid,cstoreName];
                                 if(CartA == -1){
                                     CartA = objCart.arrCart.length
@@ -171,7 +171,7 @@ bot.on('message', function (event) {
                                     'arrfood' : []
                                 }
                             }
-                            if(arrCart[0][1] == cstoreid){
+                            if(objCart.arrCart[CartA].storeid == cstoreid){
                                 arrCartQty=[cfoodid, cfoodName, cfoodPrice];
                                 if(CartQ == -1){
                                     CartQ = objCartQty.arrQty.length
@@ -197,7 +197,7 @@ bot.on('message', function (event) {
     
                                 template.actions[1].type = "message";
                                 template.actions[1].label = "否";
-                                template.actions[1].text = msg1+",查看菜單,"+arrCart[0][1]+",否";
+                                template.actions[1].text = msg1+",查看菜單,"+objCart.arrCart[CartA].storeid+",否";
                                 template.title = "購物車訊息"
                                 template.text = "要改下訂這家店嗎 ?"
                                 status = "changeStore";
