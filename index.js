@@ -76,7 +76,7 @@ bot.on('message', function (event) {
             }
             var CartQ;
             for(var q = 0; q < objCartQty.arrQty.length; q++){
-                if(userId == objCartQty.arrQty[0].userid){
+                if(userId == objCartQty.arrQty[q].userid){
                     CartQ = q;
                     break;
                 }else{
