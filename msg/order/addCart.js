@@ -23,8 +23,8 @@ var addCart = function(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfood
                     // arrCart[0]=[userId,cstoreid,cstoreName];
                     if(CartA == -1){
                         // CartA = index.objCart.arrCart.length
-                        CartA = index.objCart
-                        console.log(CartA)
+                        // CartA = index.objCart
+                        console.log(index.objCart)
                         // console.log("CartA->"+CartA+", objCart.arrCart.length->"+index.objCart.arrCart.length)
                     }
                     // index.objCart.arrCart[CartA]={
