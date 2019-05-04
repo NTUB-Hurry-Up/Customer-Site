@@ -39,9 +39,11 @@ var memInfo = function(id){
                     "text": "姓名 : " + data.name + "\n電話 : " + data.phone
                 }
             }
-            return result; 
+            console.log(result)
         }
     })
+    console.log(result)
+    return result; 
 
     //回傳執行結果
 }
