@@ -20,7 +20,7 @@ var addCart = function(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfood
 
                 //console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
                 if(CartA == -1){
-                    arrCart[0]=[userId,cstoreid,cstoreName];
+                    // arrCart[0]=[userId,cstoreid,cstoreName];
                     if(CartA == -1){
                         CartA = index.objCart.arrCart.length
                         console.log("CartA->"+CartA+", objCart.arrCart.length->"+index.objCart.arrCart.length)
@@ -35,7 +35,7 @@ var addCart = function(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfood
                 console.log("objCart.arrCart[CartA].storeid-->"+index.objCart.arrCart[CartA].storeid)
                 console.log("cstoreid-->"+cstoreid)
                 if(index.objCart.arrCart[CartA].storeid == cstoreid){
-                    arrCartQty=[cfoodid, cfoodName, cfoodPrice];
+                    // arrCartQty=[cfoodid, cfoodName, cfoodPrice];
                     if(CartQ == -1){
                         CartQ = index.objCartQty.arrQty.length
                     }
@@ -49,8 +49,8 @@ var addCart = function(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfood
 
                     
                     
-                    status = "arrCartQty";
-                    statusTime = 2;
+                    // status = "arrCartQty";
+                    // statusTime = 2;
                     event.reply("數量 ?");
                 }else{
                     const template = temp.temp1.template;
@@ -63,7 +63,7 @@ var addCart = function(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfood
                     template.actions[1].text = msg1+",查看菜單,"+index.objCart.arrCart[CartA].storeid+",否";
                     template.title = "購物車訊息"
                     template.text = "要改下訂這家店嗎 ?"
-                    status = "changeStore";
+                    // status = "changeStore";
                     event.reply(temp.temp1);
                     
                 }
