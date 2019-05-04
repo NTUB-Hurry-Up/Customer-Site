@@ -8,8 +8,8 @@ const member = require('./member');
 const store = require('./store');
 const temp = require('./temp');
 const order = require('./order');
-const memInfo = require('./msg/memInfo');
-const storeInfo = require('./msg/storeInfo');
+const memInfo = require('./msg/member/memInfo');
+const storeInfo = require('./msg/store/storeInfo');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -86,7 +86,6 @@ bot.on('message', function (event) {
                 }
             }else if(msg1 == "店家") {
                 if(msg2 == "資訊") {
-                    
                     storeInfo.storeInfo(event)
                 }else if(msg2 == "查看菜單") {
                     store.fetchStorefood(msg3).then(data => {

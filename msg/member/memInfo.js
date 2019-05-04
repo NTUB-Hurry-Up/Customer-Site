@@ -1,7 +1,7 @@
 
 //引用操作資料庫的物件
-const temp = require('./../temp');
-const member = require('./../member');
+const temp = require('./../../temp');
+const member = require('./../../member');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------

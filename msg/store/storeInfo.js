@@ -1,13 +1,11 @@
 
 //引用操作資料庫的物件
-const temp = require('./../temp');
-
-const store = require('./../store');
+const temp = require('./../../temp');
+const store = require('./../../store');
 //------------------------------------------
-// 新增會員資料
+// 查詢所有的店家
 //------------------------------------------
 var storeInfo = function(event){
-    //存放結果
         event.source.profile().then(function (profile) {
             store.fetchStore().then(data => {
                 if (data == -1) {
@@ -16,10 +14,7 @@ var storeInfo = function(event){
                     event.reply('執行錯誤');
                 } else {
                     var arrStoreList = [];
-                    // var o = temp.temp_store_contents
                     arrStoreList.push(temp.temp_store);
-                    // console.log("first-> arr: " + arr.length)
-        
                     for (var i = 0; i < data.length; i++) {
                         // (function(o){
                         //     o.body.contents[0].text=data[i].storeName;
@@ -27,7 +22,6 @@ var storeInfo = function(event){
                         //     o.body.contents[1].contents[1].contents[1].text=data[i].storeTel;
                         //     arr[0].contents.contents.push(o);
                         // })(Object.assign({}, o));
-        
                         arrStoreList[0].contents.contents.push(
                             {
                                 "type": "bubble",
@@ -144,7 +138,6 @@ var storeInfo = function(event){
                         );
         
                     }
-                    console.log(arrStoreList[0])
                     event.reply(arrStoreList[0]);
                     arrStoreList[0].contents.contents.length = 0;
                     arrStoreList.length = 0;
@@ -152,12 +145,6 @@ var storeInfo = function(event){
                 }
             })
           });
-        
-    //新增會員資料
-    
-   
-
-    //回傳執行結果
 }
 
 
