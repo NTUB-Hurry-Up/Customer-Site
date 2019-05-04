@@ -171,6 +171,8 @@ bot.on('message', function (event) {
                                     'arrfood' : []
                                 }
                             }
+                            console.log("objCart.arrCart[CartA].storeid-->"+objCart.arrCart[CartA].storeid)
+                            console.log("cstoreid-->"+cstoreid)
                             if(objCart.arrCart[CartA].storeid == cstoreid){
                                 arrCartQty=[cfoodid, cfoodName, cfoodPrice];
                                 if(CartQ == -1){
