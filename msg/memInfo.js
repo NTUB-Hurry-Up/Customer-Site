@@ -40,7 +40,7 @@ var memInfo = function(id){
         } else {
             result.template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
         }
-    }).then(result=>{
+    }).then(function(){
         console.log(result)
         return result; 
     })
