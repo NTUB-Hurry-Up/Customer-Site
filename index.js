@@ -10,7 +10,7 @@ const temp = require('./temp');
 const order = require('./order');
 const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
-const foodInfo = require('./msg/foodInfo/foodInfo');
+const foodInfo = require('./msg/store/foodInfo');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
