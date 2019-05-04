@@ -77,9 +77,11 @@ bot.on('message', function (event) {
             var CartQ;
             for(var q = 0; q < objCartQty.arrQty.length; q++){
                 if(userId == objCartQty.arrQty[q].userid){
+                    console.log('==')
                     CartQ = q;
                     break;
                 }else{
+                    console.log('!=')
                     CartQ = -1;
                 }
             }
