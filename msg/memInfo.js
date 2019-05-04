@@ -9,7 +9,7 @@ const member = require('./../member');
 //------------------------------------------
 var memInfo = function(id){
     //存放結果
-    // let result;  
+    var result={};  
 
     //新增會員資料
     member.fetchMember(id).then(data => {
@@ -18,24 +18,46 @@ var memInfo = function(id){
         } else if (data == -9) {
             event.reply('執行錯誤');
         } else {
-            const template = temp.temp1.template;
-            template.actions[0].type = "message";
-            template.actions[0].label = "修改姓名";
-            template.actions[0].text = "會員,修改姓名";
-
-            template.actions[1].type = "message";
-            template.actions[1].label = "修改電話";
-            template.actions[1].text = "會員,修改電話";
-            template.title = "會員資訊"
-            template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+            result={
+                "type": "template",
+                "altText": "this is a buttons template",
+                "template": {
+                    "type": "buttons",
+                    "actions": [
+                        {
+                        "type": "message",
+                        "label": "修改姓名",
+                        "text": "會員,修改姓名"
+                        },
+                        {
+                        "type": "message",
+                        "label": "修改電話",
+                        "text": "會員,修改電話"
+                        }
+                    ],
+                    "title": "會員資訊",
+                    "text": "姓名 : " + data.name + "\n電話 : " + data.phone
+                }
+            }
+            return result; 
         }
     })
 
     //回傳執行結果
-    // return result;  
 }
 
 
 //匯出
 module.exports = {memInfo};
 
+
+            // const template = temp.temp1.template;
+            // template.actions[0].type = "message";
+            // template.actions[0].label = "修改姓名";
+            // template.actions[0].text = "會員,修改姓名";
+
+            // template.actions[1].type = "message";
+            // template.actions[1].label = "修改電話";
+            // template.actions[1].text = "會員,修改電話";
+            // template.title = "會員資訊"
+            // template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
