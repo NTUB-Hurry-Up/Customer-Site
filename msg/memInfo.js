@@ -34,9 +34,9 @@ var memInfo = function(id){
     //新增會員資料
     member.fetchMember(id).then(data => {
         if (data == -1) {
-            event.reply('找不到資料');
+            console.log("找不到資料")
         } else if (data == -9) {
-            event.reply('執行錯誤');
+            console.log("執行錯誤")
         } else {
             result.template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
         }
