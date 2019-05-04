@@ -72,11 +72,13 @@ bot.on('message', function (event) {
             var msg6 = NewArray[5];
             var msg7 = NewArray[6];
             console.log(objCartQty.arrQty)
+            console.log(objCart.arrCart)
             var today=new Date();
             Date.prototype.addDays = function(days) {
                 this.setDate(this.getDate() + days);
                 return this;
             }
+            
             var CartQ;
             if(objCartQty.arrQty.length == 0){
                 CartQ = -1;
