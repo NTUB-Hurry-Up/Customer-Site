@@ -72,11 +72,12 @@ bot.on('message', function (event) {
             }
 
             if (msg1 == "會員") {
-                console.log("one-status: " + status);
                 if (msg2 == "資訊") {
-                    var test = require('./test');
                     console.log(test.result)
-                    // event.reply(memInfo.memInfo(userId));
+                    memInfo.memInfo(userId).then(function(){
+                        
+                        event.reply(temp.temp1);
+                    })
 
                 } else if (msg2 == "修改姓名") {
                     status = "進入修改姓名程序";
