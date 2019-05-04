@@ -8,7 +8,6 @@ const member = require('./../member');
 var memInfo = function(event){
     //存放結果
         event.source.profile().then(function (profile) {
-            console.log("event.source.id:"+event.source.id);
             member.fetchMember(profile.userId).then(data => {
                 if (data == -1) {
                     console.log("找不到資料")
