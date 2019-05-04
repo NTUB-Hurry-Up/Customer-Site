@@ -40,8 +40,11 @@ var memInfo = function(id){
         } else {
             result.template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
         }
+    }).then(result=>{
+        console.log(result)
+        return result; 
     })
-    return result; 
+    
 
     //回傳執行結果
 }
