@@ -144,6 +144,7 @@ bot.on('message', function (event) {
                                 objCartQty.arrQty[CartQ]={
                                     'userid' : userId,
                                     'foodid' : cfoodid, 
+                                    'foodName' : cfoodName, 
                                     'foodPrice' : cfoodPrice
                                 }
                                 console.log('cartQ2----->'+CartQ)
