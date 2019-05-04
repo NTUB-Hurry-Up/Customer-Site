@@ -74,7 +74,13 @@ bot.on('message', function (event) {
                 this.setDate(this.getDate() + days);
                 return this;
             }
-
+            var CartQ = 0;
+            for(var q = 0; q < objCartQty.arrQty; q++){
+                if(userId == objCartQty.arrQty[0].userid){
+                    CartQ = q;
+                }
+            }
+            console.log('cartQ----->'+CartQ)
             if (msg1 == "會員") {
                 if (msg2 == "資訊") {
                    memInfo.memInfo(event)
