@@ -139,17 +139,15 @@ bot.on('message', function (event) {
                                     console.log("-1------->"+CartQ);
                                     CartQ = objCartQty.arrQty.length
                                     console.log("-1=======>"+CartQ);
-                                }else{
-                                    // objCartQty.arrQty[0].userid = userId
-                                    // objCartQty.arrQty[1].foodid = cfoodid
-                                    // objCartQty.arrQty[2].foodName = cfoodName
-                                    // objCartQty.arrQty[3].foodPrice = cfoodPrice
-                                    // console.log('cartQ2----->'+CartQ)
-                                    // console.log(objCartQty.arrQty[CartQ])
-                                    // console.log(objCartQty.arrQty.length)
-                                    // console.log(objCartQty.length)
-
                                 }
+                                    objCartQty.arrQty[CartQ].userid = userId
+                                    objCartQty.arrQty[CartQ].foodid = cfoodid
+                                    objCartQty.arrQty[CartQ].foodName = cfoodName
+                                    objCartQty.arrQty[CartQ].foodPrice = cfoodPrice
+                                    console.log('cartQ2----->'+CartQ)
+                                    console.log(objCartQty.arrQty[CartQ])
+
+                                
                                 
                                 status = "arrCartQty";
                                 statusTime = 2;
