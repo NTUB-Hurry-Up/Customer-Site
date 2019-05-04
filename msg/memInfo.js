@@ -5,10 +5,10 @@ const member = require('./../member');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
-var memInfo = function(id){
+var memInfo = function(event){
     //存放結果
    
-        member.fetchMember(id).then(data => {
+        member.fetchMember(event.source.id).then(data => {
             if (data == -1) {
                 console.log("找不到資料")
             } else if (data == -9) {
@@ -24,6 +24,7 @@ var memInfo = function(id){
                 template.actions[1].text = "會員,修改電話";
                 template.title = "會員資訊"
                 template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+                event.reply( temp.temp1);
             }
         })
     //新增會員資料

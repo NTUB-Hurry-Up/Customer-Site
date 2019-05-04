@@ -73,8 +73,8 @@ bot.on('message', function (event) {
 
             if (msg1 == "會員") {
                 if (msg2 == "資訊") {
-                   memInfo.memInfo(userId)
-                    setTimeout(function(){event.reply(temp.temp1),3000})
+                   memInfo.memInfo(event)
+                   
                 } else if (msg2 == "修改姓名") {
                     status = "進入修改姓名程序";
                     console.log(status);
