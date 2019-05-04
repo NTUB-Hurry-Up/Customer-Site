@@ -38,7 +38,7 @@ var memInfo = function(id){
         } else if (data == -9) {
             event.reply('執行錯誤');
         } else {
-            template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
+            result.template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
         }
     })
     return result; 
