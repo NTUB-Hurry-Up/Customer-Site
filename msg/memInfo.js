@@ -7,7 +7,7 @@ const member = require('./../member');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
-var memInfo = function(id){
+var memInfo = function(id,callback){
     //存放結果
     var result={
         "type": "template",
@@ -32,6 +32,7 @@ var memInfo = function(id){
     } 
 
     //新增會員資料
+    
     member.fetchMember(id).then(data => {
         if (data == -1) {
             console.log("找不到資料")
@@ -39,12 +40,9 @@ var memInfo = function(id){
             console.log("執行錯誤")
         } else {
             result.template.text="姓名 : " + data.name + "\n電話 : " + data.phone;
+            return callback(result)
         }
-    }).then(function(){
-        console.log(result)
-        return result; 
     })
-    
 
     //回傳執行結果
 }

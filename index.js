@@ -74,9 +74,9 @@ bot.on('message', function (event) {
             if (msg1 == "會員") {
                 console.log("one-status: " + status);
                 if (msg2 == "資訊") {
+                    console.log(memInfo.memInfo(userId))
+                    // event.reply(memInfo.memInfo(userId));
 
-                    event.reply(memInfo.memInfo(userId));
-                    
                 } else if (msg2 == "修改姓名") {
                     status = "進入修改姓名程序";
                     console.log(status);
