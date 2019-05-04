@@ -92,12 +92,14 @@ bot.on('message', function (event) {
                     }
                 }
             }
+            console.log(objCart.arrCart.length)
             var CartA;
             if(objCart.arrCart.length == 0){
                 console.log('==0')
                 CartA = -1;
             }else{
                 for(var p = 0; p < objCart.arrCart.length; p++){
+                    console.log("p="+p)
                     if(userId == objCart.arrCart[p].userid){
                         console.log('==')
                         CartA = p;
