@@ -52,6 +52,9 @@ var arrCartQty = [];
 var objCartQty={
     arrQty:[]
 }
+var objCart={
+    arrCart:[]
+}
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -76,22 +79,34 @@ bot.on('message', function (event) {
             }
             var CartQ;
             if(objCartQty.arrQty.length == 0){
-                console.log('==0')
                 CartQ = -1;
             }else{
                 for(var q = 0; q < objCartQty.arrQty.length; q++){
                     if(userId == objCartQty.arrQty[q].userid){
-                        console.log('==')
                         CartQ = q;
                         break;
                     }else{
-                        console.log('!=')
                         CartQ = -1;
                     }
                 }
             }
-            
-            console.log('cartQ----->'+CartQ)
+            var CartA;
+            if(objCart.arrCart.length == 0){
+                console.log('==0')
+                CartA = -1;
+            }else{
+                for(var p = 0; p < objCart.arrCart.length; p++){
+                    if(userId == objCart.arrCart[p].userid){
+                        console.log('==')
+                        CartA = p;
+                        break;
+                    }else{
+                        console.log('!=')
+                        CartA = -1;
+                    }
+                }
+            }
+            console.log('CartA-->'+CartA)
             if (msg1 == "會員") {
                 if (msg2 == "資訊") {
                    memInfo.memInfo(event)
@@ -141,13 +156,16 @@ bot.on('message', function (event) {
                             //console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
                             if(arrCart.length == 0){
                                 arrCart[0]=[userId,cstoreid,cstoreName];
+                                objCart.arrCart[CartA]={
+                                    'userid' : userId,
+                                    'storeid' : cstoreid, 
+                                    'storeName' : cstoreName
+                                }
                             }
                             if(arrCart[0][1] == cstoreid){
                                 arrCartQty=[cfoodid, cfoodName, cfoodPrice];
                                 if(CartQ == -1){
-                                    console.log("-1------->"+CartQ);
                                     CartQ = objCartQty.arrQty.length
-                                    console.log("-1=======>"+CartQ);
                                 }
                                 objCartQty.arrQty[CartQ]={
                                     'userid' : userId,
@@ -155,10 +173,7 @@ bot.on('message', function (event) {
                                     'foodName' : cfoodName, 
                                     'foodPrice' : cfoodPrice
                                 }
-                                console.log('cartQ2----->'+CartQ)
                                 console.log(objCartQty.arrQty[CartQ])
-                                console.log(objCartQty.length)
-                                console.log(objCartQty.arrQty.length)
 
                                 
                                 
