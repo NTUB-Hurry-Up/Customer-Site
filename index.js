@@ -74,7 +74,7 @@ bot.on('message', function (event) {
                 this.setDate(this.getDate() + days);
                 return this;
             }
-            var CartQ = 0;
+            var CartQ = 10;
             for(var q = 0; q < objCartQty.arrQty; q++){
                 if(userId == objCartQty.arrQty[0].userid){
                     CartQ = q;
