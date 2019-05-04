@@ -27,12 +27,12 @@ var addCart = function(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfood
                         console.log(CartA)
                         // console.log("CartA->"+CartA+", objCart.arrCart.length->"+index.objCart.arrCart.length)
                     }
-                    index.objCart.arrCart[CartA]={
-                        'userid' : userId,
-                        'storeid' : cstoreid, 
-                        'storeName' : cstoreName,
-                        'arrfood' : []
-                    }
+                    // index.objCart.arrCart[CartA]={
+                    //     'userid' : userId,
+                    //     'storeid' : cstoreid, 
+                    //     'storeName' : cstoreName,
+                    //     'arrfood' : []
+                    // }
                 }
                 // console.log("objCart.arrCart[CartA].storeid-->"+index.objCart.arrCart[CartA].storeid)
                 // console.log("cstoreid-->"+cstoreid)

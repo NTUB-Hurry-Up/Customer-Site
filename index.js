@@ -148,7 +148,9 @@ bot.on('message', function (event) {
                     var cstoreName = "";
                     var cfoodName = "";
                     var cfoodPrice = "";
-                    addCart.addCart(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfoodName, cfoodPrice);
+                    // CartA = index.objCart
+                    console.log(objCart)
+                    // addCart.addCart(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfoodName, cfoodPrice);
                 }
             }else if(msg1 == "購物車"){
                 if(msg2 == "清空"){
