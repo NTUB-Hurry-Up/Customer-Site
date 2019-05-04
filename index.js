@@ -158,7 +158,7 @@ bot.on('message', function (event) {
                             cfoodPrice = data.foodPrice;
 
                             //console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
-                            if(CartA == -1 || objCart.arrCart[CartA].arrfood.length == 0){
+                            if(CartA == -1){
                                 arrCart[0]=[userId,cstoreid,cstoreName];
                                 if(CartA == -1){
                                     CartA = objCart.arrCart.length
