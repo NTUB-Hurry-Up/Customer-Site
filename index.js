@@ -136,7 +136,7 @@ bot.on('message', function (event) {
                             if(arrCart[0][1] == cstoreid){
                                 arrCartQty=[cfoodid, cfoodName, cfoodPrice];
                                 if(CartQ == -1){
-                                    console.log('objCartQty.arrQty.length----->'+objCartQty.arrQty.length)
+                                    console.log('length----->'+objCartQty.arrQty.length)
                                     CartQ=objCartQty.arrQty.length
                                 }
                                 objCartQty.arrQty[CartQ].userid = userId
