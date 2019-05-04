@@ -7,7 +7,7 @@ const member = require('./../member');
 //------------------------------------------
 var memInfo = function(event){
     //存放結果
-   
+        console.log("event.source.id:"+event.source.id);
         member.fetchMember(event.source.id).then(data => {
             if (data == -1) {
                 console.log("找不到資料")
