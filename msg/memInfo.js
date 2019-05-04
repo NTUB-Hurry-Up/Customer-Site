@@ -7,7 +7,7 @@ const member = require('./../member');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
-var memInfo = function(id,callback){
+var memInfo = function(id){
     //存放結果
     var result={
         "type": "template",
@@ -33,7 +33,7 @@ var memInfo = function(id,callback){
 
     //新增會員資料
     
-    member.fetchMember(id).then(data => {
+    member.fetchMember(id).then(data,callback => {
         if (data == -1) {
             console.log("找不到資料")
         } else if (data == -9) {
