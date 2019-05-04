@@ -88,7 +88,7 @@ bot.on('message', function (event) {
                    memInfo.memInfo(event)
                 } else if (msg2 == "修改姓名") {
                     status = "進入修改姓名程序";
-                    console.log(status);
+                    //console.log(status);
                     event.reply('請輸入您的姓名');
 
                 } else if (msg2 == "修改電話") {
@@ -129,7 +129,7 @@ bot.on('message', function (event) {
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
 
-                            console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
+                            //console.log("foodName->"+data.foodName+", storeName->"+data.storeName+", foodPrice->"+data.foodPrice)
                             if(arrCart.length == 0){
                                 arrCart[0]=[userId,cstoreid,cstoreName];
                             }
@@ -210,7 +210,7 @@ bot.on('message', function (event) {
                         var cTakeDate = arrCart[0][3];
                         var cTakeTime = arrCart[0][4];
                         order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
-                            console.log(cUserid+"-"+cStoreid+"-"+cOrderDate+"-"+cOrderTime+"-"+cTakeDate+"-"+cTakeTime);
+                            //console.log(cUserid+"-"+cStoreid+"-"+cOrderDate+"-"+cOrderTime+"-"+cTakeDate+"-"+cTakeTime);
                             if (data == -9) {
                                 event.reply('執行錯誤a');
                             } else {
@@ -233,8 +233,8 @@ bot.on('message', function (event) {
                                 }
                                 arrCart.length = 0;
                                 arrCartQty.length = 0;
-                                console.log(arrCart);
-                                console.log(arrCartQty);
+                                //console.log(arrCart);
+                                //console.log(arrCartQty);
                             }
                         })
                     }else if(arrCart.length > 1 && arrCart[1].length >= 1){
@@ -257,10 +257,10 @@ bot.on('message', function (event) {
                     })
                 }else if(status == "進入修改姓名程序") {
                     
-                    console.log(status);
+                    //console.log(status);
                     status = "";
                     
-                    console.log(status);
+                    //console.log(status);
                     member.UpdateName(msg, userId).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
@@ -277,8 +277,8 @@ bot.on('message', function (event) {
                     var y = Boolean(parseInt(msg1) < 1); 
                     var z = Boolean(statusTime > 0); 
                     
-                    console.log("x-> "+x)
-                    console.log("y-> "+y)
+                    //console.log("x-> "+x)
+                    //console.log("y-> "+y)
 
                     if(x && z){
                         statusTime--;
@@ -305,35 +305,35 @@ bot.on('message', function (event) {
                     }else if(z){
                         status = "";
                         var i = arrCart.length
-                        console.log("i="+i)
+                        //console.log("i="+i)
                         var cstoreid = arrCart[0][1]
                         var cstoreName = arrCart[0][2]
                         var cfoodid = arrCartQty[0]
                         var cfoodName = arrCartQty[1]
                         var cfoodPrice = arrCartQty[2]
-                        console.log(cstoreid+", "+cstoreName+", "+cfoodid+", "+cfoodName+", "+cfoodPrice)
+                        //console.log(cstoreid+", "+cstoreName+", "+cfoodid+", "+cfoodName+", "+cfoodPrice)
 
                         for(var m = 0; m<i; m++){
-                            console.log("i="+i+" ,m="+m)
+                            //console.log("i="+i+" ,m="+m)
                             if(arrCart[m][0]==cfoodid){
-                                console.log("1->")
+                                //console.log("1->")
                                 var oldQty = parseInt(arrCart[m][3]);
                                 var newQty = (oldQty+parseInt(msg1)).toString();
                                 arrCart[m][3]=newQty;
-                                console.log("1 "+arrCart[m][0]+", "+arrCart[m][3])
+                                //console.log("1 "+arrCart[m][0]+", "+arrCart[m][3])
                                 break;
                             }else if (m==(i-1)){
-                                console.log("2->")
+                                //console.log("2->")
                                 var Qty=parseInt(msg1)+""
                                 arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
-                                console.log("2 "+arrCart[i][0]+", "+arrCart[i][3])
+                                //console.log("2 "+arrCart[i][0]+", "+arrCart[i][3])
                                 break;
                             }
                         }
                         i = arrCart.length
-                        console.log("i="+i)
+                        //console.log("i="+i)
                         arrCartQty.length="";
-                        console.log(arrCart)
+                        //console.log(arrCart)
 
                         const template = temp.temp_cart;
                         template.contents.body.contents[0].text = userName+" 的購物車";
@@ -346,10 +346,10 @@ bot.on('message', function (event) {
 
                         for(var k = 1; k<i; k++){
                             cartTotalPrice += arrCart[k][2]*arrCart[k][3]
-                            console.log("i="+i+" ,k="+k)
+                            //console.log("i="+i+" ,k="+k)
 
-                            console.log(arrCart)
-                            console.log(arrCart[k][0]+", "+arrCart[k][1])
+                            //console.log(arrCart)
+                            //console.log(arrCart[k][0]+", "+arrCart[k][1])
                             arr[0].contents.body.contents[4].contents.push(
                                 {
                                     "type": "box",
@@ -390,7 +390,7 @@ bot.on('message', function (event) {
                             template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
                             template.contents.footer.contents[2].action.label = "輸入取餐時間"
                         }
-                        console.log(temp.temp_cart.contents.footer.contents[2].action[0])
+                        //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
                         // var today=new Date();
                         // Date.prototype.addDays = function(days) {
@@ -414,8 +414,8 @@ bot.on('message', function (event) {
                         var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
                         // var cOrderTime =cHours+':'+cMinutes;
 
-                        console.log(cOrderMIN);
-                        console.log(cOrderMAX);
+                        //console.log(cOrderMIN);
+                        //console.log(cOrderMAX);
                         cOrderMIN.toString();
                         template.contents.footer.contents[2].action.min = cOrderMIN
                         template.contents.footer.contents[2].action.max = cOrderMAX
@@ -424,7 +424,7 @@ bot.on('message', function (event) {
                         template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
                         template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];//繼續點餐
                         
-                        console.log("total "+cartTotalPrice);
+                        //console.log("total "+cartTotalPrice);
                         statusTime=0;
                         event.reply(arr);
                     }
@@ -436,8 +436,8 @@ bot.on('message', function (event) {
                     }else if(msg4 == "否"){
                         arrCartQty.length = 0;
                     }
-                    console.log(arrCart)
-                    console.log(arrCartQty)
+                    //console.log(arrCart)
+                    //console.log(arrCartQty)
 
                 }
             }
@@ -451,7 +451,7 @@ bot.on('postback', function (event) {
             let data = event.postback.data;
             
             /*if(data === "輸入取餐時間"){
-                console.log("輸入取餐時間")
+                //console.log("輸入取餐時間")
                 var today=new Date();
                 //--date-time-formate---start------
                 var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
@@ -468,8 +468,8 @@ bot.on('postback', function (event) {
                 temp.datetimepicker.template.actions[0].min = cOrderMINDate+"t"+cOrderTime
                 temp.datetimepicker.template.actions[0].max = cOrderMAXDate+"t"+cOrderTime
 
-                console.log(cOrderMINDate+"t"+cOrderTime);
-                console.log(cOrderMAXDate+"t"+cOrderTime);
+                //console.log(cOrderMINDate+"t"+cOrderTime);
+                //console.log(cOrderMAXDate+"t"+cOrderTime);
                 event.reply(temp.datetimepicker)
 
             } */
@@ -479,10 +479,10 @@ bot.on('postback', function (event) {
                 var cdatetime = NewArray[3].split("T");
                 var takedate = cdatetime[0];
                 var taketime = cdatetime[1];
-                console.log(takedate+", "+taketime)
+                //console.log(takedate+", "+taketime)
                 arrCart[0][3]=takedate
                 arrCart[0][4]=taketime
-                console.log(arrCart)
+                //console.log(arrCart)
                 event.reply(arrCart[0][0]+", "+arrCart[0][1]+", "+arrCart[0][2]+", "+arrCart[0][3]+", "+arrCart[0][4]);
 
 
@@ -530,5 +530,5 @@ app.use(express.static('public'));
 //----------------------------------------
 var server = app.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;
-    console.log("正在監聽埠號:", port);
+    //console.log("正在監聽埠號:", port);
 });
