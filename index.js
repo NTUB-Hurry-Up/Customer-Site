@@ -75,16 +75,22 @@ bot.on('message', function (event) {
                 return this;
             }
             var CartQ;
-            for(var q = 0; q < objCartQty.arrQty.length; q++){
-                if(userId == objCartQty.arrQty[q].userid){
-                    console.log('==')
-                    CartQ = q;
-                    break;
-                }else{
-                    console.log('!=')
-                    CartQ = -1;
+            if(objCartQty.arrQty.length == 0){
+                console.log('==0')
+                CartQ = -1;
+            }else{
+                for(var q = 0; q < objCartQty.arrQty.length; q++){
+                    if(userId == objCartQty.arrQty[q].userid){
+                        console.log('==')
+                        CartQ = q;
+                        break;
+                    }else{
+                        console.log('!=')
+                        CartQ = -1;
+                    }
                 }
             }
+            
             console.log('cartQ----->'+CartQ)
             if (msg1 == "會員") {
                 if (msg2 == "資訊") {
