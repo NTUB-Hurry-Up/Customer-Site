@@ -50,7 +50,7 @@ var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
 var objCartQty={
-    arrQty:[{}]
+    arrQty:[]
 }
 bot.on('message', function (event) {
     event.source.profile().then(
@@ -140,12 +140,12 @@ bot.on('message', function (event) {
                                     CartQ = objCartQty.arrQty.length
                                     console.log("-1=======>"+CartQ);
                                 }
-                                    objCartQty.arrQty[CartQ].userid = userId
-                                    objCartQty.arrQty[CartQ].foodid = cfoodid
-                                    objCartQty.arrQty[CartQ].foodName = cfoodName
-                                    objCartQty.arrQty[CartQ].foodPrice = cfoodPrice
-                                    console.log('cartQ2----->'+CartQ)
-                                    console.log(objCartQty.arrQty[CartQ])
+                                objCartQty.arrQty[CartQ].userid = userId
+                                objCartQty.arrQty[CartQ].foodid = cfoodid
+                                objCartQty.arrQty[CartQ].foodName = cfoodName
+                                objCartQty.arrQty[CartQ].foodPrice = cfoodPrice
+                                console.log('cartQ2----->'+CartQ)
+                                console.log(objCartQty.arrQty[CartQ])
 
                                 
                                 
