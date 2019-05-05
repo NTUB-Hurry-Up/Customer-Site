@@ -161,13 +161,13 @@ bot.on('message', function (event) {
                             cstoreName = data.storeName;
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
-                            if(CartA == -1){
+                            if(CartA == -1 ){
                                 CartA = objCart.arrCart.length
                                 objCart.arrCart[CartA]={
                                     'userid' : userId
                                 }
                             }
-
+                            console.log("-------------------------->"+objCart.arrCart[CartA])
                             objCart.arrCart[CartA].storeid = cstoreid
                             objCart.arrCart[CartA].storeid = cstoreid
                             objCart.arrCart[CartA].storeName = cstoreName
@@ -475,14 +475,14 @@ bot.on('message', function (event) {
                 }else if(ss == "changeStore") {
                     objStatus.arrStatus[Sta].status=""
                     if(msg4 == "是"){
-                        arrCart.length = 0;
+                        // arrCart.length = 0;
                          
-                        objCart.arrCart[CartA]={
-                            'userid' : userId,
-                            'storeid' : "", 
-                            'storeName' : "",
-                            'arrfood' : []
-                        }
+                        // objCart.arrCart[CartA]={
+                        //     'userid' : userId,
+                        //     'storeid' : "", 
+                        //     'storeName' : "",
+                        //     'arrfood' : []
+                        // }
                         objCart.arrCart[CartA].storeid.length = 0
                         objCart.arrCart[CartA].storeName.length = 0
                         objCart.arrCart[CartA].arrfood.length = 0
