@@ -181,7 +181,7 @@ bot.on('message', function (event) {
                                 // status----start
                                 console.log("Sta"+Sta)
                                 if(Sta == -1){
-                                    Sta = objCart.arrCart.length
+                                    Sta = objStatus.arrStatus.length
 
                                 }
                                 console.log("Sta"+Sta)
