@@ -161,8 +161,10 @@ bot.on('message', function (event) {
                             cstoreName = data.storeName;
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
-                            if(CartA == -1 || objCart.arrCart[CartA].storeid == null){
+                            if(CartA == -1){
                                 CartA = objCart.arrCart.length
+                            }
+                            if(objCart.arrCart[CartA].storeid == null){
                                 objCart.arrCart[CartA]={
                                     'userid' : userId,
                                     'storeid' : cstoreid, 
@@ -170,7 +172,6 @@ bot.on('message', function (event) {
                                     'arrfood' : []
                                 }
                             }
-
                             if(objCart.arrCart[CartA].storeid == cstoreid){
                                 objCart.arrCart[CartA].arrfood.push({
                                     'foodid' : cfoodid,
