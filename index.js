@@ -195,11 +195,11 @@ bot.on('message', function (event) {
                                 const template = temp.temp1.template;
                                 template.actions[0].type = "message";
                                 template.actions[0].label = "是";
-                                template.actions[0].text = msg1+",查看菜單,"+cstoreid+",是";
+                                template.actions[0].text = "是,"+cstoreid;
 
                                 template.actions[1].type = "message";
                                 template.actions[1].label = "否";
-                                template.actions[1].text = msg1+",查看菜單,"+objCart.arrCart[CartA].storeid+",否";
+                                template.actions[1].text = "否,"+objCart.arrCart[CartA].storeid+;
                                 template.title = "購物車訊息"
                                 template.text = "要改下訂這家店嗎 ?"
                                 objStatus.arrStatus[Sta]={
@@ -472,7 +472,7 @@ bot.on('message', function (event) {
                     
                 }else if(ss == "changeStore") {
                     objStatus.arrStatus[Sta].status=""
-                    if(msg4 == "是"){
+                    if(msg1 == "是"){
                         // arrCart.length = 0;
                          
                         // objCart.arrCart[CartA]={
@@ -485,7 +485,10 @@ bot.on('message', function (event) {
                         objCart.arrCart[CartA].storeid.length = 0
                         objCart.arrCart[CartA].storeName.length = 0
                         objCart.arrCart[CartA].arrfood.length = 0
-                    }else if(msg4 == "否"){}
+                        foodInfo.foodInfo(event, msg2)
+                    }else if(msg1 == "否"){
+                        foodInfo.foodInfo(event, msg2)
+                    }
 
                 }
             }
