@@ -167,7 +167,7 @@ bot.on('message', function (event) {
                                     'userid' : userId
                                 }
                             }
-                            console.log("-------------------------->"+objCart.arrCart[CartA])
+                            console.log("-------------------------->"+objCart.arrCart[CartA].length)
                             objCart.arrCart[CartA].storeid = cstoreid
                             objCart.arrCart[CartA].storeid = cstoreid
                             objCart.arrCart[CartA].storeName = cstoreName
