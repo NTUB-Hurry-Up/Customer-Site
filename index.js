@@ -161,7 +161,7 @@ bot.on('message', function (event) {
                             cstoreName = data.storeName;
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
-                            if(CartA == -1 || objCart.arrCart[CartA].storeid.length == 0){
+                            if(CartA == -1 || objCart.arrCart[CartA].storeid == null){
                                 CartA = objCart.arrCart.length
                                 objCart.arrCart[CartA]={
                                     'userid' : userId,
