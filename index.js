@@ -174,6 +174,7 @@ bot.on('message', function (event) {
                                 if(Sta == -1){
                                     Sta = objCart.arrCart.length
                                     objStatus.arrStatus[Sta]={
+                                        'userid' : userId,
                                         'status' : "輸入數量",
                                         'statusTime' : 2
                                     }
