@@ -199,7 +199,7 @@ bot.on('message', function (event) {
 
                                 template.actions[1].type = "message";
                                 template.actions[1].label = "否";
-                                template.actions[1].text = "否,"+objCart.arrCart[CartA].storeid+;
+                                template.actions[1].text = "否,"+objCart.arrCart[CartA].storeid;
                                 template.title = "購物車訊息"
                                 template.text = "要改下訂這家店嗎 ?"
                                 objStatus.arrStatus[Sta]={
