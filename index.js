@@ -50,8 +50,8 @@ var status = "";
 var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
-var objCartQty={
-    arrQty:[]
+var objStatus={
+    arrStatus:[]
 }
 var objCart={
     arrCart:[]
@@ -80,20 +80,21 @@ bot.on('message', function (event) {
                 return this;
             }
             
-            var CartQ;
-            if(objCartQty.arrQty.length == 0){
-                CartQ = -1;
+            var Sta;
+            if(objStatus.arrStatus.length == 0){
+                Sta = -1;
             }else{
-                for(var q = 0; q < objCartQty.arrQty.length; q++){
-                    if(userId == objCartQty.arrQty[q].userid){
-                        CartQ = q;
+                for(var q = 0; q < objStatus.arrStatus.length; q++){
+                    if(userId == objStatus.arrStatus[q].userid){
+                        Sta = q;
                         break;
                     }else{
-                        CartQ = -1;
+                        Sta = -1;
                     }
                 }
             }
-            console.log(objCart.arrCart.length)
+
+            console.log("Sta-->"+Sta)
             var CartA;
             if(objCart.arrCart.length == 0){
                 console.log('==0')
@@ -145,11 +146,55 @@ bot.on('message', function (event) {
                 }else if(msg2 == "加入購物車"){
                     var cstoreid = msg3;
                     var cfoodid = msg4;
-                    var cstoreName = "";
-                    var cfoodName = "";
-                    var cfoodPrice = "";
-                    console.log(objCart)
-                    addCart.addCart(event, CartA, CartQ, cstoreid, cfoodid, cstoreName, cfoodName, cfoodPrice);
+                    order.Cartfetchfood(cfoodid).then(data => {
+                        if (data == -1) {
+                            event.reply('找不到資料');
+                        } else if (data == -9) {
+                            event.reply('執行錯誤');
+                        } else {
+                            cstoreName = data.storeName;
+                            cfoodName = data.foodName;
+                            cfoodPrice = data.foodPrice;
+                            if(CartA == -1){
+                                CartA = objCart.arrCart.length
+                                objCart.arrCart[CartA]={
+                                    'userid' : userId,
+                                    'storeid' : cstoreid, 
+                                    'storeName' : cstoreName,
+                                    'arrfood' : [
+                                    ]
+                                }
+                            }
+                            if(objCart.arrCart[CartA].storeid == cstoreid){
+                                objCart.arrCart[CartA].arrfood.push({
+                                    'foodid' : cfoodid,
+                                    'foodName' : cfoodName, 
+                                    'foodPrice' : cfoodPrice
+                                })
+                                if(Sta == -1){
+                                    Sta = objCart.arrCart.length
+                                    objStatus.arrStatus[Sta]={
+                                        'status' : "輸入數量",
+                                        'statusTime' : 2
+                                    }
+                                }
+                                event.reply("數量?");
+                            }else{
+                                const template = temp.temp1.template;
+                                template.actions[0].type = "message";
+                                template.actions[0].label = "是";
+                                template.actions[0].text = msg1+",查看菜單,"+cstoreid+",是";
+
+                                template.actions[1].type = "message";
+                                template.actions[1].label = "否";
+                                template.actions[1].text = msg1+",查看菜單,"+objCart.arrCart[CartA].storeid+",否";
+                                template.title = "購物車訊息"
+                                template.text = "要改下訂這家店嗎 ?"
+                                status = "changeStore";
+                                event.reply(temp.temp1);
+                            }
+                        }
+                    })
                 }
             }else if(msg1 == "購物車"){
                 if(msg2 == "清空"){
