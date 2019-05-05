@@ -481,6 +481,7 @@ bot.on('message', function (event) {
                         //     'storeName' : "",
                         //     'arrfood' : []
                         // }
+                        console.log("a")
                         objCart.arrCart[CartA].storeid.length = 0
                         objCart.arrCart[CartA].storeName.length = 0
                         objCart.arrCart[CartA].arrfood.length = 0
