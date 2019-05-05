@@ -178,9 +178,10 @@ bot.on('message', function (event) {
                                     'foodPrice' : cfoodPrice
                                 })
                                 console.log("arrfood")
+                                console.log( objCart.arrCart[CartA].arrfood)
                                 for(var i = 0; i<= 0; i++){
                                     
-                                console.log( objCart.arrCart[CartA].arrfood[i])
+                                    console.log( objCart.arrCart[CartA].arrfood[i])
                                 }
                                 // status----start
                                 console.log("Sta"+Sta)
