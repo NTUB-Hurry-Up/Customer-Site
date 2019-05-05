@@ -284,6 +284,7 @@ bot.on('message', function (event) {
                     }
                 }
             }else if(objStatus.arrStatus[Sta].status != "") {
+                console.log("a---------------------------")
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "進入修改電話程序") {
                     status = "";
@@ -481,7 +482,7 @@ bot.on('message', function (event) {
                         //     'storeName' : "",
                         //     'arrfood' : []
                         // }
-                        console.log("a")
+                        console.log("b---------------------------")
                         objCart.arrCart[CartA].storeid.length = 0
                         objCart.arrCart[CartA].storeName.length = 0
                         objCart.arrCart[CartA].arrfood.length = 0
