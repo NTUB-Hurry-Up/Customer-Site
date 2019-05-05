@@ -73,7 +73,8 @@ bot.on('message', function (event) {
             var msg6 = NewArray[5];
             var msg7 = NewArray[6];
             // console.log(objCartQty.arrQty)
-            console.log(objCart.arrCart)
+            console.log("Cart->"+objCart.arrCart)
+            console.log("Status->"+objStatus.arrStatus)
             var today=new Date();
             Date.prototype.addDays = function(days) {
                 this.setDate(this.getDate() + days);
@@ -171,14 +172,17 @@ bot.on('message', function (event) {
                                     'foodName' : cfoodName, 
                                     'foodPrice' : cfoodPrice
                                 })
+
+                                // status----start
                                 if(Sta == -1){
                                     Sta = objCart.arrCart.length
-                                    objStatus.arrStatus[Sta]={
-                                        'userid' : userId,
-                                        'status' : "輸入數量",
-                                        'statusTime' : 2
-                                    }
                                 }
+                                objStatus.arrStatus[Sta]={
+                                    'userid' : userId,
+                                    'status' : "輸入數量",
+                                    'statusTime' : 2
+                                }
+                                // status----end
                                 event.reply("數量?");
                             }else{
                                 const template = temp.temp1.template;
