@@ -483,9 +483,9 @@ bot.on('message', function (event) {
                         //     'arrfood' : []
                         // }
                         console.log("b---------------------------")
-                        objCart.arrCart[CartA].storeid.length = 0
-                        objCart.arrCart[CartA].storeName.length = 0
-                        objCart.arrCart[CartA].arrfood.length = 0
+                        objCart.arrCart[CartA].storeid = null
+                        objCart.arrCart[CartA].storeName = null
+                        objCart.arrCart[CartA].arrfood = null
                         foodInfo.foodInfo(event, msg2)
                     }else if(msg1 == "否"){
                         foodInfo.foodInfo(event, msg2)
