@@ -79,6 +79,7 @@ bot.on('message', function (event) {
             var msg7 = NewArray[6];
             console.log("Cart->")
             console.log(objCart.arrCart)
+            console.log(objCart.arr)
             console.log("Status->"+objStatus.arrStatus.length)
             console.log(objStatus.arrStatus)
             
@@ -177,7 +178,8 @@ bot.on('message', function (event) {
                                     'foodName' : cfoodName, 
                                     'foodPrice' : cfoodPrice
                                 })
-
+                                console.log("arrfood")
+                                console.log( objCart.arrCart[CartA].arrfood)
                                 // status----start
                                 console.log("Sta"+Sta)
                                 if(Sta == -1){
