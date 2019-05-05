@@ -59,6 +59,11 @@ var objCart={
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
+            var today=new Date();
+            Date.prototype.addDays = function(days) {
+                this.setDate(this.getDate() + days);
+                return this;
+            }
             const userName = profile.displayName;
             const userId = profile.userId;
             const phone = event.message.text;
@@ -72,24 +77,24 @@ bot.on('message', function (event) {
             var msg5 = NewArray[4];
             var msg6 = NewArray[5];
             var msg7 = NewArray[6];
-            // console.log(objCartQty.arrQty)
-            console.log("Cart->"+objCart.arrCart)
-            console.log("Status->"+objStatus.arrStatus)
-            var today=new Date();
-            Date.prototype.addDays = function(days) {
-                this.setDate(this.getDate() + days);
-                return this;
-            }
+            console.log("Cart->")
+            console.log(objCart.arrCart)
+            console.log("Status->")
+            console.log(objStatus.arrStatus)
             
             var Sta;
             if(objStatus.arrStatus.length == 0){
+                console.log('q==0')
                 Sta = -1;
             }else{
                 for(var q = 0; q < objStatus.arrStatus.length; q++){
+                    console.log("q="+q)
                     if(userId == objStatus.arrStatus[q].userid){
+                        console.log('q==')
                         Sta = q;
                         break;
                     }else{
+                        console.log('q!=')
                         Sta = -1;
                     }
                 }
@@ -98,17 +103,17 @@ bot.on('message', function (event) {
             console.log("Sta-->"+Sta)
             var CartA;
             if(objCart.arrCart.length == 0){
-                console.log('==0')
+                console.log('p==0')
                 CartA = -1;
             }else{
                 for(var p = 0; p < objCart.arrCart.length; p++){
                     console.log("p="+p)
                     if(userId == objCart.arrCart[p].userid){
-                        console.log('==')
+                        console.log('p==')
                         CartA = p;
                         break;
                     }else{
-                        console.log('!=')
+                        console.log('p!=')
                         CartA = -1;
                     }
                 }
