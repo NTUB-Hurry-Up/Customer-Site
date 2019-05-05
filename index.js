@@ -179,10 +179,12 @@ bot.on('message', function (event) {
                                 })
 
                                 // status----start
+                                console.log("Sta"+Sta)
                                 if(Sta == -1){
                                     Sta = objCart.arrCart.length
 
                                 }
+                                console.log("Sta"+Sta)
                                 objStatus.arrStatus[Sta]={
                                     'userid' : userId,
                                     'status' : "輸入數量",
