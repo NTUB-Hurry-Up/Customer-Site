@@ -79,7 +79,7 @@ bot.on('message', function (event) {
             var msg7 = NewArray[6];
             console.log("Cart->")
             console.log(objCart.arrCart)
-            console.log("Status->")
+            console.log("Status->"+objStatus.arrStatus.length)
             console.log(objStatus.arrStatus)
             
             var Sta;
@@ -181,6 +181,7 @@ bot.on('message', function (event) {
                                 // status----start
                                 if(Sta == -1){
                                     Sta = objCart.arrCart.length
+
                                 }
                                 objStatus.arrStatus[Sta]={
                                     'userid' : userId,
