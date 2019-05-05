@@ -161,17 +161,15 @@ bot.on('message', function (event) {
                             cstoreName = data.storeName;
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
-                            if(CartA == -1 ){
+                            if(CartA == -1 || objCart.arrCart[CartA].storeid.length == 0){
                                 CartA = objCart.arrCart.length
                                 objCart.arrCart[CartA]={
-                                    'userid' : userId
+                                    'userid' : userId,
+                                    'storeid' : cstoreid, 
+                                    'storeName' : cstoreName,
+                                    'arrfood' : []
                                 }
                             }
-                            console.log("-------------------------->"+objCart.arrCart[CartA].length)
-                            objCart.arrCart[CartA].storeid = cstoreid
-                            objCart.arrCart[CartA].storeid = cstoreid
-                            objCart.arrCart[CartA].storeName = cstoreName
-                            objCart.arrCart[CartA].arrfood = []
 
                             if(objCart.arrCart[CartA].storeid == cstoreid){
                                 objCart.arrCart[CartA].arrfood.push({
