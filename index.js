@@ -164,13 +164,15 @@ bot.on('message', function (event) {
                             if(CartA == -1){
                                 CartA = objCart.arrCart.length
                                 objCart.arrCart[CartA]={
-                                    'userid' : userId,
-                                    'storeid' : cstoreid, 
-                                    'storeName' : cstoreName,
-                                    'arrfood' : [
-                                    ]
+                                    'userid' : userId
                                 }
                             }
+
+                            objCart.arrCart[CartA].storeid = cstoreid
+                            objCart.arrCart[CartA].storeid = cstoreid
+                            objCart.arrCart[CartA].storeName = cstoreName
+                            objCart.arrCart[CartA].arrfood = []
+
                             if(objCart.arrCart[CartA].storeid == cstoreid){
                                 objCart.arrCart[CartA].arrfood.push({
                                     'foodid' : cfoodid,
@@ -182,12 +184,11 @@ bot.on('message', function (event) {
                                 console.log("Sta"+Sta)
                                 if(Sta == -1){
                                     Sta = objStatus.arrStatus.length
-
                                 }
                                 console.log("Sta"+Sta)
                                 objStatus.arrStatus[Sta]={
                                     'userid' : userId,
-                                    'status' : "輸入數量",
+                                    'status' : "inputQty",
                                     'statusTime' : 2
                                 }
                                 // status----end
@@ -203,7 +204,11 @@ bot.on('message', function (event) {
                                 template.actions[1].text = msg1+",查看菜單,"+objCart.arrCart[CartA].storeid+",否";
                                 template.title = "購物車訊息"
                                 template.text = "要改下訂這家店嗎 ?"
-                                status = "changeStore";
+                                objStatus.arrStatus[Sta]={
+                                    'userid' : userId,
+                                    'status' : "changeStore",
+                                    'statusTime' : 1
+                                }
                                 event.reply(temp.temp1);
                             }
                         }
@@ -280,8 +285,9 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-            }else if(status != "") {
-                if (status == "進入修改電話程序") {
+            }else if(objStatus.arrStatus[Sta].status != "") {
+                var ss = objStatus.arrStatus[Sta].status
+                if (ss == "進入修改電話程序") {
                     status = "";
                     member.UpdatePhone(msg, userId).then(data => {
                         if (data == -1) {
@@ -292,7 +298,7 @@ bot.on('message', function (event) {
                             event.reply('電話已修改完成');
                         }
                     })
-                }else if(status == "進入修改姓名程序") {
+                }else if(ss == "進入修改姓名程序") {
                     
                     //console.log(status);
                     status = "";
@@ -307,7 +313,7 @@ bot.on('message', function (event) {
                             event.reply('姓名已修改完成');
                         }
                     })
-                }else if(status == "arrCartQty") {
+                }else if(ss == "arrCartQty") {
 
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
@@ -466,15 +472,21 @@ bot.on('message', function (event) {
                         event.reply(arr);
                     }
                     
-                }else if(status == "changeStore") {
-                    status=""
+                }else if(ss == "changeStore") {
+                    objStatus.arrStatus[Sta].status=""
                     if(msg4 == "是"){
                         arrCart.length = 0;
-                    }else if(msg4 == "否"){
-                        arrCartQty.length = 0;
-                    }
-                    //console.log(arrCart)
-                    //console.log(arrCartQty)
+                         
+                        objCart.arrCart[CartA]={
+                            'userid' : userId,
+                            'storeid' : "", 
+                            'storeName' : "",
+                            'arrfood' : []
+                        }
+                        objCart.arrCart[CartA].storeid.length = 0
+                        objCart.arrCart[CartA].storeName.length = 0
+                        objCart.arrCart[CartA].arrfood.length = 0
+                    }else if(msg4 == "否"){}
 
                 }
             }
