@@ -72,7 +72,7 @@ bot.on('message', function (event) {
             var msg5 = NewArray[4];
             var msg6 = NewArray[5];
             var msg7 = NewArray[6];
-            console.log(objCartQty.arrQty)
+            // console.log(objCartQty.arrQty)
             console.log(objCart.arrCart)
             var today=new Date();
             Date.prototype.addDays = function(days) {
