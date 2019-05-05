@@ -179,7 +179,7 @@ bot.on('message', function (event) {
                                 })
                                 console.log("arrfood")
                                 console.log( objCart.arrCart[CartA].arrfood)
-                                for(var i = 0; i<= 0; i++){
+                                for(var i = 0; i<= objCart.arrCart[CartA].arrfood.length; i++){
                                     
                                     console.log( objCart.arrCart[CartA].arrfood[i])
                                 }
