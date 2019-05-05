@@ -79,7 +79,6 @@ bot.on('message', function (event) {
             var msg7 = NewArray[6];
             console.log("Cart->")
             console.log(objCart.arrCart)
-            console.log(objCart.arr)
             console.log("Status->"+objStatus.arrStatus.length)
             console.log(objStatus.arrStatus)
             
