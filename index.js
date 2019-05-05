@@ -177,7 +177,7 @@ bot.on('message', function (event) {
                                     'foodName' : cfoodName, 
                                     'foodPrice' : cfoodPrice
                                 })
-                                console.log("arrfood")
+                                // console.log("arrfood")
                                 console.log( objCart.arrCart[CartA].arrfood)
                                 // status----start
                                 console.log("Sta"+Sta)
