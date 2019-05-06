@@ -293,8 +293,6 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-            }else if(msg1 == "A"){
-                event.reply(temp.temp_cart);
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "進入修改電話程序") {
@@ -435,12 +433,9 @@ bot.on('postback', function (event) {
                 var cdatetime = NewArray[3].split("T");
                 var takedate = cdatetime[0];
                 var taketime = cdatetime[1];
-                //console.log(takedate+", "+taketime)
                 objCart.arrCart[CartA].takeDate=takedate
                 objCart.arrCart[CartA].taketime=taketime
-                //console.log(arrCart)
-                event.reply(objCart.arrCart[CartA].takeDate+", "+objCart.arrCart[CartA].taketime);
-
+                event.reply(temp.temp_cart);
 
                 // event.reply(`Got postback: ${data}`);
             }
