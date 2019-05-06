@@ -6,7 +6,10 @@ const temp = require('./../../temp');
 //------------------------------------------
 var inputQtyCart = function(event, objCart, CartA, userName){
     event.source.profile().then(function (profile) {
-        i = objCart.arrCart[CartA].arrfood.length;
+        var i = objCart.arrCart[CartA].arrfood.length;
+        var cstoreid = objCart.arrCart[CartA].storeid;
+        var cstoreName = objCart.arrCart[CartA].storeName;
+
         const template = temp.temp_cart;
         template.contents.body.contents[0].text = userName+" 的購物車";
         template.contents.body.contents[1].contents[0].text = cstoreName;
