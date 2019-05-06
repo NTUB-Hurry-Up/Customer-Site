@@ -295,7 +295,8 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-            }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
+            }
+            if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "進入修改電話程序") {
                     status = "";
