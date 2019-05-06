@@ -413,7 +413,7 @@ bot.on('postback', function (event) {
                 event.reply(temp.datetimepicker)
 
             } */
-
+            const userId = profile.userId;
             var CartA;
             if(objCart.arrCart.length == 0){
                 CartA = -1;
