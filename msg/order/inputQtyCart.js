@@ -101,7 +101,7 @@ var inputQtyCart = function(event, objCart, CartA, userName){
         template.contents.footer.contents[1].action.text="店家,查看菜單,"+objCart.arrCart[CartA].storeid;//繼續點餐
         
         //console.log("total "+cartTotalPrice);
-        event.reply(arr);
+        event.reply(temp.temp_cart);
     });
 }
 
