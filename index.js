@@ -322,155 +322,150 @@ bot.on('message', function (event) {
                     
                     //console.log("x-> "+x)
                     //console.log("y-> "+y)
-
-                    if(x && z){
-                        statusTime--;
-                        if(statusTime==0){
-                            status = ""
-                            event.reply('請你閉嘴')
-                        }else if(z){
+                    if(z){
+                        if(x){
+                            objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
                                 {'type':'text', 'text':'請輸入數字 ! '},
                                 {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
                             );
-                        }
-                    }else if(y && z){
-                        statusTime--;
-                        if(statusTime==0){
-                            status = ""
-                            event.reply('請你閉嘴')
-                        }else if(z){
+                        }else if(y){
+                            objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
                                 {'type':'text', 'text':'請輸入大於0的數字啦 ! '},
-                                {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
+                                {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
                             );
-                        }
-                    }else if(z){
-                        status = "";
-                        var i = arrCart.length
-                        //console.log("i="+i)
-                        var cstoreid = arrCart[0][1]
-                        var cstoreName = arrCart[0][2]
-                        var cfoodid = arrCartQty[0]
-                        var cfoodName = arrCartQty[1]
-                        var cfoodPrice = arrCartQty[2]
-                        //console.log(cstoreid+", "+cstoreName+", "+cfoodid+", "+cfoodName+", "+cfoodPrice)
+                        }else{
+                            objStatus.arrStatus[Sta].statusTime=0;
+                            var i = objCart.arrCart[CartA].arrfood.length;
+                            //console.log("i="+i)
+                            var cstoreid = objCart.arrCart[CartA].storeid;
+                            var cstoreName = objCart.arrCart[CartA].storeName;
+                            console.log("i = "+i+", cstoreid"+cstoreid+", cstoreName"+cstoreName)
+                            /*var cfoodid = arrCartQty[0]
+                            var cfoodName = arrCartQty[1]
+                            var cfoodPrice = arrCartQty[2]
+                            //console.log(cstoreid+", "+cstoreName+", "+cfoodid+", "+cfoodName+", "+cfoodPrice)
 
-                        for(var m = 0; m<i; m++){
-                            //console.log("i="+i+" ,m="+m)
-                            if(arrCart[m][0]==cfoodid){
-                                //console.log("1->")
-                                var oldQty = parseInt(arrCart[m][3]);
-                                var newQty = (oldQty+parseInt(msg1)).toString();
-                                arrCart[m][3]=newQty;
-                                //console.log("1 "+arrCart[m][0]+", "+arrCart[m][3])
-                                break;
-                            }else if (m==(i-1)){
-                                //console.log("2->")
-                                var Qty=parseInt(msg1)+""
-                                arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
-                                //console.log("2 "+arrCart[i][0]+", "+arrCart[i][3])
-                                break;
-                            }
-                        }
-                        i = arrCart.length
-                        //console.log("i="+i)
-                        arrCartQty.length="";
-                        //console.log(arrCart)
-
-                        const template = temp.temp_cart;
-                        template.contents.body.contents[0].text = userName+" 的購物車";
-                        template.contents.body.contents[1].contents[0].text = arrCart[0][2];
-                        var arr=[];
-                        arr.push(template)
-                        arr[0].contents.body.contents[4].contents.length=0
-                        
-                        var cartTotalPrice = 0;
-
-                        for(var k = 1; k<i; k++){
-                            cartTotalPrice += arrCart[k][2]*arrCart[k][3]
-                            //console.log("i="+i+" ,k="+k)
-
-                            //console.log(arrCart)
-                            //console.log(arrCart[k][0]+", "+arrCart[k][1])
-                            arr[0].contents.body.contents[4].contents.push(
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": arrCart[k][1],
-                                        "flex": 0,
-                                        "margin": "sm",
-                                        "size": "md",
-                                        "weight": "bold"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": arrCart[k][3],
-                                        "size": "xs",
-                                        "align": "center",
-                                        "color": "#AAAAAA",
-                                        "wrap": true
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "$ "+arrCart[k][2]*arrCart[k][3],
-                                        "size": "sm",
-                                        "align": "end",
-                                        "color": "#000000"
-                                    }
-                                    ]
+                            for(var m = 0; m<i; m++){
+                                //console.log("i="+i+" ,m="+m)
+                                if(arrCart[m][0]==cfoodid){
+                                    //console.log("1->")
+                                    var oldQty = parseInt(arrCart[m][3]);
+                                    var newQty = (oldQty+parseInt(msg1)).toString();
+                                    arrCart[m][3]=newQty;
+                                    //console.log("1 "+arrCart[m][0]+", "+arrCart[m][3])
+                                    break;
+                                }else if (m==(i-1)){
+                                    //console.log("2->")
+                                    var Qty=parseInt(msg1)+""
+                                    arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
+                                    //console.log("2 "+arrCart[i][0]+", "+arrCart[i][3])
+                                    break;
                                 }
-                            );
-                        }
-                        if(arrCart[0].length>3){
-                            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+" "+arrCart[0][4];
-                            template.contents.footer.contents[2].action.label = "修改取餐時間"
+                            }
+                            i = arrCart.length
+                            //console.log("i="+i)
+                            arrCartQty.length="";
+                            //console.log(arrCart)
+
+                            const template = temp.temp_cart;
+                            template.contents.body.contents[0].text = userName+" 的購物車";
+                            template.contents.body.contents[1].contents[0].text = arrCart[0][2];
+                            var arr=[];
+                            arr.push(template)
+                            arr[0].contents.body.contents[4].contents.length=0
                             
-                        }else{
-                            template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
-                            template.contents.footer.contents[2].action.label = "輸入取餐時間"
+                            var cartTotalPrice = 0;
+
+                            for(var k = 1; k<i; k++){
+                                cartTotalPrice += arrCart[k][2]*arrCart[k][3]
+                                //console.log("i="+i+" ,k="+k)
+
+                                //console.log(arrCart)
+                                //console.log(arrCart[k][0]+", "+arrCart[k][1])
+                                arr[0].contents.body.contents[4].contents.push(
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": [
+                                        {
+                                            "type": "text",
+                                            "text": arrCart[k][1],
+                                            "flex": 0,
+                                            "margin": "sm",
+                                            "size": "md",
+                                            "weight": "bold"
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": arrCart[k][3],
+                                            "size": "xs",
+                                            "align": "center",
+                                            "color": "#AAAAAA",
+                                            "wrap": true
+                                        },
+                                        {
+                                            "type": "text",
+                                            "text": "$ "+arrCart[k][2]*arrCart[k][3],
+                                            "size": "sm",
+                                            "align": "end",
+                                            "color": "#000000"
+                                        }
+                                        ]
+                                    }
+                                );
+                            }
+                            if(arrCart[0].length>3){
+                                template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+" "+arrCart[0][4];
+                                template.contents.footer.contents[2].action.label = "修改取餐時間"
+                                
+                            }else{
+                                template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
+                                template.contents.footer.contents[2].action.label = "輸入取餐時間"
+                            }
+                            //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
+
+                            // var today=new Date();
+                            // Date.prototype.addDays = function(days) {
+                            //     this.setDate(this.getDate() + days);
+                            //     return this;
+                            // }
+                            //--date-time-formate---start------
+                            var cHours = '';
+                            if(today.getHours()+8 >= 24){
+                                cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
+                                today.addDays(1);
+                            }else{
+                                cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
+                            }
+                            var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
+                            var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
+                            var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
+                            var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
+                            //--date-time-formate---end--------
+                            var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                            var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
+                            // var cOrderTime =cHours+':'+cMinutes;
+
+                            //console.log(cOrderMIN);
+                            //console.log(cOrderMAX);
+                            cOrderMIN.toString();
+                            template.contents.footer.contents[2].action.min = cOrderMIN
+                            template.contents.footer.contents[2].action.max = cOrderMAX
+
+                            template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
+                            template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
+                            template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];//繼續點餐
+                            
+                            //console.log("total "+cartTotalPrice);
+                            statusTime=0;
+                            event.reply(arr);*/
                         }
-                        //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
-
-                        // var today=new Date();
-                        // Date.prototype.addDays = function(days) {
-                        //     this.setDate(this.getDate() + days);
-                        //     return this;
-                        // }
-                        //--date-time-formate---start------
-                        var cHours = '';
-                        if(today.getHours()+8 >= 24){
-                            cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
-                            today.addDays(1);
-                        }else{
-                            cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
-                        }
-                        var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
-                        var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
-                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
-                        var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
-                        //--date-time-formate---end--------
-                        var cOrderMIN =today.getFullYear()+"-"+cMINMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
-                        var cOrderMAX =today.getFullYear()+"-"+cMAXMonth+"-"+cDay+"T"+cHours+':'+cMinutes;
-                        // var cOrderTime =cHours+':'+cMinutes;
-
-                        //console.log(cOrderMIN);
-                        //console.log(cOrderMAX);
-                        cOrderMIN.toString();
-                        template.contents.footer.contents[2].action.min = cOrderMIN
-                        template.contents.footer.contents[2].action.max = cOrderMAX
-
-                        template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
-                        template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
-                        template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];//繼續點餐
-                        
-                        //console.log("total "+cartTotalPrice);
-                        statusTime=0;
-                        event.reply(arr);
+                    }else{
+                        event.reply('請你閉嘴')
                     }
+                    
                     
                 }else if(ss == "changeStore") {
                     objStatus.arrStatus[Sta].status=""
