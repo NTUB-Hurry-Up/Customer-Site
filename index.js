@@ -413,6 +413,7 @@ bot.on('postback', function (event) {
 
             } */
             const userId = profile.userId;
+            const userName = profile.displayName;
             var CartA;
             if(objCart.arrCart.length == 0){
                 CartA = -1;
