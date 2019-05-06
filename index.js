@@ -189,7 +189,8 @@ bot.on('message', function (event) {
                                 objStatus.arrStatus[Sta]={
                                     'userid' : userId,
                                     'status' : "inputQty",
-                                    'statusTime' : 2
+                                    'statusTime' : 2,
+                                    'statusText' : cfoodid
                                 }
                                 // status----end
                                 event.reply("數量?");
@@ -341,8 +342,8 @@ bot.on('message', function (event) {
 
                             console.log(objCart.arrCart[CartA].arrfood)
                             for(var m = 0; m<i; m++){
-                                //console.log("i="+i+" ,m="+m)
-                                if(objCart.arrCart[CartA].arrfood[m].foodid==cfoodid){
+                                console.log("i="+i+" ,m="+m)
+                                if(objCart.arrCart[CartA].arrfood[m].foodid==objStatus.arrStatus[Sta].statusText){
                                     var oldQty = parseInt(objCart.arrCart[CartA].arrfood[m].foodQty);
                                     var newQty = (oldQty+parseInt(msg1)).toString();
                                     objCart.arrCart[CartA].arrfood[m].foodQty=newQty;
