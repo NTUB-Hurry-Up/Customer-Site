@@ -413,7 +413,22 @@ bot.on('postback', function (event) {
                 event.reply(temp.datetimepicker)
 
             } */
-            if(data === "datetime"){
+
+            var CartA;
+            if(objCart.arrCart.length == 0){
+                CartA = -1;
+                event.reply("閉嘴 ! , 請先點餐")
+            }else{
+                for(var p = 0; p < objCart.arrCart.length; p++){
+                    if(userId == objCart.arrCart[p].userid){
+                        CartA = p;
+                        break;
+                    }else{
+                        event.reply("閉嘴 ! , 請先點餐")
+                    }
+                }
+            }
+            if(data === "datetime" && CartA != -1){
                 data += `${JSON.stringify(event.postback.params)}`;                
                 var NewArray = data.split("\"");
                 var cdatetime = NewArray[3].split("T");
