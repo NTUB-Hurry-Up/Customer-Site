@@ -160,7 +160,7 @@ bot.on('message', function (event) {
                                     'takeTime' : '',
                                     'arrfood' : []
                                 }
-                                condole.log("date.length "+objCart.arrCart[CartA].takeDate.length);
+                                console.log("date.length "+objCart.arrCart[CartA].takeDate.length);
                             }
                             
                             if(objCart.arrCart[CartA].storeid == cstoreid){
