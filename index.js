@@ -338,6 +338,7 @@ bot.on('message', function (event) {
                             var cstoreid = objCart.arrCart[CartA].storeid;
                             var cstoreName = objCart.arrCart[CartA].storeName;
 
+                            console.log(objCart.arrCart[CartA].arrfood)
                             for(var m = 0; m<i; m++){
                                 //console.log("i="+i+" ,m="+m)
                                 if(objCart.arrCart[CartA].arrfood[m].foodid==cfoodid){
@@ -355,6 +356,7 @@ bot.on('message', function (event) {
                                     break;
                                 }
                             }
+                            /*
                             i = objCart.arrCart[CartA].arrfood.length;
 
                             const template = temp.temp_cart;
@@ -448,7 +450,7 @@ bot.on('message', function (event) {
                             
                             //console.log("total "+cartTotalPrice);
                             objStatus.arrStatus[Sta].statusTime=0;
-                            event.reply(arr);
+                            event.reply(arr);*/
                         }
                     }else{
                         event.reply('請你閉嘴')
