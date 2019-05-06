@@ -364,10 +364,8 @@ bot.on('message', function (event) {
                         for(var m = 0; m<i; m++){
                             if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
                                 objCart.arrCart[CartA].arrfood[m].length = 0
-                                break;
                             }
                         }
-                        
                         objStatus.arrStatus[Sta].status="";
                         objStatus.arrStatus[Sta].statusTime=0;
                         objStatus.arrStatus[Sta].statusText="";
