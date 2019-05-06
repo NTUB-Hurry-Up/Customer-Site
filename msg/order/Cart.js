@@ -19,45 +19,45 @@ var Cart = function(event, oCart, userName){
         
         var cartTotalPrice = 0;
         console.log("CARTCART-->"+oCart.arrfood)
-        // for(var k = 1; k<i; k++){
-        //     var Afood=oCart.arrfood[k]
-        //     cartTotalPrice += Afood.foodPrice*Afood.foodQty
-        //     //console.log("i="+i+" ,k="+k)
+        for(var k = 1; k<i; k++){
+            var Afood=oCart.arrfood[k]
+            cartTotalPrice += Afood.foodPrice*Afood.foodQty
+            console.log("cartTotalPrice, "+cartTotalPrice)
+            //console.log("i="+i+" ,k="+k)
 
-        //     //console.log(arrCart)
-        //     //console.log(arrCart[k][0]+", "+arrCart[k][1])
-        //     arr[0].contents.body.contents[4].contents.push(
-        //         {
-        //             "type": "box",
-        //             "layout": "baseline",
-        //             "contents": [
-        //             {
-        //                 "type": "text",
-        //                 "text": Afood.foodName,
-        //                 "flex": 0,
-        //                 "margin": "sm",
-        //                 "size": "md",
-        //                 "weight": "bold"
-        //             },
-        //             {
-        //                 "type": "text",
-        //                 "text": Afood.foodQty,
-        //                 "size": "xs",
-        //                 "align": "center",
-        //                 "color": "#AAAAAA",
-        //                 "wrap": true
-        //             },
-        //             {
-        //                 "type": "text",
-        //                 "text": "$ "+Afood.foodPrice*Afood.foodQty,
-        //                 "size": "sm",
-        //                 "align": "end",
-        //                 "color": "#000000"
-        //             }
-        //             ]
-        //         }
-        //     );
-        // }
+            //console.log(arrCart)
+            // arr[0].contents.body.contents[4].contents.push(
+            //     {
+            //         "type": "box",
+            //         "layout": "baseline",
+            //         "contents": [
+            //         {
+            //             "type": "text",
+            //             "text": Afood.foodName,
+            //             "flex": 0,
+            //             "margin": "sm",
+            //             "size": "md",
+            //             "weight": "bold"
+            //         },
+            //         {
+            //             "type": "text",
+            //             "text": Afood.foodQty,
+            //             "size": "xs",
+            //             "align": "center",
+            //             "color": "#AAAAAA",
+            //             "wrap": true
+            //         },
+            //         {
+            //             "type": "text",
+            //             "text": "$ "+Afood.foodPrice*Afood.foodQty,
+            //             "size": "sm",
+            //             "align": "end",
+            //             "color": "#000000"
+            //         }
+            //         ]
+            //     }
+            // );
+        }
         if(oCart.takeDate.length != 0){
 
             template.contents.body.contents[6].contents[0].text = "取餐時間 : "+oCart.takeDate+" "+oCart.takeTime;
