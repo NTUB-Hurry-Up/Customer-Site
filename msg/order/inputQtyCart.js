@@ -4,7 +4,7 @@ const temp = require('./../../temp');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var inputQtyCart = function(event, objCart, CartA, userName){
+var Cart = function(event, objCart, CartA, userName){
     event.source.profile().then(function (profile) {
         // var i = objCart.arrCart[CartA].arrfood.length;
         var cstoreid = objCart.arrCart[CartA].storeid;
@@ -107,5 +107,5 @@ var inputQtyCart = function(event, objCart, CartA, userName){
 
 
 //匯出
-module.exports = {inputQtyCart};
+module.exports = {Cart};
 
