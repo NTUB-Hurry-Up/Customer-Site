@@ -156,8 +156,8 @@ bot.on('message', function (event) {
                                     'userid' : userId,
                                     'storeid' : cstoreid, 
                                     'storeName' : cstoreName,
-                                    'takeDate' : null,
-                                    'takeTime' : null,
+                                    'takeDate' : "",
+                                    'takeTime' : "",
                                     'arrfood' : []
                                 }
                             }
