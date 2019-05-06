@@ -27,37 +27,37 @@ var Cart = function(event, oCart, userName){
             //console.log("i="+i+" ,k="+k)
 
             //console.log(arrCart)
-            // arr[0].contents.body.contents[4].contents.push(
-            //     {
-            //         "type": "box",
-            //         "layout": "baseline",
-            //         "contents": [
-            //         {
-            //             "type": "text",
-            //             "text": Afood.foodName,
-            //             "flex": 0,
-            //             "margin": "sm",
-            //             "size": "md",
-            //             "weight": "bold"
-            //         },
-            //         {
-            //             "type": "text",
-            //             "text": Afood.foodQty,
-            //             "size": "xs",
-            //             "align": "center",
-            //             "color": "#AAAAAA",
-            //             "wrap": true
-            //         },
-            //         {
-            //             "type": "text",
-            //             "text": "$ "+Afood.foodPrice*Afood.foodQty,
-            //             "size": "sm",
-            //             "align": "end",
-            //             "color": "#000000"
-            //         }
-            //         ]
-            //     }
-            // );
+            arr[0].contents.body.contents[4].contents.push(
+                {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                    {
+                        "type": "text",
+                        "text": Afood.foodName,
+                        "flex": 0,
+                        "margin": "sm",
+                        "size": "md",
+                        "weight": "bold"
+                    },
+                    {
+                        "type": "text",
+                        "text": Afood.foodQty,
+                        "size": "xs",
+                        "align": "center",
+                        "color": "#AAAAAA",
+                        "wrap": true
+                    },
+                    {
+                        "type": "text",
+                        "text": "$ "+Afood.foodPrice*Afood.foodQty,
+                        "size": "sm",
+                        "align": "end",
+                        "color": "#000000"
+                    }
+                    ]
+                }
+            );
         }
         if(oCart.takeDate.length != 0){
 
