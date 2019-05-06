@@ -320,8 +320,6 @@ bot.on('message', function (event) {
                     var y = Boolean(parseInt(msg1) < 1); 
                     var z = Boolean(objStatus.arrStatus[Sta].statusTime > 0); 
                     
-                    //console.log("x-> "+x)
-                    //console.log("y-> "+y)
                     if(z){
                         if(x){
                             objStatus.arrStatus[Sta].statusTime--;
@@ -336,50 +334,37 @@ bot.on('message', function (event) {
                                 {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
                             );
                         }else{
-                            objStatus.arrStatus[Sta].statusTime=0;
                             var i = objCart.arrCart[CartA].arrfood.length;
-                            //console.log("i="+i)
                             var cstoreid = objCart.arrCart[CartA].storeid;
                             var cstoreName = objCart.arrCart[CartA].storeName;
-                            console.log("i = "+i+", cstoreid"+cstoreid+", cstoreName"+cstoreName)
-                            /*var cfoodid = arrCartQty[0]
-                            var cfoodName = arrCartQty[1]
-                            var cfoodPrice = arrCartQty[2]
-                            //console.log(cstoreid+", "+cstoreName+", "+cfoodid+", "+cfoodName+", "+cfoodPrice)
 
                             for(var m = 0; m<i; m++){
                                 //console.log("i="+i+" ,m="+m)
-                                if(arrCart[m][0]==cfoodid){
-                                    //console.log("1->")
-                                    var oldQty = parseInt(arrCart[m][3]);
+                                if(objCart.arrCart[CartA].arrfood[m].foodid==cfoodid){
+                                    var oldQty = parseInt(objCart.arrCart[CartA].arrfood[m].foodQty);
                                     var newQty = (oldQty+parseInt(msg1)).toString();
-                                    arrCart[m][3]=newQty;
-                                    //console.log("1 "+arrCart[m][0]+", "+arrCart[m][3])
+                                    objCart.arrCart[CartA].arrfood[m].foodQty=newQty;
                                     break;
                                 }else if (m==(i-1)){
-                                    //console.log("2->")
                                     var Qty=parseInt(msg1)+""
-                                    arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
-                                    //console.log("2 "+arrCart[i][0]+", "+arrCart[i][3])
+                                    // arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
+                                    objCart.arrCart[CartA].arrfood[i].foodQty= Qty
                                     break;
                                 }
                             }
-                            i = arrCart.length
-                            //console.log("i="+i)
-                            arrCartQty.length="";
-                            //console.log(arrCart)
+                            i = objCart.arrCart[CartA].arrfood.length;
 
                             const template = temp.temp_cart;
                             template.contents.body.contents[0].text = userName+" 的購物車";
-                            template.contents.body.contents[1].contents[0].text = arrCart[0][2];
+                            template.contents.body.contents[1].contents[0].text = cstoreName;
                             var arr=[];
                             arr.push(template)
                             arr[0].contents.body.contents[4].contents.length=0
                             
                             var cartTotalPrice = 0;
-
+                            var Afood=objCart.arrCart[CartA].arrfood[i]
                             for(var k = 1; k<i; k++){
-                                cartTotalPrice += arrCart[k][2]*arrCart[k][3]
+                                cartTotalPrice += Afood.foodPrice*Afood.foodQty
                                 //console.log("i="+i+" ,k="+k)
 
                                 //console.log(arrCart)
@@ -391,7 +376,7 @@ bot.on('message', function (event) {
                                         "contents": [
                                         {
                                             "type": "text",
-                                            "text": arrCart[k][1],
+                                            "text": Afood.foodName,
                                             "flex": 0,
                                             "margin": "sm",
                                             "size": "md",
@@ -399,7 +384,7 @@ bot.on('message', function (event) {
                                         },
                                         {
                                             "type": "text",
-                                            "text": arrCart[k][3],
+                                            "text": Afood.foodQty,
                                             "size": "xs",
                                             "align": "center",
                                             "color": "#AAAAAA",
@@ -407,7 +392,7 @@ bot.on('message', function (event) {
                                         },
                                         {
                                             "type": "text",
-                                            "text": "$ "+arrCart[k][2]*arrCart[k][3],
+                                            "text": "$ "+Afood.foodPrice*Afood.foodQty,
                                             "size": "sm",
                                             "align": "end",
                                             "color": "#000000"
@@ -456,11 +441,11 @@ bot.on('message', function (event) {
 
                             template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
                             template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
-                            template.contents.footer.contents[1].action.text="店家,查看菜單,"+arrCart[0][1];//繼續點餐
+                            template.contents.footer.contents[1].action.text="店家,查看菜單,"+objCart.arrCart[CartA].storeid;//繼續點餐
                             
                             //console.log("total "+cartTotalPrice);
-                            statusTime=0;
-                            event.reply(arr);*/
+                            objStatus.arrStatus[Sta].statusTime=0;
+                            event.reply(arr);
                         }
                     }else{
                         event.reply('請你閉嘴')
