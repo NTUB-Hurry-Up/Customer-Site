@@ -17,8 +17,9 @@ var Cart = function(event, objCart, CartA, userName){
         arr.push(template)
         // arr[0].contents.body.contents[4].contents.length=0
         
-        // var cartTotalPrice = 0;
+        var cartTotalPrice = 0;
         // var Afood=objCart.arrCart[CartA].arrfood[k]
+        console.log("CARTCART-->"+objCart.arrCart[CartA].arrfood)
         // for(var k = 1; k<i; k++){
         //     cartTotalPrice += Afood.foodPrice*Afood.foodQty
         //     //console.log("i="+i+" ,k="+k)
