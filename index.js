@@ -167,6 +167,8 @@ bot.on('message', function (event) {
                                     'userid' : userId,
                                     'storeid' : cstoreid, 
                                     'storeName' : cstoreName,
+                                    'orderDate' : null,
+                                    'orderTime' : null,
                                     'arrfood' : []
                                 }
                             }
@@ -366,7 +368,7 @@ bot.on('message', function (event) {
                                 }
                             }
                             console.log(objCart.arrCart[CartA].arrfood)
-                            /*
+                            
                             i = objCart.arrCart[CartA].arrfood.length;
 
                             const template = temp.temp_cart;
@@ -416,14 +418,14 @@ bot.on('message', function (event) {
                                     }
                                 );
                             }
-                            // if(arrCart[0].length>3){
-                            //     template.contents.body.contents[6].contents[0].text = "取餐時間 : "+arrCart[0][3]+" "+arrCart[0][4];
-                            //     template.contents.footer.contents[2].action.label = "修改取餐時間"
+                            if(objCart.arrCart[CartA].orderDate!=null){
+                                template.contents.body.contents[6].contents[0].text = "取餐時間 : "+objCart.arrCart[CartA].orderDate+" "+objCart.arrCart[CartA].orderTime;
+                                template.contents.footer.contents[2].action.label = "修改取餐時間"
                                 
-                            // }else{
-                            //     template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
-                            //     template.contents.footer.contents[2].action.label = "輸入取餐時間"
-                            // }
+                            }else{
+                                template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
+                                template.contents.footer.contents[2].action.label = "輸入取餐時間"
+                            }
                             //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
                             // var today=new Date();
@@ -460,7 +462,7 @@ bot.on('message', function (event) {
                             
                             //console.log("total "+cartTotalPrice);
                             objStatus.arrStatus[Sta].statusTime=0;
-                            event.reply(arr);*/
+                            event.reply(arr);
                         }
                     }else{
                         event.reply('請你閉嘴')
