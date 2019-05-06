@@ -19,7 +19,7 @@ var Cart = function(event, oCart, userName){
         
         var cartTotalPrice = 0;
         console.log("CARTCART-->"+oCart.arrfood)
-        for(var k = 1; k<i; k++){
+        for(var k = 0; k<i; k++){
             var Afood=oCart.arrfood[k]
             cartTotalPrice += Afood.foodPrice*Afood.foodQty
             console.log("oCart.arrfood[k], "+oCart.arrfood[k])
