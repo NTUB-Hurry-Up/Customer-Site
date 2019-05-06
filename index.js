@@ -221,7 +221,7 @@ bot.on('message', function (event) {
             }else if(msg1 == "購物車"){
                 if(msg2 == "查詢"){
                     console.log(objCart.arrCart[CartA].arrfood.length)
-                    if(CartA != -1 && objCart.arrCart[CartA].arrfood.length > 0){
+                    if(CartA != -1 && objCart.arrCart[CartA].arrfood.length > 0 && objCart.arrCart[CartA].arrfood[0].foodQty > 0){
                         Cart.Cart(event, objCart.arrCart[CartA], userName)
                     }else{
                         event.reply("閉嘴 ! , 請先點餐")
