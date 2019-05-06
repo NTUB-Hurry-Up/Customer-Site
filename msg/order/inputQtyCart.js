@@ -68,11 +68,11 @@ var inputQtyCart = function(event, objCart, CartA, userName){
         }
         //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
-        // var today=new Date();
-        // Date.prototype.addDays = function(days) {
-        //     this.setDate(this.getDate() + days);
-        //     return this;
-        // }
+        var today=new Date();
+        Date.prototype.addDays = function(days) {
+            this.setDate(this.getDate() + days);
+            return this;
+        }
         //--date-time-formate---start------
         var cHours = '';
         if(today.getHours()+8 >= 24){
