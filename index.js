@@ -179,10 +179,6 @@ bot.on('message', function (event) {
                                 })
                                 console.log("arrfood")
                                 console.log( objCart.arrCart[CartA].arrfood)
-                                for(var i = 0; i<= objCart.arrCart[CartA].arrfood.length; i++){
-                                    
-                                    console.log( objCart.arrCart[CartA].arrfood[i])
-                                }
                                 // status----start
                                 console.log("Sta"+Sta)
                                 if(Sta == -1){
@@ -317,7 +313,7 @@ bot.on('message', function (event) {
                             event.reply('姓名已修改完成');
                         }
                     })
-                }else if(ss == "arrCartQty") {
+                }else if(ss == "inputQty") {
 
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
@@ -478,15 +474,8 @@ bot.on('message', function (event) {
                     
                 }else if(ss == "changeStore") {
                     objStatus.arrStatus[Sta].status=""
+                    objStatus.arrStatus[Sta].statusTime=0
                     if(msg1 == "是"){
-                        // arrCart.length = 0;
-                         
-                        // objCart.arrCart[CartA]={
-                        //     'userid' : userId,
-                        //     'storeid' : "", 
-                        //     'storeName' : "",
-                        //     'arrfood' : []
-                        // }
                         console.log("b---------------------------")
                         objCart.arrCart[CartA].storeid = null
                         objCart.arrCart[CartA].storeName = null
