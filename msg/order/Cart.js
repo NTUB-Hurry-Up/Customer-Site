@@ -61,12 +61,12 @@ var Cart = function(event, oCart, userName){
         }
         if(oCart.takeDate.length != 0){
 
-            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+oCart.takeDate+" "+oCart.takeTime;
-            template.contents.footer.contents[2].action.label = "修改取餐時間"
+            arr[0].contents.body.contents[6].contents[0].text = "取餐時間 : "+oCart.takeDate+" "+oCart.takeTime;
+            arr[0].contents.footer.contents[2].action.label = "修改取餐時間"
             
         }else{
-            template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
-            template.contents.footer.contents[2].action.label = "輸入取餐時間"
+            arr[0].contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
+            arr[0].contents.footer.contents[2].action.label = "輸入取餐時間"
         }
         // //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
@@ -95,12 +95,12 @@ var Cart = function(event, oCart, userName){
         //console.log(cTakeMIN);
         //console.log(cTakeMAX);
         cTakeMIN.toString();
-        template.contents.footer.contents[2].action.min = cTakeMIN
-        template.contents.footer.contents[2].action.max = cTakeMAX
+        arr[0].contents.footer.contents[2].action.min = cTakeMIN
+        arr[0].contents.footer.contents[2].action.max = cTakeMAX
 
-        template.contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
-        template.contents.footer.contents[0].action.text="購物車,清空"//清空購物車
-        template.contents.footer.contents[1].action.text="店家,查看菜單,"+oCart.storeid;//繼續點餐
+        arr[0].contents.body.contents[7].contents[0].text = "總價 : $"+cartTotalPrice;
+        arr[0].contents.footer.contents[0].action.text="購物車,清空"//清空購物車
+        arr[0].contents.footer.contents[1].action.text="店家,查看菜單,"+oCart.storeid;//繼續點餐
         
         //console.log("total "+cartTotalPrice);
         event.reply(arr);
