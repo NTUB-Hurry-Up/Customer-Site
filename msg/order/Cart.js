@@ -4,11 +4,11 @@ const temp = require('./../../temp');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var Cart = function(event, objCart, CartA, userName){
+var Cart = function(event, oCart, userName){
     event.source.profile().then(function (profile) {
         // var i = objCart.arrCart[CartA].arrfood.length;
-        var cstoreid = objCart.arrCart[CartA].storeid;
-        var cstoreName = objCart.arrCart[CartA].storeName;
+        var cstoreid = oCart.storeid;
+        var cstoreName = oCart.storeName;
 
         const template = temp.temp_cart;
         template.contents.body.contents[0].text = userName+" 的購物車";
@@ -19,7 +19,7 @@ var Cart = function(event, objCart, CartA, userName){
         
         var cartTotalPrice = 0;
         // var Afood=objCart.arrCart[CartA].arrfood[k]
-        console.log("CARTCART-->"+objCart.arrCart[CartA].arrfood)
+        // console.log("CARTCART-->"+objCart.arrCart[CartA].arrfood)
         // for(var k = 1; k<i; k++){
         //     cartTotalPrice += Afood.foodPrice*Afood.foodQty
         //     //console.log("i="+i+" ,k="+k)
@@ -58,15 +58,15 @@ var Cart = function(event, objCart, CartA, userName){
         //         }
         //     );
         // }
-        if(objCart.arrCart[CartA].takeDate.length != 0){
+        // if(objCart.arrCart[CartA].takeDate.length != 0){
 
-            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+objCart.arrCart[CartA].takeDate+" "+objCart.arrCart[CartA].takeTime;
-            template.contents.footer.contents[2].action.label = "修改取餐時間"
+        //     template.contents.body.contents[6].contents[0].text = "取餐時間 : "+objCart.arrCart[CartA].takeDate+" "+objCart.arrCart[CartA].takeTime;
+        //     template.contents.footer.contents[2].action.label = "修改取餐時間"
             
-        }else{
-            template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
-            template.contents.footer.contents[2].action.label = "輸入取餐時間"
-        }
+        // }else{
+        //     template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
+        //     template.contents.footer.contents[2].action.label = "輸入取餐時間"
+        // }
         // //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
         // var today=new Date();

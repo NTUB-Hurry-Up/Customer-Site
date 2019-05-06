@@ -358,7 +358,7 @@ bot.on('message', function (event) {
                             }
                             console.log(objCart.arrCart[CartA].arrfood)
                             
-                            Cart.Cart(event, objCart, CartA, userName)
+                            Cart.Cart(event, objCart[CartA], userName)
                             
                             objStatus.arrStatus[Sta].statusTime=0;
                         }
