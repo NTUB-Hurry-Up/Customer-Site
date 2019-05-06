@@ -348,9 +348,10 @@ bot.on('message', function (event) {
                                 }else if (m==(i-1)){
                                     var Qty=parseInt(msg1)+""
                                     // arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
-                                    objCart.arrCart[CartA].arrfood[i].push({
-                                        'foodQty' : Qty
-                                    })
+                                    // objCart.arrCart[CartA].arrfood[i].push({
+                                    //     'foodQty' : Qty
+                                    // })
+                                    console.log(objCart.arrCart[CartA].arrfood[i])
                                     break;
                                 }
                             }
