@@ -11,7 +11,7 @@ const order = require('./order');
 const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
-const inputCart = require('./msg/order/inputCart');
+const inputQtyCart = require('./msg/order/inputQtyCart');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -355,7 +355,7 @@ bot.on('message', function (event) {
                             }
                             console.log(objCart.arrCart[CartA].arrfood)
                             
-                            inputCart.inputCart(event, objCart)
+                            inputQtyCart.inputQtyCart(event, objCart)
                             
                             objStatus.arrStatus[Sta].statusTime=0;
                         }
