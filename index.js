@@ -175,7 +175,8 @@ bot.on('message', function (event) {
                                 objCart.arrCart[CartA].arrfood.push({
                                     'foodid' : cfoodid,
                                     'foodName' : cfoodName, 
-                                    'foodPrice' : cfoodPrice
+                                    'foodPrice' : cfoodPrice,
+                                    'foodQty' : 0
                                 })
                                 console.log("arrfood")
                                 console.log( objCart.arrCart[CartA].arrfood)
@@ -346,16 +347,9 @@ bot.on('message', function (event) {
                                     var newQty = (oldQty+parseInt(msg1)).toString();
                                     objCart.arrCart[CartA].arrfood[m].foodQty=newQty;
                                     break;
-                                }else if (m==(i-1)){
-                                    var Qty=parseInt(msg1)+""
-                                    // arrCart[i]=[cfoodid, cfoodName, cfoodPrice, Qty];
-                                    // objCart.arrCart[CartA].arrfood[i].push({
-                                    //     'foodQty' : Qty
-                                    // })
-                                    console.log(objCart.arrCart[CartA].arrfood[i])
-                                    break;
                                 }
                             }
+                            console.log(objCart.arrCart[CartA].arrfood)
                             /*
                             i = objCart.arrCart[CartA].arrfood.length;
 
@@ -367,7 +361,7 @@ bot.on('message', function (event) {
                             arr[0].contents.body.contents[4].contents.length=0
                             
                             var cartTotalPrice = 0;
-                            var Afood=objCart.arrCart[CartA].arrfood[i]
+                            var Afood=objCart.arrCart[CartA].arrfood[k]
                             for(var k = 1; k<i; k++){
                                 cartTotalPrice += Afood.foodPrice*Afood.foodQty
                                 //console.log("i="+i+" ,k="+k)
