@@ -172,14 +172,29 @@ bot.on('message', function (event) {
                             }
                             
                             if(objCart.arrCart[CartA].storeid == cstoreid){
-                                objCart.arrCart[CartA].arrfood.push({
-                                    'foodid' : cfoodid,
-                                    'foodName' : cfoodName, 
-                                    'foodPrice' : cfoodPrice,
-                                    'foodQty' : 0
-                                })
+                                var i = objCart.arrCart[CartA].arrfood.length
+                                if(i!=0){
+                                    for(var m = 0; m<i; m++){
+                                        if(objCart.arrCart[CartA].arrfood[m].foodid != cfoodid){
+                                            objCart.arrCart[CartA].arrfood.push({
+                                                'foodid' : cfoodid,
+                                                'foodName' : cfoodName, 
+                                                'foodPrice' : cfoodPrice,
+                                                'foodQty' : 0
+                                            })
+                                        }
+                                    }
+                                }else{
+                                    objCart.arrCart[CartA].arrfood.push({
+                                        'foodid' : cfoodid,
+                                        'foodName' : cfoodName, 
+                                        'foodPrice' : cfoodPrice,
+                                        'foodQty' : 0
+                                    })
+                                }
+                                
                                 console.log("arrfood")
-                                console.log( objCart.arrCart[CartA].arrfood)
+                                console.log(objCart.arrCart[CartA].arrfood)
                                 // status----start
                                 console.log("Sta"+Sta)
                                 if(Sta == -1){
