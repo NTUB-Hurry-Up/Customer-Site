@@ -156,8 +156,8 @@ bot.on('message', function (event) {
                                     'userid' : userId,
                                     'storeid' : cstoreid, 
                                     'storeName' : cstoreName,
-                                    'orderDate' : null,
-                                    'orderTime' : null,
+                                    'takeDate' : null,
+                                    'takeTime' : null,
                                     'arrfood' : []
                                 }
                             }
@@ -420,10 +420,10 @@ bot.on('postback', function (event) {
                 var takedate = cdatetime[0];
                 var taketime = cdatetime[1];
                 //console.log(takedate+", "+taketime)
-                arrCart[0][3]=takedate
-                arrCart[0][4]=taketime
+                objCart.arrCart[CartA].takeDate=takedate
+                objCart.arrCart[CartA].taketime=taketime
                 //console.log(arrCart)
-                event.reply(arrCart[0][0]+", "+arrCart[0][1]+", "+arrCart[0][2]+", "+arrCart[0][3]+", "+arrCart[0][4]);
+                event.reply(objCart.arrCart[CartA].takeDate+", "+objCart.arrCart[CartA].taketime);
 
 
                 // event.reply(`Got postback: ${data}`);

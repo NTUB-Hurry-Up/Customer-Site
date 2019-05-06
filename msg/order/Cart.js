@@ -60,7 +60,7 @@ var Cart = function(event, objCart, CartA, userName){
         // }
         if(objCart.arrCart[CartA].orderDate!=null){
 
-            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+objCart.arrCart[CartA].orderDate+" "+objCart.arrCart[CartA].orderTime;
+            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+objCart.arrCart[CartA].takeDate+" "+objCart.arrCart[CartA].takeTime;
             template.contents.footer.contents[2].action.label = "修改取餐時間"
             
         }else{
