@@ -57,15 +57,15 @@ var inputQtyCart = function(event, objCart, CartA, userName){
         //         }
         //     );
         // }
-        if(objCart.arrCart[CartA].orderDate!=null){
+        // if(objCart.arrCart[CartA].orderDate!=null){
 
-            template.contents.body.contents[6].contents[0].text = "取餐時間 : "+objCart.arrCart[CartA].orderDate+" "+objCart.arrCart[CartA].orderTime;
-            template.contents.footer.contents[2].action.label = "修改取餐時間"
+        //     template.contents.body.contents[6].contents[0].text = "取餐時間 : "+objCart.arrCart[CartA].orderDate+" "+objCart.arrCart[CartA].orderTime;
+        //     template.contents.footer.contents[2].action.label = "修改取餐時間"
             
-        }else{
+        // }else{
             template.contents.body.contents[6].contents[0].text = "取餐時間 : 未輸入";
             template.contents.footer.contents[2].action.label = "輸入取餐時間"
-        }
+        // }
         // //console.log(temp.temp_cart.contents.footer.contents[2].action[0])
 
         // var today=new Date();
