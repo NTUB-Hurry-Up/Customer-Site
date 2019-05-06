@@ -4,7 +4,7 @@ const temp = require('./../../temp');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var inputQtyCart = function(event, objCart){
+var inputQtyCart = function(event, objCart, CartA){
     event.source.profile().then(function (profile) {
         i = objCart.arrCart[CartA].arrfood.length;
         const template = temp.temp_cart;
