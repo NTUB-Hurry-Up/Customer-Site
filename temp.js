@@ -116,7 +116,7 @@ var temp_cart={
               "contents": [
               {
                   "type": "text",
-                  "text": "Afood.foodName",
+                  "text": "food.foodName",
                   "flex": 0,
                   "margin": "sm",
                   "size": "md",
@@ -124,8 +124,7 @@ var temp_cart={
               },
               {
                   "type": "text",
-                  "text": 
-                  ,
+                  "text": "567",
                   "size": "xs",
                   "align": "center",
                   "color": "#AAAAAA",
