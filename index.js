@@ -318,7 +318,7 @@ bot.on('message', function (event) {
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
                     var y = Boolean(parseInt(msg1) < 1); 
-                    var z = Boolean(statusTime > 0); 
+                    var z = Boolean(objStatus.arrStatus[Sta].statusTime > 0); 
                     
                     //console.log("x-> "+x)
                     //console.log("y-> "+y)
@@ -327,7 +327,7 @@ bot.on('message', function (event) {
                             objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
                                 {'type':'text', 'text':'請輸入數字 ! '},
-                                {'type':'text', 'text':'你還剩'+statusTime+'機會'}]
+                                {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
                             );
                         }else if(y){
                             objStatus.arrStatus[Sta].statusTime--;
