@@ -66,7 +66,6 @@ bot.on('message', function (event) {
             }
             const userName = profile.displayName;
             const userId = profile.userId;
-            const phone = event.message.text;
             const msg = event.message.text;
             var NewArray = new Array();
             var NewArray = msg.split(",");
@@ -74,9 +73,6 @@ bot.on('message', function (event) {
             var msg2 = NewArray[1];
             var msg3 = NewArray[2];
             var msg4 = NewArray[3];
-            var msg5 = NewArray[4];
-            var msg6 = NewArray[5];
-            var msg7 = NewArray[6];
             console.log("Cart->")
             console.log(objCart.arrCart)
             console.log("Status->"+objStatus.arrStatus.length)
@@ -223,7 +219,13 @@ bot.on('message', function (event) {
                     })
                 }
             }else if(msg1 == "購物車"){
-                if(msg2 == "清空"){
+                if(msg2 == "查詢"){
+                    if(CartA != -1 && objCart.arrCart[CartA].length == 4){
+                        Cart.Cart(event, objCart.arrCart[CartA], userName)
+                    }else{
+                        event.reply("閉嘴 ! , 請先點餐")
+                    }
+                }else if(msg2 == "清空"){
                     status = "";
                     statusTime = 0;
                     arrCart.length = 0;
