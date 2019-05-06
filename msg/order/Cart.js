@@ -15,7 +15,7 @@ var Cart = function(event, oCart, userName){
         template.contents.body.contents[1].contents[0].text = cstoreName;
         var arr=[];
         arr.push(template)
-        // arr[0].contents.body.contents[4].contents.length=0
+        arr[0].contents.body.contents[4].contents.length=0
         
         var cartTotalPrice = 0;
         console.log("CARTCART-->"+oCart.arrfood)
