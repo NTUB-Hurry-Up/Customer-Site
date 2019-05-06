@@ -294,7 +294,7 @@ bot.on('message', function (event) {
                 }
             }else if(msg1 == "A"){
                 event.reply(temp.temp_cart);
-            }else if(objStatus.arrStatus[Sta].status != "") {
+            }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "進入修改電話程序") {
                     status = "";

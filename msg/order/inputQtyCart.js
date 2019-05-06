@@ -10,11 +10,11 @@ var inputQtyCart = function(event, objCart, CartA, userName){
         // var cstoreid = objCart.arrCart[CartA].storeid;
         // var cstoreName = objCart.arrCart[CartA].storeName;
 
-        // const template = temp.temp_cart;
-        // template.contents.body.contents[0].text = userName+" 的購物車";
-        // template.contents.body.contents[1].contents[0].text = cstoreName;
-        // var arr=[];
-        // arr.push(template)
+        const template = temp.temp_cart;
+        template.contents.body.contents[0].text = userName+" 的購物車";
+        template.contents.body.contents[1].contents[0].text = cstoreName;
+        var arr=[];
+        arr.push(template)
         // arr[0].contents.body.contents[4].contents.length=0
         
         // var cartTotalPrice = 0;
@@ -101,7 +101,7 @@ var inputQtyCart = function(event, objCart, CartA, userName){
         // template.contents.footer.contents[1].action.text="店家,查看菜單,"+objCart.arrCart[CartA].storeid;//繼續點餐
         
         //console.log("total "+cartTotalPrice);
-        event.reply(temp.temp_cart);
+        event.reply(template);
     });
 }
 
