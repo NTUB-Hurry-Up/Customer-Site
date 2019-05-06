@@ -192,7 +192,7 @@ bot.on('message', function (event) {
                                 objStatus.arrStatus[Sta]={
                                     'userid' : userId,
                                     'status' : "inputQty",
-                                    'statusTime' : 2,
+                                    'statusTime' : 1,
                                     'statusText' : cfoodid
                                 }
                                 // status----end
@@ -359,10 +359,18 @@ bot.on('message', function (event) {
                             console.log(objCart.arrCart[CartA].arrfood)
                             
                             Cart.Cart(event, objCart.arrCart[CartA], userName)
-                            
-                            objStatus.arrStatus[Sta].statusTime=0;
                         }
                     }else{
+                        for(var m = 0; m<i; m++){
+                            if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
+                                objCart.arrCart[CartA].arrfood[m].length = 0
+                                break;
+                            }
+                        }
+                        
+                        objStatus.arrStatus[Sta].status="";
+                        objStatus.arrStatus[Sta].statusTime=0;
+                        objStatus.arrStatus[Sta].statusText="";
                         event.reply('請你閉嘴')
                     }
                     
