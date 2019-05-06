@@ -220,11 +220,10 @@ bot.on('message', function (event) {
                 }
             }else if(msg1 == "購物車"){
                 if(msg2 == "查詢"){
-                    console.log(objCart.arrCart[CartA].arrfood.length)
-                    if(CartA != -1 && objCart.arrCart[CartA].arrfood.length > 0 && objCart.arrCart[CartA].arrfood[0].foodQty > 0){
-                        Cart.Cart(event, objCart.arrCart[CartA], userName)
-                    }else{
+                    if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 2 && objCart.arrCart[CartA].arrfood[0].foodQty == 0){
                         event.reply("閉嘴 ! , 請先點餐")
+                    }else{
+                        Cart.Cart(event, objCart.arrCart[CartA], userName)
                     }
                 }else if(msg2 == "清空"){
                     status = "";
@@ -333,17 +332,17 @@ bot.on('message', function (event) {
                     
                     if(z){
                         if(x){
-                            objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
                                 {'type':'text', 'text':'請輸入數字 ! '},
                                 {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
                             );
-                        }else if(y){
                             objStatus.arrStatus[Sta].statusTime--;
+                        }else if(y){
                             event.reply([
                                 {'type':'text', 'text':'請輸入大於0的數字啦 ! '},
                                 {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
                             );
+                            objStatus.arrStatus[Sta].statusTime--;
                         }else{
                             var i = objCart.arrCart[CartA].arrfood.length;
                             var cstoreid = objCart.arrCart[CartA].storeid;
