@@ -109,7 +109,38 @@ var temp_cart={
           "type": "box",
           "layout": "vertical",
           "spacing": "sm",
-          "contents": []
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+              {
+                  "type": "text",
+                  "text": "food.foodName",
+                  "flex": 0,
+                  "margin": "sm",
+                  "size": "md",
+                  "weight": "bold"
+              },
+              {
+                  "type": "text",
+                  "text": "567",
+                  "size": "xs",
+                  "align": "center",
+                  "color": "#AAAAAA",
+                  "wrap": true
+              },
+              {
+                  "type": "text",
+                  "text": "$ 123",
+                  "size": "sm",
+                  "align": "end",
+                  "color": "#000000"
+              }
+              ]
+          }
+      
+          ]
         },
         {
           "type": "separator"
