@@ -355,8 +355,8 @@ bot.on('message', function (event) {
                             }
                             console.log(objCart.arrCart[CartA].arrfood)
                             
-                            inputQtyCart.inputQtyCart(event, objCart, CartA, userName)
-                            
+                            // inputQtyCart.inputQtyCart(event, objCart, CartA, userName)
+                            event.reply(temp.temp_cart);
                             objStatus.arrStatus[Sta].statusTime=0;
                         }
                     }else{
