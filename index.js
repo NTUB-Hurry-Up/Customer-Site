@@ -292,7 +292,7 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-            }else if(msg1 == A){
+            }else if(msg1 == "A"){
                 event.reply(temp.temp_cart);
             }else if(objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
