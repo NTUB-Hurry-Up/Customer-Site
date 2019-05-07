@@ -149,7 +149,7 @@ bot.on('message', function (event) {
                             cstoreName = data.storeName;
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
-                            if(CartA == -1 || objCart.arrCart[CartA].storeid == null){
+                            if(CartA == -1 || objCart.arrCart[CartA].storeid == ""){
                                 if(CartA == -1){CartA = objCart.arrCart.length}
                                 objCart.arrCart[CartA]={
                                     'userid' : userId,
@@ -490,6 +490,9 @@ var cart2null = function(CartA, Sta){
         }
         if(objCart.arrCart[CartA].arrfood.length > 0 ){
             var i = objCart.arrCart[CartA].arrfood.length;
+            objCart.arrCart[CartA].storeid = ""
+            objCart.arrCart[CartA].storeName = ""
+
             objCart.arrCart[CartA].arrfood.splice(0,i)
             console.log( objCart.arrCart[CartA].arrfood)
         }
