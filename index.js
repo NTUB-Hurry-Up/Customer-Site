@@ -103,7 +103,7 @@ bot.on('message', function (event) {
                 }
             }
             if (msg1 == "會員") {
-                status2null(CartA, Sta, msg2);
+                obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                    memInfo.memInfo(event)
                 } else if (msg2 == "修改姓名") {
@@ -115,7 +115,7 @@ bot.on('message', function (event) {
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             }else if(msg1 == "店家") {
-                status2null(CartA, Sta, msg2);
+                obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
                 status2null(CartA, Sta);
                 if(msg2 == "資訊") {
                     storeInfo.storeInfo(event)
@@ -221,7 +221,7 @@ bot.on('message', function (event) {
                     })
                 }
             }else if(msg1 == "購物車"){
-                status2null(CartA, Sta, msg2);
+                obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
                 if(msg2 == "查詢"){
                     if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0){
                         event.reply("閉嘴 ! , 請先點餐")
@@ -229,7 +229,7 @@ bot.on('message', function (event) {
                         Cart.Cart(event, objCart.arrCart[CartA], userName)
                     }
                 }else if(msg2 == "清空"){
-                    cart2null(CartA, Sta);
+                    obj2null.cart2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
                     event.reply([
                         {'type':'text', 'text':'已清空'},
                         {'type':'text', 'text':'請重新點餐'}]
@@ -241,7 +241,7 @@ bot.on('message', function (event) {
                         event.reply('請先輸入取餐時間')
                     }else{
                         sendOrder.sendOrder(event, lodash.cloneDeep(objCart.arrCart[CartA]), userName)
-                        cart2null(CartA, Sta);
+                        obj2null.cart2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
