@@ -307,7 +307,7 @@ bot.on('message', function (event) {
                             console.log(objCart.arrCart[CartA].arrfood)
                             
                             Cart.Cart(event, objCart.arrCart[CartA], userName)
-                            obj2null.status2null(CartA,Sta,msg)
+                            obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta])
                         }
                     }else{
                         var i = objCart.arrCart[CartA].arrfood.length;
