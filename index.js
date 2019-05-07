@@ -458,7 +458,7 @@ bot.on('postback', function (event) {
         }
     );
 });
-var status2null = function(Sta){
+var status2null = function(CartA, Sta){
     if(CartA != -1 && Sta != -1 && objStatus.arrStatus[Sta].status != ""){
         objStatus.arrStatus[Sta].status="";
         objStatus.arrStatus[Sta].statusTime=0;
