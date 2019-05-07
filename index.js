@@ -106,7 +106,7 @@ bot.on('message', function (event) {
                 }
             }
             if (msg1 == "會員") {
-                status2null(CartA, Sta);
+                status2null(CartA, Sta, msg2);
                 if (msg2 == "資訊") {
                    memInfo.memInfo(event)
                 } else if (msg2 == "修改姓名") {
@@ -118,6 +118,7 @@ bot.on('message', function (event) {
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             }else if(msg1 == "店家") {
+                status2null(CartA, Sta, msg2);
                 status2null(CartA, Sta);
                 if(msg2 == "資訊") {
                     storeInfo.storeInfo(event)
@@ -221,7 +222,7 @@ bot.on('message', function (event) {
                     })
                 }
             }else if(msg1 == "購物車"){
-                status2null(CartA, Sta);
+                status2null(CartA, Sta, msg2);
                 if(msg2 == "查詢"){
                     if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 2 && objCart.arrCart[CartA].arrfood[0].foodQty == 0){
                         event.reply("閉嘴 ! , 請先點餐")
@@ -459,12 +460,12 @@ bot.on('postback', function (event) {
         }
     );
 });
-var status2null = function(CartA, Sta){
+var status2null = function(CartA, Sta, msg2){
     if(CartA != -1 && Sta != -1 && objStatus.arrStatus[Sta].status != ""){
         objStatus.arrStatus[Sta].status="";
         objStatus.arrStatus[Sta].statusTime=0;
         objStatus.arrStatus[Sta].statusText="";
-
+        console.log("msg2--->"+msg2)
         // if(objCart.arrCart[CartA].arrfood.length > 0 ){
         //     var i = objCart.arrCart[CartA].arrfood.length;
         //     for(var m = 0; m<i; m++){
