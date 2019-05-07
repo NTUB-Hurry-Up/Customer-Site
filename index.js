@@ -60,11 +60,6 @@ var objCart={
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
-            var today=new Date();
-            Date.prototype.addDays = function(days) {
-                this.setDate(this.getDate() + days);
-                return this;
-            }
             const userName = profile.displayName;
             const userId = profile.userId;
             const msg = event.message.text;

@@ -12,6 +12,11 @@ var sendOrder = function (event, oCart, userName) {
         var cTakeDate = oCart.takeDate
         var cTakeTime = oCart.takeTime
         //--date-time-formate---start------
+        var today=new Date();
+        Date.prototype.addDays = function(days) {
+            this.setDate(this.getDate() + days);
+            return this;
+        }
         var cHours = '';
         if (today.getHours() + 8 >= 24) {
             cHours = (today.getHours() + 8 - 24 < 10 ? '0' : '') + (today.getHours() + 8 - 24);
