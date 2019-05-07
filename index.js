@@ -366,6 +366,7 @@ bot.on('message', function (event) {
                             Cart.Cart(event, objCart.arrCart[CartA], userName)
                         }
                     }else{
+                        var i = objCart.arrCart[CartA].arrfood.length;
                         for(var m = 0; m<i; m++){
                             if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
                                 objCart.arrCart[CartA].arrfood[m].length = 0
@@ -462,9 +463,13 @@ var status2null = function(Sta){
         objStatus.arrStatus[Sta].status="";
         objStatus.arrStatus[Sta].statusTime=0;
         objStatus.arrStatus[Sta].statusText="";
-        for(var m = 0; m<i; m++){
-            if(objCart.arrCart[CartA].arrfood[m].length > 0 && objCart.arrCart[CartA].arrfood[m].foodQty==0){
-                objCart.arrCart[CartA].arrfood[m].length = 0
+
+        if(objCart.arrCart[CartA].arrfood.length > 0 ){
+            var i = objCart.arrCart[CartA].arrfood.length;
+            for(var m = 0; m<i; m++){
+                if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
+                    objCart.arrCart[CartA].arrfood[m].length = 0
+                }
             }
         }
     }
