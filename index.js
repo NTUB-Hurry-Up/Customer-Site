@@ -106,6 +106,7 @@ bot.on('message', function (event) {
                 }
             }
             if (msg1 == "會員") {
+                status2null(Sta);
                 if (msg2 == "資訊") {
                    memInfo.memInfo(event)
                 } else if (msg2 == "修改姓名") {
@@ -116,8 +117,8 @@ bot.on('message', function (event) {
                     status = "進入修改電話程序";
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
-                status2null(Sta);
             }else if(msg1 == "店家") {
+                status2null(Sta);
                 if(msg2 == "資訊") {
                     storeInfo.storeInfo(event)
                 }else if(msg2 == "查看菜單") {
@@ -219,8 +220,8 @@ bot.on('message', function (event) {
                         }
                     })
                 }
-                status2null(Sta);
             }else if(msg1 == "購物車"){
+                status2null(Sta);
                 if(msg2 == "查詢"){
                     if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 2 && objCart.arrCart[CartA].arrfood[0].foodQty == 0){
                         event.reply("閉嘴 ! , 請先點餐")
@@ -240,7 +241,6 @@ bot.on('message', function (event) {
                     if(arrCart.length > 1 && arrCart[0].length>3){
                         var cUserid = arrCart[0][0]
                         var cStoreid = arrCart[0][1]
-                        //--cOrderDate-cOrderTime--end--------
                         //--date-time-formate---start------
                         var cHours = '';
                         if(today.getHours()+8 >= 24){
@@ -297,7 +297,6 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-                status2null(Sta);
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "進入修改電話程序") {
@@ -393,6 +392,8 @@ bot.on('message', function (event) {
                     }
 
                 }
+            }else{
+                event.reply('e04, 工三小')
             }
         }
     );
@@ -461,6 +462,11 @@ var status2null = function(Sta){
         objStatus.arrStatus[Sta].status="";
         objStatus.arrStatus[Sta].statusTime=0;
         objStatus.arrStatus[Sta].statusText="";
+        for(var m = 0; m<i; m++){
+            if(objCart.arrCart[CartA].arrfood[m].length > 0 && objCart.arrCart[CartA].arrfood[m].foodQty==0){
+                objCart.arrCart[CartA].arrfood[m].length = 0
+            }
+        }
     }
 }
 
