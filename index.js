@@ -335,7 +335,7 @@ bot.on('message', function (event) {
                     
                     //console.log("x-> "+x)
                     //console.log("y-> "+y)
-                    console.log("gggggggggggggggggggggggggggggggggggggggggg"+statusTime)
+                    console.log("gggggggggggggggggggggggggggggggggggggggggg"+objStatus.arrStatus[Sta].statusTime)
                     if(z){
                         if(x){
                             objStatus.arrStatus[Sta].statusTime--;
@@ -462,18 +462,18 @@ bot.on('postback', function (event) {
 });
 var status2null = function(CartA, Sta, msg2){
     if(CartA != -1 && Sta != -1 && objStatus.arrStatus[Sta].status != ""){
-        // objStatus.arrStatus[Sta].status="";
-        // objStatus.arrStatus[Sta].statusTime=0;
-        // objStatus.arrStatus[Sta].statusText="";
+        objStatus.arrStatus[Sta].status="";
+        objStatus.arrStatus[Sta].statusTime=0;
+        objStatus.arrStatus[Sta].statusText="";
         console.log("msg2--->"+msg2)
-        // if(objCart.arrCart[CartA].arrfood.length > 0 ){
-        //     var i = objCart.arrCart[CartA].arrfood.length;
-        //     for(var m = 0; m<i; m++){
-        //         if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
-        //             objCart.arrCart[CartA].arrfood[m].length = 0
-        //         }
-        //     }
-        // }
+        if(objCart.arrCart[CartA].arrfood.length > 0 ){
+            var i = objCart.arrCart[CartA].arrfood.length;
+            for(var m = 0; m<i; m++){
+                if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
+                    objCart.arrCart[CartA].arrfood[m].length = 0
+                }
+            }
+        }
     }
 }
 
