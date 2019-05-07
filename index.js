@@ -197,7 +197,7 @@ bot.on('message', function (event) {
                                 objStatus.arrStatus[Sta]={
                                     'userid' : userId,
                                     'status' : "inputQty",
-                                    'statusTime' : 1,
+                                    'statusTime' : 2,
                                     'statusText' : cfoodid
                                 }
                                 // status----end
