@@ -57,6 +57,11 @@ var sendOrder = function (event, oCart, userName) {
                         }
                     })
                 }
+                oCart.storeid = ""
+                oCart.storeName = ""
+            
+                oCart.arrfood.splice(0,i)
+                console.log( oCart.arrfood)
             }
         })
     });
