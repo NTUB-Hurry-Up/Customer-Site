@@ -48,6 +48,7 @@ var sendOrder = function (event, oCart, userName) {
                     var cfoodPrice = Afood.Price;
                     var cfoodQty = Afood.foodQty;
                     var foodAmt = cfoodPrice * cfoodQty;
+                    console.log(cOrderid+", "+cfoodid+", "+cfoodPrice+", "+cfoodQty+", "+foodAmt)
                     order.addOrderDetail(cOrderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                         if (data == -9) {
                             event.reply("執行錯誤b");
