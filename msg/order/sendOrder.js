@@ -41,7 +41,7 @@ var sendOrder = function (event, oCart, userName) {
             } else {
                 var cOrderid = data.orderid;
                 var i = oCart.arrfood.length;
-            
+                console.log("cOrderid"+cOrderid)
                 for (var k = 0; k < i; k++) {
                     var Afood=oCart.arrfood[k]
                     var cfoodid = Afood.foodid;
