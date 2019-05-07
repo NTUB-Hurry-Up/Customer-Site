@@ -295,8 +295,13 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-            }
-            if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
+            }else if(msg1 == "A"){
+                if(typeof objCart.arrCart[CartA].storeid === 'undefined'){
+                    event.reply('undefined');
+                }else {
+                    event.reply('123');
+                }
+            }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "進入修改電話程序") {
                     status = "";
@@ -329,21 +334,24 @@ bot.on('message', function (event) {
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
                     var y = Boolean(parseInt(msg1) < 1); 
-                    var z = Boolean(objStatus.arrStatus[Sta].statusTime > 0); 
+                    var z = Boolean(statusTime > 0); 
                     
+                    //console.log("x-> "+x)
+                    //console.log("y-> "+y)
+
                     if(z){
                         if(x){
+                            objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
                                 {'type':'text', 'text':'請輸入數字 ! '},
                                 {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
                             );
-                            objStatus.arrStatus[Sta].statusTime--;
                         }else if(y){
+                            objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
                                 {'type':'text', 'text':'請輸入大於0的數字啦 ! '},
                                 {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
                             );
-                            objStatus.arrStatus[Sta].statusTime--;
                         }else{
                             var i = objCart.arrCart[CartA].arrfood.length;
                             var cstoreid = objCart.arrCart[CartA].storeid;
@@ -492,6 +500,3 @@ var server = app.listen(process.env.PORT || 3000, function () {
     const port = server.address().port;
     //console.log("正在監聽埠號:", port);
 });
-
-//匯出
-module.exports = {objCart};
