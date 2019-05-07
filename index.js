@@ -355,6 +355,7 @@ bot.on('message', function (event) {
                             var cstoreName = objCart.arrCart[CartA].storeName;
 
                             for(var m = 0; m<i; m++){
+                                console.log("========================"+objCart.arrCart[CartA].arrfood[m].foodid+", "+objStatus.arrStatus[Sta].statusText)
                                 if(objCart.arrCart[CartA].arrfood[m].foodid==objStatus.arrStatus[Sta].statusText){
                                     var oldQty = parseInt(objCart.arrCart[CartA].arrfood[m].foodQty);
                                     var newQty = (oldQty+parseInt(msg1)).toString();
