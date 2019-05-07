@@ -7,7 +7,6 @@ const temp = require('./../../temp');
 var Cart = function(event, oCart, userName){
     event.source.profile().then(function (profile) {
         var i = oCart.arrfood.length;
-        var cstoreid = oCart.storeid;
         var cstoreName = oCart.storeName;
 
         const template = temp.temp_cart;

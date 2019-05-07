@@ -12,6 +12,7 @@ const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
 const Cart = require('./msg/order/Cart');
+const sendOrder = require('./msg/order/sendOrder');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -238,63 +239,13 @@ bot.on('message', function (event) {
                         {'type':'text', 'text':'請重新點餐'}]
                     );
                 }else if(msg2 == "送出訂單"){
-                    if(arrCart.length > 1 && arrCart[0].length>3){
-                        var cUserid = arrCart[0][0]
-                        var cStoreid = arrCart[0][1]
-                        //--date-time-formate---start------
-                        var cHours = '';
-                        if(today.getHours()+8 >= 24){
-                            cHours = (today.getHours()+8-24 < 10 ? '0' : '')+(today.getHours()+8-24);
-                            today.addDays(1);
-                        }else{
-                            cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
-                        }
-                        var cMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
-                        var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
-
-                        // var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
-                        var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
-                        //--date-time-formate---end--------
-                        var cOrderDate =today.getFullYear()+"-"+cMonth+"-"+cDay;
-                        var cOrderTime =cHours+':'+cMinutes;
-                        
-
-                        //--cOrderDate-cOrderTime--end--------
-
-                        var cTakeDate = arrCart[0][3];
-                        var cTakeTime = arrCart[0][4];
-                        order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
-                            //console.log(cUserid+"-"+cStoreid+"-"+cOrderDate+"-"+cOrderTime+"-"+cTakeDate+"-"+cTakeTime);
-                            if (data == -9) {
-                                event.reply('執行錯誤a');
-                            } else {
-                                var cOrderid = "";
-                                var i = arrCart.length;
-                                
-                                for(var k = 1; k<i; k++){
-                                    var cfoodid = arrCart[k][0];
-                                    var cfoodPrice = arrCart[k][2];
-                                    var cfoodQty = arrCart[k][3];
-                                    var foodAmt = cfoodPrice*cfoodQty;
-                                    cOrderid = data.orderid
-                                    order.addOrderDetail(data.orderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
-                                        if (data == -9) {
-                                            event.reply("執行錯誤b");
-                                        } else {
-                                            event.reply("訂單已送出 ! "+cOrderid);
-                                        }
-                                    })
-                                }
-                                arrCart.length = 0;
-                                arrCartQty.length = 0;
-                                //console.log(arrCart);
-                                //console.log(arrCartQty);
-                            }
-                        })
-                    }else if(arrCart.length > 1 && arrCart[1].length >= 1){
+                    if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0){
+                        event.reply('購物車是空的 !'); 
+                    }else if(objCart.arrCart[CartA].takeDate == ""){
                         event.reply('請先輸入取餐時間')
                     }else{
-                        event.reply('購物車是空的 !'); 
+                        sendOrder.sendOrder(event, objCart.arrCart[CartA], userName)
+                        cart2null(CartA, Sta);
                     }
                 }
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
