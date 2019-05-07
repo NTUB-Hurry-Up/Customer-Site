@@ -226,7 +226,7 @@ bot.on('message', function (event) {
             }else if(msg1 == "購物車"){
                 status2null(CartA, Sta, msg2);
                 if(msg2 == "查詢"){
-                    if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 2 && objCart.arrCart[CartA].arrfood[0].foodQty == 0){
+                    if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0){
                         event.reply("閉嘴 ! , 請先點餐")
                     }else{
                         Cart.Cart(event, objCart.arrCart[CartA], userName)
