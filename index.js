@@ -330,7 +330,7 @@ bot.on('message', function (event) {
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
                     var y = Boolean(parseInt(msg1) < 1); 
-                    var z = Boolean(statusTime > 0); 
+                    var z = Boolean(statusTime > 0);
                     
                     //console.log("x-> "+x)
                     //console.log("y-> "+y)
@@ -366,9 +366,11 @@ bot.on('message', function (event) {
                             Cart.Cart(event, objCart.arrCart[CartA], userName)
                         }
                     }else{
+                        console.log('ggggggggggggggggggg')
                         var i = objCart.arrCart[CartA].arrfood.length;
                         for(var m = 0; m<i; m++){
                             if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
+                                
                                 objCart.arrCart[CartA].arrfood[m].length = 0
                             }
                         }
