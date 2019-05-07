@@ -232,10 +232,7 @@ bot.on('message', function (event) {
                         Cart.Cart(event, objCart.arrCart[CartA], userName)
                     }
                 }else if(msg2 == "清空"){
-                    status = "";
-                    statusTime = 0;
-                    arrCart.length = 0;
-                    arrCartQty.length = 0;
+                    cart2null(CartA, Sta);
                     event.reply([
                         {'type':'text', 'text':'已清空'},
                         {'type':'text', 'text':'請重新點餐'}]
@@ -479,6 +476,18 @@ var status2null = function(CartA, Sta, msg2){
                     console.log( objCart.arrCart[CartA].arrfood)
                 }
             }
+        }
+    }
+}
+var cart2null = function(CartA, Sta){
+    if(CartA != -1 && Sta != -1 && objStatus.arrStatus[Sta].status != ""){
+        objStatus.arrStatus[Sta].status="";
+        objStatus.arrStatus[Sta].statusTime=0;
+        objStatus.arrStatus[Sta].statusText="";
+        if(objCart.arrCart[CartA].arrfood.length > 0 ){
+            var i = objCart.arrCart[CartA].arrfood.length;
+            objCart.arrCart[CartA].arrfood.splice(0,i)
+            console.log( objCart.arrCart[CartA].arrfood)
         }
     }
 }
