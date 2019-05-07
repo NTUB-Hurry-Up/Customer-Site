@@ -168,7 +168,7 @@ bot.on('message', function (event) {
                                     for(var m = 0; m<i; m++){
                                         if(objCart.arrCart[CartA].arrfood[m].foodid == cfoodid){
                                             break;
-                                        }else{
+                                        }else if(m == i-1){
                                             objCart.arrCart[CartA].arrfood.push({
                                                 'foodid' : cfoodid,
                                                 'foodName' : cfoodName, 
