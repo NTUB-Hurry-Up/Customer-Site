@@ -471,10 +471,10 @@ var status2null = function(CartA, Sta, msg2){
         console.log("msg2--->"+msg2)
         if(objCart.arrCart[CartA].arrfood.length > 0 ){
             var i = objCart.arrCart[CartA].arrfood.length;
-            console.log();
+            console.log("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"+i);
             for(var m = 0; m<i; m++){
                 if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
-                    objCart.arrCart[CartA].arrfood.splice(m,1) = 0
+                    objCart.arrCart[CartA].arrfood.splice(m,1)
                     console.log(".foodQty == 0--->"+msg2)
                     console.log( objCart.arrCart[CartA].arrfood)
                 }
