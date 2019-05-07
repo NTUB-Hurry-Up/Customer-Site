@@ -334,7 +334,7 @@ bot.on('message', function (event) {
                     
                     //console.log("x-> "+x)
                     //console.log("y-> "+y)
-
+                    sonsole.log("gggggggggggggggggggggggggggggggggggggggggg"+statusTime)
                     if(z){
                         if(x){
                             objStatus.arrStatus[Sta].statusTime--;
@@ -366,7 +366,6 @@ bot.on('message', function (event) {
                             Cart.Cart(event, objCart.arrCart[CartA], userName)
                         }
                     }else{
-                        console.log('ggggggggggggggggggg')
                         var i = objCart.arrCart[CartA].arrfood.length;
                         for(var m = 0; m<i; m++){
                             if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
