@@ -334,7 +334,7 @@ bot.on('message', function (event) {
                     
                     //console.log("x-> "+x)
                     //console.log("y-> "+y)
-                    sonsole.log("gggggggggggggggggggggggggggggggggggggggggg"+statusTime)
+                    console.log("gggggggggggggggggggggggggggggggggggggggggg"+statusTime)
                     if(z){
                         if(x){
                             objStatus.arrStatus[Sta].statusTime--;
