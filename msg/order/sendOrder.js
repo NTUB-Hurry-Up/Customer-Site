@@ -58,7 +58,7 @@ var sendOrder = function (event, oCart, userName) {
                         }
                     })
                 }
-                obj2null.completeOrder(event,oCart)
+                // obj2null.completeOrder(event,oCart)
                 console.log(oCart.arrfood)
             }
         })
