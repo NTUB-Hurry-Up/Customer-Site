@@ -38,15 +38,6 @@ var cart2null = function (oCart, oStatus, CartA, Sta) {
         }
     }
 }
-var completeOrder = function (oCart) {
-    oCart.storeid = ""
-    oCart.storeName = ""
-    var i = oCart.arrfood.length;
-
-    oCart.arrfood.splice(0, i)
-}
-
-
 //匯出
 module.exports = { status2null,cart2null,completeOrder };
 
