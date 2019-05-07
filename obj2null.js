@@ -25,6 +25,7 @@ var completeOrder = function (event, oCart) {
     event.source.profile().then(function (profile) {
         oCart.storeid = ""
         oCart.storeName = ""
+        var i = oCart.arrfood.length;
 
         oCart.arrfood.splice(0, i)
     });
