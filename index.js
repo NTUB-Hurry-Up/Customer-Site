@@ -239,7 +239,7 @@ bot.on('message', function (event) {
                     }else if(objCart.arrCart[CartA].takeDate == ""){
                         event.reply('請先輸入取餐時間')
                     }else{
-                        sendOrder.sendOrder(event, (objCart.arrCart[CartA]).cloneDeep, userName)
+                        sendOrder.sendOrder(event, JSON.parse(JSON.stringify(objCart.arrCart[CartA])), userName)
                         cart2null(CartA, Sta);
                     }
                 }
