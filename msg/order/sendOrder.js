@@ -45,7 +45,7 @@ var sendOrder = function (event, oCart, userName) {
                 for (var k = 0; k < i; k++) {
                     var Afood=oCart.arrfood[k]
                     var cfoodid = Afood.foodid;
-                    var cfoodPrice = Afood.Price;
+                    var cfoodPrice = Afood.foodPrice;
                     var cfoodQty = Afood.foodQty;
                     var foodAmt = cfoodPrice * cfoodQty;
                     console.log(cOrderid+", "+cfoodid+", "+cfoodPrice+", "+cfoodQty+", "+foodAmt)
