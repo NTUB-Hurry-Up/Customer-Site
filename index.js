@@ -116,6 +116,7 @@ bot.on('message', function (event) {
                     status = "進入修改電話程序";
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
+                status2null(Sta);
             }else if(msg1 == "店家") {
                 if(msg2 == "資訊") {
                     storeInfo.storeInfo(event)
@@ -218,6 +219,7 @@ bot.on('message', function (event) {
                         }
                     })
                 }
+                status2null(Sta);
             }else if(msg1 == "購物車"){
                 if(msg2 == "查詢"){
                     if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 2 && objCart.arrCart[CartA].arrfood[0].foodQty == 0){
@@ -295,12 +297,7 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !'); 
                     }
                 }
-            }else if(msg1 == "A"){
-                if(typeof objCart.arrCart[0].storeid === 'undefined'){
-                    event.reply('undefined');
-                }else {
-                    event.reply('123');
-                }
+                status2null(Sta);
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "進入修改電話程序") {
@@ -459,6 +456,14 @@ bot.on('postback', function (event) {
         }
     );
 });
+var status2null = function(Sta){
+    if(Sta != -1 && objStatus.arrStatus[Sta].status != ""){
+        objStatus.arrStatus[Sta].status="";
+        objStatus.arrStatus[Sta].statusTime=0;
+        objStatus.arrStatus[Sta].statusText="";
+    }
+}
+
 //--------------------------------
 // 使用者封鎖群組
 //--------------------------------
