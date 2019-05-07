@@ -331,7 +331,7 @@ bot.on('message', function (event) {
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1)); 
                     var y = Boolean(parseInt(msg1) < 1); 
-                    var z = Boolean(statusTime > 0);
+                    var z = Boolean(objStatus.arrStatus[Sta].statusTime > 0);
                     
                     //console.log("x-> "+x)
                     //console.log("y-> "+y)
