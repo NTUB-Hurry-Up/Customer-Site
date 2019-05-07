@@ -240,7 +240,7 @@ bot.on('message', function (event) {
                         event.reply('請先輸入取餐時間')
                     }else{
                         sendOrder.sendOrder(event, objCart.arrCart[CartA], userName)
-                        // cart2null(CartA, Sta);
+                        cart2null(CartA, Sta);
                     }
                 }
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
