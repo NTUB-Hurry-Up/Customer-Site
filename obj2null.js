@@ -39,5 +39,5 @@ var cart2null = function (oCart, oStatus, CartA, Sta) {
     }
 }
 //匯出
-module.exports = { status2null,cart2null,completeOrder };
+module.exports = { status2null,cart2null };
 
