@@ -470,7 +470,7 @@ var status2null = function(CartA, Sta, msg2){
             var i = objCart.arrCart[CartA].arrfood.length;
             for(var m = 0; m<i; m++){
                 if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
-                    objCart.arrCart[CartA].arrfood[m].length = 0
+                    objCart.arrCart[CartA].arrfood.splice(m,1) = 0
                     console.log(".foodQty == 0--->"+msg2)
                     console.log( objCart.arrCart[CartA].arrfood)
                 }
@@ -478,7 +478,7 @@ var status2null = function(CartA, Sta, msg2){
         }
     }
 }
-
+//Employee.A.splice(0,1);
 //--------------------------------
 // 使用者封鎖群組
 //--------------------------------
