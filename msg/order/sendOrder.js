@@ -49,7 +49,6 @@ var sendOrder = function (event, oCart, userName) {
                     var cfoodPrice = Afood.foodPrice;
                     var cfoodQty = Afood.foodQty;
                     var foodAmt = cfoodPrice * cfoodQty;
-                    console.log(cOrderid+", "+cfoodid+", "+cfoodPrice+", "+cfoodQty+", "+foodAmt)
                     order.addOrderDetail(cOrderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
                         if (data == -9) {
                             event.reply("執行錯誤b");
@@ -58,8 +57,6 @@ var sendOrder = function (event, oCart, userName) {
                         }
                     })
                 }
-                // obj2null.completeOrder(event,oCart)
-                console.log(oCart.arrfood)
             }
         })
     });

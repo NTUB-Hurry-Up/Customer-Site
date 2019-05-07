@@ -8,6 +8,7 @@ const member = require('./member');
 const store = require('./store');
 const temp = require('./temp');
 const order = require('./order');
+const obj2null = require('./obj2null');
 const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
@@ -277,10 +278,6 @@ bot.on('message', function (event) {
                     var x = Boolean(!isNum.test(msg1)); 
                     var y = Boolean(parseInt(msg1) < 1); 
                     var z = Boolean(objStatus.arrStatus[Sta].statusTime > 0);
-                    
-                    //console.log("x-> "+x)
-                    //console.log("y-> "+y)
-                    console.log("gggggggggggggggggggggggggggggggggggggggggg"+objStatus.arrStatus[Sta].statusTime)
                     if(z){
                         if(x){
                             objStatus.arrStatus[Sta].statusTime--;
@@ -300,7 +297,6 @@ bot.on('message', function (event) {
                             var cstoreName = objCart.arrCart[CartA].storeName;
 
                             for(var m = 0; m<i; m++){
-                                console.log("========================"+objCart.arrCart[CartA].arrfood[m].foodid+", "+objStatus.arrStatus[Sta].statusText)
                                 if(objCart.arrCart[CartA].arrfood[m].foodid==objStatus.arrStatus[Sta].statusText){
                                     var oldQty = parseInt(objCart.arrCart[CartA].arrfood[m].foodQty);
                                     var newQty = (oldQty+parseInt(msg1)).toString();
@@ -311,6 +307,7 @@ bot.on('message', function (event) {
                             console.log(objCart.arrCart[CartA].arrfood)
                             
                             Cart.Cart(event, objCart.arrCart[CartA], userName)
+                            obj2null.status2null(CartA,Sta,msg)
                         }
                     }else{
                         var i = objCart.arrCart[CartA].arrfood.length;
