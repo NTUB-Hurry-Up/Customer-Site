@@ -166,7 +166,9 @@ bot.on('message', function (event) {
                                 var i = objCart.arrCart[CartA].arrfood.length
                                 if(i!=0){
                                     for(var m = 0; m<i; m++){
-                                        if(objCart.arrCart[CartA].arrfood[m].foodid != cfoodid){
+                                        if(objCart.arrCart[CartA].arrfood[m].foodid == cfoodid){
+                                            break;
+                                        }else{
                                             objCart.arrCart[CartA].arrfood.push({
                                                 'foodid' : cfoodid,
                                                 'foodName' : cfoodName, 
@@ -469,6 +471,7 @@ var status2null = function(CartA, Sta, msg2){
         console.log("msg2--->"+msg2)
         if(objCart.arrCart[CartA].arrfood.length > 0 ){
             var i = objCart.arrCart[CartA].arrfood.length;
+            console.log();
             for(var m = 0; m<i; m++){
                 if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
                     objCart.arrCart[CartA].arrfood.splice(m,1) = 0
