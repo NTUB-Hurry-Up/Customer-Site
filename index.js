@@ -296,7 +296,7 @@ bot.on('message', function (event) {
                     }
                 }
             }else if(msg1 == "A"){
-                if(typeof objCart.arrCart[CartA].storeid === 'undefined'){
+                if(typeof objCart.arrCart[CartA].storeid === undefined){
                     event.reply('undefined');
                 }else {
                     event.reply('123');
