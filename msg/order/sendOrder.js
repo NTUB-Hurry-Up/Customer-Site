@@ -40,7 +40,7 @@ var sendOrder = function (event, oCart, userName) {
                 event.reply('執行錯誤a');
             } else {
                 var cOrderid = data.orderid;
-                var i = objCart.arrCart[CartA].arrfood.length;
+                var i = oCart.arrfood.length;
             
                 for (var k = 0; k < i; k++) {
                     var Afood=oCart.arrfood[k]
