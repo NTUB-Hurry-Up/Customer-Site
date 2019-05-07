@@ -103,6 +103,7 @@ var Cart = function(event, oCart, userName){
         
         //console.log("total "+cartTotalPrice);
         event.reply(arr);
+        
     });
 }
 
