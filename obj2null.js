@@ -4,7 +4,7 @@
 //------------------------------------------
         
         
-var status2null = function(oCart, oStatus){
+var status2null = function(oCart, oStatus, CartA, Sta){
     if(CartA != -1 && Sta != -1){
         if(oStatus.status != ""){
             oStatus.status="";
