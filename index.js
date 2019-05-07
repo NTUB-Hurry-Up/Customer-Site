@@ -399,7 +399,7 @@ bot.on('postback', function (event) {
                 var takedate = cdatetime[0];
                 var taketime = cdatetime[1];
                 objCart.arrCart[CartA].takeDate=takedate
-                objCart.arrCart[CartA].taketime=taketime
+                objCart.arrCart[CartA].takeTime=taketime
                 Cart.Cart(event, objCart.arrCart[CartA], userName)
                 // event.reply(`Got postback: ${data}`);
             }
