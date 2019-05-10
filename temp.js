@@ -331,13 +331,13 @@ var orderComplete={
             {
               "type": "text",
               "text": "2019/12/31",
-              "size": "md",
+              "size": "sm",
               "align": "center"
             },
             {
               "type": "text",
               "text": "12:59",
-              "margin": "xs",
+              "margin": "sm",
               "size": "md"
             }
           ]
