@@ -26,6 +26,8 @@ var orderComplete = function (event, oCart, cOrderid) {
             } else if (data == -9) {
                 console.log("執行錯誤")
             } else {
+                console.log(data.storeAdd)
+                console.log(data[0].storeAdd)
                 arr[0].contents.footer.contents[1].contents[1].text = data.storeAdd
             }
         })
