@@ -5,6 +5,7 @@ const temp = require('./../../temp');
 const order = require('./../../order');
 const obj2null = require('./../../obj2null');
 const sendOrder = require('./sendOrder');
+const store = require('./../../store');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
@@ -19,6 +20,15 @@ var orderComplete = function (event, oCart, cOrderid) {
         arr[0].contents.body.contents[2].contents[1].text=cOrderid
         arr[0].contents.body.contents[4].contents[1].text=oCart.takeDate
         arr[0].contents.body.contents[4].contents[2].text=oCart.takeTime
+        store.fetchStoreAdd(oCart.storeid).then(data => {
+            if (data == -1) {
+                console.log("找不到資料")
+            } else if (data == -9) {
+                console.log("執行錯誤")
+            } else {
+                arr[0].contents.footer.contents[1].contents[1].text = data.storeAdd
+            }
+        })
         for (var k = 0; k < i; k++) {
             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
             var Afood=oCart.arrfood[k]
