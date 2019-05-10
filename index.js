@@ -266,8 +266,8 @@ bot.on('message', function (event) {
             }else if(msg1 == "B"){
                 event.reply({
                     "type": "image",
-                    "originalContentUrl": "https://linebot108508.herokuapp.com/img/charging-status.svg",
-                    "previewImageUrl": "https://linebot108508.herokuapp.com/img/charging-status.svg"
+                    "originalContentUrl": "https://admin-official.line.me/13987866/contents/hash/zeHu5agYE0V0RasaKj2Isc9GnMyPVLiWdPMIKH9qhVdO6l6KuKbqhX8%252F7rauWtD3fGHhxARubSfcD0CiMRlOB6ohpcV4YRANWQInjiYLmy%252BEEUNrOLd5nttvTdamz4J1l2WkHzsypXkuSiZBRwu3EKMwXseWV2%252B0M0x6%252BLCBbShzz%252FTwI%252BXNxqilku3O4kckHdkF6vjP7QeLqorq4n1cHMAQN0Qu3W%252Fzizme3tfcYZAOergn3RmHGL6e0CrmKwLgAZ4uf6borsuUh4TwKpn%252B0g%253D%253D.jpg",
+                    "previewImageUrl": "https://admin-official.line.me/13987866/contents/hash/zeHu5agYE0V0RasaKj2Isc9GnMyPVLiWdPMIKH9qhVdO6l6KuKbqhX8%252F7rauWtD3fGHhxARubSfcD0CiMRlOB6ohpcV4YRANWQInjiYLmy%252BEEUNrOLd5nttvTdamz4J1l2WkHzsypXkuSiZBRwu3EKMwXseWV2%252B0M0x6%252BLCBbShzz%252FTwI%252BXNxqilku3O4kckHdkF6vjP7QeLqorq4n1cHMAQN0Qu3W%252Fzizme3tfcYZAOergn3RmHGL6e0CrmKwLgAZ4uf6borsuUh4TwKpn%252B0g%253D%253D.jpg"
                 });
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
