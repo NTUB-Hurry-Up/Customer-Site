@@ -315,7 +315,9 @@ var orderComplete={
             },
             {
               "type": "text",
-              "text": "已接單"
+              "text": "已接單",
+              "size": "md",
+              "align": "center"
             }
           ]
         },
@@ -341,6 +343,23 @@ var orderComplete={
               "text": "12:59",
               "margin": "xs",
               "size": "md"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "店家地址 :",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "顆顆, 不告訴你",
+              "size": "md",
+              "align": "center"
             }
           ]
         },
@@ -513,10 +532,6 @@ var orderComplete={
               "wrap": true
             }
           ]
-        },
-        {
-          "type": "text",
-          "text": "地址 : 科成為家"
         }
       ]
     }
