@@ -3,6 +3,7 @@
 const temp = require('./../../temp');
 const order = require('./../../order');
 const obj2null = require('./../../obj2null');
+const orderComplete = require('./orderComplete');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
@@ -53,7 +54,8 @@ var sendOrder = function (event, oCart, userName) {
                         if (data == -9) {
                             event.reply("執行錯誤b");
                         } else {
-                            event.reply("訂單已送出 ! " + cOrderid);
+                            orderComplete.orderComplete(event,oCart)
+                            // event.reply("訂單已送出 ! " + cOrderid);
                         }
                     })
                 }

@@ -257,6 +257,12 @@ bot.on('message', function (event) {
                         obj2null.cart2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
+            
+            
+            
+            
+            }else if(msg1 == "A"){
+                event.reply(temp.orderComplete);
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "修改電話") {
@@ -337,10 +343,9 @@ bot.on('message', function (event) {
                     objStatus.arrStatus[Sta].status=""
                     objStatus.arrStatus[Sta].statusTime=0
                     if(msg1 == "是"){
-                        console.log("b---------------------------")
-                        objCart.arrCart[CartA].storeid = null
-                        objCart.arrCart[CartA].storeName = null
-                        objCart.arrCart[CartA].arrfood = null
+                        objCart.arrCart[CartA].storeid = ''
+                        objCart.arrCart[CartA].storeName = ''
+                        objCart.arrCart[CartA].arrfood = ''
                         foodInfo.foodInfo(event, msg2)
                     }else if(msg1 == "否"){
                         foodInfo.foodInfo(event, msg2)
