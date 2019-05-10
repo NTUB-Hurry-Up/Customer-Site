@@ -313,6 +313,9 @@ var orderComplete={
               "text": "未接單",
               "size": "md",
               "align": "center"
+            },
+            {
+              "type": "filler"
             }
           ]
         },
@@ -355,6 +358,9 @@ var orderComplete={
               "text": "顆顆, 不告訴你",
               "size": "md",
               "align": "center"
+            },
+            {
+              "type": "filler"
             }
           ]
         },
