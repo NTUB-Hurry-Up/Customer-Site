@@ -107,16 +107,29 @@ bot.on('message', function (event) {
                 if (msg2 == "資訊") {
                    memInfo.memInfo(event)
                 } else if (msg2 == "修改姓名") {
-                    status = "進入修改姓名程序";
+                    if(Sta == -1){
+                        Sta = objStatus.arrStatus.length
+                    }
+                    objStatus.arrStatus[Sta]={
+                        'userid' : userId,
+                        'status' : "修改姓名",
+                        'statusTime' : 1
+                    }
                     event.reply('請輸入您的姓名');
 
                 } else if (msg2 == "修改電話") {
-                    status = "進入修改電話程序";
+                    if(Sta == -1){
+                        Sta = objStatus.arrStatus.length
+                    }
+                    objStatus.arrStatus[Sta]={
+                        'userid' : userId,
+                        'status' : "修改電話",
+                        'statusTime' : 1
+                    }
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             }else if(msg1 == "店家") {
                 obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
-                status2null(CartA, Sta);
                 if(msg2 == "資訊") {
                     storeInfo.storeInfo(event)
                 }else if(msg2 == "查看菜單") {
@@ -246,8 +259,8 @@ bot.on('message', function (event) {
                 }
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
-                if (ss == "進入修改電話程序") {
-                    status = "";
+                if (ss == "修改電話") {
+                    obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
                     member.UpdatePhone(msg, userId).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
@@ -257,12 +270,8 @@ bot.on('message', function (event) {
                             event.reply('電話已修改完成');
                         }
                     })
-                }else if(ss == "進入修改姓名程序") {
-                    
-                    //console.log(status);
-                    status = "";
-                    
-                    //console.log(status);
+                }else if(ss == "修改姓名") {
+                    obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
                     member.UpdateName(msg, userId).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
@@ -350,29 +359,6 @@ bot.on('postback', function (event) {
             
             let data = event.postback.data;
             
-            /*if(data === "輸入取餐時間"){
-                //console.log("輸入取餐時間")
-                var today=new Date();
-                //--date-time-formate---start------
-                var cMINMonth=(today.getMonth()+1<10 ? '0' : '')+(today.getMonth()+1)
-                var cMAXMonth=(today.getMonth()+3<10 ? '0' : '')+(today.getMonth()+3)
-                var cDay=(today.getDate()<10 ? '0' : '')+today.getDate();
-
-                var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
-                var cMinutes = (today.getMinutes()<10 ? '0' : '')+today.getMinutes();
-                //--date-time-formate---end--------
-                var cOrderMINDate =today.getFullYear()+"-"+cMINMonth+"-"+cDay;
-                var cOrderMAXDate =today.getFullYear()+"-"+cMAXMonth+"-"+cDay;
-                var cOrderTime =cHours+':'+cMinutes;
-
-                temp.datetimepicker.template.actions[0].min = cOrderMINDate+"t"+cOrderTime
-                temp.datetimepicker.template.actions[0].max = cOrderMAXDate+"t"+cOrderTime
-
-                //console.log(cOrderMINDate+"t"+cOrderTime);
-                //console.log(cOrderMAXDate+"t"+cOrderTime);
-                event.reply(temp.datetimepicker)
-
-            } */
             const userId = profile.userId;
             const userName = profile.displayName;
             var CartA;
@@ -403,44 +389,6 @@ bot.on('postback', function (event) {
         }
     );
 });
-var status2null = function(CartA, Sta, msg2){
-    if(CartA != -1 && Sta != -1){
-        if(objStatus.arrStatus[Sta].status != ""){
-            objStatus.arrStatus[Sta].status="";
-            objStatus.arrStatus[Sta].statusTime=0;
-            objStatus.arrStatus[Sta].statusText="";
-        }
-        console.log("msg2--->"+msg2)
-        if(objCart.arrCart[CartA].arrfood.length > 0 ){
-            var i = objCart.arrCart[CartA].arrfood.length;
-            console.log("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"+i);
-            for(var m = 0; m<i; m++){
-                if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
-                    objCart.arrCart[CartA].arrfood.splice(m,1)
-                    console.log(".foodQty == 0--->"+msg2)
-                    console.log( objCart.arrCart[CartA].arrfood)
-                }
-            }
-        }
-    }
-}
-var cart2null = function(CartA, Sta){
-    if(CartA != -1 && Sta != -1){
-        if(objStatus.arrStatus[Sta].status != ""){
-            objStatus.arrStatus[Sta].status="";
-            objStatus.arrStatus[Sta].statusTime=0;
-            objStatus.arrStatus[Sta].statusText="";
-        }
-        if(objCart.arrCart[CartA].arrfood.length > 0 ){
-            var i = objCart.arrCart[CartA].arrfood.length;
-            objCart.arrCart[CartA].storeid = ""
-            objCart.arrCart[CartA].storeName = ""
-
-            objCart.arrCart[CartA].arrfood.splice(0,i)
-            console.log( objCart.arrCart[CartA].arrfood)
-        }
-    }
-}
 //Employee.A.splice(0,1);
 //--------------------------------
 // 使用者封鎖群組
