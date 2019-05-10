@@ -22,61 +22,11 @@ var orderComplete = function (event, oCart, cOrderid) {
             var cfoodPrice = Afood.foodPrice;
             var cfoodQty = Afood.foodQty;
             var foodAmt = cfoodPrice * cfoodQty;
+            //把餐點加入模板
             tempRe.contents[0].contents[0].text=cfoodName
             tempRe.contents[1].contents[0].text=cfoodQty
             tempRe.contents[2].contents[0].text=cfoodPrice
-            arr[0].contents.body.contents[5].contents[k+1]=tempRe
-            // {
-            //     "type": "box",
-            //     "layout": "horizontal",
-            //     "spacing": "xxl",
-            //     "contents": [
-            //       {
-            //         "type": "box",
-            //         "layout": "vertical",
-            //         "contents": [
-            //           {
-            //             "type": "text",
-            //             "text": cfoodName,
-            //             "flex": 0,
-            //             "size": "sm",
-            //             "align": "start",
-            //             "weight": "bold",
-            //             "wrap": true
-            //           }
-            //         ]
-            //       },
-            //       {
-            //         "type": "box",
-            //         "layout": "vertical",
-            //         "contents": [
-            //           {
-            //             "type": "text",
-            //             "text": cfoodQty,
-            //             "size": "md",
-            //             "align": "center",
-            //             "color": "#AAAAAA"
-            //           }
-            //         ]
-            //       },
-            //       {
-            //         "type": "box",
-            //         "layout": "vertical",
-            //         "contents": [
-            //           {
-            //             "type": "text",
-            //             "text": "$"+cfoodPrice,
-            //             "margin": "xxl",
-            //             "size": "sm",
-            //             "align": "end",
-            //             "color": "#AAAAAA",
-            //             "wrap": false
-            //           }
-            //         ]
-            //       }
-            //     ]
-            //   }
-            console.log(cfoodid+", "+cfoodPrice+", "+cfoodQty+", "+foodAmt)
+            arr[0].contents.body.contents[5].contents[k+2]=tempRe
         }
         event.reply(arr);
         
