@@ -1,5 +1,6 @@
 
 //引用操作資料庫的物件
+var lodash = require('lodash');
 const temp = require('./../../temp');
 const order = require('./../../order');
 const obj2null = require('./../../obj2null');
