@@ -338,7 +338,7 @@ var orderComplete={
               "type": "text",
               "text": "12:59",
               "margin": "sm",
-              "size": "md"
+              "size": "sm"
             }
           ]
         },
