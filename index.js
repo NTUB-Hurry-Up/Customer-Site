@@ -237,7 +237,7 @@ bot.on('message', function (event) {
                 obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
                 if(msg2 == "查詢"){
                     if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0){
-                        event.reply("閉嘴 ! , 請先點餐")
+                        event.reply("閉嘴 ! , 請先點餐(cart)")
                     }else{
                         Cart.Cart(event, objCart.arrCart[CartA], userName)
                     }
@@ -375,14 +375,14 @@ bot.on('postback', function (event) {
             var CartA;
             if(objCart.arrCart.length == 0){
                 CartA = -1;
-                event.reply("閉嘴 ! , 請先點餐")
+                event.reply("閉嘴 ! , 請先點餐(p1)")
             }else{
                 for(var p = 0; p < objCart.arrCart.length; p++){
                     if(userId == objCart.arrCart[p].userid){
                         CartA = p;
                         break;
                     }else{
-                        event.reply("閉嘴 ! , 請先點餐")
+                        event.reply("閉嘴 ! , 請先點餐(p2)")
                     }
                 }
             }
