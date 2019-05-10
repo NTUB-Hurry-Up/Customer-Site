@@ -250,15 +250,10 @@ var orderComplete={
       "type": "box",
       "layout": "vertical",
       "spacing": "md",
-      "action": {
-        "type": "uri",
-        "label": "Action",
-        "uri": "https://linecorp.com"
-      },
       "contents": [
         {
           "type": "text",
-          "text": "結帳單",
+          "text": "您已下訂完成",
           "size": "xl",
           "align": "center",
           "weight": "bold"
@@ -315,7 +310,7 @@ var orderComplete={
             },
             {
               "type": "text",
-              "text": "已接單",
+              "text": "未接單",
               "size": "md",
               "align": "center"
             }
@@ -403,9 +398,9 @@ var orderComplete={
                   "contents": [
                     {
                       "type": "text",
-                      "text": "阿使芭樂",
+                      "text": "阿屎芭樂",
                       "flex": 0,
-                      "size": "sm",
+                      "size": "md",
                       "align": "start",
                       "weight": "bold",
                       "wrap": true
@@ -433,6 +428,55 @@ var orderComplete={
                       "type": "text",
                       "text": "$100",
                       "margin": "xxl",
+                      "size": "md",
+                      "align": "end",
+                      "color": "#AAAAAA",
+                      "wrap": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "spacing": "xxl",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "古八丁",
+                      "flex": 0,
+                      "size": "sm",
+                      "align": "start",
+                      "weight": "bold",
+                      "wrap": false
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "999",
+                      "align": "center",
+                      "color": "#AAAAAA"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "$2000",
+                      "margin": "xxl",
                       "size": "sm",
                       "align": "end",
                       "color": "#AAAAAA",
@@ -453,7 +497,7 @@ var orderComplete={
                   "contents": [
                     {
                       "type": "text",
-                      "text": "古古八八",
+                      "text": "擊敗貴",
                       "flex": 0,
                       "size": "sm",
                       "align": "start",
