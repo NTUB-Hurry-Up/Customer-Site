@@ -381,7 +381,7 @@ bot.on('postback', function (event) {
                     if(userId == objCart.arrCart[p].userid){
                         CartA = p;
                         break;
-                    }else{
+                    }else if(p == objCart.arrCart.length-1){
                         event.reply("閉嘴 ! , 請先點餐(p2)")
                     }
                 }
