@@ -263,6 +263,12 @@ bot.on('message', function (event) {
             
             }else if(msg1 == "A"){
                 event.reply(lodash.cloneDeep(temp.orderComplete));
+            }else if(msg1 == "B"){
+                event.reply({
+                    "type": "image",
+                    "originalContentUrl": "https://linebot108508.herokuapp.com/imgs/charging-status.png",
+                    "previewImageUrl": "https://linebot108508.herokuapp.com/imgs/charging-status.png"
+                });
             }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "修改電話") {

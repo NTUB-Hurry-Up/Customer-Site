@@ -346,26 +346,6 @@ var orderComplete={
         },
         {
           "type": "box",
-          "layout": "horizontal",
-          "contents": [
-            {
-              "type": "text",
-              "text": "店家地址 :",
-              "weight": "bold"
-            },
-            {
-              "type": "text",
-              "text": "顆顆, 不告訴你",
-              "size": "md",
-              "align": "center"
-            },
-            {
-              "type": "filler"
-            }
-          ]
-        },
-        {
-          "type": "box",
           "layout": "vertical",
           "spacing": "sm",
           "contents": [
