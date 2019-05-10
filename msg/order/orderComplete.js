@@ -25,7 +25,7 @@ var orderComplete = function (event, oCart, cOrderid) {
             // tempRe.contents[0].contents[0].text=cfoodName
             // tempRe.contents[1].contents[0].text=cfoodQty
             // tempRe.contents[2].contents[0].text=cfoodPrice
-            arr[0].contents.body.contents[5].contents[2].push({
+            arr[0].contents.body.contents[5].contents[k+1]={
                 "type": "box",
                 "layout": "horizontal",
                 "spacing": "xxl",
@@ -74,7 +74,7 @@ var orderComplete = function (event, oCart, cOrderid) {
                     ]
                   }
                 ]
-              })
+              }
             console.log(cfoodid+", "+cfoodPrice+", "+cfoodQty+", "+foodAmt)
         }
         event.reply(arr);
