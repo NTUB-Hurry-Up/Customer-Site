@@ -253,7 +253,7 @@ var orderComplete={
       "contents": [
         {
           "type": "text",
-          "text": "您已下訂完成",
+          "text": "您已完成下訂",
           "size": "xl",
           "align": "center",
           "weight": "bold"
@@ -434,7 +434,7 @@ var orderCompleteRepeat={
           "type": "text",
           "text": "阿屎芭樂",
           "flex": 0,
-          "size": "sm",
+          "size": "md",
           "align": "start",
           "weight": "bold",
           "wrap": true
