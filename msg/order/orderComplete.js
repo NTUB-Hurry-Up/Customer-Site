@@ -33,7 +33,7 @@ var orderComplete = function (event, oCart, cOrderid) {
             tempRe.contents[2].contents[0].text=cfoodPrice
             arr[0].contents.body.contents[5].contents[k+2]=tempRe
         }
-        arr[0].footer.contents[1].contents[0].text = "總價 : $"+cartTotalPrice
+        // arr[0].footer.contents[1].contents[0].text = "總價 : $"+cartTotalPrice
         event.reply(arr);
         
     });
