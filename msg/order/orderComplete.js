@@ -15,7 +15,7 @@ var orderComplete = function (event, oCart, cOrderid) {
         var arr = [];
         arr.push(lodash.cloneDeep(temp.orderComplete))
         for (var k = 0; k < i; k++) {
-            var tempRe = lodash.cloneDeep(orderCompleteRepeat)
+            var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
             var Afood=oCart.arrfood[k]
             var cfoodid = Afood.foodid;
             var cfoodName = Afood.foodName;
