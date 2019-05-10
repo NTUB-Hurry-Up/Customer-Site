@@ -11,6 +11,8 @@ var orderComplete = function (event, oCart, cOrderid) {
     event.source.profile().then(function (profile) {
         console.log(cOrderid)
         var i = oCart.arrfood.length;
+        var arr = [];
+        arr.push(lodash.cloneDeep(temp.orderComplete))
         for (var k = 0; k < i; k++) {
             var Afood=oCart.arrfood[k]
             var cfoodid = Afood.foodid;
@@ -19,6 +21,8 @@ var orderComplete = function (event, oCart, cOrderid) {
             var foodAmt = cfoodPrice * cfoodQty;
             console.log(cfoodid+", "+cfoodPrice+", "+cfoodQty+", "+foodAmt)
         }
+        event.reply(arr);
+        
     });
 }
 
