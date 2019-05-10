@@ -310,7 +310,7 @@ var orderComplete={
             },
             {
               "type": "text",
-              "text": "已接單"
+              "text": "未接單"
             },
             {
               "type": "filler"
@@ -390,8 +390,7 @@ var orderComplete={
               "type": "text",
               "text": "總價:",
               "size": "xl",
-              "align": "end",
-              "weight": "bold"
+              "align": "end"
             },
             {
               "type": "text",
