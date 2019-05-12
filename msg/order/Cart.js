@@ -10,7 +10,7 @@ var Cart = function(event, oCart, userName){
         var cstoreName = oCart.storeName;
 
         const template = temp.temp_cart;
-        template.contents.body.contents[0].text = userName+" 的購物車";
+        template.contents.body.contents[0].text = oCart.userName+" 的購物車";
         template.contents.body.contents[1].contents[0].text = cstoreName;
         var arr=[];
         arr.push(template)

@@ -154,6 +154,7 @@ bot.on('message', function (event) {
                                 if (CartA == -1) { CartA = objCart.arrCart.length }
                                 objCart.arrCart[CartA] = {
                                     'userid': userId,
+                                    'userName' : '',
                                     'storeid': cstoreid,
                                     'storeName': cstoreName,
                                     'storeAdd': cstoreAdd,
