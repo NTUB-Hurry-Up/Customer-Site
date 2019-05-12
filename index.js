@@ -274,7 +274,10 @@ bot.on('message', function (event) {
                         } else if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            event.reply('姓名已修改完成');
+                            if(CartA != -1){
+                                objCart.arrCart[CartA].userName = msg
+                                event.reply('姓名已修改完成');
+                            }
                         }
                     })
                 } else if (ss == "inputQty") {
