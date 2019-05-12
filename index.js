@@ -246,9 +246,17 @@ bot.on('message', function (event) {
                 event.reply(lodash.cloneDeep(temp.orderComplete));
             } else if (msg1 == "B") {
                 event.reply({
-                    "type": "image",
-                    "originalContentUrl": "https://lh3.googleusercontent.com/YK5xaieE0MVQB1xPNZOWXC2QwqF2CuYZQpjuhomudwGIAY0Yt2aTIT6070nnFGn2CZDx9iQ=s85",
-                    "previewImageUrl": "https://lh3.googleusercontent.com/YK5xaieE0MVQB1xPNZOWXC2QwqF2CuYZQpjuhomudwGIAY0Yt2aTIT6070nnFGn2CZDx9iQ=s85"
+                    "to": "Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8",
+                    "messages":[
+                        {
+                            "type":"text",
+                            "text":"Hello, world1"
+                        },
+                        {
+                            "type":"text",
+                            "text":"Hello, world2"
+                        }
+                    ]
                 });
             } else if (Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
