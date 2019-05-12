@@ -59,13 +59,13 @@ var objStatus = {
 var objCart = {
     arrCart: []
 }
-setTimeout(function () {
-    var userId = 'Ube90f7d70ab599cd22ec78df3c41dc43';
-    var sendMsg = "你科成為喔?";
-    bot.push(userId, [sendMsg]);
-    console.log('userId: ' + userId);
-    console.log('send: ' + sendMsg);
-}, 200);
+// setTimeout(function () {
+//     var userId = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
+//     var sendMsg = "push hands up ";
+//     bot.push(userId, [sendMsg]);
+//     console.log('userId: ' + userId);
+//     console.log('send: ' + sendMsg);
+// }, 100);
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -252,19 +252,9 @@ bot.on('message', function (event) {
             } else if (msg1 == "A") {
                 event.reply(lodash.cloneDeep(temp.orderComplete));
             } else if (msg1 == "B") {
-                event.reply({
-                    "to": "Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8",
-                    "messages":[
-                        {
-                            "type":"text",
-                            "text":"Hello, world1"
-                        },
-                        {
-                            "type":"text",
-                            "text":"Hello, world2"
-                        }
-                    ]
-                });
+                var userId = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
+                var sendMsg = "push hands up ";
+                bot.push(userId, [sendMsg]);
             } else if (Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "修改電話") {
