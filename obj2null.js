@@ -34,6 +34,7 @@ var cart2null = function (oCart, oStatus, CartA, Sta) {
             var i = oCart.arrfood.length;
             oCart.storeid = ""
             oCart.storeName = ""
+            oCart.storeAdd = ""
             oCart.arrfood.splice(0, i)
         }
     }

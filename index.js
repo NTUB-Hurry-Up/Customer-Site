@@ -157,6 +157,7 @@ bot.on('message', function (event) {
                             event.reply('執行錯誤');
                         } else {
                             cstoreName = data.storeName;
+                            cstoreAdd = data.storeAdd;
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
                             if(CartA == -1 || objCart.arrCart[CartA].storeid == ""){
@@ -165,6 +166,7 @@ bot.on('message', function (event) {
                                     'userid' : userId,
                                     'storeid' : cstoreid, 
                                     'storeName' : cstoreName,
+                                    'storeAdd' : cstoreAdd,
                                     'takeDate' : '',
                                     'takeTime' : '',
                                     'arrfood' : []
@@ -351,6 +353,7 @@ bot.on('message', function (event) {
                     if(msg1 == "是"){
                         objCart.arrCart[CartA].storeid = ''
                         objCart.arrCart[CartA].storeName = ''
+                        objCart.arrCart[CartA].storeAdd = ''
                         objCart.arrCart[CartA].arrfood = ''
                         foodInfo.foodInfo(event, msg2)
                     }else if(msg1 == "否"){
