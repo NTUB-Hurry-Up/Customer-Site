@@ -15,6 +15,7 @@ var orderComplete = function (event, oCart, cOrderid) {
         var i = oCart.arrfood.length;
         var cartTotalPrice = 0;
         var arr = [];
+        var storeAdd = ""
         arr.push(lodash.cloneDeep(temp.orderComplete))
         arr[0].contents.body.contents[1].contents[1].text=oCart.storeName
         arr[0].contents.body.contents[2].contents[1].text=cOrderid
@@ -27,7 +28,7 @@ var orderComplete = function (event, oCart, cOrderid) {
                 console.log("執行錯誤")
             } else {
                 console.log(data.storeAdd)
-                console.log(data[0].storeAdd)
+                storeAdd = data.storeAdd
                 arr[0].contents.footer.contents[1].contents[1].text = data.storeAdd
             }
         })
@@ -44,7 +45,9 @@ var orderComplete = function (event, oCart, cOrderid) {
             tempRe.contents[1].contents[0].text=cfoodQty
             tempRe.contents[2].contents[0].text=cfoodPrice
             arr[0].contents.body.contents[5].contents[k+2]=tempRe
+            console.log("k = "+k);
         }
+        arr[0].contents.footer.contents[1].contents[1].text = storeAdd
         arr[0].contents.footer.contents[1].contents[0].text = "總價 : $"+cartTotalPrice
         event.reply(arr);
         
