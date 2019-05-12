@@ -254,7 +254,7 @@ bot.on('message', function (event) {
             } else if (msg1 == "B") {
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
                 var sendMsg1 = "push hands up ";
-                bot.push(user1, [lodash.cloneDeep(temp.orderComplete)]);
+                bot.push(user1, lodash.cloneDeep(temp.orderComplete));
             } else if (Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "修改電話") {
