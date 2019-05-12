@@ -29,10 +29,21 @@ var memInfo = function(event){
         })
     });
 }
-
+var fetchMemName = function(userid, oCart){
+    //存放結果
+    member.fetchMember(userid).then(data => {
+        if (data == -1) {
+            console.log("找不到資料")
+        } else if (data == -9) {
+            console.log("執行錯誤")
+        } else {
+            oCart.userName = data.name
+        }
+    })
+}
 
 //匯出
-module.exports = {memInfo};
+module.exports = {memInfo, fetchMemName};
 
 
             

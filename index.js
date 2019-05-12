@@ -161,6 +161,7 @@ bot.on('message', function (event) {
                                     'takeTime': '',
                                     'arrfood': []
                                 }
+                                memInfo.fetchMemName(userId, objCart.arrCart[CartA])
                                 console.log("date.length " + objCart.arrCart[CartA].takeDate.length);
                             }
 
