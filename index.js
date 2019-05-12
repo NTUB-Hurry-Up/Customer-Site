@@ -10,6 +10,7 @@ const temp = require('./temp');
 const order = require('./order');
 const obj2null = require('./obj2null');
 const obj2addin = require('./obj2addin');
+const test2 = require('./test2');
 const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
