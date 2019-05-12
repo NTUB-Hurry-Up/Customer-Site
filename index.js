@@ -60,8 +60,8 @@ var objCart = {
     arrCart: []
 }
 setTimeout(function () {
-    var userId = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-    var sendMsg = "push hands up ";
+    var userId = 'Ube90f7d70ab599cd22ec78df3c41dc43';
+    var sendMsg = "你科成為喔?";
     bot.push(userId, [sendMsg]);
     console.log('userId: ' + userId);
     console.log('send: ' + sendMsg);
