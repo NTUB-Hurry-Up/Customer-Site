@@ -52,11 +52,11 @@ var status = "";
 var statusTime = 0;
 var arrCart = [];
 var arrCartQty = [];
-var objStatus={
-    arrStatus:[]
+var objStatus = {
+    arrStatus: []
 }
-var objCart={
-    arrCart:[]
+var objCart = {
+    arrCart: []
 }
 bot.on('message', function (event) {
     event.source.profile().then(
@@ -72,69 +72,55 @@ bot.on('message', function (event) {
             var msg4 = NewArray[3];
             console.log("Cart->")
             console.log(objCart.arrCart)
-            console.log("Status->"+objStatus.arrStatus.length)
+            console.log("Status->" + objStatus.arrStatus.length)
             console.log(objStatus.arrStatus)
-            
+
             var Sta;
-            if(objStatus.arrStatus.length == 0){
+            if (objStatus.arrStatus.length == 0) {
                 Sta = -1;
-            }else{
-                for(var q = 0; q < objStatus.arrStatus.length; q++){
-                    if(userId == objStatus.arrStatus[q].userid){
+            } else {
+                for (var q = 0; q < objStatus.arrStatus.length; q++) {
+                    if (userId == objStatus.arrStatus[q].userid) {
                         Sta = q;
                         break;
-                    }else{
+                    } else {
                         Sta = -1;
                     }
                 }
             }
 
             var CartA;
-            if(objCart.arrCart.length == 0){
+            if (objCart.arrCart.length == 0) {
                 CartA = -1;
-            }else{
-                for(var p = 0; p < objCart.arrCart.length; p++){
-                    if(userId == objCart.arrCart[p].userid){
+            } else {
+                for (var p = 0; p < objCart.arrCart.length; p++) {
+                    if (userId == objCart.arrCart[p].userid) {
                         CartA = p;
                         break;
-                    }else{
+                    } else {
                         CartA = -1;
                     }
                 }
             }
             if (msg1 == "會員") {
-                obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
+                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
-                   memInfo.memInfo(event)
+                    memInfo.memInfo(event)
                 } else if (msg2 == "修改姓名") {
-                    if(Sta == -1){
-                        Sta = objStatus.arrStatus.length
-                    }
-                    objStatus.arrStatus[Sta]={
-                        'userid' : userId,
-                        'status' : "修改姓名",
-                        'statusTime' : 1
-                    }
+                    obj2addin.statusAddin(objStatus, Sta, userId, "修改姓名", 1)
                     event.reply('請輸入您的姓名');
 
                 } else if (msg2 == "修改電話") {
-                    if(Sta == -1){
-                        Sta = objStatus.arrStatus.length
-                    }
-                    objStatus.arrStatus[Sta]={
-                        'userid' : userId,
-                        'status' : "修改電話",
-                        'statusTime' : 1
-                    }
+                    obj2addin.statusAddin(objStatus, Sta, userId, "修改電話", 1)
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
-            }else if(msg1 == "店家") {
-                obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
-                if(msg2 == "資訊") {
+            } else if (msg1 == "店家") {
+                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                if (msg2 == "資訊") {
                     storeInfo.storeInfo(event)
-                }else if(msg2 == "查看菜單") {
+                } else if (msg2 == "查看菜單") {
                     foodInfo.foodInfo(event, msg3)
-                }else if(msg2 == "聯絡店家") {
+                } else if (msg2 == "聯絡店家") {
                     store.fetchStoreTel(msg3).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
@@ -142,12 +128,12 @@ bot.on('message', function (event) {
                             event.reply('執行錯誤');
                         } else {
                             event.reply([
-                                {'type':'text', 'text':'連絡電話 :'},
-                                {'type':'text', 'text':data.storeTel}]
-                            );  
+                                { 'type': 'text', 'text': '連絡電話 :' },
+                                { 'type': 'text', 'text': data.storeTel }]
+                            );
                         }
                     })
-                }else if(msg2 == "加入購物車"){
+                } else if (msg2 == "加入購物車") {
                     var cstoreid = msg3;
                     var cfoodid = msg4;
                     order.Cartfetchfood(cfoodid).then(data => {
@@ -160,118 +146,114 @@ bot.on('message', function (event) {
                             cstoreAdd = data.storeAdd;
                             cfoodName = data.foodName;
                             cfoodPrice = data.foodPrice;
-                            if(CartA == -1 || objCart.arrCart[CartA].storeid == ""){
-                                if(CartA == -1){CartA = objCart.arrCart.length}
-                                objCart.arrCart[CartA]={
-                                    'userid' : userId,
-                                    'storeid' : cstoreid, 
-                                    'storeName' : cstoreName,
-                                    'storeAdd' : cstoreAdd,
-                                    'takeDate' : '',
-                                    'takeTime' : '',
-                                    'arrfood' : []
+                            if (CartA == -1 || objCart.arrCart[CartA].storeid == "") {
+                                if (CartA == -1) { CartA = objCart.arrCart.length }
+                                objCart.arrCart[CartA] = {
+                                    'userid': userId,
+                                    'storeid': cstoreid,
+                                    'storeName': cstoreName,
+                                    'storeAdd': cstoreAdd,
+                                    'takeDate': '',
+                                    'takeTime': '',
+                                    'arrfood': []
                                 }
-                                console.log("date.length "+objCart.arrCart[CartA].takeDate.length);
+                                console.log("date.length " + objCart.arrCart[CartA].takeDate.length);
                             }
-                            
-                            if(objCart.arrCart[CartA].storeid == cstoreid){
+
+                            if (objCart.arrCart[CartA].storeid == cstoreid) {
                                 var i = objCart.arrCart[CartA].arrfood.length
-                                if(i!=0){
-                                    for(var m = 0; m<i; m++){
-                                        if(objCart.arrCart[CartA].arrfood[m].foodid == cfoodid){
+                                if (i != 0) {
+                                    for (var m = 0; m < i; m++) {
+                                        if (objCart.arrCart[CartA].arrfood[m].foodid == cfoodid) {
                                             break;
-                                        }else if(m == i-1){
+                                        } else if (m == i - 1) {
                                             objCart.arrCart[CartA].arrfood.push({
-                                                'foodid' : cfoodid,
-                                                'foodName' : cfoodName, 
-                                                'foodPrice' : cfoodPrice,
-                                                'foodQty' : 0
+                                                'foodid': cfoodid,
+                                                'foodName': cfoodName,
+                                                'foodPrice': cfoodPrice,
+                                                'foodQty': 0
                                             })
                                         }
                                     }
-                                }else{
+                                } else {
                                     objCart.arrCart[CartA].arrfood.push({
-                                        'foodid' : cfoodid,
-                                        'foodName' : cfoodName, 
-                                        'foodPrice' : cfoodPrice,
-                                        'foodQty' : 0
+                                        'foodid': cfoodid,
+                                        'foodName': cfoodName,
+                                        'foodPrice': cfoodPrice,
+                                        'foodQty': 0
                                     })
                                 }
-                                
+
                                 console.log("arrfood")
                                 console.log(objCart.arrCart[CartA].arrfood)
                                 // status----start
-                                console.log("Sta"+Sta)
-                                if(Sta == -1){
+                                console.log("Sta" + Sta)
+                                if (Sta == -1) {
                                     Sta = objStatus.arrStatus.length
                                 }
-                                console.log("Sta"+Sta)
-                                objStatus.arrStatus[Sta]={
-                                    'userid' : userId,
-                                    'status' : "inputQty",
-                                    'statusTime' : 2,
-                                    'statusText' : cfoodid
+                                console.log("Sta" + Sta)
+                                objStatus.arrStatus[Sta] = {
+                                    'userid': userId,
+                                    'status': "inputQty",
+                                    'statusTime': 2,
+                                    'statusText': cfoodid
                                 }
                                 // status----end
                                 event.reply("數量?");
-                            }else{
+                            } else {
                                 const template = temp.temp1.template;
                                 template.actions[0].type = "message";
                                 template.actions[0].label = "是";
-                                template.actions[0].text = "是,"+cstoreid;
+                                template.actions[0].text = "是," + cstoreid;
 
                                 template.actions[1].type = "message";
                                 template.actions[1].label = "否";
-                                template.actions[1].text = "否,"+objCart.arrCart[CartA].storeid;
+                                template.actions[1].text = "否," + objCart.arrCart[CartA].storeid;
                                 template.title = "購物車訊息"
                                 template.text = "要改下訂這家店嗎 ?"
-                                objStatus.arrStatus[Sta]={
-                                    'userid' : userId,
-                                    'status' : "changeStore",
-                                    'statusTime' : 1
-                                }
+                                obj2addin.statusAddin(objStatus, Sta, userId, "changeStore", 1)
                                 event.reply(temp.temp1);
                             }
                         }
                     })
                 }
-            }else if(msg1 == "購物車"){
-                obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
-                if(msg2 == "查詢"){
-                    if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0){
+            } else if (msg1 == "購物車") {
+                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                if (msg2 == "查詢") {
+                    if (CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0) {
                         event.reply("閉嘴 ! , 請先點餐(cart)")
-                    }else{
+                    } else {
                         Cart.Cart(event, objCart.arrCart[CartA], userName)
                     }
-                }else if(msg2 == "清空"){
-                    obj2null.cart2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
+                } else if (msg2 == "清空") {
+                    obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     event.reply([
-                        {'type':'text', 'text':'已清空'},
-                        {'type':'text', 'text':'請重新點餐'}]
+                        { 'type': 'text', 'text': '已清空' },
+                        { 'type': 'text', 'text': '請重新點餐' }]
                     );
-                }else if(msg2 == "送出訂單"){
-                    if(CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0){
-                        event.reply('購物車是空的 !'); 
-                    }else if(objCart.arrCart[CartA].takeDate == ""){
+                } else if (msg2 == "送出訂單") {
+                    if (CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0) {
+                        event.reply('購物車是空的 !');
+                    } else if (objCart.arrCart[CartA].takeDate == "") {
                         event.reply('請先輸入取餐時間')
-                    }else{
+                    } else {
                         sendOrder.sendOrder(event, lodash.cloneDeep(objCart.arrCart[CartA]), userName)
-                        obj2null.cart2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
+                        obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
-            
-            
-            
-            
-            }else if(msg1 == "A"){
+
+
+
+
+            } else if (msg1 == "A") {
                 event.reply(lodash.cloneDeep(temp.orderComplete));
-            }else if(msg1 == "B"){
+            } else if (msg1 == "B") {
                 event.reply({
                     "type": "image",
                     "originalContentUrl": "https://lh3.googleusercontent.com/YK5xaieE0MVQB1xPNZOWXC2QwqF2CuYZQpjuhomudwGIAY0Yt2aTIT6070nnFGn2CZDx9iQ=s85",
                     "previewImageUrl": "https://lh3.googleusercontent.com/YK5xaieE0MVQB1xPNZOWXC2QwqF2CuYZQpjuhomudwGIAY0Yt2aTIT6070nnFGn2CZDx9iQ=s85"
                 });
-            }else if(Sta != -1 && objStatus.arrStatus[Sta].status != "") {
+            } else if (Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "修改電話") {
                     obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
@@ -284,7 +266,7 @@ bot.on('message', function (event) {
                             event.reply('電話已修改完成');
                         }
                     })
-                }else if(ss == "修改姓名") {
+                } else if (ss == "修改姓名") {
                     obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
                     member.UpdateName(msg, userId).then(data => {
                         if (data == -1) {
@@ -295,73 +277,73 @@ bot.on('message', function (event) {
                             event.reply('姓名已修改完成');
                         }
                     })
-                }else if(ss == "inputQty") {
+                } else if (ss == "inputQty") {
 
                     var isNum = /^[0-9]+$/;
-                    var x = Boolean(!isNum.test(msg1)); 
-                    var y = Boolean(parseInt(msg1) < 1); 
+                    var x = Boolean(!isNum.test(msg1));
+                    var y = Boolean(parseInt(msg1) < 1);
                     var z = Boolean(objStatus.arrStatus[Sta].statusTime > 0);
-                    if(z){
-                        if(x){
+                    if (z) {
+                        if (x) {
                             objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
-                                {'type':'text', 'text':'請輸入數字 ! '},
-                                {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
+                                { 'type': 'text', 'text': '請輸入數字 ! ' },
+                                { 'type': 'text', 'text': '你還剩' + objStatus.arrStatus[Sta].statusTime + '機會' }]
                             );
-                        }else if(y){
+                        } else if (y) {
                             objStatus.arrStatus[Sta].statusTime--;
                             event.reply([
-                                {'type':'text', 'text':'請輸入大於0的數字啦 ! '},
-                                {'type':'text', 'text':'你還剩'+objStatus.arrStatus[Sta].statusTime+'機會'}]
+                                { 'type': 'text', 'text': '請輸入大於0的數字啦 ! ' },
+                                { 'type': 'text', 'text': '你還剩' + objStatus.arrStatus[Sta].statusTime + '機會' }]
                             );
-                        }else{
+                        } else {
                             var i = objCart.arrCart[CartA].arrfood.length;
                             var cstoreid = objCart.arrCart[CartA].storeid;
                             var cstoreName = objCart.arrCart[CartA].storeName;
 
-                            for(var m = 0; m<i; m++){
-                                if(objCart.arrCart[CartA].arrfood[m].foodid==objStatus.arrStatus[Sta].statusText){
+                            for (var m = 0; m < i; m++) {
+                                if (objCart.arrCart[CartA].arrfood[m].foodid == objStatus.arrStatus[Sta].statusText) {
                                     var oldQty = parseInt(objCart.arrCart[CartA].arrfood[m].foodQty);
-                                    var newQty = (oldQty+parseInt(msg1)).toString();
-                                    objCart.arrCart[CartA].arrfood[m].foodQty=newQty;
+                                    var newQty = (oldQty + parseInt(msg1)).toString();
+                                    objCart.arrCart[CartA].arrfood[m].foodQty = newQty;
                                     break;
                                 }
                             }
                             console.log(objCart.arrCart[CartA].arrfood)
-                            
+
                             Cart.Cart(event, objCart.arrCart[CartA], userName)
-                            obj2null.status2null(objCart.arrCart[CartA],objStatus.arrStatus[Sta], CartA, Sta)
+                            obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                         }
-                    }else{
+                    } else {
                         var i = objCart.arrCart[CartA].arrfood.length;
-                        for(var m = 0; m<i; m++){
-                            if(objCart.arrCart[CartA].arrfood[m].foodQty==0){
-                                
+                        for (var m = 0; m < i; m++) {
+                            if (objCart.arrCart[CartA].arrfood[m].foodQty == 0) {
+
                                 objCart.arrCart[CartA].arrfood[m].length = 0
                             }
                         }
-                        objStatus.arrStatus[Sta].status="";
-                        objStatus.arrStatus[Sta].statusTime=0;
-                        objStatus.arrStatus[Sta].statusText="";
+                        objStatus.arrStatus[Sta].status = "";
+                        objStatus.arrStatus[Sta].statusTime = 0;
+                        objStatus.arrStatus[Sta].statusText = "";
                         event.reply('請你閉嘴')
                     }
-                    
-                    
-                }else if(ss == "changeStore") {
-                    objStatus.arrStatus[Sta].status=""
-                    objStatus.arrStatus[Sta].statusTime=0
-                    if(msg1 == "是"){
+
+
+                } else if (ss == "changeStore") {
+                    objStatus.arrStatus[Sta].status = ""
+                    objStatus.arrStatus[Sta].statusTime = 0
+                    if (msg1 == "是") {
                         objCart.arrCart[CartA].storeid = ''
                         objCart.arrCart[CartA].storeName = ''
                         objCart.arrCart[CartA].storeAdd = ''
                         objCart.arrCart[CartA].arrfood = ''
                         foodInfo.foodInfo(event, msg2)
-                    }else if(msg1 == "否"){
+                    } else if (msg1 == "否") {
                         foodInfo.foodInfo(event, msg2)
                     }
 
                 }
-            }else{
+            } else {
                 event.reply('e04, 工三小')
             }
         }
@@ -370,33 +352,33 @@ bot.on('message', function (event) {
 bot.on('postback', function (event) {
     event.source.profile().then(
         function (profile) {
-            
+
             let data = event.postback.data;
-            
+
             const userId = profile.userId;
             const userName = profile.displayName;
             var CartA;
-            if(objCart.arrCart.length == 0){
+            if (objCart.arrCart.length == 0) {
                 CartA = -1;
                 event.reply("閉嘴 ! , 請先點餐(p1)")
-            }else{
-                for(var p = 0; p < objCart.arrCart.length; p++){
-                    if(userId == objCart.arrCart[p].userid){
+            } else {
+                for (var p = 0; p < objCart.arrCart.length; p++) {
+                    if (userId == objCart.arrCart[p].userid) {
                         CartA = p;
                         break;
-                    }else if(p == objCart.arrCart.length-1){
+                    } else if (p == objCart.arrCart.length - 1) {
                         event.reply("閉嘴 ! , 請先點餐(p2)")
                     }
                 }
             }
-            if(data === "datetime" && CartA != -1){
-                data += `${JSON.stringify(event.postback.params)}`;                
+            if (data === "datetime" && CartA != -1) {
+                data += `${JSON.stringify(event.postback.params)}`;
                 var NewArray = data.split("\"");
                 var cdatetime = NewArray[3].split("T");
                 var takedate = cdatetime[0];
                 var taketime = cdatetime[1];
-                objCart.arrCart[CartA].takeDate=takedate
-                objCart.arrCart[CartA].takeTime=taketime
+                objCart.arrCart[CartA].takeDate = takedate
+                objCart.arrCart[CartA].takeTime = taketime
                 Cart.Cart(event, objCart.arrCart[CartA], userName)
                 // event.reply(`Got postback: ${data}`);
             }
