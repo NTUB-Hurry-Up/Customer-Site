@@ -21,8 +21,7 @@ var orderComplete = function (event, oCart, cOrderid) {
         arr[0].contents.body.contents[2].contents[1].text=cOrderid
         arr[0].contents.body.contents[4].contents[1].text=oCart.takeDate
         arr[0].contents.body.contents[4].contents[2].text=oCart.takeTime
-        arr[0].contents.footer.contents[1].contents[1].text = oCart.storeName
-        arr[0].contents.footer.contents[1].contents[0].text = "地址 :"+oCart.storeAdd
+        arr[0].contents.footer.contents[1].contents[1].text = "地址 :"+oCart.storeAdd
         // store.fetchStoreAdd(oCart.storeid).then(data => {
         //     if (data == -1) {
         //         console.log("找不到資料")
