@@ -21,17 +21,17 @@ var orderComplete = function (event, oCart, cOrderid) {
         arr[0].contents.body.contents[2].contents[1].text=cOrderid
         arr[0].contents.body.contents[4].contents[1].text=oCart.takeDate
         arr[0].contents.body.contents[4].contents[2].text=oCart.takeTime
-        store.fetchStoreAdd(oCart.storeid).then(data => {
-            if (data == -1) {
-                console.log("找不到資料")
-            } else if (data == -9) {
-                console.log("執行錯誤")
-            } else {
-                console.log(data.storeAdd)
-                storeAdd = data.storeAdd
-                arr[0].contents.footer.contents[1].contents[1].text = data.storeAdd
-            }
-        })
+        // store.fetchStoreAdd(oCart.storeid).then(data => {
+        //     if (data == -1) {
+        //         console.log("找不到資料")
+        //     } else if (data == -9) {
+        //         console.log("執行錯誤")
+        //     } else {
+        //         console.log(data.storeAdd)
+        //         storeAdd = data.storeAdd
+        //         arr[0].contents.footer.contents[1].contents[1].text = data.storeAdd
+        //     }
+        // })
         for (var k = 0; k < i; k++) {
             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
             var Afood=oCart.arrfood[k]
@@ -47,8 +47,8 @@ var orderComplete = function (event, oCart, cOrderid) {
             arr[0].contents.body.contents[5].contents[k+2]=tempRe
             console.log("k = "+k);
         }
-        arr[0].contents.footer.contents[1].contents[1].text = storeAdd
         arr[0].contents.footer.contents[1].contents[0].text = "總價 : $"+cartTotalPrice
+        arr[0].contents.footer.contents[1].contents[1].text = "ABC"
         event.reply(arr);
         
     });
