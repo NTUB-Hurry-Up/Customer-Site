@@ -9,6 +9,7 @@ const store = require('./store');
 const temp = require('./temp');
 const order = require('./order');
 const obj2null = require('./obj2null');
+const obj2addin = require('./obj2addin');
 const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
@@ -241,10 +242,6 @@ bot.on('message', function (event) {
                         obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
-
-
-
-
             } else if (msg1 == "A") {
                 event.reply(lodash.cloneDeep(temp.orderComplete));
             } else if (msg1 == "B") {
