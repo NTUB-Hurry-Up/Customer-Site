@@ -258,7 +258,7 @@ bot.on('message', function (event) {
                         var s=""
                         var scnt=-1
                         var arr=[]
-                        // arr.push(lodash.cloneDeep(temp.fetchOrder))
+                        arr.push(lodash.cloneDeep(temp.fetchOrder))
                         console.log("data.length = "+data.length)
                         for(var i = 0; i<data.length; i++){
 
