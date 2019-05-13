@@ -259,6 +259,7 @@ bot.on('message', function (event) {
                         var scnt=-1
                         var arr=[]
                         arr.push(lodash.cloneDeep(temp.fetchOrder))
+                        console.log("data.length = "+data.length)
                         for(var i = 0; i<data.length; i++){
 
                             console.log("i = "+i)
@@ -271,9 +272,12 @@ bot.on('message', function (event) {
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
                             arr[0].contents.contents[s].body.contents[5].contents[2+s]=tempRe
-
+                            console.log(("i = "+i+"scnt = "+scnt)
                         }
                         event.reply(arr);
+                        s=""
+                        scnt=-1
+                        arr=[]
                     }
                 })
                
