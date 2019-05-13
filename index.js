@@ -269,18 +269,15 @@ bot.on('message', function (event) {
                                 s = data[i].orderid
                                 console.log(data[i].orderid)
                                 // console.log("scnt = "+scnt)
-                                // arr[0].contents.contents[s] = lodash.cloneDeep(temp.orderComplete.contents)
-                                // arr[0].contents.contents[s].body.contents[0].text = data[i].orderid
+                                arr[0].contents.contents[s] = lodash.cloneDeep(temp.orderComplete.contents)
+                                arr[0].contents.contents[s].body.contents[0].text = data[i].orderid
                             }
                             // var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
                             // arr[0].contents.contents[s].body.contents[5].contents[2+s]=tempRe
                             // console.log("i = "+i+"scnt = "+scnt)
                             console.log(data[i].foodName)
                         }
-                        // event.reply(arr);
-                        // s=""
-                        // scnt=-1
-                        // arr=[]
+                        event.reply(arr);
                     }
                 })
                
