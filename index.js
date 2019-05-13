@@ -274,7 +274,7 @@ bot.on('message', function (event) {
                             // var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
                             // arr[0].contents.contents[s].body.contents[5].contents[2+s]=tempRe
                             // console.log("i = "+i+"scnt = "+scnt)
-                            console.log(data[i].orderid)
+                            console.log(data[i].orderid+foodName)
                         }
                         // event.reply(arr);
                         // s=""
