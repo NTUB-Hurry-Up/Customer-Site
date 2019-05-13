@@ -255,9 +255,19 @@ bot.on('message', function (event) {
                     } else if (data == -9) {
                         event.reply('執行錯誤');
                     } else {
+                        var s=""
+                        var arr=[]
+                        arr.push(lodash.cloneDeep(temp.fetchOrder))
                         for(var i = 0; i<data.length; i++){
-                            
+                            if(s != data[i].orderid){
+                                arr[0].contents.contents[0] = lodash.cloneDeep(temp.orderComplete.contents)
+                                arr[0].contents.contents[0].body.contents[0].text = data[i].orderid
+                            }
+                            var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
+                            arr[0].contents.contents[0].body.contents[5].contents[2]=tempRe
+
                         }
+                        event.reply(arr);
                     }
                 })
                
