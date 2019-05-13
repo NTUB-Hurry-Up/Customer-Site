@@ -263,6 +263,7 @@ bot.on('message', function (event) {
                         for(var i = 0; i<data.length; i++){
 
                             console.log("i = "+i)
+                            console.log(s+"?= "+data[i].orderid)
                             if(s != data[i].orderid){
                                 scnt++;
                                 s = data[i].orderid
@@ -272,7 +273,7 @@ bot.on('message', function (event) {
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
                             arr[0].contents.contents[s].body.contents[5].contents[2+s]=tempRe
-                            console.log(("i = "+i+"scnt = "+scnt)
+                            console.log("i = "+i+"scnt = "+scnt)
                         }
                         event.reply(arr);
                         s=""
