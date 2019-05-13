@@ -1,27 +1,27 @@
 
-var temp1=
+var temp1 =
 {
-    "type": "template",
-    "altText": "this is a buttons template",
-    "template": {
-        "type": "buttons",
-        "actions": [
-            {
-            "type": "message",
-            "label": "看到的字",
-            "text": "傳出的字"
-            },
-            {
-            "type": "message",
-            "label": "看到的字",
-            "text": "傳出的字"
-            }
-        ],
-        "title": "標題",
-        "text": "內文"
-    }
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "message",
+        "label": "看到的字",
+        "text": "傳出的字"
+      },
+      {
+        "type": "message",
+        "label": "看到的字",
+        "text": "傳出的字"
+      }
+    ],
+    "title": "標題",
+    "text": "內文"
+  }
 }
-var temp_store=
+var temp_store =
 {
   "type": "flex",
   "altText": "Flex Message",
@@ -31,7 +31,7 @@ var temp_store=
     ]
   }
 }
-var temp_cart={
+var temp_cart = {
   "type": "flex",
   "altText": "Flex Message",
   "contents": {
@@ -114,32 +114,32 @@ var temp_cart={
               "type": "box",
               "layout": "baseline",
               "contents": [
-              {
+                {
                   "type": "text",
                   "text": "food.foodName",
                   "flex": 0,
                   "margin": "sm",
                   "size": "md",
                   "weight": "bold"
-              },
-              {
+                },
+                {
                   "type": "text",
                   "text": "567",
                   "size": "xs",
                   "align": "center",
                   "color": "#AAAAAA",
                   "wrap": true
-              },
-              {
+                },
+                {
                   "type": "text",
                   "text": "$ 123",
                   "size": "sm",
                   "align": "end",
                   "color": "#000000"
-              }
+                }
               ]
-          }
-      
+            }
+
           ]
         },
         {
@@ -202,8 +202,8 @@ var temp_cart={
             "label": "設定取餐時間",
             "mode": "datetime",
             "data": "datetime",
-            "max":"2019-05-07T23:59",
-            "min":"2019-04-29T00:00"
+            "max": "2019-05-07T23:59",
+            "min": "2019-04-29T00:00"
           },
           "color": "#58290C"
         },
@@ -225,22 +225,22 @@ datetimepicker = {
   "type": "template",
   "altText": "this is a buttons template",
   "template": {
-      "type": "buttons",
-      "title": "購物車訊息",
-      "text": "請輸入取餐時間",
-      "actions": [
-          {
-            "type": "datetimepicker",
-            "label": "設定時間日期",
-            "mode": "datetime",
-            "data": "datetime",
-            "max":"2020-01-24t23:59",
-            "min":"2019-04-29t14:33"
-          }
-      ]
+    "type": "buttons",
+    "title": "購物車訊息",
+    "text": "請輸入取餐時間",
+    "actions": [
+      {
+        "type": "datetimepicker",
+        "label": "設定時間日期",
+        "mode": "datetime",
+        "data": "datetime",
+        "max": "2020-01-24t23:59",
+        "min": "2019-04-29t14:33"
+      }
+    ]
   }
 };
-var orderComplete={
+var orderComplete = {
   "type": "flex",
   "altText": "Flex Message",
   "contents": {
@@ -420,7 +420,7 @@ var orderComplete={
     }
   }
 }
-var orderCompleteRepeat={
+var orderCompleteRepeat = {
   "type": "box",
   "layout": "horizontal",
   "spacing": "xxl",
@@ -592,15 +592,200 @@ var orderCompleteRepeat={
 //   ]
 //   }
 // };
-var temp_menu={
-    "type": "flex",
-    "altText": "Flex Message",
-    "contents": {
-      "type": "carousel",
-      "contents": [
-        
-      ]
-    }
+var temp_menu = {
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+
+    ]
   }
+}
+var fetchOrder = {
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "direction": "ltr",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "text",
+              "text": "您已完成下訂",
+              "size": "xl",
+              "align": "center",
+              "weight": "bold"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "店家 : ",
+                  "size": "md",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "青島早餐店",
+                  "size": "md",
+                  "align": "start"
+                },
+                {
+                  "type": "filler"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "編號 :",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "AXXXXXXX",
+                  "size": "sm",
+                  "align": "start"
+                },
+                {
+                  "type": "filler"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "訂單狀況 :",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "未接單"
+                },
+                {
+                  "type": "filler"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "取餐日期 :",
+                  "margin": "none",
+                  "align": "start",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "2019/12/31",
+                  "size": "sm",
+                  "align": "center"
+                },
+                {
+                  "type": "text",
+                  "text": "12:59",
+                  "margin": "sm",
+                  "size": "sm"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "separator"
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "餐點名稱",
+                      "align": "start"
+                    },
+                    {
+                      "type": "text",
+                      "text": "份量",
+                      "align": "center"
+                    },
+                    {
+                      "type": "text",
+                      "text": "單價",
+                      "align": "end"
+                    }
+                  ]
+                }//
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "separator"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "總價:",
+                  "size": "xl",
+                  "align": "end"
+                },
+                {
+                  "type": "text",
+                  "text": "地址 : 不告訴你"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "備註 :"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "顆顆顆顆顆",
+              "size": "xs",
+              "align": "start",
+              "color": "#CCCCCC",
+              "wrap": true
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
 //匯出
-module.exports = {temp1, temp_store, temp_menu, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat};
+module.exports = { temp1, temp_store, temp_menu, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};

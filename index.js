@@ -249,31 +249,20 @@ bot.on('message', function (event) {
                     }
                 }
             } else if (msg1 == "訂單查詢") {
-                record.fetchOrderMaster(userId).then(data => {
+                record.fetchOrder(userId).then(data => {
                     if (data == -1) {
                         event.reply('沒有紀錄');
                     } else if (data == -9) {
                         event.reply('執行錯誤');
                     } else {
                         for(var i = 0; i<data.length; i++){
-                            console.log(data[i])
-                            record.fetchOrderDetail(data[i].orderid).then(data1 => {
-                                if (data1 == -1) {
-                                    event.reply('找不到資料');
-                                } else if (data1 == -9) {
-                                    event.reply('執行錯誤');
-                                } else {
-                                    console.log(i+"j"+data1.length)
-                                    for(var j = 0; j<data1.length; j++){
-                                        console.log("data--->"+data1[j])
-                                    }
-                                }
-                            })
-                        } 
-                        console.log("end")
+                            
+                        }
                     }
                 })
                
+            } else if (msg1 == "A") {
+                event.reply(temp.fetchOrder);
             } else if (msg1 == "B") {
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
                 var sendMsg1 = "push hands up ";
