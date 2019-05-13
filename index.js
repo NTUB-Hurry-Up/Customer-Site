@@ -262,7 +262,10 @@ bot.on('message', function (event) {
                 })
                
             } else if (msg1 == "A") {
-                event.reply(temp.fetchOrder);
+                var arr=[]
+                arr.push(lodash.cloneDeep(temp.fetchOrder))
+                arr[0].contents.contents[0] = lodash.cloneDeep(temp.orderComplete.contents)
+                event.reply(arr);
             } else if (msg1 == "B") {
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
                 var sendMsg1 = "push hands up ";
