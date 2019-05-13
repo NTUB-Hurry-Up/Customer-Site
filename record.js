@@ -29,7 +29,7 @@ var fetchOrderDetail = async function(orderid){
     let result;  
 
     //讀取資料庫
-    await query('SELECT a.foodid, b."storeName", b."storeAdd",a."foodName", a."foodPrice", a.foodimg FROM food AS a , store AS b where a.storeid = b.storeid and foodid = $1', [foodid])
+    await query('select a.orderid, b."foodName", a.quantity, a."unitPrice", a.amount from "orderDetail" a, food b where a.foodid = b.foodid and orderid = $1', [orderid])
         .then((data) => {
             if(data.rows.length > 0){
                 result = data.rows[0];  //學生資料(物件)

@@ -252,12 +252,23 @@ bot.on('message', function (event) {
                 event.reply(lodash.cloneDeep(temp.orderComplete));
                 record.fetchOrderMaster(userId).then(data => {
                     if (data == -1) {
-                        event.reply('找不到資料');
+                        event.reply('沒有紀錄');
                     } else if (data == -9) {
                         event.reply('執行錯誤');
                     } else {
                         for(var i = 0; i<data.length; i++){
                             console.log(data[i])
+                            record.fetchOrderDetail(data[i].orderid).then(data1 => {
+                                if (data1 == -1) {
+                                    event.reply('找不到資料');
+                                } else if (data1 == -9) {
+                                    event.reply('執行錯誤');
+                                } else {
+                                    for(var i = 0; i<data1.length; i++){
+                                        console.log("data--->"+data1[i])
+                                    }
+                                }
+                            })
                         }
                     }
                 })
