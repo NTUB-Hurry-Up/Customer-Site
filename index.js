@@ -56,13 +56,13 @@ var objStatus = {
 var objCart = {
     arrCart: []
 }
-// setTimeout(function () {
-//     var userId = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-//     var sendMsg = "push hands up ";
-//     bot.push(userId, [sendMsg]);
-//     console.log('userId: ' + userId);
-//     console.log('send: ' + sendMsg);
-// }, 100);
+setTimeout(function () {
+    var userId = 'Uf39d8816611fb683a2ed16d81c1b8067';
+    var sendMsg = "你科成為喔";
+    bot.push(userId, [sendMsg]);
+    console.log('userId: ' + userId);
+    console.log('send: ' + sendMsg);
+}, 100);
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -392,6 +392,16 @@ bot.on('message', function (event) {
                 }
             } else {
                 event.reply('e04, 工三小')
+            }
+            if(userId == 'Uf39d8816611fb683a2ed16d81c1b8067'){
+                var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
+                // var sendMsg1 = "push hands up ";
+                test2.push1(bot, user1, msg)
+            }
+            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "C"){
+                var user1 = 'Uf39d8816611fb683a2ed16d81c1b8067';
+                // var sendMsg1 = "push hands up ";
+                test2.push1(bot, user1, msg2)
             }
         }
     );
