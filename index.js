@@ -272,6 +272,7 @@ bot.on('message', function (event) {
                         }
                     }
                 })
+                console.log("end")
             } else if (msg1 == "B") {
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
                 var sendMsg1 = "push hands up ";
