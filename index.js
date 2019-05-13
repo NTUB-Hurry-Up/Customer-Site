@@ -8,6 +8,7 @@ const member = require('./member');
 const store = require('./store');
 const temp = require('./temp');
 const order = require('./order');
+const record = require('./record');
 const obj2null = require('./obj2null');
 const obj2addin = require('./obj2addin');
 const test2 = require('./test2');
@@ -247,8 +248,19 @@ bot.on('message', function (event) {
                         obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
-            } else if (msg1 == "A") {
+            } else if (msg1 == "訂單查詢") {
                 event.reply(lodash.cloneDeep(temp.orderComplete));
+                record.fetchOrderMaster(userId).then(data => {
+                    if (data == -1) {
+                        event.reply('找不到資料');
+                    } else if (data == -9) {
+                        event.reply('執行錯誤');
+                    } else {
+                        for(var i = 0; i<data.length; i++){
+                            console.log(data[i])
+                        }
+                    }
+                })
             } else if (msg1 == "B") {
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
                 var sendMsg1 = "push hands up ";
