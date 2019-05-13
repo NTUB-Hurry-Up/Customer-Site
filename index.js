@@ -249,7 +249,6 @@ bot.on('message', function (event) {
                     }
                 }
             } else if (msg1 == "訂單查詢") {
-                event.reply(lodash.cloneDeep(temp.orderComplete));
                 record.fetchOrderMaster(userId).then(data => {
                     if (data == -1) {
                         event.reply('沒有紀錄');
@@ -264,6 +263,7 @@ bot.on('message', function (event) {
                                 } else if (data1 == -9) {
                                     event.reply('執行錯誤');
                                 } else {
+                                    console.log("j")
                                     for(var j = 0; j<data1.length; j++){
                                         console.log("data--->"+data1[j])
                                     }
