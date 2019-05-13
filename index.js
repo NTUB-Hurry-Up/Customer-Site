@@ -263,7 +263,7 @@ bot.on('message', function (event) {
 
                             console.log("i = "+i)
                             if(s != data[i].orderid){
-                                console.log("s = "+s)
+                                console.log("scnt = "+scnt)
                                 scnt++;
                                 s = data[i].orderid
                                 arr[0].contents.contents[s] = lodash.cloneDeep(temp.orderComplete.contents)
