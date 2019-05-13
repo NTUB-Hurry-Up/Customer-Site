@@ -410,7 +410,7 @@ bot.on('message', function (event) {
 
                 test2.push1(bot, user1, sendMsg1)
             }
-            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "D"){
+            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "LPL"){
                 var user1 = 'Uadfb1e88125823625a1303ccf629e549';
                 // var sendMsg1 = "push hands up ";
                 test2.push1(bot, user1, msg2)
