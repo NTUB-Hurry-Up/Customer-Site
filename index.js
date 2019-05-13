@@ -257,7 +257,7 @@ bot.on('message', function (event) {
                     } else {
                         var s=""
                         var scnt = -1
-                        var fcnt = 0
+                        // var fcnt = 0
                         var arr=[]
                         arr.push(lodash.cloneDeep(temp.fetchOrder))
                         console.log("data.length = "+data.length)
@@ -267,7 +267,7 @@ bot.on('message', function (event) {
                             // console.log(s+"?= "+data[i].orderid)
                             if(s != data[i].orderid){
                                 scnt++;
-                                fcnt = 0
+                                // fcnt = 0
                                 s = data[i].orderid
                                 console.log(data[i].orderid)
                                 // console.log("scnt = "+scnt)
@@ -275,8 +275,8 @@ bot.on('message', function (event) {
                                 arr[0].contents.contents[scnt].body.contents[0].text = data[i].orderid
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
-                            arr[0].contents.contents[scnt].body.contents[5].contents[2+fcnt]=tempRe
-                            fcnt++
+                            arr[0].contents.contents[scnt].body.contents[5].contents[2]=tempRe
+                            // fcnt++;
                             // console.log("i = "+i+"scnt = "+scnt)
                             // console.log(data[i].foodName)
                         }
