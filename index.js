@@ -272,9 +272,9 @@ bot.on('message', function (event) {
                                 arr[0].contents.contents[scnt] = lodash.cloneDeep(temp.orderComplete.contents)
                                 arr[0].contents.contents[scnt].body.contents[0].text = data[i].orderid
                             }
-                            // var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
-                            // arr[0].contents.contents[s].body.contents[5].contents[2+s]=tempRe
-                            // console.log("i = "+i+"scnt = "+scnt)
+                            var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
+                            arr[0].contents.contents[scnt].body.contents[5].contents[2+scnt]=tempRe
+                            console.log("i = "+i+"scnt = "+scnt)
                             console.log(data[i].foodName)
                         }
                         event.reply(arr);
