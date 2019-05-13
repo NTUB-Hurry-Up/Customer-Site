@@ -260,12 +260,14 @@ bot.on('message', function (event) {
                         var arr=[]
                         arr.push(lodash.cloneDeep(temp.fetchOrder))
                         for(var i = 0; i<data.length; i++){
-                            console.log
+
+                            console.log("i = "+i)
                             if(s != data[i].orderid){
+                                console.log("s = "+s)
                                 scnt++;
+                                s = data[i].orderid
                                 arr[0].contents.contents[s] = lodash.cloneDeep(temp.orderComplete.contents)
                                 arr[0].contents.contents[s].body.contents[0].text = data[i].orderid
-                                s = data[i].orderid
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
                             arr[0].contents.contents[s].body.contents[5].contents[2]=tempRe
