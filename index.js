@@ -275,7 +275,7 @@ bot.on('message', function (event) {
                                 arr[0].contents.contents[scnt].body.contents[0].text = data[i].orderid
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
-                            arr[0].contents.contents[scnt].body.contents[5].contents[2]=tempRe
+                            arr[0].contents.contents[scnt].body.contents[5].contents[fcnt+2]=tempRe
                             
                             console.log(fcnt)
                             fcnt++;
