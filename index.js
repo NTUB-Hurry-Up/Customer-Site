@@ -263,7 +263,7 @@ bot.on('message', function (event) {
                                 } else if (data1 == -9) {
                                     event.reply('執行錯誤');
                                 } else {
-                                    console.log("j")
+                                    console.log("j"+data1.length)
                                     for(var j = 0; j<data1.length; j++){
                                         console.log("data--->"+data1[j])
                                     }

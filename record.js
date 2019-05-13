@@ -32,7 +32,7 @@ var fetchOrderDetail = async function(orderid){
     await query('select a.orderid, b."foodName", a.quantity, a."unitPrice", a.amount from "orderDetail" a, food b where a.foodid = b.foodid and orderid = $1', [orderid])
         .then((data) => {
             if(data.rows.length > 0){
-                result = data.rows[0];  //學生資料(物件)
+                result = data.rows;  //學生資料(物件)
             }else{
                 result = -1;  //找不到資料
             }    
