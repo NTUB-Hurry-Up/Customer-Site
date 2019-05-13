@@ -783,6 +783,182 @@ var fetchOrder = {
             }
           ]
         }
+      },
+      {
+        "type": "bubble",
+        "direction": "ltr",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "contents": [
+            {
+              "type": "text",
+              "text": "您已完成下訂",
+              "size": "xl",
+              "align": "center",
+              "weight": "bold"
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "店家 : ",
+                  "size": "md",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "青島早餐店",
+                  "size": "md",
+                  "align": "start"
+                },
+                {
+                  "type": "filler"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "編號 :",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "AXXXXXXX",
+                  "size": "sm",
+                  "align": "start"
+                },
+                {
+                  "type": "filler"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "訂單狀況 :",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "未接單"
+                },
+                {
+                  "type": "filler"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "取餐日期 :",
+                  "margin": "none",
+                  "align": "start",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "2019/12/31",
+                  "size": "sm",
+                  "align": "center"
+                },
+                {
+                  "type": "text",
+                  "text": "12:59",
+                  "margin": "sm",
+                  "size": "sm"
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "separator"
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "餐點名稱",
+                      "align": "start"
+                    },
+                    {
+                      "type": "text",
+                      "text": "份量",
+                      "align": "center"
+                    },
+                    {
+                      "type": "text",
+                      "text": "單價",
+                      "align": "end"
+                    }
+                  ]
+                }//
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "separator"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "總價:",
+                  "size": "xl",
+                  "align": "end"
+                },
+                {
+                  "type": "text",
+                  "text": "地址 : 不告訴你"
+                },
+                {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "備註 :"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "顆顆顆顆顆",
+              "size": "xs",
+              "align": "start",
+              "color": "#CCCCCC",
+              "wrap": true
+            }
+          ]
+        }
       }
     ]
   }
