@@ -263,16 +263,17 @@ bot.on('message', function (event) {
                                 } else if (data1 == -9) {
                                     event.reply('執行錯誤');
                                 } else {
-                                    console.log("j"+data1.length)
+                                    console.log(i+"j"+data1.length)
                                     for(var j = 0; j<data1.length; j++){
                                         console.log("data--->"+data1[j])
                                     }
                                 }
                             })
-                        }
+                        } 
+                        console.log("end")
                     }
                 })
-                console.log("end")
+               
             } else if (msg1 == "B") {
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
                 var sendMsg1 = "push hands up ";
