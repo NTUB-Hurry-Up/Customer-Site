@@ -276,9 +276,9 @@ bot.on('message', function (event) {
                                 arr[0].contents.contents[scnt].body.contents[1].contents[1].text = data[i].storeName
                                 arr[0].contents.contents[scnt].body.contents[2].contents[1].text = data[i].orderid
                                 arr[0].contents.contents[scnt].body.contents[3].contents[1].text = data[i].status
-                                arr[0].contents.contents[scnt].body.contents[4].contents[1].text = (data[i].orderDate).getFullYear()+"-"+(data[i].orderDate).getMonth()+"-"+(data[i].orderDate).getDate()
+                                arr[0].contents.contents[scnt].body.contents[4].contents[1].text = (data[i].orderDate).getFullYear()+"-"+((data[i].orderDate).getMonth() + 1 < 10 ? '0' : '')+"-"+((data[i].orderDate).getDate() < 10 ? '0' : '')
                                 arr[0].contents.contents[scnt].body.contents[4].contents[2].text = data[i].orderTime.substring(0,5)
-                                arr[0].contents.contents[scnt].body.contents[5].contents[1].text = (data[i].takeDate).getFullYear()+"-"+(data[i].takeDate).getMonth()+"-"+(data[i].takeDate).getDate()
+                                arr[0].contents.contents[scnt].body.contents[5].contents[1].text = (data[i].takeDate).getFullYear()+"-"+((data[i].takeDate).getMonth() + 1 < 10 ? '0' : '')+"-"+((data[i].takeDate).getDate() < 10 ? '0' : '')
                                 arr[0].contents.contents[scnt].body.contents[5].contents[2].text = data[i].takeTime.substring(0,5)
 
                             }
