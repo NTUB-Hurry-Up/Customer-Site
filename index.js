@@ -277,9 +277,9 @@ bot.on('message', function (event) {
                                 arr[0].contents.contents[scnt].body.contents[2].contents[1].text = data[i].orderid
                                 // arr[0].contents.contents[scnt].body.contents[3].contents[1].text = data[i].status
                                 arr[0].contents.contents[scnt].body.contents[4].contents[1].text = data[i].orderDate
-                                arr[0].contents.contents[scnt].body.contents[4].contents[2].text = data[i].orderTime.substring(5,3)
+                                arr[0].contents.contents[scnt].body.contents[4].contents[2].text = data[i].orderTime.substring(0,5)
                                 arr[0].contents.contents[scnt].body.contents[5].contents[1].text = data[i].takeDate
-                                arr[0].contents.contents[scnt].body.contents[5].contents[2].text = data[i].takeTime.substring(5,3)
+                                arr[0].contents.contents[scnt].body.contents[5].contents[2].text = data[i].takeTime.substring(0,5)
 
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
