@@ -54,8 +54,7 @@ var sendOrder = function (event, oCart, userName) {
                         if (data == -9) {
                             event.reply("執行錯誤b");
                         } else {
-                            orderComplete.orderComplete(event,oCart, cOrderid)
-                            // event.reply("訂單已送出 ! " + cOrderid);
+                            orderComplete.orderComplete(event, oCart, cOrderid, cOrderDate, cOrderTime)
                         }
                     })
                 }

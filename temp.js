@@ -323,7 +323,7 @@ var orderComplete = {
           "contents": [
             {
               "type": "text",
-              "text": "取餐日期 :",
+              "text": "訂餐日期 :",
               "margin": "none",
               "align": "start",
               "weight": "bold"
