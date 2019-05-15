@@ -289,7 +289,7 @@ bot.on('message', function (event) {
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
                             arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2]=tempRe
-                            
+                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[0].contents[0].text = data[i].foodName
                             console.log(fcnt)
                             fcnt++;
                             // console.log("i = "+i+"scnt = "+scnt)
