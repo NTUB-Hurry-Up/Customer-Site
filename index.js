@@ -274,9 +274,10 @@ bot.on('message', function (event) {
                                 arr[0].contents.contents[scnt] = lodash.cloneDeep(temp.orderComplete.contents)
                                 arr[0].contents.contents[scnt].body.contents[0].text = data[i].orderid
                                 arr[0].contents.contents[scnt].body.contents[1].contents[1].text = data[i].storeName
+                                arr[0].contents.contents[scnt].body.contents[2].contents[1].text = data[i].orderid
                             }
                             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
-                            arr[0].contents.contents[scnt].body.contents[5].contents[fcnt+2]=tempRe
+                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2]=tempRe
                             
                             console.log(fcnt)
                             fcnt++;

@@ -344,6 +344,31 @@ var orderComplete = {
         },
         {
           "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "取餐日期 :",
+              "margin": "none",
+              "align": "start",
+              "weight": "bold"
+            },
+            {
+              "type": "text",
+              "text": "2019/12/31",
+              "size": "sm",
+              "align": "center"
+            },
+            {
+              "type": "text",
+              "text": "12:59",
+              "margin": "sm",
+              "size": "sm"
+            }
+          ]
+        },
+        {
+          "type": "box",
           "layout": "vertical",
           "spacing": "sm",
           "contents": [

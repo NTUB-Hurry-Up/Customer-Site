@@ -45,7 +45,7 @@ var orderComplete = function (event, oCart, cOrderid) {
             tempRe.contents[0].contents[0].text=cfoodName
             tempRe.contents[1].contents[0].text=cfoodQty
             tempRe.contents[2].contents[0].text=cfoodPrice
-            arr[0].contents.body.contents[5].contents[k+2]=tempRe
+            arr[0].contents.body.contents[6].contents[k+2]=tempRe
             console.log("k = "+k);
         }
         arr[0].contents.footer.contents[1].contents[0].text = "總價 : $"+cartTotalPrice
