@@ -295,7 +295,7 @@ bot.on('message', function (event) {
                             arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[1].contents[0].text = data[i].quantity
                             arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[2].contents[0].text = "$"+data[i].unitPrice
                             fprice+=data[i].quantity*data[i].unitPrice
-                            arr[0].contents.contents[scnt].footer.contents[1].contents[0].text = "總價 : "+fcnt
+                            arr[0].contents.contents[scnt].footer.contents[1].contents[0].text = "總價 : "+fprice
                             console.log(fcnt)
                             fcnt++;
                             // console.log("i = "+i+"scnt = "+scnt)
