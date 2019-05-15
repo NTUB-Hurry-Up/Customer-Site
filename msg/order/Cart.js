@@ -49,7 +49,7 @@ var Cart = function(event, oCart, userName){
                     },
                     {
                         "type": "text",
-                        "text": "$ "+Afood.foodPrice*Afood.foodQty,
+                        "text": "$ "+Afood.foodPrice,
                         "size": "sm",
                         "align": "end",
                         "color": "#000000"
