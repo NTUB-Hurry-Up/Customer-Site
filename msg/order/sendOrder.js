@@ -36,7 +36,7 @@ var sendOrder = function (event, oCart, userName) {
         var cOrderTime = cHours + ':' + cMinutes;
         //--cOrderDate-cOrderTime--end--------
 
-        order.addOrder(cUserid, cStoreid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
+        order.addOrder(cStoreid, cUserid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
             console.log(cUserid+"-"+cStoreid+"-"+cOrderDate+"-"+cOrderTime+"-"+cTakeDate+"-"+cTakeTime);
             if (data == -9) {
                 event.reply('執行錯誤a');
