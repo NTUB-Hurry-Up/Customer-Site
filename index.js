@@ -258,6 +258,7 @@ bot.on('message', function (event) {
                         var s=""
                         var scnt = -1
                         var fcnt = 0
+                        var fprice = 0
                         var arr=[]
                         arr.push(lodash.cloneDeep(temp.fetchOrder))
                         console.log("data.length = "+data.length)
@@ -268,6 +269,7 @@ bot.on('message', function (event) {
                             if(s != data[i].orderid){
                                 scnt++;
                                 fcnt = 0
+                                fprice = 0
                                 s = data[i].orderid
                                 console.log(data[i].orderid)
                                 // console.log("scnt = "+scnt)
@@ -291,7 +293,9 @@ bot.on('message', function (event) {
                             arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2]=tempRe
                             arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[0].contents[0].text = data[i].foodName
                             arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[1].contents[0].text = data[i].quantity
-                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[2].contents[0].text = data[i].unitPrice
+                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[2].contents[0].text = "$"+data[i].unitPrice
+                            fprice+=data[i].quantity*data[i].unitPrice
+                            arr[0].contents.contents[scnt].footer.contents[1].contents[0].text = "總價 : "+fcnt
                             console.log(fcnt)
                             fcnt++;
                             // console.log("i = "+i+"scnt = "+scnt)
