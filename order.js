@@ -49,7 +49,7 @@ var addOrderDetail = async function(orderid, foodid, foodPrice, foodQty, foodAmt
     let result;  
 
     //新增會員資料
-    await query('INSERT INTO "orderDetail"("orderid", "foodid", "quantity", "unitPrice", "amount") VALUES ($1, $2, $3, $4, $5)', [orderid, foodid, foodPrice, foodQty, foodAmt])
+    await query('INSERT INTO "orderDetail"("orderid", "foodid", "unitPrice", "quantity", "amount") VALUES ($1, $2, $3, $4, $5)', [orderid, foodid, foodPrice, foodQty, foodAmt])
         .then((data) => {
             result = data.rowCount;  //新增資料數  
         }, (error) => {
