@@ -70,7 +70,7 @@ bot.on('message', function (event) {
             const userId = profile.userId;
             const msg = event.message.text;
             var NewArray = new Array();
-            var NewArray = msg.split(",");
+            NewArray = msg.split(",");
             var msg1 = NewArray[0];
             var msg2 = NewArray[1];
             var msg3 = NewArray[2];
