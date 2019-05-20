@@ -46,15 +46,6 @@ bot.on('follow', function (event) {
         }
     );
 });
-// --------------------------------
-// 機器人接受訊息的處理
-// --------------------------------
-var objStatus = {
-    arrStatus: []
-}
-var objCart = {
-    arrCart: []
-}
 // setTimeout(function () {
 //     var userId = 'Uf39d8816611fb683a2ed16d81c1b8067';
 //     var sendMsg = "你科成為喔";
@@ -62,6 +53,18 @@ var objCart = {
 //     console.log('userId: ' + userId);
 //     console.log('send: ' + sendMsg);
 // }, 100);
+// --------------------------------
+// 機器人接受訊息的處理
+// --------------------------------
+session.user = {
+    'id': ""
+};
+var objStatus = {
+    arrStatus: []
+}
+var objCart = {
+    arrCart: []
+}
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -106,7 +109,13 @@ bot.on('message', function (event) {
                     }
                 }
             }
-            if (msg1 == "會員") {
+            if(msg1 == "A"){
+                if(session.user.id == ""){
+                    session.user.id = userId
+                }else {
+                    event.reply(session.user.id)
+                }
+            }else if (msg1 == "會員") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event)
@@ -154,7 +163,7 @@ bot.on('message', function (event) {
                                 if (CartA == -1) { CartA = objCart.arrCart.length }
                                 objCart.arrCart[CartA] = {
                                     'userid': userId,
-                                    'userName' : '',
+                                    'userName': '',
                                     'storeid': cstoreid,
                                     'storeName': cstoreName,
                                     'storeAdd': cstoreAdd,
@@ -270,7 +279,7 @@ bot.on('message', function (event) {
                         } else if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            if(CartA != -1){
+                            if (CartA != -1) {
                                 objCart.arrCart[CartA].userName = msg
                                 event.reply('姓名已修改完成');
                             }

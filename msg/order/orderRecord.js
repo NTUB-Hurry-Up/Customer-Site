@@ -19,7 +19,6 @@ var orderRecord = function(event, lodash){
                 var fprice = 0
                 var arr=[]
                 arr.push(lodash.cloneDeep(temp.fetchOrder))
-                console.log("data.length = "+data.length)
                 for(var i = 0; i<data.length; i++){
 
                     if(s != data[i].orderid){
@@ -28,7 +27,6 @@ var orderRecord = function(event, lodash){
                         fprice = 0
                         s = data[i].orderid
                         console.log(data[i].orderid)
-                        // console.log("scnt = "+scnt)
                         arr[0].contents.contents[scnt] = lodash.cloneDeep(temp.orderComplete.contents)
                         arr[0].contents.contents[scnt].body.contents[0].text = data[i].orderid
                         arr[0].contents.contents[scnt].body.contents[1].contents[1].text = data[i].storeName
@@ -53,7 +51,6 @@ var orderRecord = function(event, lodash){
                     fprice+=data[i].quantity*data[i].unitPrice
                     arr[0].contents.contents[scnt].footer.contents[1].contents[0].text = "總價 : "+fprice
                     arr[0].contents.contents[scnt].footer.contents[1].contents[1].text = "地址 : "+data[i].storeAdd
-                    console.log(fcnt)
                     fcnt++;
                 }
                 event.reply(arr);
