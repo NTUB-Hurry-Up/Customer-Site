@@ -56,9 +56,7 @@ bot.on('follow', function (event) {
 // --------------------------------
 // 機器人接受訊息的處理
 // --------------------------------
-session.user = {
-    'id': ""
-};
+
 var objStatus = {
     arrStatus: []
 }
@@ -109,13 +107,7 @@ bot.on('message', function (event) {
                     }
                 }
             }
-            if(msg1 == "A"){
-                if(session.user.id == ""){
-                    session.user.id = userId
-                }else {
-                    event.reply(session.user.id)
-                }
-            }else if (msg1 == "會員") {
+            if (msg1 == "會員") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event)
