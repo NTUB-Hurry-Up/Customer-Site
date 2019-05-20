@@ -5,7 +5,7 @@ const record = require('./../../record');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var orderRecord = function(event){
+var orderRecord = function(event, lodash){
     event.source.profile().then(function (profile) {
         record.fetchOrder(profile.userId).then(data => {
             if (data == -1) {

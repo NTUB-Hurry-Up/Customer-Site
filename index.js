@@ -248,7 +248,7 @@ bot.on('message', function (event) {
                     }
                 }
             } else if (msg1 == "訂單查詢") {
-                orderRecord.orderRecord(event);
+                orderRecord.orderRecord(event, lodash);
             } else if (Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "修改電話") {
