@@ -8,15 +8,14 @@ const member = require('./member');
 const store = require('./store');
 const temp = require('./temp');
 const order = require('./order');
-const record = require('./record');
 const obj2null = require('./obj2null');
 const obj2addin = require('./obj2addin');
-const test2 = require('./test2');
 const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
 const Cart = require('./msg/order/Cart');
 const sendOrder = require('./msg/order/sendOrder');
+const orderRecord = require('./msg/order/orderRecord');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -249,74 +248,7 @@ bot.on('message', function (event) {
                     }
                 }
             } else if (msg1 == "訂單查詢") {
-                record.fetchOrder(userId).then(data => {
-                    if (data == -1) {
-                        event.reply('沒有紀錄');
-                    } else if (data == -9) {
-                        event.reply('執行錯誤');
-                    } else {
-                        var s=""
-                        var scnt = -1
-                        var fcnt = 0
-                        var fprice = 0
-                        var arr=[]
-                        arr.push(lodash.cloneDeep(temp.fetchOrder))
-                        console.log("data.length = "+data.length)
-                        for(var i = 0; i<data.length; i++){
-
-                            // console.log("i = "+i)
-                            // console.log(s+"?= "+data[i].orderid)
-                            if(s != data[i].orderid){
-                                scnt++;
-                                fcnt = 0
-                                fprice = 0
-                                s = data[i].orderid
-                                console.log(data[i].orderid)
-                                // console.log("scnt = "+scnt)
-                                arr[0].contents.contents[scnt] = lodash.cloneDeep(temp.orderComplete.contents)
-                                arr[0].contents.contents[scnt].body.contents[0].text = data[i].orderid
-                                arr[0].contents.contents[scnt].body.contents[1].contents[1].text = data[i].storeName
-                                arr[0].contents.contents[scnt].body.contents[2].contents[1].text = data[i].orderid
-                                arr[0].contents.contents[scnt].body.contents[3].contents[1].text = data[i].status
-                                var orderMonth = ((data[i].orderDate).getMonth() + 1 < 10 ? '0' : '')+((data[i].orderDate).getMonth() + 1)
-                                var orderDate = ((data[i].orderDate).getDate() < 10 ? '0' : '')+(data[i].orderDate).getDate()
-                                arr[0].contents.contents[scnt].body.contents[4].contents[1].text = (data[i].orderDate).getFullYear()+"-"+orderMonth+"-"+orderDate
-                                arr[0].contents.contents[scnt].body.contents[4].contents[2].text = data[i].orderTime.substring(0,5)
-
-                                var takeMonth = ((data[i].takeDate).getMonth() + 1 < 10 ? '0' : '')+((data[i].takeDate).getMonth() + 1)
-                                var takeDate = ((data[i].takeDate).getDate() < 10 ? '0' : '')+(data[i].takeDate).getDate()
-                                arr[0].contents.contents[scnt].body.contents[5].contents[1].text = (data[i].takeDate).getFullYear()+"-"+takeMonth+"-"+takeDate
-                                arr[0].contents.contents[scnt].body.contents[5].contents[2].text = data[i].takeTime.substring(0,5)
-
-                            }
-                            var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
-                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2]=tempRe
-                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[0].contents[0].text = data[i].foodName
-                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[1].contents[0].text = data[i].quantity
-                            arr[0].contents.contents[scnt].body.contents[6].contents[fcnt+2].contents[2].contents[0].text = "$"+data[i].unitPrice
-                            fprice+=data[i].quantity*data[i].unitPrice
-                            arr[0].contents.contents[scnt].footer.contents[1].contents[0].text = "總價 : "+fprice
-                            arr[0].contents.contents[scnt].footer.contents[1].contents[1].text = "地址 : "+data[i].storeAdd
-                            console.log(fcnt)
-                            fcnt++;
-                            // console.log("i = "+i+"scnt = "+scnt)
-                            // console.log(data[i].foodName)
-                        }
-                        event.reply(arr);
-                    }
-                })
-               
-            } else if (msg1 == "A") {
-                var arr=[]
-                arr.push(lodash.cloneDeep(temp.fetchOrder))
-                arr[0].contents.contents[0] = lodash.cloneDeep(temp.orderComplete.contents)
-                var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
-                arr[0].contents.contents[0].body.contents[5].contents[2]=tempRe
-                event.reply(arr);
-            } else if (msg1 == "B") {
-                var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-                var sendMsg1 = "push hands up ";
-                test2.push1(bot, user1, sendMsg1)
+                orderRecord.orderRecord(event);
             } else if (Sta != -1 && objStatus.arrStatus[Sta].status != "") {
                 var ss = objStatus.arrStatus[Sta].status
                 if (ss == "修改電話") {
