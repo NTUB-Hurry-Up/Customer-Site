@@ -5,7 +5,7 @@ const store = require('./../../store');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var storeInfo = function(event){
+var storeInfo = function(event, lodash){
     event.source.profile().then(function (profile) {
         store.fetchStore().then(data => {
             if (data == -1) {
@@ -30,12 +30,7 @@ var storeInfo = function(event){
                                 "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
                                 "size": "full",
                                 "aspectRatio": "20:13",
-                                "aspectMode": "cover",
-                                "action": {
-                                    "type": "uri",
-                                    "label": "Line",
-                                    "uri": "https://linecorp.com/"
-                                }
+                                "aspectMode": "cover"
                             },
                             "body": {
                                 "type": "box",
@@ -133,8 +128,7 @@ var storeInfo = function(event){
                                     }
                                 ]
                             }
-
-                        }
+                          }
                     );
 
                 }

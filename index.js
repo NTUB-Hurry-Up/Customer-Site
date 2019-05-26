@@ -149,7 +149,7 @@ bot.on('message', function (event) {
             } else if (msg1 == "店家") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
-                    storeInfo.storeInfo(event)
+                    storeInfo.storeInfo(event, lodash)
                 } else if (msg2 == "查看菜單") {
                     foodInfo.foodInfo(event, msg3)
                 } else if (msg2 == "聯絡店家") {

@@ -28,9 +28,123 @@ var temp_store =
   "contents": {
     "type": "carousel",
     "contents": [
+      
     ]
   }
 }
+var temp_store_repeat =
+{
+  "type": "bubble",
+  "hero": {
+      "type": "image",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+          "type": "uri",
+          "label": "Line",
+          "uri": "https://linecorp.com/"
+      }
+  },
+  "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+          {
+              "type": "text",
+              "text": data[i].storeName,
+              "size": "xl",
+              "weight": "bold"
+          },
+          {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "margin": "lg",
+              "contents": [
+                  {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [
+                          {
+                              "type": "text",
+                              "text": "Place",
+                              "flex": 1,
+                              "size": "sm",
+                              "color": "#AAAAAA"
+                          },
+                          {
+                              "type": "text",
+                              "text": data[i].storeAdd,
+                              "flex": 5,
+                              "size": "sm",
+                              "color": "#666666",
+                              "wrap": true
+                          }
+                      ]
+                  },
+                  {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [
+                          {
+                              "type": "text",
+                              "text": "Tel",
+                              "flex": 1,
+                              "size": "sm",
+                              "color": "#AAAAAA"
+                          },
+                          {
+                              "type": "text",
+                              "text": data[i].storeTel,
+                              "flex": 5,
+                              "size": "sm",
+                              "color": "#666666",
+                              "wrap": true
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  },
+  "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "flex": 0,
+      "spacing": "sm",
+      "contents": [
+          {
+              "type": "button",
+              "action": {
+                  "type": "message",
+                  "label": "查看菜單",
+                  "text": "店家,查看菜單," + data[i].storeid
+              },
+              "height": "sm",
+              "style": "link"
+          },
+          {
+              "type": "button",
+              "action": {
+                  "type": "message",
+                  "label": "聯絡店家",
+                  "text": "店家,聯絡店家," + data[i].storeid
+              },
+              "height": "sm",
+              "style": "link"
+          },
+          {
+              "type": "spacer",
+              "size": "sm"
+          }
+      ]
+  }
+}
+
 var temp_cart = {
   "type": "flex",
   "altText": "Flex Message",
@@ -636,4 +750,4 @@ var fetchOrder = {
   }
 }
 //匯出
-module.exports = { temp_memInfo, temp_store, temp_menu, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
