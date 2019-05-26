@@ -57,7 +57,7 @@ bot.on('follow', function (event) {
 // 機器人接受訊息的處理
 // --------------------------------
 var obj = {
-    arrPsnl : []//personal
+    arrPsnl: []//personal
 }
 var objStatus = {
     arrStatus: []
@@ -122,19 +122,21 @@ bot.on('message', function (event) {
                 }
             }
             if (msg1 == "會員") {
-                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改姓名", 1)
+                    obj2addin.objStatusAddin(obj, objLoc, userId, "修改姓名", 1)
                     event.reply('請輸入您的姓名');
 
                 } else if (msg2 == "修改電話") {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改電話", 1)
+                    obj2addin.objStatusAddin(obj, objLoc, userId, "修改電話", 1)
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
-                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     storeInfo.storeInfo(event)
                 } else if (msg2 == "查看菜單") {
@@ -264,10 +266,12 @@ bot.on('message', function (event) {
                 }
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
-            } else if (Sta != -1 && objStatus.arrStatus[Sta].status != "") {
+            } else if ((objLoc != -1 || Sta != -1) && (obj.arrPsnl[objLoc].Status.status != "" ||objStatus.arrStatus[Sta].status != "")) {
                 var ss = objStatus.arrStatus[Sta].status
-                if (ss == "修改電話") {
+                var s = obj.arrPsnl[objLoc].Status.status
+                if (s == "修改電話") {
                     obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
+                    obj2null.status(obj.arrPsnl[objLoc])
                     member.UpdatePhone(msg, userId).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
@@ -277,8 +281,9 @@ bot.on('message', function (event) {
                             event.reply('電話已修改完成');
                         }
                     })
-                } else if (ss == "修改姓名") {
+                } else if (s == "修改姓名") {
                     obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
+                    obj2null.status(obj.arrPsnl[objLoc])
                     member.UpdateName(msg, userId).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
@@ -287,8 +292,9 @@ bot.on('message', function (event) {
                         } else {
                             if (CartA != -1) {
                                 objCart.arrCart[CartA].userName = msg
-                                event.reply('姓名已修改完成');
-                            }
+                                
+                            }//xxx
+                            event.reply('姓名已修改完成');
                         }
                     })
                 } else if (ss == "inputQty") {

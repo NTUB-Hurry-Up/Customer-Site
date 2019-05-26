@@ -2,9 +2,9 @@
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-        
-        
-var statusAddin = function(objStatus, Sta, userId, status, statusTime){
+
+
+var statusAddin = function (objStatus, Sta, userId, status, statusTime) {
 
     if (Sta == -1) {
         Sta = objStatus.arrStatus.length
@@ -31,7 +31,18 @@ var cartAddin = function (oCart, oStatus, CartA, Sta) {
         }
     }
 }
+var objStatusAddin = function (obj, objLoc, userId, status, statusTime) {
 
+    if (objLoc == -1) {
+        objLoc = obj.arrPsnl.length
+    }
+    obj.arrPsnl[objLoc].Status = {
+        'userid': userId,
+        'status': status,
+        'statusTime': statusTime,
+        'statusText': ''
+    }
+}
 //匯出
-module.exports = { statusAddin,cartAddin };
+module.exports = { objStatusAddin, statusAddin, cartAddin };
 
