@@ -46,13 +46,13 @@ bot.on('follow', function (event) {
         }
     );
 });
-// setTimeout(function () {
-//     var userId = 'Uf39d8816611fb683a2ed16d81c1b8067';
-//     var sendMsg = "你科成為喔";
-//     bot.push(userId, [sendMsg]);
-//     console.log('userId: ' + userId);
-//     console.log('send: ' + sendMsg);
-// }, 100);
+setTimeout(function () {
+    var userId = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
+    var sendMsg = "online";
+    bot.push(userId, [sendMsg]);
+    console.log('userId: ' + userId);
+    console.log('send: ' + sendMsg);
+}, 1);
 // --------------------------------
 // 機器人接受訊息的處理
 // --------------------------------
