@@ -53,7 +53,7 @@ var temp_store_repeat =
       "contents": [
           {
               "type": "text",
-              "text": data[i].storeName,
+              "text": 'data[i].storeName',
               "size": "xl",
               "weight": "bold"
           },
@@ -77,7 +77,7 @@ var temp_store_repeat =
                           },
                           {
                               "type": "text",
-                              "text": data[i].storeAdd,
+                              "text": 'data[i].storeAdd',
                               "flex": 5,
                               "size": "sm",
                               "color": "#666666",
@@ -99,7 +99,7 @@ var temp_store_repeat =
                           },
                           {
                               "type": "text",
-                              "text": data[i].storeTel,
+                              "text": 'data[i].storeTel',
                               "flex": 5,
                               "size": "sm",
                               "color": "#666666",
@@ -122,7 +122,7 @@ var temp_store_repeat =
               "action": {
                   "type": "message",
                   "label": "查看菜單",
-                  "text": "店家,查看菜單," + data[i].storeid
+                  "text": "店家,查看菜單," + 'data[i].storeid'
               },
               "height": "sm",
               "style": "link"
@@ -132,7 +132,7 @@ var temp_store_repeat =
               "action": {
                   "type": "message",
                   "label": "聯絡店家",
-                  "text": "店家,聯絡店家," + data[i].storeid
+                  "text": "店家,聯絡店家," + 'data[i].storeid'
               },
               "height": "sm",
               "style": "link"
