@@ -5,7 +5,7 @@ const member = require('./../../member');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
-var memInfo = function(event, lodash){
+var memInfo = function (event, lodash) {
     //存放結果
     event.source.profile().then(function (profile) {
         member.fetchMember(profile.userId).then(data => {
@@ -15,15 +15,15 @@ var memInfo = function(event, lodash){
                 console.log("執行錯誤")
             } else {
                 // const template = temp.temp1.template;
-                var arr=[]
+                var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
                 arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
-                event.reply( arr[0]);
+                event.reply(arr[0]);
             }
         })
     });
 }
-var fetchMemName = function(userid, oCart){
+var fetchMemName = function (userid, oCart) {
     //存放結果
     member.fetchMember(userid).then(data => {
         if (data == -1) {
@@ -35,9 +35,37 @@ var fetchMemName = function(userid, oCart){
         }
     })
 }
+var changeMemInfo = function (s, newinfo, userid, oPsnl) {
+
+    obj2null.status(oPsnl)
+    if (s == "修改姓名") {
+        member.UpdateName(newinfo, userid).then(data => {
+            if (data == -1) {
+                event.reply('找不到資料');
+            } else if (data == -9) {
+                event.reply('執行錯誤');
+            } else {
+                oPsnl.Cart.userName = newinfo
+                event.reply('姓名已修改完成');
+            }
+        })
+    } else if (s == "修改電話") {
+        member.UpdatePhone(newinfo, userid).then(data => {
+            if (data == -1) {
+                event.reply('找不到資料');
+            } else if (data == -9) {
+                event.reply('執行錯誤');
+            } else {
+                oPsnl.Cart.userPhone = newinfo
+                event.reply('電話已修改完成');
+            }
+        })
+    }
+
+
+}
 
 //匯出
-module.exports = {memInfo, fetchMemName};
+module.exports = { memInfo, fetchMemName, changeMemInfo };
 
 
-            

@@ -282,34 +282,8 @@ bot.on('message', function (event) {
             } else if ((obj.arrPsnl[objLoc].Status.status != "" ) || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
                 var ss = objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
-                if (s == "修改電話") {
-                    obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
-                    obj2null.status(obj.arrPsnl[objLoc])
-                    member.UpdatePhone(msg, userId).then(data => {
-                        if (data == -1) {
-                            event.reply('找不到資料');
-                        } else if (data == -9) {
-                            event.reply('執行錯誤');
-                        } else {
-                            event.reply('電話已修改完成');
-                        }
-                    })
-                } else if (s == "修改姓名") {
-                    obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
-                    obj2null.status(obj.arrPsnl[objLoc])
-                    member.UpdateName(msg, userId).then(data => {
-                        if (data == -1) {
-                            event.reply('找不到資料');
-                        } else if (data == -9) {
-                            event.reply('執行錯誤');
-                        } else {
-                            if (CartA != -1) {
-                                objCart.arrCart[CartA].userName = msg
-
-                            }//xxx
-                            event.reply('姓名已修改完成');
-                        }
-                    })
+                if (s == "修改電話" || s == "修改姓名") {
+                    memInfo.changeMemInfo(s, msg, userId, obj.arrPsnl[objLoc])
                 } else if (ss == "inputQty") {
 
                     var isNum = /^[0-9]+$/;
