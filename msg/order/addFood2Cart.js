@@ -1,10 +1,13 @@
 
 //引用操作資料庫的物件
 const temp = require('./../../temp');
+const order = require('./../../order');
+const obj2addin = require('./../../obj2addin');
+const memInfo = require('./../member/memInfo');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid){
+var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
     event.source.profile().then(function (profile) {
         console.log(oPsnl.Cart);
         order.Cartfetchfood(cfoodid).then(data => {

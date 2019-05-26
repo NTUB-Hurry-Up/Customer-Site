@@ -161,7 +161,7 @@ bot.on('message', function (event) {
                 } else if (msg2 == "加入購物車") {
                     var cstoreid = msg3;
                     var cfoodid = msg4;
-                    addFood2Cart.addFood2Cart(event, obj.arrPsnl[objLoc], cstoreid, cfoodid);
+                    addFood2Cart.addFood2Cart(event, obj.arrPsnl[objLoc], cstoreid, cfoodid, lodash);
                 }
             } else if (msg1 == "購物車") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
