@@ -16,16 +16,7 @@ var memInfo = function(event, lodash){
             } else {
                 // const template = temp.temp1.template;
                 var arr=[]
-                arr.push(lodash.cloneDeep(temp.temp_memInfo))
-                arr[0].template.actions[0].type = "message";
-                arr[0].template.actions[0].label = "修改姓名";
-                arr[0].actions[0].text = "會員,修改姓名";
-    
-                arr[0].actions[1].type = "message";
-                arr[0].actions[1].label = "修改電話";
-                arr[0].actions[1].text = "會員,修改電話";
-                arr[0].title = "會員資訊"
-                arr[0].text = "姓名 : " + data.name + "\n電話 : " + data.phone
+                arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
                 event.reply( arr[0]);
             }
         })
