@@ -145,7 +145,7 @@ bot.on('message', function (event) {
                     console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "修改電話") {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改電話", 1)
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc].Status , "修改電話", 1)
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc] , "修改電話", 1)
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
@@ -282,7 +282,6 @@ bot.on('message', function (event) {
             } else if ((obj.arrPsnl[objLoc].Status.status != "" ) || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
                 var ss = objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
-                console.log('statatatat')
                 if (s == "修改電話") {
                     obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
                     obj2null.status(obj.arrPsnl[objLoc])
