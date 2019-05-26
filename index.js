@@ -89,7 +89,7 @@ bot.on('message', function (event) {
                 console.log("==0")
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
-                console.log("q="+q)
+                console.log("q=" + q)
                 if (userId == obj.arrPsnl[q].userid) {
                     objLoc = q;
                     console.log("qqqqqqqqqqqqqqqqqqq")
@@ -98,13 +98,15 @@ bot.on('message', function (event) {
                     objLoc = obj.arrPsnl.length
                     obj.arrPsnl[objLoc] = {
                         'userid': userId,
-                        'Cart': {},
+                        'Cart': {
+                            'storeid': ""
+                        },
                         'Status': {}
                     }
                 }
             }
-            
-            
+
+
             console.log(objLoc)
 
             var Sta;
@@ -139,11 +141,11 @@ bot.on('message', function (event) {
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc] , "修改姓名", 1)
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改姓名", 1)
                     event.reply('請輸入您的姓名');
                     console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "修改電話") {
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc] , "修改電話", 1)
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改電話", 1)
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
@@ -185,7 +187,7 @@ bot.on('message', function (event) {
                 }
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
-            } else if ((obj.arrPsnl[objLoc].Status.status != "" ) || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
+            } else if ((obj.arrPsnl[objLoc].Status.status != "") || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
                 var ss = objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "修改電話" || s == "修改姓名") {
