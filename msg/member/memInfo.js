@@ -35,11 +35,9 @@ var fetchMemName = function (userid, oCart) {
         }
     })
 }
-var changeMemInfo = function (s, newinfo, userid, oPsnl) {
-
-    
+var changeMemInfo = function (event, oPsnl, s, newinfo, userid) {
     if (s == "修改姓名") {
-        member.UpdateName(newinfo, userid).then(data => {
+        member.UpdateName(newinfo, oPsnl.userid).then(data => {
             if (data == -1) {
                 event.reply('找不到資料');
             } else if (data == -9) {
@@ -50,7 +48,7 @@ var changeMemInfo = function (s, newinfo, userid, oPsnl) {
             }
         })
     } else if (s == "修改電話") {
-        member.UpdatePhone(newinfo, userid).then(data => {
+        member.UpdatePhone(newinfo, oPsnl.userid).then(data => {
             if (data == -1) {
                 event.reply('找不到資料');
             } else if (data == -9) {
