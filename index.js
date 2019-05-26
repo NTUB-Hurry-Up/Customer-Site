@@ -139,12 +139,10 @@ bot.on('message', function (event) {
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
-                    obj2addin.statusAddin(objStatus, Sta, userId, "修改姓名", 1)
                     obj2addin.StatusAddin(obj.arrPsnl[objLoc] , "修改姓名", 1)
                     event.reply('請輸入您的姓名');
                     console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "修改電話") {
-                    obj2addin.statusAddin(objStatus, Sta, userId, "修改電話", 1)
                     obj2addin.StatusAddin(obj.arrPsnl[objLoc] , "修改電話", 1)
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
@@ -155,18 +153,7 @@ bot.on('message', function (event) {
                 } else if (msg2 == "查看菜單") {
                     foodInfo.foodInfo(event, msg3)
                 } else if (msg2 == "聯絡店家") {
-                    store.fetchStoreTel(msg3).then(data => {
-                        if (data == -1) {
-                            event.reply('找不到資料');
-                        } else if (data == -9) {
-                            event.reply('執行錯誤');
-                        } else {
-                            event.reply([
-                                { 'type': 'text', 'text': '連絡電話 :' },
-                                { 'type': 'text', 'text': data.storeTel }]
-                            );
-                        }
-                    })
+                    storeInfo.storeTel(event, msg3)
                 } else if (msg2 == "加入購物車") {
                     var cstoreid = msg3;
                     var cfoodid = msg4;

@@ -146,10 +146,25 @@ var storeInfo = function(event){
         })
     });
 }
+var storeTel = function(event, storeid){
+    event.source.profile().then(function (profile) {
+        store.fetchStoreTel(storeid).then(data => {
+            if (data == -1) {
+                event.reply('找不到資料');
+            } else if (data == -9) {
+                event.reply('執行錯誤');
+            } else {
+                event.reply([
+                    { 'type': 'text', 'text': '連絡電話 :' },
+                    { 'type': 'text', 'text': data.storeTel }]
+                );
+            }
+        })
 
-
+    });
+}
 //匯出
-module.exports = {storeInfo};
+module.exports = {storeInfo, storeTel};
 
 
             
