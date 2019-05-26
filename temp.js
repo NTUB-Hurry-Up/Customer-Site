@@ -139,7 +139,92 @@ var temp_store_repeat =
       ]
   }
 }
+var temp_menu = {
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": [
 
+    ]
+  }
+}
+var temp_menu_repeat = {
+  "type": "bubble",
+  "hero": {
+      "type": "image",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover"
+  },
+  "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+          {
+              "type": "text",
+              "text": 'data[i].foodName',
+              "size": "xl",
+              "weight": "bold"
+          },
+          {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "contents": [
+                  {
+                      "type": "box",
+                      "layout": "baseline",
+                      "contents": [
+                          {
+                              "type": "text",
+                              "text": "Price",
+                              "flex": 1,
+                              "size": "lg",
+                              "color": "#AAAAAA"
+                          },
+                          {
+                              "type": "text",
+                              "text": '"NT$" + data[i].foodPrice',
+                              "flex": 0,
+                              "margin": "lg",
+                              "size": "lg",
+                              "align": "end",
+                              "weight": "regular"
+                          }
+                      ]
+                  }
+              ]
+          },
+          {
+              "type": "text",
+              "text": "Sauce, Onions, Pickles, Lettuce & Cheese",
+              "size": "xs",
+              "color": "#AAAAAA",
+              "wrap": true
+          }
+      ]
+  },
+  "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+          {
+              "type": "button",
+              "action": {
+                  "type": "message",
+                  "label": "Add to Cart",
+                  "text": '"店家,加入購物車," + data[i].storeid + "," + data[i].foodid'
+              },
+              "color": "#905C44",
+              "style": "primary"
+          }
+      ]
+  }
+
+}
 var temp_cart = {
   "type": "flex",
   "altText": "Flex Message",
@@ -330,7 +415,7 @@ var temp_cart = {
   }
 }
 
-datetimepicker = {
+var datetimepicker = {
   "type": "template",
   "altText": "this is a buttons template",
   "template": {
@@ -604,6 +689,16 @@ var orderCompleteRepeat = {
     }
   ]
 }
+var fetchOrder = {
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "carousel",
+    "contents": []
+  }
+}
+//匯出
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
 // {
 //   "type": "button",
 //   "action": {
@@ -726,23 +821,3 @@ var orderCompleteRepeat = {
 //   ]
 //   }
 // };
-var temp_menu = {
-  "type": "flex",
-  "altText": "Flex Message",
-  "contents": {
-    "type": "carousel",
-    "contents": [
-
-    ]
-  }
-}
-var fetchOrder = {
-  "type": "flex",
-  "altText": "Flex Message",
-  "contents": {
-    "type": "carousel",
-    "contents": []
-  }
-}
-//匯出
-module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};

@@ -151,7 +151,7 @@ bot.on('message', function (event) {
                 if (msg2 == "資訊") {
                     storeInfo.storeInfo(event, lodash)
                 } else if (msg2 == "查看菜單") {
-                    foodInfo.foodInfo(event, msg3)
+                    foodInfo.foodInfo(event, msg3, lodash)
                 } else if (msg2 == "聯絡店家") {
                     storeInfo.storeTel(event, msg3)
                 } else if (msg2 == "加入購物車") {
