@@ -16,6 +16,7 @@ var memInfo = function(event, lodash){
             } else {
                 // const template = temp.temp1.template;
                 var arr=[]
+                arr.push(lodash.cloneDeep(temp.temp_memInfo))
                 arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
                 event.reply( arr[0]);
             }
