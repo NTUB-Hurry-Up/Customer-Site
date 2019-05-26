@@ -37,7 +37,7 @@ var fetchMemName = function (userid, oCart) {
 }
 var changeMemInfo = function (s, newinfo, userid, oPsnl) {
 
-    obj2null.status(oPsnl)
+    
     if (s == "修改姓名") {
         member.UpdateName(newinfo, userid).then(data => {
             if (data == -1) {

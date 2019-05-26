@@ -283,6 +283,7 @@ bot.on('message', function (event) {
                 var ss = objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "修改電話" || s == "修改姓名") {
+                    obj2null.status(obj.arrPsnl[objLoc])
                     memInfo.changeMemInfo(s, msg, userId, obj.arrPsnl[objLoc])
                 } else if (ss == "inputQty") {
 
