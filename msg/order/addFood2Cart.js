@@ -21,6 +21,8 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid){
         }else{
             console.log("flength");
         }
+        console.log(oPsnl.Cart);
+        console.log(oPsnl.Cart.length);
         // order.Cartfetchfood(cfoodid).then(data => {
         //     if (data == -1) {
         //         event.reply('找不到資料');
