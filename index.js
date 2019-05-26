@@ -86,7 +86,6 @@ bot.on('message', function (event) {
                     'Cart': {},
                     'Status': {}
                 })
-                objLoc = 0
                 console.log("==0")
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
@@ -143,7 +142,7 @@ bot.on('message', function (event) {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改姓名", 1)
                     obj2addin.StatusAddin(obj.arrPsnl[objLoc].Status , "修改姓名", 1)
                     event.reply('請輸入您的姓名');
-
+                    console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "修改電話") {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改電話", 1)
                     obj2addin.StatusAddin(obj.arrPsnl[objLoc].Status , "修改電話", 1)
