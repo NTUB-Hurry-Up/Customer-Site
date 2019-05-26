@@ -33,12 +33,12 @@ var cartAddin = function (oCart, oStatus, CartA, Sta) {
 }
 var StatusAddin = function (oPsnl, status, statusTime) {
     console.log("Add++")
-    oPsnl.status = {
+    oPsnl.Status = {
         'status': status,
         'statusTime': statusTime,
         'statusText': ''
     }
-    console.log(oPsnl.status)
+    console.log(oPsnl.Status)
 }
 //匯出
 module.exports = { StatusAddin, statusAddin, cartAddin };
