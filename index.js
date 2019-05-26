@@ -282,6 +282,7 @@ bot.on('message', function (event) {
             } else if ((obj.arrPsnl[objLoc].Status.status != "" ) || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
                 var ss = objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
+                console.log('statatatat')
                 if (s == "修改電話") {
                     obj2null.status2null(null, objStatus.arrStatus[Sta], -1, Sta)
                     obj2null.status(obj.arrPsnl[objLoc])
