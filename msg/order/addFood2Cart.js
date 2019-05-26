@@ -103,7 +103,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                         'takeTime': '',
                         'arrfood': []
                     }
-                    memInfo.fetchMemInfo(oPsnl.userId, oPsnl.Cart)
+                    memInfo.fetchMemInfo(oPsnl.userid, oPsnl.Cart)
                 }
                 if(oPsnl.Cart.storeid == cstoreid ){
                     var i = oPsnl.Cart.arrfood.length
