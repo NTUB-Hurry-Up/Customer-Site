@@ -81,14 +81,22 @@ bot.on('message', function (event) {
             console.log(obj.arrPsnl)
             var objLoc;
             if (obj.arrPsnl.length == 0) {
-                objLoc = -1;
-            } else {
-                for (var q = 0; q < obj.arrPsnl.length; q++) {
-                    if (userId == obj.arrPsnl[q].userid) {
-                        objLoc = q;
-                        break;
-                    } else {
-                        objLoc = -1;
+                obj.arrPsnl.push({
+                    'userid': userId,
+                    'Cart': {},
+                    'Status': {}
+                })
+            }
+            for (var q = 0; q < obj.arrPsnl.length; q++) {
+                if (userId == obj.arrPsnl[q].userid) {
+                    objLoc = q;
+                    break;
+                } else if (q == obj.arrPsnl.length - 1) {
+                    objLoc = obj.arrPsnl.length
+                    obj.arrPsnl[objLoc] = {
+                        'userid': userId,
+                        'Cart': {},
+                        'Status': {}
                     }
                 }
             }
@@ -127,12 +135,12 @@ bot.on('message', function (event) {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改姓名", 1)
-                    obj2addin.objStatusAddin(obj, objLoc, userId, "修改姓名", 1)
+                    obj2addin.objStatusAddin(obj.arrPsnl[objLoc].Status , "修改姓名", 1)
                     event.reply('請輸入您的姓名');
 
                 } else if (msg2 == "修改電話") {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改電話", 1)
-                    obj2addin.objStatusAddin(obj, objLoc, userId, "修改電話", 1)
+                    obj2addin.objStatusAddin(obj.arrPsnl[objLoc].Status , "修改電話", 1)
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
@@ -266,7 +274,7 @@ bot.on('message', function (event) {
                 }
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
-            } else if ((objLoc != -1 || Sta != -1) && (obj.arrPsnl[objLoc].Status.status != "" ||objStatus.arrStatus[Sta].status != "")) {
+            } else if ((objLoc != -1 || Sta != -1) && (obj.arrPsnl[objLoc].Status.status != "" || objStatus.arrStatus[Sta].status != "")) {
                 var ss = objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "修改電話") {
@@ -292,7 +300,7 @@ bot.on('message', function (event) {
                         } else {
                             if (CartA != -1) {
                                 objCart.arrCart[CartA].userName = msg
-                                
+
                             }//xxx
                             event.reply('姓名已修改完成');
                         }

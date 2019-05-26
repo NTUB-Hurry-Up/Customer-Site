@@ -31,18 +31,14 @@ var cartAddin = function (oCart, oStatus, CartA, Sta) {
         }
     }
 }
-var objStatusAddin = function (obj, objLoc, userId, status, statusTime) {
+var StatusAddin = function (oStatus, status, statusTime) {
 
-    if (objLoc == -1) {
-        objLoc = obj.arrPsnl.length
-    }
-    obj.arrPsnl[objLoc].Status = {
-        'userid': userId,
+    oStatus = {
         'status': status,
         'statusTime': statusTime,
         'statusText': ''
     }
 }
 //匯出
-module.exports = { objStatusAddin, statusAddin, cartAddin };
+module.exports = { StatusAddin, statusAddin, cartAddin };
 
