@@ -6,8 +6,14 @@ const temp = require('./../../temp');
 //------------------------------------------
 var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid){
     event.source.profile().then(function (profile) {
-        if(oPsnl.Cart == {}){
-            event.reply("true");
+        if(oPsnl.Cart == null){
+            console.log("null");
+        }
+        if(oPsnl.Cart == ''){
+            console.log("1");
+        }
+        if(oPsnl.Cart.length == 0){
+            console.log("length");
         }
         // order.Cartfetchfood(cfoodid).then(data => {
         //     if (data == -1) {
