@@ -31,14 +31,14 @@ var cartAddin = function (oCart, oStatus, CartA, Sta) {
         }
     }
 }
-var StatusAddin = function (oStatus, status, statusTime) {
+var StatusAddin = function (oPsnl, status, statusTime) {
     console.log("Add++")
-    oStatus = {
+    oPsnl.status = {
         'status': status,
         'statusTime': statusTime,
         'statusText': ''
     }
-    console.log(oStatus)
+    console.log(oPsnl.status)
 }
 //匯出
 module.exports = { StatusAddin, statusAddin, cartAddin };
