@@ -89,21 +89,21 @@ bot.on('message', function (event) {
                 objLoc = 0
                 console.log("==0")
             }
-                for (var q = 0; q < obj.arrPsnl.length; q++) {
-                    if (userId == obj.arrPsnl[q].userid) {
-                        objLoc = q;
-                        console.log("qqqqqqqqqqqqqqqqqqq")
-                        break;
-                    } else if (q == obj.arrPsnl.length - 1) {
-                        objLoc = obj.arrPsnl.length
-                        obj.arrPsnl[objLoc] = {
-                            'userid': userId,
-                            'Cart': {},
-                            'Status': {}
-                        }
+            for (var q = 0; q < obj.arrPsnl.length; q++) {
+                console.log("q="+q)
+                if (userId == obj.arrPsnl[q].userid) {
+                    objLoc = q;
+                    console.log("qqqqqqqqqqqqqqqqqqq")
+                    break;
+                } else if (q == obj.arrPsnl.length - 1) {
+                    objLoc = obj.arrPsnl.length
+                    obj.arrPsnl[objLoc] = {
+                        'userid': userId,
+                        'Cart': {},
+                        'Status': {}
                     }
-                    console.log("q="+q)
                 }
+            }
             
             
             console.log(objLoc)
