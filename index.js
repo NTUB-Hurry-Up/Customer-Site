@@ -131,6 +131,11 @@ bot.on('message', function (event) {
                     }
                 }
             }
+            if(msg1 == "A"){
+                for (var p = 0; p < 1; p++) {
+                    console.log(p)
+                }
+            }
             if (msg1 == "會員") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
