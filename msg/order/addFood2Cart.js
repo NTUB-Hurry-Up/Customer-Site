@@ -8,12 +8,18 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid){
     event.source.profile().then(function (profile) {
         if(oPsnl.Cart == null){
             console.log("null");
+        }else{
+            console.log("fnull");
         }
         if(oPsnl.Cart == ''){
             console.log("1");
+        }else{
+            console.log("f1");
         }
         if(oPsnl.Cart.length == 0){
             console.log("length");
+        }else{
+            console.log("flength");
         }
         // order.Cartfetchfood(cfoodid).then(data => {
         //     if (data == -1) {
