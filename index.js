@@ -86,22 +86,26 @@ bot.on('message', function (event) {
                     'Cart': {},
                     'Status': {}
                 })
+                objLoc = 0
                 console.log("==0")
             }
-            for (var q = 0; q < obj.arrPsnl.length; q++) {
-                if (userId == obj.arrPsnl[q].userid) {
-                    objLoc = q;
-                    break;
-                } else if (q == obj.arrPsnl.length - 1) {
-                    objLoc = obj.arrPsnl.length
-                    obj.arrPsnl[objLoc] = {
-                        'userid': userId,
-                        'Cart': {},
-                        'Status': {}
+                for (var q = 0; q < obj.arrPsnl.length; q++) {
+                    if (userId == obj.arrPsnl[q].userid) {
+                        objLoc = q;
+                        console.log("qqqqqqqqqqqqqqqqqqq")
+                        break;
+                    } else if (q == obj.arrPsnl.length - 1) {
+                        objLoc = obj.arrPsnl.length
+                        obj.arrPsnl[objLoc] = {
+                            'userid': userId,
+                            'Cart': {},
+                            'Status': {}
+                        }
                     }
+                    console.log("q="+q)
                 }
-                console.log("q="+q)
-            }
+            
+            
             console.log(objLoc)
 
             var Sta;
@@ -131,11 +135,7 @@ bot.on('message', function (event) {
                     }
                 }
             }
-            if(msg1 == "A"){
-                for (var p = 0; p < 1; p++) {
-                    console.log(p)
-                }
-            }else if (msg1 == "會員") {
+            if (msg1 == "會員") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
