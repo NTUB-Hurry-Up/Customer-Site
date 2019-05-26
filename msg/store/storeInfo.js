@@ -16,12 +16,6 @@ var storeInfo = function (event, lodash) {
                 var arrStoreList = [];
                 arrStoreList.push(lodash.cloneDeep(temp.temp_store));
                 for (var i = 0; i < data.length; i++) {
-                    // (function(o){
-                    //     o.body.contents[0].text=data[i].storeName;
-                    //     o.body.contents[1].contents[0].contents[1].text=data[i].storeAdd;
-                    //     o.body.contents[1].contents[1].contents[1].text=data[i].storeTel;
-                    //     arr[0].contents.contents.push(o);
-                    // })(Object.assign({}, o));
                     arrStoreList[0].contents.contents[i] = lodash.cloneDeep(temp.temp_store_repeat)
 
                     arrStoreList[0].contents.contents[i].body.contents[0].text = data[i].storeName;
@@ -31,9 +25,6 @@ var storeInfo = function (event, lodash) {
                     arrStoreList[0].contents.contents[i].footer.contents[1].action.text = "店家,聯絡店家," + data[i].storeid;
                 }
                 event.reply(arrStoreList[0]);
-                // arrStoreList[0].contents.contents.length = 0;
-                // arrStoreList.length = 0;
-                // data.length = 0;
             }
         })
     });
