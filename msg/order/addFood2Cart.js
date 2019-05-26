@@ -128,6 +128,11 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                             'foodQty': 0
                         })
                     }
+                    console.log("arrfood")
+                    console.log(oPsnl.Cart.arrfood)
+                    obj2addin.StatusAddin(oPsnl, "inputQty", 2, cfoodid)
+
+                    event.reply("數量?");
                 }else {
                     var arr = []
                     arr.push(lodash.cloneDeep(temp.temp_memInfo))
@@ -140,11 +145,6 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                     obj2addin.StatusAddin(oPsnl, "changeStore", 1,'')
                     event.reply(arr[0]);
                 }
-                console.log("arrfood")
-                console.log(oPsnl.Cart.arrfood)
-                obj2addin.StatusAddin(oPsnl, "inputQty", 2, cfoodid)
-
-                event.reply("數量?");
             }
         })
     });
