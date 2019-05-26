@@ -22,7 +22,7 @@ var storeInfo = function (event, lodash) {
                     //     o.body.contents[1].contents[1].contents[1].text=data[i].storeTel;
                     //     arr[0].contents.contents.push(o);
                     // })(Object.assign({}, o));
-                    arrStoreList[0].contents.contents[i] = lodash.cloneDeep(temp_store_repeat)
+                    arrStoreList[0].contents.contents[i] = lodash.cloneDeep(temp.temp_store_repeat)
 
                     arrStoreList[0].contents.contents[i].body.contents[0].text = data[i].storeName;
                     arrStoreList[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = data[i].storeAdd;
