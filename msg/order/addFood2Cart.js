@@ -134,7 +134,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                     arr[0].template.actions[0].label = "是";
                     arr[0].template.actions[0].text = "是," + cstoreid;
                     arr[0].template.actions[1].label = "否";
-                    arr[0].template.actions[1].text = "否," + objCart.arrCart[CartA].storeid;
+                    arr[0].template.actions[1].text = "否," + oPsnl.Cart.storeid;
                     arr[0].template.title = "購物車訊息"
                     arr[0].template.text = "要改下訂這家店嗎 ?"
                     obj2addin.StatusAddin(oPsnl, "changeStore", 1,'')
