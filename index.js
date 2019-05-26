@@ -86,6 +86,7 @@ bot.on('message', function (event) {
                     'Cart': {},
                     'Status': {}
                 })
+                console.log("==0")
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
                 if (userId == obj.arrPsnl[q].userid) {
@@ -99,6 +100,7 @@ bot.on('message', function (event) {
                         'Status': {}
                     }
                 }
+                console.log("q="+q)
             }
             console.log(objLoc)
 
