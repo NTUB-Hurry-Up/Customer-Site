@@ -83,7 +83,9 @@ bot.on('message', function (event) {
             if (obj.arrPsnl.length == 0) {
                 obj.arrPsnl.push({
                     'userid': userId,
-                    'Cart': {},
+                    'Cart': {
+                        'storeid': ""
+                    },
                     'Status': {}
                 })
                 console.log("==0")
