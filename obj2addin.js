@@ -31,6 +31,7 @@ var cartAddin = function (oCart, oStatus, CartA, Sta) {
         }
     }
 }
+
 //匯出
 module.exports = { statusAddin,cartAddin };
 

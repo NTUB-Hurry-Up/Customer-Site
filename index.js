@@ -56,7 +56,9 @@ bot.on('follow', function (event) {
 // --------------------------------
 // 機器人接受訊息的處理
 // --------------------------------
-
+var obj = {
+    arrPsnl : []//personal
+}
 var objStatus = {
     arrStatus: []
 }
@@ -75,10 +77,22 @@ bot.on('message', function (event) {
             var msg2 = NewArray[1];
             var msg3 = NewArray[2];
             var msg4 = NewArray[3];
-            console.log("Cart->")
-            console.log(objCart.arrCart)
-            console.log("Status->" + objStatus.arrStatus.length)
-            console.log(objStatus.arrStatus)
+            console.log("arrPsnl->")
+            console.log(obj.arrPsnl)
+            var objLoc;
+            if (obj.arrPsnl.length == 0) {
+                objLoc = -1;
+            } else {
+                for (var q = 0; q < obj.arrPsnl.length; q++) {
+                    if (userId == obj.arrPsnl[q].userid) {
+                        objLoc = q;
+                        break;
+                    } else {
+                        objLoc = -1;
+                    }
+                }
+            }
+            console.log(objLoc)
 
             var Sta;
             if (objStatus.arrStatus.length == 0) {
@@ -108,7 +122,7 @@ bot.on('message', function (event) {
                 }
             }
             if (msg1 == "會員") {
-                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event)
                 } else if (msg2 == "修改姓名") {
@@ -120,7 +134,7 @@ bot.on('message', function (event) {
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
-                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     storeInfo.storeInfo(event)
                 } else if (msg2 == "查看菜單") {

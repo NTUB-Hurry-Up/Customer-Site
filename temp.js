@@ -1,5 +1,5 @@
 
-var temp1 =
+var temp_memInfo =
 {
   "type": "template",
   "altText": "this is a buttons template",
@@ -8,16 +8,16 @@ var temp1 =
     "actions": [
       {
         "type": "message",
-        "label": "看到的字",
-        "text": "傳出的字"
+        "label": "修改姓名",
+        "text": "會員,修改姓名"
       },
       {
         "type": "message",
-        "label": "看到的字",
-        "text": "傳出的字"
+        "label": "修改電話",
+        "text": "會員,修改電話"
       }
     ],
-    "title": "標題",
+    "title": "會員資訊",
     "text": "內文"
   }
 }
@@ -636,4 +636,4 @@ var fetchOrder = {
   }
 }
 //匯出
-module.exports = { temp1, temp_store, temp_menu, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
+module.exports = { temp_memInfo, temp_store, temp_menu, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
