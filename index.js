@@ -140,7 +140,7 @@ bot.on('message', function (event) {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
                     obj2addin.statusAddin(objStatus, Sta, userId, "修改姓名", 1)
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc].Status , "修改姓名", 1)
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc] , "修改姓名", 1)
                     event.reply('請輸入您的姓名');
                     console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "修改電話") {
