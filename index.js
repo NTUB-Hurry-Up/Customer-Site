@@ -143,11 +143,11 @@ bot.on('message', function (event) {
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改姓名", 1)
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改姓名", 1,'')
                     event.reply('請輸入您的姓名');
                     console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "修改電話") {
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改電話", 1)
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改電話", 1,'')
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {

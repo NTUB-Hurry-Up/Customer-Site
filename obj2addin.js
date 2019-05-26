@@ -31,12 +31,12 @@ var cartAddin = function (oCart, oStatus, CartA, Sta) {
         }
     }
 }
-var StatusAddin = function (oPsnl, status, statusTime) {
+var StatusAddin = function (oPsnl, status, statusTime, statusText) {
     console.log("Add++")
     oPsnl.Status = {
         'status': status,
         'statusTime': statusTime,
-        'statusText': ''
+        'statusText': statusText
     }
     console.log(oPsnl.Status)
 }
