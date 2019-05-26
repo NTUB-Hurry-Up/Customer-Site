@@ -23,7 +23,7 @@ var memInfo = function (event, lodash) {
         })
     });
 }
-var fetchMemName = function (userid, oCart) {
+var fetchMemName = function (userid, oCart) {//--
     //存放結果
     member.fetchMember(userid).then(data => {
         if (data == -1) {
@@ -32,6 +32,19 @@ var fetchMemName = function (userid, oCart) {
             console.log("執行錯誤")
         } else {
             oCart.userName = data.name
+        }
+    })
+}
+var fetchMemInfo = function (userid, oCart) {//--
+    //存放結果
+    member.fetchMember(userid).then(data => {
+        if (data == -1) {
+            console.log("找不到資料")
+        } else if (data == -9) {
+            console.log("執行錯誤")
+        } else {
+            oCart.userName = data.name
+            oCart.userPhone = data.phone
         }
     })
 }
