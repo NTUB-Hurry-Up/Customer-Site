@@ -103,7 +103,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                         'takeTime': '',
                         'arrfood': []
                     }
-                    memInfo.fetchMemInfo(userId, oPsnl.Cart)
+                    memInfo.fetchMemInfo(oPsnl.userId, oPsnl.Cart)
                 }
                 if(oPsnl.Cart.storeid == cstoreid ){
                     var i = oPsnl.Cart.arrfood.length
@@ -137,7 +137,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                     arr[0].template.actions[1].text = "否," + objCart.arrCart[CartA].storeid;
                     arr[0].template.title = "購物車訊息"
                     arr[0].template.text = "要改下訂這家店嗎 ?"
-                    obj2addin.statusAddin(objStatus, Sta, userId, "changeStore", 1)
+                    obj2addin.StatusAddin(oPsnl, "changeStore", 1,'')
                     event.reply(arr[0]);
                 }
                 console.log("arrfood")
