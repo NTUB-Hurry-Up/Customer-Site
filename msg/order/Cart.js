@@ -23,9 +23,6 @@ var Cart = function(event, oCart){
             cartTotalPrice += Afood.foodPrice*Afood.foodQty
             console.log("Afood, "+Afood.foodid)
             console.log("cartTotalPrice, "+cartTotalPrice)
-            //console.log("i="+i+" ,k="+k)
-
-            //console.log(arrCart)
             arr[0].contents.body.contents[4].contents.push(
                 {
                     "type": "box",
