@@ -61,12 +61,12 @@ setTimeout(function () {
 var obj = {
     arrPsnl: []//personal
 }
-var objStatus = {
-    arrStatus: []
-}
-var objCart = {
-    arrCart: []
-}
+// var objStatus = {
+//     arrStatus: []
+// }
+// var objCart = {
+//     arrCart: []
+// }
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -111,36 +111,7 @@ bot.on('message', function (event) {
             }
 
             console.log(objLoc)
-
-            var Sta;
-            if (objStatus.arrStatus.length == 0) {
-                Sta = -1;
-            } else {
-                for (var q = 0; q < objStatus.arrStatus.length; q++) {
-                    if (userId == objStatus.arrStatus[q].userid) {
-                        Sta = q;
-                        break;
-                    } else {
-                        Sta = -1;
-                    }
-                }
-            }
-
-            var CartA;
-            if (objCart.arrCart.length == 0) {
-                CartA = -1;
-            } else {
-                for (var p = 0; p < objCart.arrCart.length; p++) {
-                    if (userId == objCart.arrCart[p].userid) {
-                        CartA = p;
-                        break;
-                    } else {
-                        CartA = -1;
-                    }
-                }
-            }
             if (msg1 == "會員") {
-                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
@@ -153,7 +124,6 @@ bot.on('message', function (event) {
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
-                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     storeInfo.storeInfo(event, lodash)
@@ -167,7 +137,6 @@ bot.on('message', function (event) {
                     addFood2Cart.addFood2Cart(event, obj.arrPsnl[objLoc], cstoreid, cfoodid, lodash);
                 }
             } else if (msg1 == "購物車") {
-                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "查詢") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
@@ -176,7 +145,6 @@ bot.on('message', function (event) {
                         Cart.Cart(event, obj.arrPsnl[objLoc].Cart)
                     }
                 } else if (msg2 == "清空") {
-                    // obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     obj2null.cart(obj.arrPsnl[objLoc])
                     event.reply([
                         { 'type': 'text', 'text': '已清空' },
@@ -190,7 +158,6 @@ bot.on('message', function (event) {
                     } else {
                         sendOrder.sendOrder(event, lodash.cloneDeep(obj.arrPsnl[objLoc].Cart), userId)
                         obj2null.cart(obj.arrPsnl[objLoc])
-                        // obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
             } else if (msg1 == "訂單查詢") {
@@ -243,7 +210,6 @@ bot.on('postback', function (event) {
         }
     );
 });
-//Employee.A.splice(0,1);
 //--------------------------------
 // 使用者封鎖群組
 //--------------------------------
