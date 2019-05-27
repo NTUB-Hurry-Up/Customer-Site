@@ -1,10 +1,11 @@
 
 //引用操作資料庫的物件
 const temp = require('./../../temp');
+var lodash = require('lodash');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var Cart = function(event, oCart, lodash){
+var Cart = function(event, oCart){
     event.source.profile().then(function (profile) {
         var i = oCart.arrfood.length;
         var cstoreName = oCart.storeName;

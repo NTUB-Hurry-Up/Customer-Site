@@ -6,7 +6,7 @@ const Cart = require('./Cart');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var inputQty = function(event, oPsnl, msg1, lodash){
+var inputQty = function(event, oPsnl, msg1){
     event.source.profile().then(function (profile) {
         
         var isNum = /^[0-9]+$/;
@@ -40,7 +40,7 @@ var inputQty = function(event, oPsnl, msg1, lodash){
                 }
                 console.log(oPsnl.Cart.arrfood)
 
-                Cart.Cart(event, oPsnl.Cart, lodash)
+                Cart.Cart(event, oPsnl.Cart)
                 // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
             }
         } else {

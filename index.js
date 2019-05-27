@@ -198,7 +198,7 @@ bot.on('message', function (event) {
                     obj2null.status(obj.arrPsnl[objLoc])
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, userId)
                 } else if (s == "inputQty") {//work
-                    inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1, lodash)
+                    inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1)
                 } else if (s == "changeStore") {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
