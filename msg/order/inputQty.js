@@ -14,17 +14,17 @@ var inputQty = function(event, oPsnl, msg1, lodash){
         var z = Boolean(oPsnl.Status.statusTime > 0);
         if (z) {
             if (x) {
-                oPsnl.Status.statusTime--;
                 event.reply([
                     { 'type': 'text', 'text': '請輸入數字 ! ' },
-                    { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '機會' }]
+                    { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
                 );
-            } else if (y) {
                 oPsnl.Status.statusTime--;
+            } else if (y) {
                 event.reply([
                     { 'type': 'text', 'text': '請輸入大於0的數字啦 ! ' },
-                    { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '機會' }]
+                    { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
                 );
+                oPsnl.Status.statusTime--;
             } else {
                 var i = oPsnl.Cart.arrfood.length;
                 console.log("i = "+i)
