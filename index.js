@@ -110,7 +110,6 @@ bot.on('message', function (event) {
                 }
             }
 
-
             console.log(objLoc)
 
             var Sta;
@@ -174,7 +173,8 @@ bot.on('message', function (event) {
                         Cart.Cart(event, objCart.arrCart[CartA], userName)
                     }
                 } else if (msg2 == "清空") {
-                    obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                    // obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                    obj2null.cart(obj.arrPsnl[objLoc])
                     event.reply([
                         { 'type': 'text', 'text': '已清空' },
                         { 'type': 'text', 'text': '請重新點餐' }]
@@ -197,7 +197,7 @@ bot.on('message', function (event) {
                 if (s == "修改電話" || s == "修改姓名") {
                     obj2null.status(obj.arrPsnl[objLoc])
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, userId)
-                } else if (s == "inputQty") {//work
+                } else if (s == "inputQty") {
                     inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1)
                 } else if (s == "changeStore") {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)

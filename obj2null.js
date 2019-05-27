@@ -67,5 +67,5 @@ var cart = function(oPsnl){
     }
 }
 //匯出
-module.exports = { status, status2null,cart2null };
+module.exports = { status, cart, status2null,cart2null };
 
