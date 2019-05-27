@@ -42,14 +42,7 @@ var inputQty = function (event, oPsnl, msg1) {
                 Cart.Cart(event, oPsnl.Cart)
             }
         } else {
-            var i = oPsnl.Cart.arrfood.length;
-            for (var m = 0; m < i; m++) {
-                if (oPsnl.Cart.arrfood[m].foodQty == 0) {
-                    oPsnl.Cart.arrfood.splice(m, 1)
-                }
-            }
             obj2null.status(oPsnl)
-
             event.reply('請你閉嘴')
         }
     });
