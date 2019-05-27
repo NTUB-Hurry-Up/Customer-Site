@@ -248,19 +248,19 @@ bot.on('postback', function (event) {
             //         }
             //     }
             // }
-            // var objLoc = -1;
-            // if (obj.arrPsnl.length == 0) {
-            //     event.reply("閉嘴 ! , 請先點餐(p1)")
-            // }
-            // for (var q = 0; q < obj.arrPsnl.length; q++) {
-            //     console.log("q=" + q)
-            //     if (userId == obj.arrPsnl[q].userid) {
-            //         objLoc = q;
-            //         break;
-            //     } else if (q == obj.arrPsnl.length - 1) {
-            //         event.reply("閉嘴 ! , 請先點餐(p2)")
-            //     }
-            // }
+            var objLoc = -1;
+            if (obj.arrPsnl.length == 0) {
+                event.reply("閉嘴 ! , 請先點餐(p1)")
+            }
+            for (var q = 0; q < obj.arrPsnl.length; q++) {
+                console.log("q=" + q)
+                if (userId == obj.arrPsnl[q].userid && obj.arrPsnl[q].Cart.arrfood.length > 0) {
+                    objLoc = q;
+                    break;
+                } else if (q == obj.arrPsnl.length - 1) {
+                    event.reply("閉嘴 ! , 請先點餐(p2)")
+                }
+            }
             // if (data === "datetime" && objLoc != -1) {
             //     data += `${JSON.stringify(event.postback.params)}`;
             //     var NewArray = data.split("\"");
