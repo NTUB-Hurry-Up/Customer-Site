@@ -249,7 +249,7 @@ bot.on('message', function (event) {
 
 
                 } else if (s == "changeStore") {
-                    changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, lodash)
+                    changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
             } else {
                 event.reply('e04, 工三小')
