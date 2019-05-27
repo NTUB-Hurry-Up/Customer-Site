@@ -258,9 +258,9 @@ bot.on('message', function (event) {
                             'arrfood' : []
                         }
                         
-                        foodInfo.foodInfo(event, msg2)
+                        foodInfo.foodInfo(event, msg2, lodash)
                     } else if (msg1 == "否") {
-                        foodInfo.foodInfo(event, msg2)
+                        foodInfo.foodInfo(event, msg2, lodash)
                     }
 
                 }
