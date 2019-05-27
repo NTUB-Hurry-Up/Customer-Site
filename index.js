@@ -145,11 +145,11 @@ bot.on('message', function (event) {
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改姓名", 1,'')
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改姓名", 1, '')
                     event.reply('請輸入您的姓名');
                     console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "修改電話") {
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改電話", 1,'')
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "修改電話", 1, '')
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
@@ -192,7 +192,7 @@ bot.on('message', function (event) {
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
             } else if ((obj.arrPsnl[objLoc].Status.status != "") || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
-                var ss =0// objStatus.arrStatus[Sta].status
+                var ss = 0// objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "修改電話" || s == "修改姓名") {
                     obj2null.status(obj.arrPsnl[objLoc])
@@ -233,34 +233,43 @@ bot.on('message', function (event) {
 bot.on('postback', function (event) {
     event.source.profile().then(
         function (profile) {
-
             let data = event.postback.data;
-
             const userId = profile.userId;
-            const userName = profile.displayName;
-            var CartA;
-            if (objCart.arrCart.length == 0) {
-                CartA = -1;
+            // var objLoc
+            // if (obj.arrPsnl[objLoc].Cart.arrfood.length == 0) {
+            //     event.reply("閉嘴 ! , 請先點餐(p1)")
+            // } else {
+            //     for (var p = 0; p < objCart.arrCart.length; p++) {
+            //         if (userId == objCart.arrCart[p].userid) {
+            //             CartA = p;
+            //             break;
+            //         } else if (p == objCart.arrCart.length - 1) {
+            //             event.reply("閉嘴 ! , 請先點餐(p2)")
+            //         }
+            //     }
+            // }
+            var objLoc = -1;
+            if (obj.arrPsnl.length == 0) {
                 event.reply("閉嘴 ! , 請先點餐(p1)")
-            } else {
-                for (var p = 0; p < objCart.arrCart.length; p++) {
-                    if (userId == objCart.arrCart[p].userid) {
-                        CartA = p;
-                        break;
-                    } else if (p == objCart.arrCart.length - 1) {
-                        event.reply("閉嘴 ! , 請先點餐(p2)")
-                    }
+            }
+            for (var q = 0; q < obj.arrPsnl.length; q++) {
+                console.log("q=" + q)
+                if (userId == obj.arrPsnl[q].userid) {
+                    objLoc = q;
+                    break;
+                } else if (q == obj.arrPsnl.length - 1) {
+                    event.reply("閉嘴 ! , 請先點餐(p2)")
                 }
             }
-            if (data === "datetime" && CartA != -1) {
+            if (data === "datetime" && objLoc != -1) {
                 data += `${JSON.stringify(event.postback.params)}`;
                 var NewArray = data.split("\"");
                 var cdatetime = NewArray[3].split("T");
                 var takedate = cdatetime[0];
                 var taketime = cdatetime[1];
-                objCart.arrCart[CartA].takeDate = takedate
-                objCart.arrCart[CartA].takeTime = taketime
-                Cart.Cart(event, objCart.arrCart[CartA], userName)
+                obj.arrPsnl[objLoc].Cart.takeDate = takedate
+                obj.arrPsnl[objLoc].Cart.takeTime = taketime
+                Cart.Cart(event, obj.arrPsnl[objLoc].Cart)
                 // event.reply(`Got postback: ${data}`);
             }
         }
