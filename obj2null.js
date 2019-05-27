@@ -45,16 +45,6 @@ var status = function(oPsnl){
         oPsnl.Status.statusTime=0;
         oPsnl.Status.statusText="";
     }
-    // if(CartA != -1){
-    //     if(oCart.arrfood.length > 0 ){
-    //         var i = oCart.arrfood.length;
-    //         for(var m = 0; m<i; m++){
-    //             if(oCart.arrfood[m].foodQty==0){
-    //                 oCart.arrfood.splice(m,1)
-    //             }
-    //         }
-    //     }
-    // }
 }
 var cart = function(oPsnl){
     if(oPsnl.Status.status != ""){

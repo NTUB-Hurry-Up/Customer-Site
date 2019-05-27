@@ -167,10 +167,10 @@ bot.on('message', function (event) {
             } else if (msg1 == "購物車") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "查詢") {
-                    if (CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0) {
+                    if (obj.arrPsnl[objLoc].Cart.storeid == ""||obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply("閉嘴 ! , 請先點餐(cart)")
                     } else {
-                        Cart.Cart(event, objCart.arrCart[CartA], userName)
+                        Cart.Cart(event, obj.arrPsnl[objLoc].Cart)
                     }
                 } else if (msg2 == "清空") {
                     // obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
@@ -191,8 +191,7 @@ bot.on('message', function (event) {
                 }
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
-            } else if ((obj.arrPsnl[objLoc].Status.status != "") || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
-                var ss = 0// objStatus.arrStatus[Sta].status
+            } else if (obj.arrPsnl[objLoc].Status.status != "") {
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "修改電話" || s == "修改姓名") {
                     obj2null.status(obj.arrPsnl[objLoc])
@@ -205,28 +204,6 @@ bot.on('message', function (event) {
             } else {
                 event.reply('e04, 工三小')
             }
-            // if(userId == 'Uf39d8816611fb683a2ed16d81c1b8067'){
-            //     var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-            //     var sendMsg1 = "@潘, "+msg;
-
-            //     test2.push1(bot, user1, sendMsg1)
-            // }
-            // if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "C"){
-            //     var user1 = 'Uf39d8816611fb683a2ed16d81c1b8067';
-            //     // var sendMsg1 = "push hands up ";
-            //     test2.push1(bot, user1, msg2)
-            // }
-            // if(userId == 'Uadfb1e88125823625a1303ccf629e549'){
-            //     var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-            //     var sendMsg1 = "LPL, "+msg;
-
-            //     test2.push1(bot, user1, sendMsg1)
-            // }
-            // if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "LPL"){
-            //     var user1 = 'Uadfb1e88125823625a1303ccf629e549';
-            //     // var sendMsg1 = "push hands up ";
-            //     test2.push1(bot, user1, msg2)
-            // }
         }
     );
 });
@@ -235,19 +212,6 @@ bot.on('postback', function (event) {
         function (profile) {
             let data = event.postback.data;
             const userId = profile.userId;
-            // var objLoc
-            // if (obj.arrPsnl[objLoc].Cart.arrfood.length == 0) {
-            //     event.reply("閉嘴 ! , 請先點餐(p1)")
-            // } else {
-            //     for (var p = 0; p < objCart.arrCart.length; p++) {
-            //         if (userId == objCart.arrCart[p].userid) {
-            //             CartA = p;
-            //             break;
-            //         } else if (p == objCart.arrCart.length - 1) {
-            //             event.reply("閉嘴 ! , 請先點餐(p2)")
-            //         }
-            //     }
-            // }
             var objLoc = -1;
             if (obj.arrPsnl.length == 0) {
                 event.reply("閉嘴 ! , 請先點餐(p1)")
