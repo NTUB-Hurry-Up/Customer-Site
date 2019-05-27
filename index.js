@@ -61,12 +61,6 @@ setTimeout(function () {
 var obj = {
     arrPsnl: []//personal
 }
-// var objStatus = {
-//     arrStatus: []
-// }
-// var objCart = {
-//     arrCart: []
-// }
 bot.on('message', function (event) {
     event.source.profile().then(
         function (profile) {
@@ -131,9 +125,7 @@ bot.on('message', function (event) {
                 } else if (msg2 == "聯絡店家") {
                     storeInfo.storeTel(event, msg3)
                 } else if (msg2 == "加入購物車") {
-                    var cstoreid = msg3;
-                    var cfoodid = msg4;
-                    addFood2Cart.addFood2Cart(event, obj.arrPsnl[objLoc], cstoreid, cfoodid, lodash);
+                    addFood2Cart.addFood2Cart(event, obj.arrPsnl[objLoc], msg3, msg4, lodash);
                 }
             } else if (msg1 == "購物車") {
                 obj2null.status(obj.arrPsnl[objLoc])
@@ -163,9 +155,8 @@ bot.on('message', function (event) {
                 orderRecord.orderRecord(event, lodash);
             } else if (obj.arrPsnl[objLoc].Status.status != "") {
                 var s = obj.arrPsnl[objLoc].Status.status
-                if (s == "修改電話" || s == "修改姓名") {
-                    obj2null.status(obj.arrPsnl[objLoc])
-                    memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, userId)
+                if (s == "修改姓名" || s == "修改電話") {
+                    memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg)
                 } else if (s == "inputQty") {
                     inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1)
                 } else if (s == "changeStore") {

@@ -2,6 +2,7 @@
 //引用操作資料庫的物件
 const temp = require('./../../temp');
 const member = require('./../../member');
+const obj2null = require('./../../obj2null');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
@@ -23,18 +24,6 @@ var memInfo = function (event, lodash) {
         })
     });
 }
-var fetchMemName = function (userid, oCart) {//--
-    //存放結果
-    member.fetchMember(userid).then(data => {
-        if (data == -1) {
-            console.log("找不到資料")
-        } else if (data == -9) {
-            console.log("執行錯誤")
-        } else {
-            oCart.userName = data.name
-        }
-    })
-}
 var fetchMemInfo = function (userid, oCart) {//--
     //存放結果
     member.fetchMember(userid).then(data => {
@@ -48,7 +37,8 @@ var fetchMemInfo = function (userid, oCart) {//--
         }
     })
 }
-var changeMemInfo = function (event, oPsnl, s, newinfo, userid) {
+var changeMemInfo = function (event, oPsnl, s, newinfo) {
+    obj2null.status(oPsnl)
     if (s == "修改姓名") {
         member.UpdateName(newinfo, oPsnl.userid).then(data => {
             if (data == -1) {
