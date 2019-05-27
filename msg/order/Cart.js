@@ -9,13 +9,18 @@ var Cart = function(event, oCart){
         var i = oCart.arrfood.length;
         var cstoreName = oCart.storeName;
 
-        const template = temp.temp_cart;
-        template.contents.body.contents[0].text = oCart.userName+" 的購物車";
-        template.contents.body.contents[1].contents[0].text = cstoreName;
-        var arr=[];
-        arr.push(template)
-        arr[0].contents.body.contents[4].contents.length=0
-        
+        //----start
+        // const template = temp.temp_cart;
+        // template.contents.body.contents[0].text = oCart.userName+" 的購物車";
+        // template.contents.body.contents[1].contents[0].text = cstoreName;
+        // var arr2=[];
+        // arr2.push(template)
+        // arr2[0].contents.body.contents[4].contents.length=0
+        //----end
+        var arr = []
+        arr.push(lodash.cloneDeep(temp.temp_cart))  
+        arr[0].contents.body.contents[0].text = oCart.userName+" 的購物車";
+        arr[0].contents.body.contents[1].contents[0].text = cstoreName;
         var cartTotalPrice = 0;
         console.log("CARTCART-->"+oCart.arrfood)
         for(var k = 0; k<i; k++){
@@ -23,37 +28,42 @@ var Cart = function(event, oCart){
             cartTotalPrice += Afood.foodPrice*Afood.foodQty
             console.log("Afood, "+Afood.foodid)
             console.log("cartTotalPrice, "+cartTotalPrice)
-            arr[0].contents.body.contents[4].contents.push(
-                {
-                    "type": "box",
-                    "layout": "baseline",
-                    "contents": [
-                    {
-                        "type": "text",
-                        "text": Afood.foodName,
-                        "flex": 0,
-                        "margin": "sm",
-                        "size": "md",
-                        "weight": "bold"
-                    },
-                    {
-                        "type": "text",
-                        "text": Afood.foodQty,
-                        "size": "xs",
-                        "align": "center",
-                        "color": "#AAAAAA",
-                        "wrap": true
-                    },
-                    {
-                        "type": "text",
-                        "text": "$ "+Afood.foodPrice,
-                        "size": "sm",
-                        "align": "end",
-                        "color": "#000000"
-                    }
-                    ]
-                }
-            );
+            arr[0].contents.body.contents[4].contents[k].push(lodash.cloneDeep(temp.temp_cart_repeat))  
+            arr[0].contents.body.contents[4].contents[k].contents[0].text = Afood.foodName
+            arr[0].contents.body.contents[4].contents[k].contents[1].text = Afood.foodQty
+            arr[0].contents.body.contents[4].contents[k].contents[2].text = Afood.foodPrice
+
+            // arr2[0].contents.body.contents[4].contents.push(
+            //     {
+            //         "type": "box",
+            //         "layout": "baseline",
+            //         "contents": [
+            //         {
+            //             "type": "text",
+            //             "text": Afood.foodName,
+            //             "flex": 0,
+            //             "margin": "sm",
+            //             "size": "md",
+            //             "weight": "bold"
+            //         },
+            //         {
+            //             "type": "text",
+            //             "text": Afood.foodQty,
+            //             "size": "xs",
+            //             "align": "center",
+            //             "color": "#AAAAAA",
+            //             "wrap": true
+            //         },
+            //         {
+            //             "type": "text",
+            //             "text": "$ "+Afood.foodPrice,
+            //             "size": "sm",
+            //             "align": "end",
+            //             "color": "#000000"
+            //         }
+            //         ]
+            //     }
+            // );
         }
         if(oCart.takeDate.length != 0){
 
