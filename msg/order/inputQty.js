@@ -28,34 +28,32 @@ var inputQty = function(event, oPsnl, msg1, lodash){
             } else {
                 var i = oPsnl.Cart.arrfood.length;
                 console.log("i = "+i)
-                // var cstoreid = objCart.arrCart[CartA].storeid;
-                // var cstoreName = objCart.arrCart[CartA].storeName;
+                var cstoreid = oPsnl.Cart.storeid;
+                var cstoreName = oPsnl.Cart.storeName;
 
-                // for (var m = 0; m < i; m++) {
-                //     if (objCart.arrCart[CartA].arrfood[m].foodid == objStatus.arrStatus[Sta].statusText) {
-                //         var oldQty = parseInt(objCart.arrCart[CartA].arrfood[m].foodQty);
-                //         var newQty = (oldQty + parseInt(msg1)).toString();
-                //         objCart.arrCart[CartA].arrfood[m].foodQty = newQty;
-                //         break;
-                //     }
-                // }
-                // console.log(objCart.arrCart[CartA].arrfood)
+                for (var m = 0; m < i; m++) {
+                    if (oPsnl.Cart.arrfood[m].foodid == oPsnl.Status.statusText) {
+                        var oldQty = parseInt(oPsnl.Cart.arrfood[m].foodQty);
+                        var newQty = (oldQty + parseInt(msg1)).toString();
+                        oPsnl.Cart.arrfood[m].foodQty = newQty;
+                        break;
+                    }
+                }
+                console.log(oPsnl.Cart.arrfood)
 
-                // Cart.Cart(event, objCart.arrCart[CartA], userName)
+                // Cart.Cart(event, oPsnl.Cart, userName)
                 // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
             }
         } else {
-            // var i = objCart.arrCart[CartA].arrfood.length;
-            // for (var m = 0; m < i; m++) {
-            //     if (objCart.arrCart[CartA].arrfood[m].foodQty == 0) {
+            var i = oPsnl.Cart.arrfood.length;
+            for (var m = 0; m < i; m++) {
+                if (oPsnl.Cart.arrfood[m].foodQty == 0) {
+                    oPsnl.Cart.arrfood[m].length = 0
+                }
+            }
+            obj2null.status(oPsnl)
 
-            //         objCart.arrCart[CartA].arrfood[m].length = 0
-            //     }
-            // }
-            // objStatus.arrStatus[Sta].status = "";
-            // objStatus.arrStatus[Sta].statusTime = 0;
-            // objStatus.arrStatus[Sta].statusText = "";
-            // event.reply('請你閉嘴')
+            event.reply('請你閉嘴')
         }
     });
 }
