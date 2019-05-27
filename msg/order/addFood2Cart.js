@@ -7,7 +7,7 @@ const memInfo = require('./../member/memInfo');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
+var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
     event.source.profile().then(function (profile) {
         order.Cartfetchfood(cfoodid).then(data => {
             if (data == -1) {
@@ -19,7 +19,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                 cstoreAdd = data.storeAdd;
                 cfoodName = data.foodName;
                 cfoodPrice = data.foodPrice;
-                if(oPsnl.Cart.storeid == ""){
+                if (oPsnl.Cart.storeid == "") {
                     oPsnl.Cart = {
                         'userName': '',
                         'userPhone': '',
@@ -32,7 +32,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                     }
                     memInfo.fetchMemInfo(oPsnl.userid, oPsnl.Cart)
                 }
-                if(oPsnl.Cart.storeid == cstoreid ){
+                if (oPsnl.Cart.storeid == cstoreid) {
                     var i = oPsnl.Cart.arrfood.length
                     if (i != 0) {
                         for (var m = 0; m < i; m++) {
@@ -55,11 +55,11 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                             'foodQty': 0
                         })
                     }
-                    console.log(oPsnl.Cart);    
+                    console.log(oPsnl.Cart);
                     obj2addin.StatusAddin(oPsnl, "inputQty", 1, cfoodid)
 
                     event.reply("數量?");
-                }else {
+                } else {
                     var arr = []
                     arr.push(lodash.cloneDeep(temp.temp_memInfo))
                     arr[0].template.actions[0].label = "是";
@@ -68,7 +68,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                     arr[0].template.actions[1].text = "否," + oPsnl.Cart.storeid;
                     arr[0].template.title = "購物車訊息"
                     arr[0].template.text = "要改下訂這家店嗎 ?"
-                    obj2addin.StatusAddin(oPsnl, "changeStore", 1,'')
+                    obj2addin.StatusAddin(oPsnl, "changeStore", 1, '')
                     event.reply(arr[0]);
                 }
             }
@@ -78,5 +78,5 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
 
 
 //匯出
-module.exports = {addFood2Cart};
+module.exports = { addFood2Cart };
 

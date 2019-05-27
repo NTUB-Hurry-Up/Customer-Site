@@ -28,7 +28,7 @@ var temp_store =
   "contents": {
     "type": "carousel",
     "contents": [
-      
+
     ]
   }
 }
@@ -36,107 +36,107 @@ var temp_store_repeat =
 {
   "type": "bubble",
   "hero": {
-      "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-      "size": "full",
-      "aspectRatio": "20:13",
-      "aspectMode": "cover"
+    "type": "image",
+    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover"
   },
   "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": 'data[i].storeName',
+        "size": "xl",
+        "weight": "bold"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "margin": "lg",
+        "contents": [
           {
-              "type": "text",
-              "text": 'data[i].storeName',
-              "size": "xl",
-              "weight": "bold"
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Place",
+                "flex": 1,
+                "size": "sm",
+                "color": "#AAAAAA"
+              },
+              {
+                "type": "text",
+                "text": 'data[i].storeAdd',
+                "flex": 5,
+                "size": "sm",
+                "color": "#666666",
+                "wrap": true
+              }
+            ]
           },
           {
-              "type": "box",
-              "layout": "vertical",
-              "spacing": "sm",
-              "margin": "lg",
-              "contents": [
-                  {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                          {
-                              "type": "text",
-                              "text": "Place",
-                              "flex": 1,
-                              "size": "sm",
-                              "color": "#AAAAAA"
-                          },
-                          {
-                              "type": "text",
-                              "text": 'data[i].storeAdd',
-                              "flex": 5,
-                              "size": "sm",
-                              "color": "#666666",
-                              "wrap": true
-                          }
-                      ]
-                  },
-                  {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                          {
-                              "type": "text",
-                              "text": "Tel",
-                              "flex": 1,
-                              "size": "sm",
-                              "color": "#AAAAAA"
-                          },
-                          {
-                              "type": "text",
-                              "text": 'data[i].storeTel',
-                              "flex": 5,
-                              "size": "sm",
-                              "color": "#666666",
-                              "wrap": true
-                          }
-                      ]
-                  }
-              ]
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Tel",
+                "flex": 1,
+                "size": "sm",
+                "color": "#AAAAAA"
+              },
+              {
+                "type": "text",
+                "text": 'data[i].storeTel',
+                "flex": 5,
+                "size": "sm",
+                "color": "#666666",
+                "wrap": true
+              }
+            ]
           }
-      ]
+        ]
+      }
+    ]
   },
   "footer": {
-      "type": "box",
-      "layout": "vertical",
-      "flex": 0,
-      "spacing": "sm",
-      "contents": [
-          {
-              "type": "button",
-              "action": {
-                  "type": "message",
-                  "label": "查看菜單",
-                  "text": "店家,查看菜單," + 'data[i].storeid'
-              },
-              "height": "sm",
-              "style": "link"
-          },
-          {
-              "type": "button",
-              "action": {
-                  "type": "message",
-                  "label": "聯絡店家",
-                  "text": "店家,聯絡店家," + 'data[i].storeid'
-              },
-              "height": "sm",
-              "style": "link"
-          },
-          {
-              "type": "spacer",
-              "size": "sm"
-          }
-      ]
+    "type": "box",
+    "layout": "vertical",
+    "flex": 0,
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "查看菜單",
+          "text": "店家,查看菜單," + 'data[i].storeid'
+        },
+        "height": "sm",
+        "style": "link"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "聯絡店家",
+          "text": "店家,聯絡店家," + 'data[i].storeid'
+        },
+        "height": "sm",
+        "style": "link"
+      },
+      {
+        "type": "spacer",
+        "size": "sm"
+      }
+    ]
   }
 }
 var temp_menu = {
@@ -152,76 +152,76 @@ var temp_menu = {
 var temp_menu_repeat = {
   "type": "bubble",
   "hero": {
-      "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
-      "size": "full",
-      "aspectRatio": "20:13",
-      "aspectMode": "cover"
+    "type": "image",
+    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover"
   },
   "body": {
-      "type": "box",
-      "layout": "vertical",
-      "spacing": "md",
-      "contents": [
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "text",
+        "text": 'data[i].foodName',
+        "size": "xl",
+        "weight": "bold"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
           {
-              "type": "text",
-              "text": 'data[i].foodName',
-              "size": "xl",
-              "weight": "bold"
-          },
-          {
-              "type": "box",
-              "layout": "vertical",
-              "spacing": "sm",
-              "contents": [
-                  {
-                      "type": "box",
-                      "layout": "baseline",
-                      "contents": [
-                          {
-                              "type": "text",
-                              "text": "Price",
-                              "flex": 1,
-                              "size": "lg",
-                              "color": "#AAAAAA"
-                          },
-                          {
-                              "type": "text",
-                              "text": '"NT$" + data[i].foodPrice',
-                              "flex": 0,
-                              "margin": "lg",
-                              "size": "lg",
-                              "align": "end",
-                              "weight": "regular"
-                          }
-                      ]
-                  }
-              ]
-          },
-          {
-              "type": "text",
-              "text": "Sauce, Onions, Pickles, Lettuce & Cheese",
-              "size": "xs",
-              "color": "#AAAAAA",
-              "wrap": true
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Price",
+                "flex": 1,
+                "size": "lg",
+                "color": "#AAAAAA"
+              },
+              {
+                "type": "text",
+                "text": '"NT$" + data[i].foodPrice',
+                "flex": 0,
+                "margin": "lg",
+                "size": "lg",
+                "align": "end",
+                "weight": "regular"
+              }
+            ]
           }
-      ]
+        ]
+      },
+      {
+        "type": "text",
+        "text": "Sauce, Onions, Pickles, Lettuce & Cheese",
+        "size": "xs",
+        "color": "#AAAAAA",
+        "wrap": true
+      }
+    ]
   },
   "footer": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-          {
-              "type": "button",
-              "action": {
-                  "type": "message",
-                  "label": "Add to Cart",
-                  "text": '"店家,加入購物車," + data[i].storeid + "," + data[i].foodid'
-              },
-              "color": "#905C44",
-              "style": "primary"
-          }
-      ]
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "Add to Cart",
+          "text": '"店家,加入購物車," + data[i].storeid + "," + data[i].foodid'
+        },
+        "color": "#905C44",
+        "style": "primary"
+      }
+    ]
   }
 
 }
@@ -408,50 +408,31 @@ var temp_cart_repeat = {
   "type": "box",
   "layout": "baseline",
   "contents": [
-  {
+    {
       "type": "text",
       "text": 'Afood.foodName',
       "flex": 0,
       "margin": "sm",
       "size": "md",
       "weight": "bold"
-  },
-  {
+    },
+    {
       "type": "text",
       "text": 'Afood.foodQty',
       "size": "xs",
       "align": "center",
       "color": "#AAAAAA",
       "wrap": true
-  },
-  {
+    },
+    {
       "type": "text",
-      "text": "$ "+'Afood.foodPrice',
+      "text": "$ " + 'Afood.foodPrice',
       "size": "sm",
       "align": "end",
       "color": "#000000"
-  }
+    }
   ]
 }
-var datetimepicker = {
-  "type": "template",
-  "altText": "this is a buttons template",
-  "template": {
-    "type": "buttons",
-    "title": "購物車訊息",
-    "text": "請輸入取餐時間",
-    "actions": [
-      {
-        "type": "datetimepicker",
-        "label": "設定時間日期",
-        "mode": "datetime",
-        "data": "datetime",
-        "max": "2020-01-24t23:59",
-        "min": "2019-04-29t14:33"
-      }
-    ]
-  }
-};
 var orderComplete = {
   "type": "flex",
   "altText": "Flex Message",
@@ -716,126 +697,4 @@ var fetchOrder = {
   }
 }
 //匯出
-module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
-// {
-//   "type": "button",
-//   "action": {
-//     "type": "postback",
-//     "label": "輸入取餐時間",
-//     "data": "輸入取餐時間"
-//   },
-//   "color": "#58290C"
-// }
-
-
-// var temp_store_contents={
-//   "type": "bubble",
-//   "hero": {
-//   "type": "image",
-//   "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-//   "size": "full",
-//   "aspectRatio": "20:13",
-//   "aspectMode": "cover",
-//   "action": {
-//       "type": "uri",
-//       "label": "Line",
-//       "uri": "https://linecorp.com/"
-//   }
-//   },
-//   "body": {
-//   "type": "box",
-//   "layout": "vertical",
-//   "contents": [
-//       {
-//       "type": "text",
-//       "text": "Brown Cafe",
-//       "size": "xl",
-//       "weight": "bold"
-//       },
-//       {
-//       "type": "box",
-//       "layout": "vertical",
-//       "spacing": "sm",
-//       "margin": "lg",
-//       "contents": [
-//           {
-//           "type": "box",
-//           "layout": "baseline",
-//           "spacing": "sm",
-//           "contents": [
-//               {
-//               "type": "text",
-//               "text": "Place",
-//               "flex": 1,
-//               "size": "sm",
-//               "color": "#AAAAAA"
-//               },
-//               {
-//               "type": "text",
-//               "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-//               "flex": 5,
-//               "size": "sm",
-//               "color": "#666666",
-//               "wrap": true
-//               }
-//           ]
-//           },
-//           {
-//           "type": "box",
-//           "layout": "baseline",
-//           "spacing": "sm",
-//           "contents": [
-//               {
-//               "type": "text",
-//               "text": "Time",
-//               "flex": 1,
-//               "size": "sm",
-//               "color": "#AAAAAA"
-//               },
-//               {
-//               "type": "text",
-//               "text": "10:00 - 23:00",
-//               "flex": 5,
-//               "size": "sm",
-//               "color": "#666666",
-//               "wrap": true
-//               }
-//           ]
-//           }
-//       ]
-//       }
-//   ]
-//   },
-//   "footer": {
-//   "type": "box",
-//   "layout": "vertical",
-//   "flex": 0,
-//   "spacing": "sm",
-//   "contents": [
-//       {
-//       "type": "button",
-//       "action": {
-//           "type": "uri",
-//           "label": "CALL",
-//           "uri": "https://linecorp.com"
-//       },
-//       "height": "sm",
-//       "style": "link"
-//       },
-//       {
-//       "type": "button",
-//       "action": {
-//           "type": "uri",
-//           "label": "WEBSITE",
-//           "uri": "https://linecorp.com"
-//       },
-//       "height": "sm",
-//       "style": "link"
-//       },
-//       {
-//       "type": "spacer",
-//       "size": "sm"
-//       }
-//   ]
-//   }
-// };
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder };

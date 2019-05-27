@@ -13,8 +13,8 @@ var sendOrder = function (event, oCart, cUserid) {
         var cTakeDate = oCart.takeDate
         var cTakeTime = oCart.takeTime
         //--date-time-formate---start------
-        var today=new Date();
-        Date.prototype.addDays = function(days) {
+        var today = new Date();
+        Date.prototype.addDays = function (days) {
             this.setDate(this.getDate() + days);
             return this;
         }
@@ -36,15 +36,15 @@ var sendOrder = function (event, oCart, cUserid) {
         //--cOrderDate-cOrderTime--end--------
 
         order.addOrder(cStoreid, cUserid, cOrderDate, cOrderTime, cTakeDate, cTakeTime).then(data => {
-            console.log(cUserid+"-"+cStoreid+"-"+cOrderDate+"-"+cOrderTime+"-"+cTakeDate+"-"+cTakeTime);
+            console.log(cUserid + "-" + cStoreid + "-" + cOrderDate + "-" + cOrderTime + "-" + cTakeDate + "-" + cTakeTime);
             if (data == -9) {
                 event.reply('執行錯誤a');
             } else {
                 var cOrderid = data.orderid;
                 var i = oCart.arrfood.length;
-                console.log("cOrderid"+cOrderid)
+                console.log("cOrderid" + cOrderid)
                 for (var k = 0; k < i; k++) {
-                    var Afood=oCart.arrfood[k]
+                    var Afood = oCart.arrfood[k]
                     var cfoodid = Afood.foodid;
                     var cfoodPrice = Afood.foodPrice;
                     var cfoodQty = Afood.foodQty;

@@ -6,9 +6,9 @@ const query = require('./asyncDB');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
-var addMember = async function(id, name){
+var addMember = async function (id, name) {
     //存放結果
-    let result;  
+    let result;
 
     //新增會員資料
     await query('insert into member (userid, name) values ($1, $2)', [id, name])
@@ -19,15 +19,15 @@ var addMember = async function(id, name){
         });
 
     //回傳執行結果
-    return result;  
+    return result;
 }
 
 //------------------------------------------
 // 刪除會員資料
 //------------------------------------------
-var deleteMember = async function(id){
+var deleteMember = async function (id) {
     //存放結果
-    let result;  
+    let result;
 
     //刪除會員資料
     await query('delete from member where userid = $1', [id])
@@ -38,21 +38,21 @@ var deleteMember = async function(id){
         });
 
     //回傳執行結果
-    return result;  
+    return result;
 }
 //------------------------------------------
-var fetchMember = async function(id){
+var fetchMember = async function (id) {
     //存放結果
-    let result;  
+    let result;
 
     //讀取資料庫
     await query('select * from member where userid = $1', [id])
         .then((data) => {
-            if(data.rows.length > 0){
+            if (data.rows.length > 0) {
                 result = data.rows[0];  //學生資料(物件)
-            }else{
+            } else {
                 result = -1;  //找不到資料
-            }    
+            }
         }, (error) => {
             result = -9;  //執行錯誤
         });
@@ -61,13 +61,13 @@ var fetchMember = async function(id){
     return result;
 }
 //------------------------------------------
-var UpdateName = async function(name, id){
+var UpdateName = async function (name, id) {
     //存放結果
-    let result;  
+    let result;
 
     //讀取資料庫UPDATE table_name SET field1=new-value1, field2=new-value2
     await query('UPDATE member SET name = $1 where userid = $2', [name, id])
-        .then((data) => { 
+        .then((data) => {
             result = data.rowCount;  //回傳資料數 
         }, (error) => {
             result = -9;  //執行錯誤
@@ -76,13 +76,13 @@ var UpdateName = async function(name, id){
     return result;
 }
 //------------------------------------------
-var UpdatePhone = async function(phone, id){
+var UpdatePhone = async function (phone, id) {
     //存放結果
-    let result;  
+    let result;
 
     //讀取資料庫UPDATE table_name SET field1=new-value1, field2=new-value2
     await query('UPDATE member SET phone = $1 where userid = $2', [phone, id])
-        .then((data) => { 
+        .then((data) => {
             result = data.rowCount;  //回傳資料數 
         }, (error) => {
             result = -9;  //執行錯誤
@@ -92,5 +92,5 @@ var UpdatePhone = async function(phone, id){
 }
 
 //匯出
-module.exports = {addMember, deleteMember, fetchMember, UpdateName, UpdatePhone};
+module.exports = { addMember, deleteMember, fetchMember, UpdateName, UpdatePhone };
 
