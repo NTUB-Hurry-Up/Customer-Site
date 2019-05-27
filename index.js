@@ -14,6 +14,7 @@ const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
 const addFood2Cart = require('./msg/order/addFood2Cart');
 const changeStore = require('./msg/order/changeStore');
+const inputQty = require('./msg/order/inputQty');
 const Cart = require('./msg/order/Cart');
 const sendOrder = require('./msg/order/sendOrder');
 const orderRecord = require('./msg/order/orderRecord');
