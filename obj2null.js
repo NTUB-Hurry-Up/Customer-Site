@@ -56,6 +56,16 @@ var status = function(oPsnl){
     //     }
     // }
 }
+var cart = function(oPsnl){
+    if(oPsnl.Status.status != ""){
+        oPsnl.Status.status="";
+        oPsnl.Status.statusTime=0;
+        oPsnl.Status.statusText="";
+    }
+    if(oPsnl.Cart.storeid != ""){
+        oPsnl.Cart = {'storeid': ""}
+    }
+}
 //匯出
 module.exports = { status, status2null,cart2null };
 
