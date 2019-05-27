@@ -77,7 +77,6 @@ bot.on('message', function (event) {
             console.log(obj.arrPsnl)
             var objLoc;
             if (obj.arrPsnl.length == 0) {
-
                 // obj2addin.first(obj.arrPsnl, 0)
                 obj.arrPsnl.push({
                     'userid': userId,
