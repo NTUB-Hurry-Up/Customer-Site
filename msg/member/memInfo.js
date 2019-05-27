@@ -67,6 +67,6 @@ var changeMemInfo = function (event, oPsnl, s, newinfo) {
 }
 
 //匯出
-module.exports = { memInfo, fetchMemName, changeMemInfo, fetchMemInfo };
+module.exports = { memInfo, changeMemInfo, fetchMemInfo };
 
 
