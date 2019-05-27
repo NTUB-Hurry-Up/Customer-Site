@@ -28,8 +28,6 @@ var inputQty = function(event, oPsnl, msg1, lodash){
             } else {
                 var i = oPsnl.Cart.arrfood.length;
                 console.log("i = "+i)
-                var cstoreid = oPsnl.Cart.storeid;
-                var cstoreName = oPsnl.Cart.storeName;
 
                 for (var m = 0; m < i; m++) {
                     if (oPsnl.Cart.arrfood[m].foodid == oPsnl.Status.statusText) {
@@ -41,7 +39,7 @@ var inputQty = function(event, oPsnl, msg1, lodash){
                 }
                 console.log(oPsnl.Cart.arrfood)
 
-                // Cart.Cart(event, oPsnl.Cart, userName)
+                Cart.Cart(event, oPsnl.Cart)
                 // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
             }
         } else {
