@@ -9,7 +9,6 @@ const memInfo = require('./../member/memInfo');
 //------------------------------------------
 var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
     event.source.profile().then(function (profile) {
-        console.log(oPsnl.Cart);
         order.Cartfetchfood(cfoodid).then(data => {
             if (data == -1) {
                 event.reply('找不到資料');
@@ -128,8 +127,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                             'foodQty': 0
                         })
                     }
-                    console.log("arrfood")
-                    console.log(oPsnl.Cart.arrfood)
+                    console.log(oPsnl.Cart);    
                     obj2addin.StatusAddin(oPsnl, "inputQty", 2, cfoodid)
 
                     event.reply("數量?");
