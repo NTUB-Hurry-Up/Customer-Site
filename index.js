@@ -196,8 +196,8 @@ bot.on('message', function (event) {
                 if (s == "修改電話" || s == "修改姓名") {
                     obj2null.status(obj.arrPsnl[objLoc])
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, userId)
-                } else if (ss == "inputQty") {//work
-
+                } else if (s == "inputQty") {//work
+                    
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1));
                     var y = Boolean(parseInt(msg1) < 1);
