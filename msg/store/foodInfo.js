@@ -22,10 +22,6 @@ var foodInfo = function (event, storeid, lodash) {
                     arr[0].contents.contents[i].body.contents[0].text = data[i].foodName
                     arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = "NT$" + data[i].foodPrice
                     arr[0].contents.contents[i].footer.contents[0].action.text = "店家,加入購物車," + data[i].storeid + "," + data[i].foodid
-
-
-
-
                 }
                 event.reply(arr[0]);
             }

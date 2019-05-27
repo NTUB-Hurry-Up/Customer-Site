@@ -196,7 +196,7 @@ bot.on('message', function (event) {
                     obj2null.status(obj.arrPsnl[objLoc])
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, userId)
                 } else if (ss == "inputQty") {//work
-
+                    
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1));
                     var y = Boolean(parseInt(msg1) < 1);
@@ -247,14 +247,16 @@ bot.on('message', function (event) {
                     }
 
 
-                } else if (ss == "changeStore") {
-                    objStatus.arrStatus[Sta].status = ""
-                    objStatus.arrStatus[Sta].statusTime = 0
+                } else if (s == "changeStore") {
+
+                    obj2null.status(obj.arrPsnl[objLoc])
                     if (msg1 == "是") {
-                        objCart.arrCart[CartA].storeid = ''
-                        objCart.arrCart[CartA].storeName = ''
-                        objCart.arrCart[CartA].storeAdd = ''
-                        objCart.arrCart[CartA].arrfood = ''
+                        obj.arrPsnl[objLoc].Cart={
+                            'storeid': '',
+                            'storeName': '',
+                            'storeAdd': ''
+                        }
+                        obj.arrPsnl[objLoc].Cart.arrfood.length = 0;
                         foodInfo.foodInfo(event, msg2)
                     } else if (msg1 == "否") {
                         foodInfo.foodInfo(event, msg2)
