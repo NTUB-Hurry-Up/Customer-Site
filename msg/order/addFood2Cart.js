@@ -128,7 +128,7 @@ var addFood2Cart = function(event, oPsnl, cstoreid, cfoodid, lodash){
                         })
                     }
                     console.log(oPsnl.Cart);    
-                    obj2addin.StatusAddin(oPsnl, "inputQty", 2, cfoodid)
+                    obj2addin.StatusAddin(oPsnl, "inputQty", 1, cfoodid)
 
                     event.reply("數量?");
                 }else {

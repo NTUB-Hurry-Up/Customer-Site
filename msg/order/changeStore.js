@@ -1,4 +1,3 @@
-
 //引用操作資料庫的物件
 const obj2null = require('./../../obj2null');
 const foodInfo = require('./../store/foodInfo');

@@ -48,7 +48,7 @@ var inputQty = function(event, oPsnl, msg1, lodash){
             var i = oPsnl.Cart.arrfood.length;
             for (var m = 0; m < i; m++) {
                 if (oPsnl.Cart.arrfood[m].foodQty == 0) {
-                    oPsnl.Cart.arrfood[m].length = 0
+                    oPsnl.Cart.arrfood[m].splice(m,1)
                 }
             }
             obj2null.status(oPsnl)
