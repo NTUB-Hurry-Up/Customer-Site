@@ -5,7 +5,7 @@ const foodInfo = require('./../store/foodInfo');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var changeStore = function(event, oPsnll, msg1, lodash){
+var changeStore = function(event, oPsnll, msg1, msg2, lodash){
     event.source.profile().then(function (profile) {
         obj2null.status(oPsnll);
         if (msg1 == "是") {
