@@ -254,9 +254,10 @@ bot.on('message', function (event) {
                         obj.arrPsnl[objLoc].Cart={
                             'storeid': '',
                             'storeName': '',
-                            'storeAdd': ''
+                            'storeAdd': '',
+                            'arrfood' : []
                         }
-                        obj.arrPsnl[objLoc].Cart.arrfood.length = 0;
+                        
                         foodInfo.foodInfo(event, msg2)
                     } else if (msg1 == "否") {
                         foodInfo.foodInfo(event, msg2)
