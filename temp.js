@@ -236,22 +236,12 @@ var temp_cart = {
       "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
       "size": "full",
       "aspectRatio": "20:13",
-      "aspectMode": "cover",
-      "action": {
-        "type": "uri",
-        "label": "Action",
-        "uri": "https://linecorp.com"
-      }
+      "aspectMode": "cover"
     },
     "body": {
       "type": "box",
       "layout": "vertical",
       "spacing": "md",
-      "action": {
-        "type": "uri",
-        "label": "Action",
-        "uri": "https://linecorp.com"
-      },
       "contents": [
         {
           "type": "text",
@@ -305,6 +295,34 @@ var temp_cart = {
           "spacing": "sm",
           "contents": [
             {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "food.foodName",
+                  "flex": 0,
+                  "margin": "sm",
+                  "size": "md",
+                  "weight": "bold"
+                },
+                {
+                  "type": "text",
+                  "text": "567",
+                  "size": "xs",
+                  "align": "center",
+                  "color": "#AAAAAA",
+                  "wrap": true
+                },
+                {
+                  "type": "text",
+                  "text": "$ 123",
+                  "size": "sm",
+                  "align": "end",
+                  "color": "#000000"
+                }
+              ]
+            }, {
               "type": "box",
               "layout": "baseline",
               "contents": [
@@ -414,7 +432,35 @@ var temp_cart = {
     }
   }
 }
-
+var temp_cart_repeat = {
+  "type": "box",
+  "layout": "baseline",
+  "contents": [
+  {
+      "type": "text",
+      "text": 'Afood.foodName',
+      "flex": 0,
+      "margin": "sm",
+      "size": "md",
+      "weight": "bold"
+  },
+  {
+      "type": "text",
+      "text": 'Afood.foodQty',
+      "size": "xs",
+      "align": "center",
+      "color": "#AAAAAA",
+      "wrap": true
+  },
+  {
+      "type": "text",
+      "text": "$ "+'Afood.foodPrice',
+      "size": "sm",
+      "align": "end",
+      "color": "#000000"
+  }
+  ]
+}
 var datetimepicker = {
   "type": "template",
   "altText": "this is a buttons template",
@@ -698,7 +744,7 @@ var fetchOrder = {
   }
 }
 //匯出
-module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, datetimepicker, orderComplete, orderCompleteRepeat, fetchOrder};
 // {
 //   "type": "button",
 //   "action": {
