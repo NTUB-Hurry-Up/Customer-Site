@@ -190,13 +190,13 @@ bot.on('message', function (event) {
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
             } else if ((obj.arrPsnl[objLoc].Status.status != "") || (Sta != -1 && objStatus.arrStatus[Sta].status != "")) {
-                var ss = objStatus.arrStatus[Sta].status
+                var ss =0// objStatus.arrStatus[Sta].status
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "修改電話" || s == "修改姓名") {
                     obj2null.status(obj.arrPsnl[objLoc])
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, userId)
                 } else if (ss == "inputQty") {//work
-                    
+
                     var isNum = /^[0-9]+$/;
                     var x = Boolean(!isNum.test(msg1));
                     var y = Boolean(parseInt(msg1) < 1);
