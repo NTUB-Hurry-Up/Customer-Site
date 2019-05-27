@@ -83,6 +83,8 @@ bot.on('message', function (event) {
             console.log(obj.arrPsnl)
             var objLoc;
             if (obj.arrPsnl.length == 0) {
+
+                // obj2addin.first(obj.arrPsnl, 0)
                 obj.arrPsnl.push({
                     'userid': userId,
                     'Cart': {
@@ -90,13 +92,10 @@ bot.on('message', function (event) {
                     },
                     'Status': {}
                 })
-                console.log("==0")
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
-                console.log("q=" + q)
                 if (userId == obj.arrPsnl[q].userid) {
                     objLoc = q;
-                    console.log("qqqqqqqqqqqqqqqqqqq")
                     break;
                 } else if (q == obj.arrPsnl.length - 1) {
                     objLoc = obj.arrPsnl.length
