@@ -7,9 +7,8 @@ const orderComplete = require('./orderComplete');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var sendOrder = function (event, oCart, userName) {
+var sendOrder = function (event, oCart, cUserid) {
     event.source.profile().then(function (profile) {
-        var cUserid = oCart.userid
         var cStoreid = oCart.storeid
         var cTakeDate = oCart.takeDate
         var cTakeTime = oCart.takeTime

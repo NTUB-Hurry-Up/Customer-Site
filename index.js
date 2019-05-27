@@ -140,7 +140,8 @@ bot.on('message', function (event) {
                 }
             }
             if (msg1 == "會員") {
-                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
                 } else if (msg2 == "修改姓名") {
@@ -152,7 +153,8 @@ bot.on('message', function (event) {
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
-                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     storeInfo.storeInfo(event, lodash)
                 } else if (msg2 == "查看菜單") {
@@ -165,9 +167,10 @@ bot.on('message', function (event) {
                     addFood2Cart.addFood2Cart(event, obj.arrPsnl[objLoc], cstoreid, cfoodid, lodash);
                 }
             } else if (msg1 == "購物車") {
-                obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "查詢") {
-                    if (obj.arrPsnl[objLoc].Cart.storeid == ""||obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
+                    if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply("閉嘴 ! , 請先點餐(cart)")
                     } else {
                         Cart.Cart(event, obj.arrPsnl[objLoc].Cart)
@@ -180,12 +183,12 @@ bot.on('message', function (event) {
                         { 'type': 'text', 'text': '請重新點餐' }]
                     );
                 } else if (msg2 == "送出訂單") {
-                    if (CartA == -1 || objCart.arrCart[CartA].arrfood.length < 1 || objCart.arrCart[CartA].arrfood[0].foodQty == 0) {
+                    if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply('購物車是空的 !');
-                    } else if (objCart.arrCart[CartA].takeDate == "") {
+                    } else if (obj.arrPsnl[objLoc].Cart.takeDate == "") {
                         event.reply('請先輸入取餐時間')
                     } else {
-                        sendOrder.sendOrder(event, lodash.cloneDeep(objCart.arrCart[CartA]), userName)
+                        sendOrder.sendOrder(event, lodash.cloneDeep(obj.arrPsnl[objLoc].Cart), userId)
                         obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
