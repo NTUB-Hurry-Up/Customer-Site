@@ -11,16 +11,15 @@ var inputQty = function (event, oPsnl, msg1) {
         var isNum = /^[0-9]+$/;
         var x = Boolean(!isNum.test(msg1));
         var y = Boolean(parseInt(msg1) < 1);
+        if (x || y) { oPsnl.Status.statusTime--; }
         var z = Boolean(oPsnl.Status.statusTime > 0);
         if (z) {
             if (x) {
-                oPsnl.Status.statusTime--;
                 event.reply([
                     { 'type': 'text', 'text': '請輸入數字 ! ' },
                     { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
                 );
             } else if (y) {
-                oPsnl.Status.statusTime--;
                 event.reply([
                     { 'type': 'text', 'text': '請輸入大於0的數字啦 ! ' },
                     { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
