@@ -289,7 +289,7 @@ var temp_cart = {
             }
           ]
         },
-        {//
+        {//4
           "type": "box",
           "layout": "vertical",
           "spacing": "sm",

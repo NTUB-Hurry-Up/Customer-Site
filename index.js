@@ -139,10 +139,8 @@ bot.on('message', function (event) {
                         CartA = -1;
                     }
                 }
-            }if(msg1 == "A"){
-                event.reply(temp.temp_cart)
             }
-            else if (msg1 == "會員") {
+            if (msg1 == "會員") {
                 obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)

@@ -4,7 +4,7 @@ const temp = require('./../../temp');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var Cart = function(event, oCart){
+var Cart = function(event, oCart, lodash){
     event.source.profile().then(function (profile) {
         var i = oCart.arrfood.length;
         var cstoreName = oCart.storeName;

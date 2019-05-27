@@ -40,7 +40,7 @@ var inputQty = function(event, oPsnl, msg1, lodash){
                 }
                 console.log(oPsnl.Cart.arrfood)
 
-                Cart.Cart(event, oPsnl.Cart)
+                Cart.Cart(event, oPsnl.Cart, lodash)
                 // obj2null.status2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
             }
         } else {
