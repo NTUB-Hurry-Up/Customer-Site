@@ -189,7 +189,8 @@ bot.on('message', function (event) {
                         event.reply('請先輸入取餐時間')
                     } else {
                         sendOrder.sendOrder(event, lodash.cloneDeep(obj.arrPsnl[objLoc].Cart), userId)
-                        obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
+                        obj2null.cart(obj.arrPsnl[objLoc])
+                        // obj2null.cart2null(objCart.arrCart[CartA], objStatus.arrStatus[Sta], CartA, Sta)
                     }
                 }
             } else if (msg1 == "訂單查詢") {
