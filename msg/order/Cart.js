@@ -28,7 +28,7 @@ var Cart = function(event, oCart, lodash){
             cartTotalPrice += Afood.foodPrice*Afood.foodQty
             console.log("Afood, "+Afood.foodid)
             console.log("cartTotalPrice, "+cartTotalPrice)
-            arr[0].contents.body.contents[4].contents[k].push(lodash.cloneDeep(temp.temp_cart_repeat))  
+            arr[0].contents.body.contents[4].contents[k]=lodash.cloneDeep(temp.temp_cart_repeat) 
             arr[0].contents.body.contents[4].contents[k].contents[0].text = Afood.foodName
             arr[0].contents.body.contents[4].contents[k].contents[1].text = Afood.foodQty
             arr[0].contents.body.contents[4].contents[k].contents[2].text = Afood.foodPrice
