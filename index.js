@@ -13,6 +13,7 @@ const memInfo = require('./msg/member/memInfo');
 const storeInfo = require('./msg/store/storeInfo');
 const foodInfo = require('./msg/store/foodInfo');
 const addFood2Cart = require('./msg/order/addFood2Cart');
+const changeStore = require('./msg/order/changeStore');
 const Cart = require('./msg/order/Cart');
 const sendOrder = require('./msg/order/sendOrder');
 const orderRecord = require('./msg/order/orderRecord');
@@ -248,21 +249,7 @@ bot.on('message', function (event) {
 
 
                 } else if (s == "changeStore") {
-
-                    obj2null.status(obj.arrPsnl[objLoc])
-                    if (msg1 == "是") {
-                        obj.arrPsnl[objLoc].Cart={
-                            'storeid': '',
-                            'storeName': '',
-                            'storeAdd': '',
-                            'arrfood' : []
-                        }
-                        
-                        foodInfo.foodInfo(event, msg2, lodash)
-                    } else if (msg1 == "否") {
-                        foodInfo.foodInfo(event, msg2, lodash)
-                    }
-
+                    changeStore.changeStore(event, obj.arrPsnl[objLoc], lodash)
                 }
             } else {
                 event.reply('e04, 工三小')
