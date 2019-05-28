@@ -14,6 +14,7 @@ var Cart = function (event, oCart) {
         arr.push(lodash.cloneDeep(temp.temp_cart2))
         arr[0].contents.body.contents[0].text = oCart.userName + " 的購物車";
         arr[0].contents.body.contents[1].contents[0].text = cstoreName;
+        arr[0].contents.hero.url = oCart.storeimg;
         var cartTotalPrice = 0;
         console.log("CARTCART-->" + oCart.arrfood)
         for (var k = 0; k < i; k++) {
