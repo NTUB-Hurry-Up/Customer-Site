@@ -18,12 +18,7 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                 var cstoreName = data.storeName;
                 var cstoreAdd = data.storeAdd;
                 var cstoreimg = data.storeimg;
-                if(cstoreimg == null){
-                    console.log("nulllllllllllllllllllllllllllllll")
-                }else if(cstoreimg == ''){
-                    console.log("---------------------------------")
-                }
-                if (cstoreimg == null || cstoreimg == '') { cstoreimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
+                if (cstoreimg == null) { cstoreimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
                 var cfoodName = data.foodName;
                 var cfoodPrice = data.foodPrice;
                 if (oPsnl.Cart.storeid == "") {

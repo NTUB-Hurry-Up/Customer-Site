@@ -17,7 +17,8 @@ var storeInfo = function (event, lodash) {
                 arrStoreList.push(lodash.cloneDeep(temp.temp_store));
                 for (var i = 0; i < data.length; i++) {
                     arrStoreList[0].contents.contents[i] = lodash.cloneDeep(temp.temp_store_repeat)
-
+                    
+                    if(data[i].storeimg == null){arrStoreList[0].contents.contents[i].hero.url = data[i].storeimg;}
                     arrStoreList[0].contents.contents[i].body.contents[0].text = data[i].storeName;
                     arrStoreList[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = data[i].storeAdd;
                     arrStoreList[0].contents.contents[i].body.contents[1].contents[1].contents[1].text = data[i].storeTel;
