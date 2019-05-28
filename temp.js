@@ -704,7 +704,7 @@ var temp_cart2 = {
     "direction": "ltr",
     "hero": {
       "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
+      "url": "https://raw.githubusercontent.com/SuperDanielLin/img/master/AR.jpg",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover"
