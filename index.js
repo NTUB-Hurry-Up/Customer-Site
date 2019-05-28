@@ -104,7 +104,9 @@ bot.on('message', function (event) {
             if(msg1 == "A"){
                 var arr =[]
                 arr.push(lodash.cloneDeep(temp.temp_cart2))
-                event.reply(arr)
+                arr[0].contents.body.contents[3].contents[1] = lodash.cloneDeep(temp.temp_cart_repeat2)
+                arr[0].contents.body.contents[3].contents[2] = lodash.cloneDeep(temp.temp_cart_repeat2)
+                event.reply(arr[0])
             }else if (msg1 == "會員") {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {

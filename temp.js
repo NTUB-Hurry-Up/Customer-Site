@@ -743,9 +743,6 @@ var temp_cart2 = {
           "spacing": "sm",
           "contents": [
             {
-              "type": "separator"
-            },
-            {
               "type": "box",
               "layout": "baseline",
               "contents": [
