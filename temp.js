@@ -704,7 +704,7 @@ var temp_cart2 = {
     "direction": "ltr",
     "hero": {
       "type": "image",
-      "url": "https://raw.githubusercontent.com/SuperDanielLin/img/master/AR.jpg",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
       "size": "full",
       "aspectRatio": "20:13",
       "aspectMode": "cover"
@@ -749,16 +749,19 @@ var temp_cart2 = {
                 {
                   "type": "text",
                   "text": "餐點名稱",
+                  "size": "md",
                   "align": "start"
                 },
                 {
                   "type": "text",
                   "text": "份量",
+                  "size": "md",
                   "align": "center"
                 },
                 {
                   "type": "text",
                   "text": "價格",
+                  "size": "md",
                   "align": "end"
                 }
               ]
@@ -906,7 +909,7 @@ var temp_cart_repeat2 = {
           "type": "text",
           "text": "阿使芭樂阿使芭樂阿使芭樂",
           "flex": 0,
-          "size": "sm",
+          "size": "md",
           "align": "start",
           "weight": "bold",
           "wrap": true
@@ -934,7 +937,7 @@ var temp_cart_repeat2 = {
           "type": "text",
           "text": "$100",
           "margin": "xxl",
-          "size": "sm",
+          "size": "md",
           "align": "end",
           "color": "#AAAAAA",
           "wrap": false

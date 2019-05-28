@@ -15,16 +15,19 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
             } else if (data == -9) {
                 event.reply('執行錯誤');
             } else {
-                cstoreName = data.storeName;
-                cstoreAdd = data.storeAdd;
-                cfoodName = data.foodName;
-                cfoodPrice = data.foodPrice;
+                var cstoreName = data.storeName;
+                var cstoreAdd = data.storeAdd;
+                var cstoreimg = data.storeimg;
+                if (cstoreimg == null || cstoreimg == '') { cstoreimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
+                var cfoodName = data.foodName;
+                var cfoodPrice = data.foodPrice;
                 if (oPsnl.Cart.storeid == "") {
                     oPsnl.Cart = {
                         'userName': '',
                         'userPhone': '',
                         'storeid': cstoreid,
                         'storeName': cstoreName,
+                        'storeimgurl': cstoreimg,
                         'storeAdd': cstoreAdd,
                         'takeDate': '',
                         'takeTime': '',
