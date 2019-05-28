@@ -907,7 +907,7 @@ var temp_cart_repeat2 = {
       "contents": [
         {
           "type": "text",
-          "text": "阿使芭樂",
+          "text": "阿使芭樂阿使芭樂阿使芭樂",
           "flex": 0,
           "size": "sm",
           "align": "start",
