@@ -6,7 +6,6 @@ var express = require('express');
 var lodash = require('lodash');
 const member = require('./member');
 const temp = require('./temp');
-const order = require('./order');
 const obj2null = require('./obj2null');
 const obj2addin = require('./obj2addin');
 const memInfo = require('./msg/member/memInfo');
@@ -102,7 +101,11 @@ bot.on('message', function (event) {
             }
 
             console.log(objLoc)
-            if (msg1 == "會員") {
+            if(msg1 == "A"){
+                var arr =[]
+                arr.push(lodash.cloneDeep(temp.temp_cart2))
+                event.reply(arr)
+            }else if (msg1 == "會員") {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)

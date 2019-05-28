@@ -696,5 +696,255 @@ var fetchOrder = {
     "contents": []
   }
 }
+var temp_cart2 = {
+  "type": "flex",
+  "altText": "Flex Message",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "hero": {
+      "type": "image",
+      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover"
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "text",
+          "text": "購物車",
+          "size": "xl",
+          "align": "start",
+          "weight": "bold"
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "阿屎巴辣",
+              "size": "lg",
+              "align": "start",
+              "weight": "regular"
+            }
+          ]
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "separator"
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "餐點名稱",
+                  "align": "start"
+                },
+                {
+                  "type": "text",
+                  "text": "份量",
+                  "align": "center"
+                },
+                {
+                  "type": "text",
+                  "text": "價格",
+                  "align": "end"
+                }
+              ]
+            },//title
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "spacing": "xxl",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "阿使芭樂",
+                      "flex": 0,
+                      "size": "sm",
+                      "align": "start",
+                      "weight": "bold",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "99",
+                      "size": "md",
+                      "align": "center",
+                      "color": "#AAAAAA"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "$100",
+                      "margin": "xxl",
+                      "size": "sm",
+                      "align": "end",
+                      "color": "#AAAAAA",
+                      "wrap": false
+                    }
+                  ]
+                }
+              ]
+            }//foodrepeat
+          ]
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "取餐時間 : ",
+              "size": "sm",
+              "align": "start",
+              "weight": "regular"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "總價 : $-3,400",
+              "size": "xl",
+              "align": "end",
+              "color": "#000000"
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "清空購物車",
+            "text": "清空購物車"
+          },
+          "color": "#58290C"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "繼續點餐",
+            "text": "繼續點餐"
+          },
+          "color": "#58290C"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "datetimepicker",
+            "label": "設定取餐時間",
+            "mode": "datetime",
+            "data": "datetime",
+            "max": "2019-05-07T23:59",
+            "min": "2019-04-29T00:00"
+          },
+          "color": "#58290C"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "完成訂單",
+            "text": "購物車,送出訂單"
+          },
+          "color": "#58290C"
+        }
+      ]
+    }
+  }
+}
+var temp_cart_repeat2 = {
+  "type": "box",
+  "layout": "horizontal",
+  "spacing": "xxl",
+  "contents": [
+    {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "阿使芭樂",
+          "flex": 0,
+          "size": "sm",
+          "align": "start",
+          "weight": "bold",
+          "wrap": true
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "99",
+          "size": "md",
+          "align": "center",
+          "color": "#AAAAAA"
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "$100",
+          "margin": "xxl",
+          "size": "sm",
+          "align": "end",
+          "color": "#AAAAAA",
+          "wrap": false
+        }
+      ]
+    }
+  ]
+}
 //匯出
-module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder };
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder, temp_cart2, temp_cart_repeat2 };
