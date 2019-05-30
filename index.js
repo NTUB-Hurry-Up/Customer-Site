@@ -166,7 +166,7 @@ bot.on('message', function (event) {
                 }
             } else {
                 console.log('e04, 工三小')
-                event.reply('e04, 工三小')
+                event.reply('請問今天是哪位高手 ?')
             }
         }
     );
