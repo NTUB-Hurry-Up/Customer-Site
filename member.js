@@ -13,7 +13,7 @@ var addMember = async function (id, name) {
     //新增會員資料
     await query('insert into member (userid, name) values ($1, $2) RETURNING (userid, name)', [id, name])
         .then((data) => {
-            result = data.rowCount;  //新增資料數 
+            result = data.rows[0];  //新增資料數 
         }, (error) => {
             result = -9;  //執行錯誤
         });
