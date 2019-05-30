@@ -40,7 +40,7 @@ var memInfo = function (event, lodash) {
                 // const template = temp.temp1.template;
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
-                if(data.phone == null){arr[0].template.actions[1].label = "加入電話"}
+                if (data.phone == null) { arr[0].template.actions[1].label = "加入電話" }
                 arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
                 event.reply(arr[0]);
             }
@@ -60,7 +60,7 @@ var fetchMemInfo = function (userid, oCart) {//--
         }
     })
 }
-var changeMemInfo = function (event, oPsnl, s, newinfo) {
+var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
     obj2null.status(oPsnl)
     if (s == "編輯姓名") {
         member.UpdateName(newinfo, oPsnl.userid).then(data => {
@@ -72,7 +72,7 @@ var changeMemInfo = function (event, oPsnl, s, newinfo) {
                 if (oPsnl.Cart.storeid != "") { oPsnl.Cart.userName = newinfo }
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
-                if(data.phone == null){arr[0].template.actions[1].label = "加入電話"}
+                if (data.phone == null) { arr[0].template.actions[1].label = "加入電話" }
                 arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
                 event.reply([
                     { 'type': 'text', 'text': '姓名已編輯完成' },
