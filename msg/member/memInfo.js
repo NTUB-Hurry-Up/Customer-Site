@@ -15,6 +15,7 @@ var memFirstIn = function (event, lodash) {
             if (data == -9) {
                 event.reply('執行錯誤');
             } else {
+                console.log(data)
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
                 console.log("姓名 : " + data.name + "\n電話 : " + data.phone)
