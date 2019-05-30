@@ -28,30 +28,29 @@ var orderRecord = function (event, lodash) {
                         s = data[i].orderid
                         console.log(data[i].orderid)
                         arr[0].contents.contents[scnt] = lodash.cloneDeep(temp.orderComplete.contents)
+                        arr[0].contents.contents[scnt].body.contents.splice(3, 1)
                         arr[0].contents.contents[scnt].body.contents[0].text = data[i].status
                         if (data[i].status == "未接單" || data[i].status == "製作中" || data[i].status == "等待取餐") { arr[0].contents.contents[scnt].body.contents[0].color = '#7BC5FE' }
                         else if (data[i].status == "已拒絕" || data[i].status == "逾時未取餐") { arr[0].contents.contents[scnt].body.contents[0].color = '#FF5B5B' }
                         else if (data[i].status == "已取餐") { arr[0].contents.contents[scnt].body.contents[0].color = '#63BB72' }
                         arr[0].contents.contents[scnt].body.contents[1].contents[1].text = data[i].storeName
                         arr[0].contents.contents[scnt].body.contents[2].contents[1].text = data[i].orderid
-                        arr[0].contents.contents[scnt].body.contents[3].contents[0].text = ""
-                        arr[0].contents.contents[scnt].body.contents[3].contents[1].text = ""
                         var orderMonth = ((data[i].orderDate).getMonth() + 1 < 10 ? '0' : '') + ((data[i].orderDate).getMonth() + 1)
                         var orderDate = ((data[i].orderDate).getDate() < 10 ? '0' : '') + (data[i].orderDate).getDate()
-                        arr[0].contents.contents[scnt].body.contents[4].contents[1].text = (data[i].orderDate).getFullYear() + "-" + orderMonth + "-" + orderDate
-                        arr[0].contents.contents[scnt].body.contents[4].contents[2].text = data[i].orderTime.substring(0, 5)
+                        arr[0].contents.contents[scnt].body.contents[3].contents[1].text = (data[i].orderDate).getFullYear() + "-" + orderMonth + "-" + orderDate
+                        arr[0].contents.contents[scnt].body.contents[3].contents[2].text = data[i].orderTime.substring(0, 5)
 
                         var takeMonth = ((data[i].takeDate).getMonth() + 1 < 10 ? '0' : '') + ((data[i].takeDate).getMonth() + 1)
                         var takeDate = ((data[i].takeDate).getDate() < 10 ? '0' : '') + (data[i].takeDate).getDate()
-                        arr[0].contents.contents[scnt].body.contents[5].contents[1].text = (data[i].takeDate).getFullYear() + "-" + takeMonth + "-" + takeDate
-                        arr[0].contents.contents[scnt].body.contents[5].contents[2].text = data[i].takeTime.substring(0, 5)
+                        arr[0].contents.contents[scnt].body.contents[4].contents[1].text = (data[i].takeDate).getFullYear() + "-" + takeMonth + "-" + takeDate
+                        arr[0].contents.contents[scnt].body.contents[4].contents[2].text = data[i].takeTime.substring(0, 5)
 
                     }
                     var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
-                    arr[0].contents.contents[scnt].body.contents[6].contents[fcnt + 2] = tempRe
-                    arr[0].contents.contents[scnt].body.contents[6].contents[fcnt + 2].contents[0].contents[0].text = data[i].foodName
-                    arr[0].contents.contents[scnt].body.contents[6].contents[fcnt + 2].contents[1].contents[0].text = data[i].quantity
-                    arr[0].contents.contents[scnt].body.contents[6].contents[fcnt + 2].contents[2].contents[0].text = "$" + data[i].unitPrice
+                    arr[0].contents.contents[scnt].body.contents[5].contents[fcnt + 2] = tempRe
+                    arr[0].contents.contents[scnt].body.contents[5].contents[fcnt + 2].contents[0].contents[0].text = data[i].foodName
+                    arr[0].contents.contents[scnt].body.contents[5].contents[fcnt + 2].contents[1].contents[0].text = data[i].quantity
+                    arr[0].contents.contents[scnt].body.contents[5].contents[fcnt + 2].contents[2].contents[0].text = "$" + data[i].unitPrice
                     fprice += data[i].quantity * data[i].unitPrice
                     arr[0].contents.contents[scnt].footer.contents[1].contents[0].text = "總價 : " + fprice
                     arr[0].contents.contents[scnt].footer.contents[1].contents[1].text = "地址 : " + data[i].storeAdd
