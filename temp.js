@@ -268,29 +268,6 @@ var temp_cart = {
         },
         {
           "type": "box",
-          "layout": "horizontal",
-          "contents": [
-            {
-              "type": "text",
-              "text": "餐點名稱",
-              "size": "md"
-            },
-            {
-              "type": "text",
-              "text": "份量",
-              "size": "md",
-              "align": "center"
-            },
-            {
-              "type": "text",
-              "text": "價格",
-              "size": "md",
-              "align": "end"
-            }
-          ]
-        },
-        {//4
-          "type": "box",
           "layout": "vertical",
           "spacing": "sm",
           "contents": [
@@ -300,30 +277,74 @@ var temp_cart = {
               "contents": [
                 {
                   "type": "text",
-                  "text": "food.foodName",
-                  "flex": 0,
-                  "margin": "sm",
+                  "text": "餐點名稱",
                   "size": "md",
-                  "weight": "bold"
+                  "align": "start"
                 },
                 {
                   "type": "text",
-                  "text": "567",
-                  "size": "xs",
-                  "align": "center",
-                  "color": "#AAAAAA",
-                  "wrap": true
+                  "text": "份量",
+                  "size": "md",
+                  "align": "center"
                 },
                 {
                   "type": "text",
-                  "text": "$ 123",
-                  "size": "sm",
-                  "align": "end",
-                  "color": "#000000"
+                  "text": "價格",
+                  "size": "md",
+                  "align": "end"
                 }
               ]
-            }
-
+            },//title
+            {
+              "type": "box",
+              "layout": "horizontal",
+              "spacing": "xxl",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "阿使芭樂",
+                      "flex": 0,
+                      "size": "sm",
+                      "align": "start",
+                      "weight": "bold",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "99",
+                      "size": "md",
+                      "align": "center",
+                      "color": "#AAAAAA"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "$100",
+                      "margin": "xxl",
+                      "size": "sm",
+                      "align": "end",
+                      "color": "#AAAAAA",
+                      "wrap": false
+                    }
+                  ]
+                }
+              ]
+            }//foodrepeat
           ]
         },
         {
@@ -406,30 +427,51 @@ var temp_cart = {
 }
 var temp_cart_repeat = {
   "type": "box",
-  "layout": "baseline",
+  "layout": "horizontal",
+  "spacing": "xxl",
   "contents": [
     {
-      "type": "text",
-      "text": 'Afood.foodName',
-      "flex": 0,
-      "margin": "sm",
-      "size": "md",
-      "weight": "bold"
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "阿使芭樂阿使芭樂阿使芭樂",
+          "flex": 0,
+          "size": "md",
+          "align": "start",
+          "weight": "bold",
+          "wrap": true
+        }
+      ]
     },
     {
-      "type": "text",
-      "text": 'Afood.foodQty',
-      "size": "xs",
-      "align": "center",
-      "color": "#AAAAAA",
-      "wrap": true
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "99",
+          "size": "md",
+          "align": "center",
+          "color": "#AAAAAA"
+        }
+      ]
     },
     {
-      "type": "text",
-      "text": "$ " + 'Afood.foodPrice',
-      "size": "sm",
-      "align": "end",
-      "color": "#000000"
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "$100",
+          "margin": "xxl",
+          "size": "md",
+          "align": "end",
+          "color": "#AAAAAA",
+          "wrap": false
+        }
+      ]
     }
   ]
 }
@@ -696,7 +738,10 @@ var fetchOrder = {
     "contents": []
   }
 }
-var temp_cart2 = {
+
+//匯出
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder };
+var temp_cart_old = {
   "type": "flex",
   "altText": "Flex Message",
   "contents": {
@@ -739,6 +784,29 @@ var temp_cart2 = {
         },
         {
           "type": "box",
+          "layout": "horizontal",
+          "contents": [
+            {
+              "type": "text",
+              "text": "餐點名稱",
+              "size": "md"
+            },
+            {
+              "type": "text",
+              "text": "份量",
+              "size": "md",
+              "align": "center"
+            },
+            {
+              "type": "text",
+              "text": "價格",
+              "size": "md",
+              "align": "end"
+            }
+          ]
+        },
+        {//4
+          "type": "box",
           "layout": "vertical",
           "spacing": "sm",
           "contents": [
@@ -748,74 +816,30 @@ var temp_cart2 = {
               "contents": [
                 {
                   "type": "text",
-                  "text": "餐點名稱",
+                  "text": "food.foodName",
+                  "flex": 0,
+                  "margin": "sm",
                   "size": "md",
-                  "align": "start"
+                  "weight": "bold"
                 },
                 {
                   "type": "text",
-                  "text": "份量",
-                  "size": "md",
-                  "align": "center"
+                  "text": "567",
+                  "size": "xs",
+                  "align": "center",
+                  "color": "#AAAAAA",
+                  "wrap": true
                 },
                 {
                   "type": "text",
-                  "text": "價格",
-                  "size": "md",
-                  "align": "end"
+                  "text": "$ 123",
+                  "size": "sm",
+                  "align": "end",
+                  "color": "#000000"
                 }
               ]
-            },//title
-            {
-              "type": "box",
-              "layout": "horizontal",
-              "spacing": "xxl",
-              "contents": [
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "阿使芭樂",
-                      "flex": 0,
-                      "size": "sm",
-                      "align": "start",
-                      "weight": "bold",
-                      "wrap": true
-                    }
-                  ]
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "99",
-                      "size": "md",
-                      "align": "center",
-                      "color": "#AAAAAA"
-                    }
-                  ]
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": "$100",
-                      "margin": "xxl",
-                      "size": "sm",
-                      "align": "end",
-                      "color": "#AAAAAA",
-                      "wrap": false
-                    }
-                  ]
-                }
-              ]
-            }//foodrepeat
+            }
+
           ]
         },
         {
@@ -896,55 +920,32 @@ var temp_cart2 = {
     }
   }
 }
-var temp_cart_repeat2 = {
+var temp_cart_repeat_old = {
   "type": "box",
-  "layout": "horizontal",
-  "spacing": "xxl",
+  "layout": "baseline",
   "contents": [
     {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "阿使芭樂阿使芭樂阿使芭樂",
-          "flex": 0,
-          "size": "md",
-          "align": "start",
-          "weight": "bold",
-          "wrap": true
-        }
-      ]
+      "type": "text",
+      "text": 'Afood.foodName',
+      "flex": 0,
+      "margin": "sm",
+      "size": "md",
+      "weight": "bold"
     },
     {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "99",
-          "size": "md",
-          "align": "center",
-          "color": "#AAAAAA"
-        }
-      ]
+      "type": "text",
+      "text": 'Afood.foodQty',
+      "size": "xs",
+      "align": "center",
+      "color": "#AAAAAA",
+      "wrap": true
     },
     {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "$100",
-          "margin": "xxl",
-          "size": "md",
-          "align": "end",
-          "color": "#AAAAAA",
-          "wrap": false
-        }
-      ]
+      "type": "text",
+      "text": "$ " + 'Afood.foodPrice',
+      "size": "sm",
+      "align": "end",
+      "color": "#000000"
     }
   ]
 }
-//匯出
-module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder, temp_cart2, temp_cart_repeat2 };

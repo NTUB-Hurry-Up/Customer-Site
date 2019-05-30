@@ -11,7 +11,7 @@ var Cart = function (event, oCart) {
         var cstoreName = oCart.storeName;
 
         var arr = []
-        arr.push(lodash.cloneDeep(temp.temp_cart2))
+        arr.push(lodash.cloneDeep(temp.temp_cart))
         arr[0].contents.body.contents[0].text = oCart.userName + " 的購物車";
         arr[0].contents.body.contents[1].contents[0].text = cstoreName;
         arr[0].contents.hero.url = oCart.storeimg;
@@ -22,8 +22,7 @@ var Cart = function (event, oCart) {
             cartTotalPrice += Afood.foodPrice * Afood.foodQty
             console.log("Afood, " + Afood.foodid)
             console.log("cartTotalPrice, " + cartTotalPrice)
-            arr[0].contents.body.contents[3].contents[k+1] = lodash.cloneDeep(temp.temp_cart_repeat2)
-            // arr[0].contents.body.contents[4].contents[k] = lodash.cloneDeep(temp.temp_cart_repeat)
+            arr[0].contents.body.contents[3].contents[k+1] = lodash.cloneDeep(temp.temp_cart_repeat)
             arr[0].contents.body.contents[3].contents[k+1].contents[0].contents[0].text = Afood.foodName
             arr[0].contents.body.contents[3].contents[k+1].contents[1].contents[0].text = Afood.foodQty
             arr[0].contents.body.contents[3].contents[k+1].contents[2].contents[0].text = Afood.foodPrice
