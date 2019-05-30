@@ -14,7 +14,7 @@ var addMember = async function (id, name) {
     await query('insert into member (userid, name) values ($1, $2) RETURNING name,phone', [id, name])
         .then((data) => {
             if (data.rows.length > 0) {
-                result = data[0].rows;  //學生資料(物件)
+                result = data.rows[0];  //學生資料(物件)
             } else {
                 result = -1;  //找不到資料
             }
