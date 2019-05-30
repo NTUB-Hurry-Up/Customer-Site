@@ -28,7 +28,10 @@ var orderRecord = function (event, lodash) {
                         s = data[i].orderid
                         console.log(data[i].orderid)
                         arr[0].contents.contents[scnt] = lodash.cloneDeep(temp.orderComplete.contents)
-                        arr[0].contents.contents[scnt].body.contents[0].text = data[i].orderid
+                        arr[0].contents.contents[scnt].body.contents[0].text = data[i].status
+                        if (data[i].status == "未接單" || data[i].status == "製作中" || data[i].status == "等待取餐") { arr[0].contents.contents[scnt].body.contents[0].color = '#7BC5FE' }
+                        else if (data[i].status == "已拒絕" || data[i].status == "逾時未取餐") { arr[0].contents.contents[scnt].body.contents[0].color = '#FF5B5B' }
+                        else if (data[i].status == "已取餐") { arr[0].contents.contents[scnt].body.contents[0].color = '#63BB72' }
                         arr[0].contents.contents[scnt].body.contents[1].contents[1].text = data[i].storeName
                         arr[0].contents.contents[scnt].body.contents[2].contents[1].text = data[i].orderid
                         arr[0].contents.contents[scnt].body.contents[3].contents[1].text = data[i].status

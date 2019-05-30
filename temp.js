@@ -491,7 +491,8 @@ var orderComplete = {
           "text": "您已完成下訂",
           "size": "xl",
           "align": "center",
-          "weight": "bold"
+          "weight": "bold",
+          "color": "#000000"
         },
         {
           "type": "box",
