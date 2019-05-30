@@ -102,9 +102,8 @@ bot.on('message', function (event) {
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
                 event.reply([
-                    { 'type': 'text', 'text': '已加入會員, Hi !' },
-                    { 'type': 'text', 'text': '請更新您的會員資訊' }]
-                );
+                    { 'type': 'template', 'template': arr[0] }
+                ]);
             }
             else if (msg1 == "會員") {
                 obj2null.status(obj.arrPsnl[objLoc])
