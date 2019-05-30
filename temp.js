@@ -198,13 +198,13 @@ var temp_menu_repeat = {
           }
         ]
       },
-      {
+      /*{
         "type": "text",
         "text": "Sauce, Onions, Pickles, Lettuce & Cheese",
         "size": "xs",
         "color": "#AAAAAA",
         "wrap": true
-      }
+      }*/
     ]
   },
   "footer": {
@@ -656,7 +656,7 @@ var orderComplete = {
               "type": "text",
               "text": "地址 : 不告訴你"
             },
-            {
+            /*{
               "type": "box",
               "layout": "horizontal",
               "contents": [
@@ -665,17 +665,17 @@ var orderComplete = {
                   "text": "備註 :"
                 }
               ]
-            }
+            }*/
           ]
         },
-        {
+        /*{
           "type": "text",
           "text": "顆顆顆顆顆",
           "size": "xs",
           "align": "start",
           "color": "#CCCCCC",
           "wrap": true
-        }
+        }*/
       ]
     }
   }
