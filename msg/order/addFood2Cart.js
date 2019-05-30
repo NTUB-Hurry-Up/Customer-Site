@@ -16,7 +16,7 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
             } else if (data1 == -9) {
                 console.log("執行錯誤")
             } else {
-                if (data1.phone != null) {
+                if (data1.phone != null && data1.phone != "") {
                     // oCart.userName = data1.name
                     // oCart.userPhone = data1.phone
                     order.Cartfetchfood(cfoodid).then(data => {
