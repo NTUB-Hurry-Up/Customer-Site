@@ -125,7 +125,7 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
             event.reply('修改電話失敗');
         }
 
-
+    }
     
 
 
