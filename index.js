@@ -95,19 +95,15 @@ bot.on('message', function (event) {
                         'Cart': {
                             'storeid': ""
                         },
-                        'Status': {}
+                        'Status': {
+                            'status': ""
+                        }
                     }
                 }
             }
 
             console.log(objLoc)
-            if(msg1 == "A"){
-                var arr =[]
-                arr.push(lodash.cloneDeep(temp.temp_cart2))
-                arr[0].contents.body.contents[3].contents[1] = lodash.cloneDeep(temp.temp_cart_repeat2)
-                arr[0].contents.body.contents[3].contents[2] = lodash.cloneDeep(temp.temp_cart_repeat2)
-                event.reply(arr[0])
-            }else if (msg1 == "會員") {
+            if (msg1 == "會員") {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
@@ -166,6 +162,7 @@ bot.on('message', function (event) {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
             } else {
+                console.log('e04, 工三小')
                 event.reply('e04, 工三小')
             }
         }
