@@ -61,7 +61,7 @@ var fetchMemInfo = function (userid, oCart) {//--
     })
 }
 var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
-    obj2null.status(oPsnl)
+    
     if (s == "編輯姓名") {
         member.UpdateName(newinfo, oPsnl.userid).then(data => {
             if (data == -1) {
@@ -78,6 +78,7 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
                     { 'type': 'text', 'text': '姓名已編輯完成' },
                     arr[0]
                 ]);
+                obj2null.status(oPsnl)
             }
         })
     } else if (s == "編輯電話") {
