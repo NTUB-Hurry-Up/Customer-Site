@@ -17,6 +17,7 @@ var memFirstIn = function (event, lodash) {
             } else {
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
+                console.log("姓名 : " + data.name + "\n電話 : " + data.phone)
                 arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
                 event.reply([
                     { 'type': 'text', 'text': '已加入會員, Hi !' },
