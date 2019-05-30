@@ -70,7 +70,8 @@ var changeMemInfo = function (event, oPsnl, s, newinfo) {
             } else if (data == -9) {
                 event.reply('執行錯誤');
             } else {
-                oPsnl.Cart.userName = newinfo
+                if (oPsnl.Cart.storeid != "") { oPsnl.Cart.userName = newinfo }
+
                 event.reply('姓名已編輯完成');
             }
         })
