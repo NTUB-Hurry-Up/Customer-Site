@@ -34,7 +34,8 @@ var orderRecord = function (event, lodash) {
                         else if (data[i].status == "已取餐") { arr[0].contents.contents[scnt].body.contents[0].color = '#63BB72' }
                         arr[0].contents.contents[scnt].body.contents[1].contents[1].text = data[i].storeName
                         arr[0].contents.contents[scnt].body.contents[2].contents[1].text = data[i].orderid
-                        arr[0].contents.contents[scnt].body.contents[3].contents[1].text = data[i].status
+                        arr[0].contents.contents[scnt].body.contents[3].contents[0].text = ""
+                        arr[0].contents.contents[scnt].body.contents[3].contents[1].text = ""
                         var orderMonth = ((data[i].orderDate).getMonth() + 1 < 10 ? '0' : '') + ((data[i].orderDate).getMonth() + 1)
                         var orderDate = ((data[i].orderDate).getDate() < 10 ? '0' : '') + (data[i].orderDate).getDate()
                         arr[0].contents.contents[scnt].body.contents[4].contents[1].text = (data[i].orderDate).getFullYear() + "-" + orderMonth + "-" + orderDate
