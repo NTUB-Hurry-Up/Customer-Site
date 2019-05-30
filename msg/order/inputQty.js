@@ -25,6 +25,7 @@ var inputQty = function (event, oPsnl, msg1) {
                     { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
                 );
             } else {
+
                 var i = oPsnl.Cart.arrfood.length;
                 console.log("i = " + i)
 
@@ -37,8 +38,8 @@ var inputQty = function (event, oPsnl, msg1) {
                     }
                 }
                 console.log(oPsnl.Cart.arrfood)
-
                 Cart.Cart(event, oPsnl.Cart)
+                obj2null.status(oPsnl)
             }
         } else {
             obj2null.status(oPsnl)

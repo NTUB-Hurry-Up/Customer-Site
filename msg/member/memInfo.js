@@ -78,7 +78,6 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
                     { 'type': 'text', 'text': '姓名已編輯完成' },
                     arr[0]
                 ]);
-                // event.reply('姓名已編輯完成');
             }
         })
     } else if (s == "編輯電話") {
@@ -88,15 +87,39 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
             } else if (data == -9) {
                 event.reply('執行錯誤');
             } else {
-                if (oPsnl.Cart.storeid != "") { oPsnl.Cart.userPhone = newinfo }
-                var arr = []
-                arr.push(lodash.cloneDeep(temp.temp_memInfo))
-                arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
-                event.reply([
-                    { 'type': 'text', 'text': '姓名已編輯完成' },
-                    arr[0]
-                ]);
-                // event.reply('電話已編輯完成');
+                newinfo = newinfo.trim()
+                var isNum = /^[0-9]+$/;
+                var x = Boolean(!isNum.test(newinfo))
+                var y = Boolean(newinfo.length != 10)
+                if (x || y) { oPsnl.Status.statusTime--; }
+                var z = Boolean(oPsnl.Status.statusTime > 0);
+                if(z){
+                    if (x) {
+                        event.reply([
+                            { 'type': 'text', 'text': '請輸入數字 ! ' },
+                            { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
+                        );
+
+                    } else if (y) {
+                        event.reply([
+                            { 'type': 'text', 'text': '請輸入10位數的電話號碼 ! ' },
+                            { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
+                        );
+                    } else {
+                        obj2null.status(oPsnl)
+                        if (oPsnl.Cart.storeid != "") { oPsnl.Cart.userPhone = newinfo }
+                        var arr = []
+                        arr.push(lodash.cloneDeep(temp.temp_memInfo))
+                        arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+                        event.reply([
+                            { 'type': 'text', 'text': '電話已編輯完成' },
+                            arr[0]
+                        ]);
+                    }
+                }
+                
+
+
             }
         })
     }

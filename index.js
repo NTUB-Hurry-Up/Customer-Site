@@ -98,7 +98,7 @@ bot.on('message', function (event) {
                     event.reply('請輸入您的姓名');
                     console.log(obj.arrPsnl[objLoc].Status)
                 } else if (msg2 == "編輯電話") {
-                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "編輯電話", 1, '')
+                    obj2addin.StatusAddin(obj.arrPsnl[objLoc], "編輯電話", 2, '')
                     event.reply('請輸入您的電話\nex: 09xxxxxxxx');
                 }
             } else if (msg1 == "店家") {
