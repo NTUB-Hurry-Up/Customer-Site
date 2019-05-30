@@ -90,7 +90,7 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                     var arr = []
                     arr.push(lodash.cloneDeep(temp.temp_memInfo))
                     arr[0].template.actions[1].label = "加入電話"
-                    arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+                    arr[0].template.text = "姓名 : " + dataㄅ.name + "\n電話 : " + data1.phone
                     event.reply([
                         { 'type': 'text', 'text': '請先加入電話 !' },
                         arr[0]
