@@ -117,6 +117,8 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
                             arr[0]
                         ]);
                     }
+                }else{
+                    event.reply('修改電話失敗');
                 }
                 
 
