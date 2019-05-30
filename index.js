@@ -81,7 +81,9 @@ bot.on('message', function (event) {
                     'Cart': {
                         'storeid': ""
                     },
-                    'Status': {}
+                    'Status': {
+                        'status': ""
+                    }
                 })
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
