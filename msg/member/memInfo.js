@@ -9,15 +9,22 @@ const obj2null = require('./../../obj2null');
 var memFirstIn = function (event, lodash) {
     //存放結果
     event.source.profile().then(function (profile) {
-        var arr = []
-        arr.push(lodash.cloneDeep(temp.temp_memInfo))
-        arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
-        // event.reply(arr[0]);
-        event.reply([
-            { 'type': 'text', 'text': '已加入會員, Hi !' },
-            { 'type': 'text', 'text': '請更新您的會員資訊' },
-            arr[0]
-        ]);
+        const userId = profile.userId;
+        const userName = profile.displayName;
+        member.addMember(userId, userName).then(data => {
+            if (data == -9) {
+                event.reply('執行錯誤');
+            } else {
+                var arr = []
+                arr.push(lodash.cloneDeep(temp.temp_memInfo))
+                arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+                event.reply([
+                    { 'type': 'text', 'text': '已加入會員, Hi !' },
+                    { 'type': 'text', 'text': '請更新您的會員資訊' },
+                    arr[0]
+                ]);
+            }
+        })
     });
 }
 var memInfo = function (event, lodash) {

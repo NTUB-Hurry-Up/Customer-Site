@@ -33,17 +33,8 @@ var bot = linebot({
 bot.on('follow', function (event) {
     event.source.profile().then(
         function (profile) {
-            //取得使用者資料
-            const userId = profile.userId;
-            const userName = profile.displayName;
             //呼叫API, 將使用者資料寫入資料庫
-            member.addMember(userId, userName).then(data => {
-                if (data == -9) {
-                    event.reply('執行錯誤');
-                } else {
-                    event.reply('已加入會員, Hi !');
-                }
-            })
+            memInfo.memFirstIn(event, lodash);
         }
     );
 });
@@ -98,16 +89,7 @@ bot.on('message', function (event) {
 
             console.log(objLoc)
             console.log(obj.arrPsnl[objLoc].Status.status == '')
-            if(msg == "A"){
-                var arr = []
-                arr.push(lodash.cloneDeep(temp.temp_memInfo))
-                event.reply([
-                    { 'type': 'text', 'text': '已加入會員, Hi !' },
-                    { 'type': 'text', 'text': '請更新您的會員資訊' },
-                    arr[0]
-                ]);
-            }
-            else if (msg1 == "會員") {
+            if (msg1 == "會員") {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)

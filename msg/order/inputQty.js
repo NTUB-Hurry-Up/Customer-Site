@@ -42,7 +42,7 @@ var inputQty = function (event, oPsnl, msg1) {
             }
         } else {
             obj2null.status(oPsnl)
-            event.reply('請你閉嘴')
+            event.reply('請重新點餐')
         }
     });
 }
