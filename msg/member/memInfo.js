@@ -18,6 +18,7 @@ var memFirstIn = function (event, lodash) {
                 console.log(data)
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
+                arr[0].template.actions[1].label = "加入電話"
                 console.log("姓名 : " + data.name + "\n電話 : " + data.phone)
                 arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
                 event.reply([
@@ -62,7 +63,7 @@ var fetchMemInfo = function (userid, oCart) {//--
 }
 var changeMemInfo = function (event, oPsnl, s, newinfo) {
     obj2null.status(oPsnl)
-    if (s == "修改姓名") {
+    if (s == "編輯姓名") {
         member.UpdateName(newinfo, oPsnl.userid).then(data => {
             if (data == -1) {
                 event.reply('找不到資料');
@@ -70,10 +71,10 @@ var changeMemInfo = function (event, oPsnl, s, newinfo) {
                 event.reply('執行錯誤');
             } else {
                 oPsnl.Cart.userName = newinfo
-                event.reply('姓名已修改完成');
+                event.reply('姓名已編輯完成');
             }
         })
-    } else if (s == "修改電話") {
+    } else if (s == "編輯電話") {
         member.UpdatePhone(newinfo, oPsnl.userid).then(data => {
             if (data == -1) {
                 event.reply('找不到資料');
@@ -81,7 +82,7 @@ var changeMemInfo = function (event, oPsnl, s, newinfo) {
                 event.reply('執行錯誤');
             } else {
                 oPsnl.Cart.userPhone = newinfo
-                event.reply('電話已修改完成');
+                event.reply('電話已編輯完成');
             }
         })
     }

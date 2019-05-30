@@ -9,12 +9,12 @@ var temp_memInfo =
       {
         "type": "message",
         "label": "修改姓名",
-        "text": "會員,修改姓名"
+        "text": "會員,編輯姓名"
       },
       {
         "type": "message",
         "label": "修改電話",
-        "text": "會員,修改電話"
+        "text": "會員,編輯電話"
       }
     ],
     "title": "會員資訊",

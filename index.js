@@ -140,7 +140,7 @@ bot.on('message', function (event) {
                 orderRecord.orderRecord(event, lodash);
             } else if (obj.arrPsnl[objLoc].Status.status != "") {
                 var s = obj.arrPsnl[objLoc].Status.status
-                if (s == "修改姓名" || s == "修改電話") {
+                if (s == "編輯姓名" || s == "編輯電話") {
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg)
                 } else if (s == "inputQty") {
                     inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1)
