@@ -61,7 +61,7 @@ var fetchMemInfo = function (userid, oCart) {//--
     })
 }
 var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
-    
+
     if (s == "編輯姓名") {
         member.UpdateName(newinfo, oPsnl.userid).then(data => {
             if (data == -1) {
@@ -82,30 +82,30 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
             }
         })
     } else if (s == "編輯電話") {
-        member.UpdatePhone(newinfo, oPsnl.userid).then(data => {
-            if (data == -1) {
-                event.reply('找不到資料');
-            } else if (data == -9) {
-                event.reply('執行錯誤');
-            } else {
-                newinfo = newinfo.trim()
-                var isNum = /^[0-9]+$/;
-                var x = Boolean(!isNum.test(newinfo))
-                var y = Boolean(newinfo.length != 10)
-                if (x || y) { oPsnl.Status.statusTime--; }
-                var z = Boolean(oPsnl.Status.statusTime > 0);
-                if(z){
-                    if (x) {
-                        event.reply([
-                            { 'type': 'text', 'text': '請輸入數字 ! ' },
-                            { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
-                        );
+        newinfo = newinfo.trim()
+        var isNum = /^[0-9]+$/;
+        var x = Boolean(!isNum.test(newinfo))
+        var y = Boolean(newinfo.length != 10)
+        if (x || y) { oPsnl.Status.statusTime--; }
+        var z = Boolean(oPsnl.Status.statusTime > 0);
+        if (z) {
+            if (x) {
+                event.reply([
+                    { 'type': 'text', 'text': '請輸入數字 ! ' },
+                    { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
+                );
 
-                    } else if (y) {
-                        event.reply([
-                            { 'type': 'text', 'text': '請輸入10位數的電話號碼 ! ' },
-                            { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
-                        );
+            } else if (y) {
+                event.reply([
+                    { 'type': 'text', 'text': '請輸入10位數的電話號碼 ! ' },
+                    { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
+                );
+            } else {
+                member.UpdatePhone(newinfo, oPsnl.userid).then(data => {
+                    if (data == -1) {
+                        event.reply('找不到資料');
+                    } else if (data == -9) {
+                        event.reply('執行錯誤');
                     } else {
                         obj2null.status(oPsnl)
                         if (oPsnl.Cart.storeid != "") { oPsnl.Cart.userPhone = newinfo }
@@ -117,15 +117,16 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
                             arr[0]
                         ]);
                     }
-                }else{
-                    event.reply('修改電話失敗');
-                }
+
                 
-
-
+                })
             }
-        })
-    }
+        } else {
+            event.reply('修改電話失敗');
+        }
+
+
+    
 
 
 }
