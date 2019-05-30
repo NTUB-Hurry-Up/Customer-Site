@@ -16,8 +16,8 @@ var memFirstIn = function (event, lodash) {
         event.reply([
             { 'type': 'text', 'text': '已加入會員, Hi !' },
             { 'type': 'text', 'text': '請更新您的會員資訊' },
-            { 'type': 'template', 'template': arr[0] }]
-        );
+            arr[0]
+        ]);
     });
 }
 var memInfo = function (event, lodash) {
