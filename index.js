@@ -78,12 +78,8 @@ bot.on('message', function (event) {
             if (obj.arrPsnl.length == 0) {
                 obj.arrPsnl.push({
                     'userid': userId,
-                    'Cart': {
-                        'storeid': ""
-                    },
-                    'Status': {
-                        'status': ""
-                    }
+                    'Cart': { 'storeid': "" },
+                    'Status': { 'status': "" }
                 })
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
@@ -94,12 +90,8 @@ bot.on('message', function (event) {
                     objLoc = obj.arrPsnl.length
                     obj.arrPsnl[objLoc] = {
                         'userid': userId,
-                        'Cart': {
-                            'storeid': ""
-                        },
-                        'Status': {
-                            'status': ""
-                        }
+                        'Cart': { 'storeid': "" },
+                        'Status': { 'status': "" }
                     }
                 }
             }
@@ -133,7 +125,7 @@ bot.on('message', function (event) {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "查詢") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
-                        event.reply("閉嘴 ! , 請先點餐(cart)")
+                        event.reply("請先點餐(cart)")
                     } else {
                         Cart.Cart(event, obj.arrPsnl[objLoc].Cart)
                     }
@@ -165,7 +157,6 @@ bot.on('message', function (event) {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
             } else {
-                console.log('e04, 工三小')
                 event.reply('請問今天是哪位高手 ?')
             }
         }
@@ -178,7 +169,7 @@ bot.on('postback', function (event) {
             const userId = profile.userId;
             var objLoc = -1;
             if (obj.arrPsnl.length == 0) {
-                event.reply("閉嘴 ! , 請先點餐(p1)")
+                event.reply("請先點餐(p1)")
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
                 console.log("q=" + q)
