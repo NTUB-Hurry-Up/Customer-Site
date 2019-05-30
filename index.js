@@ -103,6 +103,7 @@ bot.on('message', function (event) {
             }
 
             console.log(objLoc)
+            console.log(obj.arrPsnl[objLoc].Status.status != "")
             if (msg1 == "會員") {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
