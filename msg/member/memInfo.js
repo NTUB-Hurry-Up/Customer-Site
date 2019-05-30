@@ -6,6 +6,20 @@ const obj2null = require('./../../obj2null');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
+var memFirstIn = function (event, lodash) {
+    //存放結果
+    event.source.profile().then(function (profile) {
+        var arr = []
+        arr.push(lodash.cloneDeep(temp.temp_memInfo))
+        arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+        // event.reply(arr[0]);
+        event.reply([
+            { 'type': 'text', 'text': '已加入會員, Hi !' },
+            { 'type': 'text', 'text': '請更新您的會員資訊' },
+            { 'type': 'template', 'template': arr[0] }]
+        );
+    });
+}
 var memInfo = function (event, lodash) {
     //存放結果
     event.source.profile().then(function (profile) {
@@ -67,6 +81,6 @@ var changeMemInfo = function (event, oPsnl, s, newinfo) {
 }
 
 //匯出
-module.exports = { memInfo, changeMemInfo, fetchMemInfo };
+module.exports = { memInfo, memFirstIn, changeMemInfo, fetchMemInfo };
 
 
