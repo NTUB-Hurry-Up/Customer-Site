@@ -44,7 +44,7 @@ var addOrder = async function (storeid, userid, orderDate, orderTime, takeDate, 
     return result;
 }
 //---------------------------------------------------------
-var addOrderDetail = async function (orderid, foodid, foodPrice, foodQty, foodAmt) {
+var addOrderDetail = async function (orderid, foodid, foodPrice, foodQty) {
     //存放結果
     let result;
 

@@ -101,13 +101,7 @@ bot.on('message', function (event) {
             }
 
             console.log(objLoc)
-            if(msg1 == "A"){
-                var arr =[]
-                arr.push(lodash.cloneDeep(temp.temp_cart2))
-                arr[0].contents.body.contents[3].contents[1] = lodash.cloneDeep(temp.temp_cart_repeat2)
-                arr[0].contents.body.contents[3].contents[2] = lodash.cloneDeep(temp.temp_cart_repeat2)
-                event.reply(arr[0])
-            }else if (msg1 == "會員") {
+            if (msg1 == "會員") {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "資訊") {
                     memInfo.memInfo(event, lodash)
@@ -134,16 +128,13 @@ bot.on('message', function (event) {
                 obj2null.status(obj.arrPsnl[objLoc])
                 if (msg2 == "查詢") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
-                        event.reply("閉嘴 ! , 請先點餐(cart)")
+                        event.reply("請先點餐(cart)")
                     } else {
                         Cart.Cart(event, obj.arrPsnl[objLoc].Cart)
                     }
                 } else if (msg2 == "清空") {
                     obj2null.cart(obj.arrPsnl[objLoc])
-                    event.reply([
-                        { 'type': 'text', 'text': '已清空' },
-                        { 'type': 'text', 'text': '請重新點餐' }]
-                    );
+                    event.reply([{ 'type': 'text', 'text': '已清空' }, { 'type': 'text', 'text': '請重新點餐' }]);
                 } else if (msg2 == "送出訂單") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply('購物車是空的 !');
@@ -166,7 +157,7 @@ bot.on('message', function (event) {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
             } else {
-                event.reply('e04, 工三小')
+                event.reply('請問今天是哪位高手 ?')
             }
         }
     );
@@ -178,7 +169,7 @@ bot.on('postback', function (event) {
             const userId = profile.userId;
             var objLoc = -1;
             if (obj.arrPsnl.length == 0) {
-                event.reply("閉嘴 ! , 請先點餐(p1)")
+                event.reply("請先點餐(p1)")
             }
             for (var q = 0; q < obj.arrPsnl.length; q++) {
                 console.log("q=" + q)
@@ -186,7 +177,7 @@ bot.on('postback', function (event) {
                     objLoc = q;
                     break;
                 } else if (q == obj.arrPsnl.length - 1) {
-                    event.reply("閉嘴 ! , 請先點餐(p2)")
+                    event.reply("請先點餐(p2)")
                 }
             }
             if (data === "datetime" && objLoc != -1) {
