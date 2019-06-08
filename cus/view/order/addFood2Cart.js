@@ -1,7 +1,7 @@
 
 //引用操作資料庫的物件
 const temp = require('./../../temp');
-const obj2addin = require('./../../obj2addin');
+const obj2addin = require('./../../../obj2addin');
 const order = require('../../route/order');
 const memInfo = require('./../member/memInfo');
 const member = require('../../route/member');

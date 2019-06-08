@@ -1,6 +1,6 @@
 
 //引用操作資料庫的物件
-const obj2null = require('./../../obj2null');
+const obj2null = require('./../../../obj2null');
 const Cart = require('./Cart');
 //------------------------------------------
 // 查詢所有的店家
