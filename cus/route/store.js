@@ -29,7 +29,7 @@ var fetchStorefood = async function (storeid) {
     let result;
 
     //讀取資料庫
-    await query('SELECT food.foodid, food."foodName", food.storeid, food."foodPrice", food.foodimg, store."storeName" FROM food , store WHERE food.storeid = store.storeid and food.storeid = $1  and food.foodisSale = $2 ORDER BY food.foodid limit 10', [storeid, "Y"])
+    await query('SELECT food.foodid, food."foodName", food.storeid, food."foodPrice", food.foodimg, store."storeName" FROM food , store WHERE food.storeid = store.storeid and food.storeid = $1 and "foodisSale" = $2 ORDER BY food.foodid limit 10', [storeid, "Y"])
         .then((data) => {
             if (data.rows.length > 0) {
                 result = data.rows;  //店家資料(物件)
