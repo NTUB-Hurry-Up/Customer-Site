@@ -9,7 +9,7 @@ var fetchStore = async function () {
     let result;
 
     //讀取資料庫
-    await query('SELECT * from store where "storeisOpen"=$1  desc limit 10', ["Y"])
+    await query('SELECT * from store where "storeisOpen"=$1 order by storeimg asc limit 10', ["Y"])
         .then((data) => {
             if (data.rows.length > 0) {
                 result = data.rows;  //店家資料(物件)
