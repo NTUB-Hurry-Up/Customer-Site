@@ -7,16 +7,16 @@ var lodash = require('lodash');
 const temp = require('./cus/temp');
 const obj2null = require('./obj2null');
 const obj2addin = require('./obj2addin');
-const member = require('./route/member');
-const memInfo = require('./view/member/memInfo');
-const storeInfo = require('./view/store/storeInfo');
-const foodInfo = require('./view/store/foodInfo');
-const addFood2Cart = require('./view/order/addFood2Cart');
-const changeStore = require('./view/order/changeStore');
-const inputQty = require('./view/order/inputQty');
-const Cart = require('./view/order/Cart');
-const sendOrder = require('./view/order/sendOrder');
-const orderRecord = require('./view/order/orderRecord');
+const member = require('./cus/route/member');
+const memInfo = require('./cus/view/member/memInfo');
+const storeInfo = require('./cus/view/store/storeInfo');
+const foodInfo = require('./cus/view/store/foodInfo');
+const addFood2Cart = require('./cus/view/order/addFood2Cart');
+const changeStore = require('./cus/view/order/changeStore');
+const inputQty = require('./cus/view/order/inputQty');
+const Cart = require('./cus/view/order/Cart');
+const sendOrder = require('./cus/view/order/sendOrder');
+const orderRecord = require('./cus/view/order/orderRecord');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
