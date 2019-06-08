@@ -1,10 +1,10 @@
 
 //引用操作資料庫的物件
 const temp = require('./../../temp');
-const order = require('./../../order');
 const obj2addin = require('./../../obj2addin');
+const order = require('../../route/order');
 const memInfo = require('./../member/memInfo');
-const member = require('./../../member');
+const member = require('../../route/member');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
@@ -17,8 +17,6 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                 console.log("執行錯誤")
             } else {
                 if (data1.phone != null && data1.phone != "") {
-                    // oCart.userName = data1.name
-                    // oCart.userPhone = data1.phone
                     order.Cartfetchfood(cfoodid).then(data => {
                         if (data == -1) {
                             event.reply('找不到資料');
@@ -43,7 +41,6 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                                     'takeTime': '',
                                     'arrfood': []
                                 }
-                                // memInfo.fetchMemInfo(oPsnl.userid, oPsnl.Cart)
                             }
                             if (oPsnl.Cart.storeid == cstoreid) {
                                 var i = oPsnl.Cart.arrfood.length

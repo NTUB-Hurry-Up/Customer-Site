@@ -1,7 +1,7 @@
 
 //引用操作資料庫的物件
 const temp = require('./../../temp');
-const record = require('./../../record');
+const record = require('../../route/record');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------

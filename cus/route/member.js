@@ -11,7 +11,7 @@ var addMember = async function (id, name) {
     let result;
 
     //新增會員資料
-    await query('insert into member (userid, name) values ($1, $2) RETURNING name,phone', [id, name])
+    await query('insert into member (userid, name, islegal) values ($1, $2, $3) RETURNING name,phone', [id, name, 'Y'])
         .then((data) => {
             if (data.rows.length > 0) {
                 result = data.rows[0];  //學生資料(物件)
@@ -34,7 +34,7 @@ var deleteMember = async function (id) {
     let result;
 
     //刪除會員資料
-    await query('delete from member where userid = $1', [id])
+    await query('UPDATE member SET islegal = $2 member where userid = $1', [id, 'N'])
         .then((data) => {
             result = data.rowCount;  //刪除資料數 
         }, (error) => {

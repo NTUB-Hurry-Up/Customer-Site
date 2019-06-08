@@ -1,8 +1,6 @@
 
 //引用操作資料庫的物件
-const temp = require('./../../temp');
-const order = require('./../../order');
-const obj2null = require('./../../obj2null');
+const order = require('../../route/order');
 const orderComplete = require('./orderComplete');
 //------------------------------------------
 // 查詢所有的店家
@@ -28,7 +26,6 @@ var sendOrder = function (event, oCart, cUserid) {
         var cMonth = (today.getMonth() + 1 < 10 ? '0' : '') + (today.getMonth() + 1)
         var cDay = (today.getDate() < 10 ? '0' : '') + today.getDate();
 
-        // var cHours = (today.getHours()+8 < 10 ? '0' : '')+(today.getHours()+8);
         var cMinutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
         //--date-time-formate---end--------
         var cOrderDate = today.getFullYear() + "-" + cMonth + "-" + cDay;

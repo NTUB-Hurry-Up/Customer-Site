@@ -4,19 +4,19 @@
 var linebot = require('linebot');
 var express = require('express');
 var lodash = require('lodash');
-const member = require('./member');
-const temp = require('./temp');
+const temp = require('./cus/temp');
 const obj2null = require('./obj2null');
 const obj2addin = require('./obj2addin');
-const memInfo = require('./msg/member/memInfo');
-const storeInfo = require('./msg/store/storeInfo');
-const foodInfo = require('./msg/store/foodInfo');
-const addFood2Cart = require('./msg/order/addFood2Cart');
-const changeStore = require('./msg/order/changeStore');
-const inputQty = require('./msg/order/inputQty');
-const Cart = require('./msg/order/Cart');
-const sendOrder = require('./msg/order/sendOrder');
-const orderRecord = require('./msg/order/orderRecord');
+const member = require('./route/member');
+const memInfo = require('./view/member/memInfo');
+const storeInfo = require('./view/store/storeInfo');
+const foodInfo = require('./view/store/foodInfo');
+const addFood2Cart = require('./view/order/addFood2Cart');
+const changeStore = require('./view/order/changeStore');
+const inputQty = require('./view/order/inputQty');
+const Cart = require('./view/order/Cart');
+const sendOrder = require('./view/order/sendOrder');
+const orderRecord = require('./view/order/orderRecord');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -148,7 +148,7 @@ bot.on('message', function (event) {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
             } else {
-                event.reply('請問今天是哪位高手 ?')
+                event.reply('我不太懂你在說什麼 ?')
             }
         }
     );
@@ -168,7 +168,7 @@ bot.on('postback', function (event) {
                     objLoc = q;
                     break;
                 } else if (q == obj.arrPsnl.length - 1) {
-                    event.reply("閉嘴 ! , 請先點餐(p2)")
+                    event.reply("請先點餐(p2)")
                 }
             }
             if (data === "datetime" && objLoc != -1) {
@@ -188,19 +188,19 @@ bot.on('postback', function (event) {
 //--------------------------------
 // 使用者封鎖群組
 //--------------------------------
-bot.on('unfollow', function (event) {
-    //取得使用者資料
-    const userId = event.source.userId;
+// bot.on('unfollow', function (event) {
+//     //取得使用者資料
+//     const userId = event.source.userId;
 
-    //呼叫API, 將使用者資料刪除
-    member.deleteMember(userId).then(data => {
-        if (data == -9) {
-            event.reply('執行錯誤');    //會員已封鎖群組, 本訊息無法送達
-        } else {
-            event.reply('已退出會員');  //會員已封鎖群組, 本訊息無法送達
-        }
-    });
-});
+//     //呼叫API, 將使用者資料刪除
+//     member.deleteMember(userId).then(data => {
+//         if (data == -9) {
+//             event.reply('執行錯誤');    //會員已封鎖群組, 本訊息無法送達
+//         } else {
+//             event.reply('已退出會員');  //會員已封鎖群組, 本訊息無法送達
+//         }
+//     });
+// });
 
 
 //----------------------------------------

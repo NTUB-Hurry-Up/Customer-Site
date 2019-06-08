@@ -1,8 +1,8 @@
 
 //引用操作資料庫的物件
-const temp = require('./../../temp');
-const member = require('./../../member');
-const obj2null = require('./../../obj2null');
+const temp = require('../../temp');
+const member = require('../../route/member');
+const obj2null = require('../../../obj2null');
 //------------------------------------------
 // 新增會員資料
 //------------------------------------------
@@ -118,7 +118,7 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
                         ]);
                     }
 
-                
+
                 })
             }
         } else {
@@ -126,7 +126,7 @@ var changeMemInfo = function (event, oPsnl, s, newinfo, lodash) {
         }
 
     }
-    
+
 
 
 }
