@@ -3,6 +3,7 @@
 const temp = require('./../../temp');
 const obj2addin = require('./../../../obj2addin');
 var lodash = require('lodash');
+var modCart = require('./modCart')
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
