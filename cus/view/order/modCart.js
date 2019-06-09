@@ -11,7 +11,7 @@ var modCart = function (event, oCart) {
         // var arr = [];
         // arr.push(lodash.cloneDeep(temp.temp_menu));
         for (var i = 0; i < oCart.arrfood.length; i++) {
-            console.log(oCart.arrfood.foodid)
+            console.log(oCart.arrfood[i].foodid)
             // console.log(data[i].foodid + " " + data[i].foodPrice + " " + data[i].foodName)
             // arr[0].contents.contents[i] = lodash.cloneDeep(temp.temp_menu_repeat)
             // if (data[i].foodimg != null) { arr[0].contents.contents[i].hero.url = data[i].foodimg }
