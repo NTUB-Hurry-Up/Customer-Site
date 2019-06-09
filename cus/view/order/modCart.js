@@ -24,8 +24,8 @@ var modCart = function (event, oCart) {
                 arr[0].contents.contents[i].body.contents[2].contents[0].contents[1].text = "NT$" + oCart.arrfood[i].foodPrice
                 arr[0].contents.contents[i].body.contents[3] = { "type": "separator" }
                 arr[0].contents.contents[i].body.contents[4] = lodash.cloneDeep(temp.temp_modCart_QtyPrice)
-                arr[0].contents.contents[i].body.contents[1].contents[0].contents[0].text = "小計 : "
-                arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = "NT$" + oCart.arrfood[i].foodPrice * oCart.arrfood[i].foodQty
+                arr[0].contents.contents[i].body.contents[4].contents[0].contents[0].text = "小計 : "
+                arr[0].contents.contents[i].body.contents[4].contents[0].contents[1].text = "NT$" + oCart.arrfood[i].foodPrice * oCart.arrfood[i].foodQty
 
                 arr[0].contents.contents[i].footer = lodash.cloneDeep(temp.temp_modCart_footer)
                 arr[0].contents.contents[i].footer.contents[0].action.text = "購物車,修改餐點數量," + oCart.arrfood[i].foodid
