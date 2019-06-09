@@ -5,7 +5,7 @@ const Cart = require('./Cart');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
-var inputQty = function (event, oPsnl, msg1) {
+var inputQty = function (event, oPsnl, msg1, statusText) {
     event.source.profile().then(function (profile) {
 
         var isNum = /^[0-9]+$/;
@@ -31,9 +31,13 @@ var inputQty = function (event, oPsnl, msg1) {
 
                 for (var m = 0; m < i; m++) {
                     if (oPsnl.Cart.arrfood[m].foodid == oPsnl.Status.statusText) {
-                        var oldQty = parseInt(oPsnl.Cart.arrfood[m].foodQty);
-                        var newQty = (oldQty + parseInt(msg1)).toString();
-                        oPsnl.Cart.arrfood[m].foodQty = newQty;
+                        if(statusText == "inputQty"){
+                            var oldQty = parseInt(oPsnl.Cart.arrfood[m].foodQty);
+                            var newQty = (oldQty + parseInt(msg1)).toString();
+                            oPsnl.Cart.arrfood[m].foodQty = newQty;
+                        }else if(statusText == "chageQty"){
+                            oPsnl.Cart.arrfood[m].foodQty = msg1;
+                        }
                         break;
                     }
                 }

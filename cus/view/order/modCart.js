@@ -31,11 +31,10 @@ var modFood = function (event, oPsnl, mod_foodid) {
             console.log("m = "+m+" i = "+i)
             if (oPsnl.Cart.arrfood[i].foodid == mod_foodid) {
 
-                obj2addin.StatusAddin(oPsnl, "inputQty", 2, mod_foodid)
+                obj2addin.StatusAddin(oPsnl, "changeQty", 2, mod_foodid)
                 event.reply("數量?");
 
             } else if (i == m - 1) {
-                console.log("m=i-1")
                 event.reply('您的購物車沒有此餐點');
 
             }

@@ -137,11 +137,11 @@ bot.on('message', function (event) {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply('購物車是空的 !');
                     } else {
-                        if(msg3 != "" && msg3 != null){
+                        if (msg3 != "" && msg3 != null) {
                             modCart.modFood(event, obj.arrPsnl[objLoc], msg3)
                         }
                     }
-                    
+
                 } else if (msg2 == "送出訂單") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply('購物車是空的 !');
@@ -158,8 +158,8 @@ bot.on('message', function (event) {
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "編輯姓名" || s == "編輯電話") {
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, lodash)
-                } else if (s == "inputQty") {
-                    inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1)
+                } else if (s == "inputQty" || s == "chageQty") {
+                    inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1, s)
                 } else if (s == "changeStore") {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
