@@ -133,6 +133,15 @@ bot.on('message', function (event) {
                     } else {
                         modCart.modCart(event, obj.arrPsnl[objLoc].Cart)
                     }
+                } else if (msg2 == "修改") {
+                    if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
+                        event.reply('購物車是空的 !');
+                    } else {
+                        if(msg3 != "" && msg3 != null){
+                            console.log("A")
+                        }
+                    }
+                    
                 } else if (msg2 == "送出訂單") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply('購物車是空的 !');
