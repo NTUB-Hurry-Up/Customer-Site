@@ -158,7 +158,7 @@ bot.on('message', function (event) {
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "編輯姓名" || s == "編輯電話") {
                     memInfo.changeMemInfo(event, obj.arrPsnl[objLoc], s, msg, lodash)
-                } else if (s == "inputQty" || s == "chageQty") {
+                } else if (s == "inputQty" || s == "changeQty") {
                     inputQty.inputQty(event, obj.arrPsnl[objLoc], msg1, s)
                 } else if (s == "changeStore") {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)

@@ -35,7 +35,7 @@ var inputQty = function (event, oPsnl, msg1, statusText) {
                             var oldQty = parseInt(oPsnl.Cart.arrfood[m].foodQty);
                             var newQty = (oldQty + parseInt(msg1)).toString();
                             oPsnl.Cart.arrfood[m].foodQty = newQty;
-                        }else if(statusText == "chageQty"){
+                        }else if(statusText == "changeQty"){
                             oPsnl.Cart.arrfood[m].foodQty = msg1;
                         }
                         break;
