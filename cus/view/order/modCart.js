@@ -26,15 +26,18 @@ var modCart = function (event, oCart) {
     });
 }
 
-var modFood = function (event, oPsnl, mod_foodid) {
+var modFood = function (event, oPsnl, mod_action, mod_foodid) {
     event.source.profile().then(function (profile) {
         var m = oPsnl.Cart.arrfood.length;
         for (var i = 0; i < m; i++) {
-            console.log("m = " + m + " i = " + i)
             if (oPsnl.Cart.arrfood[i].foodid == mod_foodid) {
-
-                obj2addin.StatusAddin(oPsnl, "changeQty", 2, mod_foodid)
-                event.reply("數量?");
+                if (mod_action == "修改餐點數量") {
+                    obj2addin.StatusAddin(oPsnl, "changeQty", 2, mod_foodid)
+                    event.reply("數量?");
+                } else if (mod_action == "刪除餐點") {
+                    oPsnl.Cart.arrfood.splice(i, 1)
+                    modCart(event.oPsnl.Cart)
+                }
 
             } else if (i == m - 1) {
                 event.reply('您的購物車沒有此餐點');
