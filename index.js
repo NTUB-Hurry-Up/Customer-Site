@@ -138,7 +138,7 @@ bot.on('message', function (event) {
                         event.reply('購物車是空的 !');
                     } else {
                         if(msg3 != "" && msg3 != null){
-                            console.log("A")
+                            modCart.modFood(event, obj.arrPsnl[objLoc], msg3)
                         }
                     }
                     

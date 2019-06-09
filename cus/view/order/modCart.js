@@ -1,6 +1,7 @@
 
 //引用操作資料庫的物件
 const temp = require('./../../temp');
+const obj2addin = require('./../../../obj2addin');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
@@ -22,7 +23,26 @@ var modCart = function (event, oCart) {
         // event.reply(arr[0]);
     });
 }
+
+var modFood = function (event, oPsnl, mod_foodid) {
+    event.source.profile().then(function (profile) {
+        var m = oPsnl.Cart.arrfood.length;
+        for (var i = 0; i < m; i++) {
+            if (oPsnl.Cart.arrfood[i].foodid == mod_foodid) {
+
+                obj2addin.StatusAddin(oPsnl, "inputQty", 2, mod_foodid)
+                event.reply("數量?");
+
+            } else if (m == i - 1) {
+
+                event.reply('您的購物車沒有此餐點');
+
+            }
+
+        }
+    });
+}
 //匯出
-module.exports = { modCart };
+module.exports = { modCart, modFood };
 
 
