@@ -226,39 +226,37 @@ var temp_menu_repeat = {
 
 }
 var temp_modCart_footer = {
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "flex": 0,
-    "spacing": "sm",
-    "contents": [
-      {
-        "type": "button",
-        "action": {
-          "type": "message",
-          "label": "修改數量",
-          "text": "修改數量"
-        },
-        "height": "sm",
-        "style": "link"
+  "type": "box",
+  "layout": "vertical",
+  "flex": 0,
+  "spacing": "sm",
+  "contents": [
+    {
+      "type": "button",
+      "action": {
+        "type": "message",
+        "label": "修改數量",
+        "text": "修改數量"
       },
-      {
-        "type": "button",
-        "action": {
-          "type": "message",
-          "label": "刪除",
-          "text": "刪除"
-        },
-        "color": "#EF4417",
-        "height": "sm",
-        "style": "link"
+      "height": "sm",
+      "style": "link"
+    },
+    {
+      "type": "button",
+      "action": {
+        "type": "message",
+        "label": "刪除",
+        "text": "刪除"
       },
-      {
-        "type": "spacer",
-        "size": "sm"
-      }
-    ]
-  }
+      "color": "#EF4417",
+      "height": "sm",
+      "style": "link"
+    },
+    {
+      "type": "spacer",
+      "size": "sm"
+    }
+  ]
 }
 var temp_cart = {
   "type": "flex",
