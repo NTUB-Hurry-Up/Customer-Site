@@ -18,8 +18,8 @@ var modCart = function (event, oCart) {
                 arr[0].contents.contents[i].hero.url = oCart.arrfood[i].foodimg
                 arr[0].contents.contents[i] = lodash.cloneDeep(temp.temp_menu_repeat)
                 arr[0].contents.contents[i].body.contents[0].text = oCart.arrfood[i].foodName
-                arr[0].contents.contents[i].body.contents[1].contents[0] = lodash.cloneDeep(temp.temp_modCart_QtyPrice)
-                console.log(arr[0].contents.contents[i].body.contents[1].contents[0] )
+                arr[0].contents.contents[i].body.contents[1].contents = lodash.cloneDeep(temp.temp_modCart_QtyPrice)
+                // console.log(arr[0].contents.contents[i].body.contents[1].contents[0])
                 // arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = oCart.arrfood[i].foodQty+" 份"
                 // arr[0].contents.contents[i].body.contents[1].contents[0].contents[3].text = "NT$" + oCart.arrfood[i].foodPrice
                 // arr[0].contents.contents[i].body.contents[1].contents[0].contents[6].text = "NT$" + oCart.arrfood[i].foodQty*oCart.arrfood[i].foodPrice

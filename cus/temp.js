@@ -225,63 +225,83 @@ var temp_menu_repeat = {
   }
 
 }
-var temp_modCart_QtyPrice = {
-  "type": "box",
-  "layout": "baseline",
-  "contents": [
-    {
-      "type": "text",
-      "text": "數量",
-      "flex": 1,
-      "size": "lg",
-      "color": "#AAAAAA"
-    },
-    {
-      "type": "text",
-      "text": 'Qty',
-      "flex": 0,
-      "margin": "lg",
-      "size": "lg",
-      "align": "end",
-      "weight": "regular"
-    },
-    {
-      "type": "text",
-      "text": "單價",
-      "flex": 1,
-      "size": "lg",
-      "color": "#AAAAAA"
-    },
-    {
-      "type": "text",
-      "text": 'unitPrice',
-      "flex": 0,
-      "margin": "lg",
-      "size": "lg",
-      "align": "end",
-      "weight": "regular"
-    },
-    // {
-    //   "type": "separator",
-    // },
-    {
-      "type": "text",
-      "text": "小計",
-      "flex": 1,
-      "size": "lg",
-      "color": "#AAAAAA"
-    },
-    {
-      "type": "text",
-      "text": 'Qty*Price',
-      "flex": 0,
-      "margin": "lg",
-      "size": "lg",
-      "align": "end",
-      "weight": "regular"
-    }
-  ]
-}
+var temp_modCart_QtyPrice = [
+  {
+    "type": "box",
+    "layout": "baseline",
+    "contents": [
+      {
+        "type": "text",
+        "text": "數量",
+        "flex": 1,
+        "size": "lg",
+        "color": "#AAAAAA"
+      },
+      {
+        "type": "text",
+        "text": 'Qty',
+        "flex": 0,
+        "margin": "lg",
+        "size": "lg",
+        "align": "end",
+        "weight": "regular"
+      }
+    ]
+  },
+  {
+    "type": "box",
+    "layout": "baseline",
+    "contents": [
+      {
+        "type": "text",
+        "text": "單價",
+        "flex": 1,
+        "size": "lg",
+        "color": "#AAAAAA"
+      },
+      {
+        "type": "text",
+        "text": 'unitPrice',
+        "flex": 0,
+        "margin": "lg",
+        "size": "lg",
+        "align": "end",
+        "weight": "regular"
+      }
+    ]
+  },
+  {
+    "type": "box",
+    "layout": "baseline",
+    "contents": [
+      {
+        "type": "separator",
+      }
+    ]
+  },
+  {
+    "type": "box",
+    "layout": "baseline",
+    "contents": [
+      {
+        "type": "text",
+        "text": "小計",
+        "flex": 1,
+        "size": "lg",
+        "color": "#AAAAAA"
+      },
+      {
+        "type": "text",
+        "text": 'Qty*Price',
+        "flex": 0,
+        "margin": "lg",
+        "size": "lg",
+        "align": "end",
+        "weight": "regular"
+      }
+    ]
+  }
+]
 var temp_modCart_footer = {
   "type": "box",
   "layout": "vertical",
