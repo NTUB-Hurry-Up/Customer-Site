@@ -65,7 +65,7 @@ var Cart = function (event, oCart) {
         arr[0].contents.footer.contents[2].action.max = cTakeMAX
 
         arr[0].contents.body.contents[6].contents[0].text = "總價 : $" + cartTotalPrice;
-        arr[0].contents.footer.contents[0].action.text = "購物車,清空"//清空購物車
+        arr[0].contents.footer.contents[0].action.text = "購物車,修改餐點"//修改餐點
         arr[0].contents.footer.contents[1].action.text = "店家,查看菜單," + oCart.storeid;//繼續點餐
 
         //console.log("total "+cartTotalPrice);

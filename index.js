@@ -126,6 +126,12 @@ bot.on('message', function (event) {
                         { 'type': 'text', 'text': '已清空' },
                         { 'type': 'text', 'text': '請重新點餐' }]
                     );
+                } else if (msg2 == "修改餐點") {
+                    if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
+                        event.reply('購物車是空的 !');
+                    } else {
+                        // sendOrder.sendOrder(event, lodash.cloneDeep(obj.arrPsnl[objLoc].Cart), userId)
+                    }
                 } else if (msg2 == "送出訂單") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply('購物車是空的 !');
