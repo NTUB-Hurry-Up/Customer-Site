@@ -236,14 +236,14 @@ var temp_modCart_QtyPrice = {
       "contents": [
         {
           "type": "text",
-          "text": "單價",
+          "text": "單價 : ",
           "flex": 1,
           "size": "lg",
           "color": "#AAAAAA"
         },
         {
           "type": "text",
-          "text": '"NT$" + data[i].foodPrice',
+          "text": 'foodPrice',
           "flex": 0,
           "margin": "lg",
           "size": "lg",
