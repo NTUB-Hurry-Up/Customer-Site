@@ -28,13 +28,14 @@ var modFood = function (event, oPsnl, mod_foodid) {
     event.source.profile().then(function (profile) {
         var m = oPsnl.Cart.arrfood.length;
         for (var i = 0; i < m; i++) {
+            console.log("m = "+m+" i = "+i)
             if (oPsnl.Cart.arrfood[i].foodid == mod_foodid) {
 
                 obj2addin.StatusAddin(oPsnl, "inputQty", 2, mod_foodid)
                 event.reply("數量?");
 
             } else if (m == i - 1) {
-
+                console.log("m=i-1")
                 event.reply('您的購物車沒有此餐點');
 
             }
