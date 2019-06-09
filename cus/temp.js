@@ -386,8 +386,8 @@ var temp_cart = {
           "type": "button",
           "action": {
             "type": "message",
-            "label": "清空購物車",
-            "text": "清空購物車"
+            "label": "修改餐點",
+            "text": "修改餐點"
           },
           "color": "#58290C"
         },
