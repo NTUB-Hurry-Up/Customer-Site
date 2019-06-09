@@ -2,6 +2,7 @@
 //引用操作資料庫的物件
 const temp = require('./../../temp');
 const obj2addin = require('./../../../obj2addin');
+var lodash = require('lodash');
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
