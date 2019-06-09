@@ -14,13 +14,13 @@ var modCart = function (event, oCart) {
         arr.push(lodash.cloneDeep(temp.temp_menu));
         for (var i = 0; i < oCart.arrfood.length; i++) {
             arr[0].contents.contents[i] = lodash.cloneDeep(temp.temp_menu_repeat)
-            if (data[i].foodimg != null) { arr[0].contents.contents[i].hero.url = oCart.arrfood[i].foodimg }
+            arr[0].contents.contents[i].hero.url = oCart.arrfood[i].foodimg
             arr[0].contents.contents[i].body.contents[0].text = oCart.arrfood[i].foodName
             arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = "NT$" + oCart.arrfood[i].foodPrice
 
-            arr[0].contents.contents[i].footer=lodash.cloneDeep(temp.temp_modCart_footer)
-            arr[0].contents.contents[i].footer.contents[0].action.text = "購物車,修改餐點數量,"+oCart.arrfood[i].foodid
-            arr[0].contents.contents[i].footer.contents[1].action.text = "購物車,刪除餐點"+oCart.arrfood[i].foodid
+            arr[0].contents.contents[i].footer = lodash.cloneDeep(temp.temp_modCart_footer)
+            arr[0].contents.contents[i].footer.contents[0].action.text = "購物車,修改餐點數量," + oCart.arrfood[i].foodid
+            arr[0].contents.contents[i].footer.contents[1].action.text = "購物車,刪除餐點" + oCart.arrfood[i].foodid
         }
         event.reply(arr[0]);
     });
@@ -30,7 +30,7 @@ var modFood = function (event, oPsnl, mod_foodid) {
     event.source.profile().then(function (profile) {
         var m = oPsnl.Cart.arrfood.length;
         for (var i = 0; i < m; i++) {
-            console.log("m = "+m+" i = "+i)
+            console.log("m = " + m + " i = " + i)
             if (oPsnl.Cart.arrfood[i].foodid == mod_foodid) {
 
                 obj2addin.StatusAddin(oPsnl, "changeQty", 2, mod_foodid)

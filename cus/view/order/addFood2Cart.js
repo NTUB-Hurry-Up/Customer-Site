@@ -28,6 +28,8 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                             var cstoreimg = data.storeimg;
                             if (cstoreimg == null) { cstoreimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
                             var cfoodName = data.foodName;
+                            var cfoodimg = data.foodimg;
+                            if (data.foodimg == null) { cfoodimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
                             var cfoodPrice = data.foodPrice;
                             if (oPsnl.Cart.storeid == "") {
                                 oPsnl.Cart = {
@@ -53,6 +55,7 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                                                 'foodid': cfoodid,
                                                 'foodName': cfoodName,
                                                 'foodPrice': cfoodPrice,
+                                                'foodimg': cfoodimg,
                                                 'foodQty': 0
                                             })
                                         }
@@ -62,6 +65,7 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                                         'foodid': cfoodid,
                                         'foodName': cfoodName,
                                         'foodPrice': cfoodPrice,
+                                        'foodimg': cfoodimg,
                                         'foodQty': 0
                                     })
                                 }
