@@ -17,6 +17,7 @@ const inputQty = require('./cus/view/order/inputQty');
 const Cart = require('./cus/view/order/Cart');
 const sendOrder = require('./cus/view/order/sendOrder');
 const orderRecord = require('./cus/view/order/orderRecord');
+const modCart = require('./cus/view/order/modCart');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -130,7 +131,7 @@ bot.on('message', function (event) {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
                         event.reply('購物車是空的 !');
                     } else {
-                        // sendOrder.sendOrder(event, lodash.cloneDeep(obj.arrPsnl[objLoc].Cart), userId)
+                        modCart.modCart(event, obj.arrPsnl[objLoc].Cart)
                     }
                 } else if (msg2 == "送出訂單") {
                     if (obj.arrPsnl[objLoc].Cart.storeid == "" || obj.arrPsnl[objLoc].Cart.arrfood.length < 1 || obj.arrPsnl[objLoc].Cart.arrfood[0].foodQty == 0) {
