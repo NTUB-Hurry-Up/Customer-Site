@@ -37,7 +37,7 @@ var modFood = function (event, oPsnl, mod_action, mod_foodid) {
                     event.reply("數量?");
                 } else if (mod_action == "刪除餐點") {
                     oPsnl.Cart.arrfood.splice(i, 1)
-                    modCart(event,oPsnl.Cart)
+                    modCart.modCart(event,oPsnl.Cart)
                 }
 
             } else if (i == m - 1) {
