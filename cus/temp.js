@@ -180,7 +180,7 @@ var temp_menu_repeat = {
             "contents": [
               {
                 "type": "text",
-                "text": "Price",
+                "text": "單價",
                 "flex": 1,
                 "size": "lg",
                 "color": "#AAAAAA"
@@ -215,7 +215,7 @@ var temp_menu_repeat = {
         "type": "button",
         "action": {
           "type": "message",
-          "label": "Add to Cart",
+          "label": "加入購物車",
           "text": '"店家,加入購物車," + data[i].storeid + "," + data[i].foodid'
         },
         "color": "#905C44",
@@ -224,6 +224,63 @@ var temp_menu_repeat = {
     ]
   }
 
+}
+var temp_modCart_QtyPrice = {
+  "type": "box",
+  "layout": "baseline",
+  "contents": [
+    {
+      "type": "text",
+      "text": "數量",
+      "flex": 1,
+      "size": "lg",
+      "color": "#AAAAAA"
+    },
+    {
+      "type": "text",
+      "text": 'Qty',
+      "flex": 0,
+      "margin": "lg",
+      "size": "lg",
+      "align": "end",
+      "weight": "regular"
+    },
+    {
+      "type": "text",
+      "text": "單價",
+      "flex": 1,
+      "size": "lg",
+      "color": "#AAAAAA"
+    },
+    {
+      "type": "text",
+      "text": 'unitPrice',
+      "flex": 0,
+      "margin": "lg",
+      "size": "lg",
+      "align": "end",
+      "weight": "regular"
+    },
+    {
+      "type": "separator",
+    },
+    {
+      "type": "text",
+      "text": "小計",
+      "flex": 1,
+      "size": "lg",
+      "color": "#AAAAAA"
+    },
+    {
+      "type": "text",
+      "text": 'Qty*Price',
+      "flex": 0,
+      "margin": "lg",
+      "size": "lg",
+      "align": "end",
+      "weight": "regular"
+    }
+  ]
 }
 var temp_modCart_footer = {
   "type": "box",
@@ -774,4 +831,4 @@ var fetchOrder = {
 }
 
 //匯出
-module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_modCart_footer, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder };
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_modCart_QtyPrice, temp_modCart_footer, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder };
