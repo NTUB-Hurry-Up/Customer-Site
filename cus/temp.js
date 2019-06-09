@@ -261,9 +261,9 @@ var temp_modCart_QtyPrice = {
       "align": "end",
       "weight": "regular"
     },
-    {
-      "type": "separator",
-    },
+    // {
+    //   "type": "separator",
+    // },
     {
       "type": "text",
       "text": "小計",
