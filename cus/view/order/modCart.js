@@ -10,20 +10,27 @@ var modCart = require('./modCart')
 
 var modCart = function (event, oCart) {
     event.source.profile().then(function (profile) {
+        if (oCart.arrfood.length > 0) {
+            var arr = [];
+            arr.push(lodash.cloneDeep(temp.temp_menu));
+            for (var i = 0; i < oCart.arrfood.length; i++) {
+                arr[0].contents.contents[i] = lodash.cloneDeep(temp.temp_menu_repeat)
+                arr[0].contents.contents[i].hero.url = oCart.arrfood[i].foodimg
+                arr[0].contents.contents[i].body.contents[0].text = oCart.arrfood[i].foodName
+                arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = "NT$" + oCart.arrfood[i].foodPrice
 
-        var arr = [];
-        arr.push(lodash.cloneDeep(temp.temp_menu));
-        for (var i = 0; i < oCart.arrfood.length; i++) {
-            arr[0].contents.contents[i] = lodash.cloneDeep(temp.temp_menu_repeat)
-            arr[0].contents.contents[i].hero.url = oCart.arrfood[i].foodimg
-            arr[0].contents.contents[i].body.contents[0].text = oCart.arrfood[i].foodName
-            arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = "NT$" + oCart.arrfood[i].foodPrice
-
-            arr[0].contents.contents[i].footer = lodash.cloneDeep(temp.temp_modCart_footer)
-            arr[0].contents.contents[i].footer.contents[0].action.text = "購物車,修改餐點數量," + oCart.arrfood[i].foodid
-            arr[0].contents.contents[i].footer.contents[1].action.text = "購物車,刪除餐點," + oCart.arrfood[i].foodid
+                arr[0].contents.contents[i].footer = lodash.cloneDeep(temp.temp_modCart_footer)
+                arr[0].contents.contents[i].footer.contents[0].action.text = "購物車,修改餐點數量," + oCart.arrfood[i].foodid
+                arr[0].contents.contents[i].footer.contents[1].action.text = "購物車,刪除餐點," + oCart.arrfood[i].foodid
+            }
+            event.reply(arr[0]);
+        } else {
+            event.reply([
+                { 'type': 'text', 'text': '購物車已清空' },
+                { 'type': 'text', 'text': '請重新點餐' }]
+            );
         }
-        event.reply(arr[0]);
+
     });
 }
 
