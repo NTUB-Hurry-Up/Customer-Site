@@ -23,67 +23,71 @@ var addFood2Cart = function (event, oPsnl, cstoreid, cfoodid, lodash) {
                         } else if (data == -9) {
                             event.reply('執行錯誤');
                         } else {
-                            var cstoreName = data.storeName;
-                            var cstoreAdd = data.storeAdd;
-                            var cstoreimg = data.storeimg;
-                            if (cstoreimg == null) { cstoreimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
-                            var cfoodName = data.foodName;
-                            var cfoodimg = data.foodimg;
-                            if (data.foodimg == null) { cfoodimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
-                            var cfoodPrice = data.foodPrice;
-                            if (oPsnl.Cart.storeid == "") {
-                                oPsnl.Cart = {
-                                    'userName': data1.name,
-                                    'userPhone': data1.phone,
-                                    'storeid': cstoreid,
-                                    'storeName': cstoreName,
-                                    'storeimg': cstoreimg,
-                                    'storeAdd': cstoreAdd,
-                                    'takeDate': '',
-                                    'takeTime': '',
-                                    'arrfood': []
-                                }
-                            }
-                            if (oPsnl.Cart.storeid == cstoreid) {
-                                var i = oPsnl.Cart.arrfood.length
-                                if (i != 0) {
-                                    for (var m = 0; m < i; m++) {
-                                        if (oPsnl.Cart.arrfood[m].foodid == cfoodid) {
-                                            break;
-                                        } else if (m == i - 1) {
-                                            oPsnl.Cart.arrfood.push({
-                                                'foodid': cfoodid,
-                                                'foodName': cfoodName,
-                                                'foodPrice': cfoodPrice,
-                                                'foodimg': cfoodimg,
-                                                'foodQty': 0
-                                            })
-                                        }
+                            if (data.storeisOpen != 'Y' || data.storeisOpen == 'N') { event.reply('此店家尚未開放點餐'); }
+                            else if (data.foodisSale != 'Y' || data.foodisSale == 'N') { event.reply('此餐點尚未上架'); }
+                            else {
+                                var cstoreName = data.storeName;
+                                var cstoreAdd = data.storeAdd;
+                                var cstoreimg = data.storeimg;
+                                if (cstoreimg == null) { cstoreimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
+                                var cfoodName = data.foodName;
+                                var cfoodimg = data.foodimg;
+                                if (data.foodimg == null) { cfoodimg = "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png" }
+                                var cfoodPrice = data.foodPrice;
+                                if (oPsnl.Cart.storeid == "") {
+                                    oPsnl.Cart = {
+                                        'userName': data1.name,
+                                        'userPhone': data1.phone,
+                                        'storeid': cstoreid,
+                                        'storeName': cstoreName,
+                                        'storeimg': cstoreimg,
+                                        'storeAdd': cstoreAdd,
+                                        'takeDate': '',
+                                        'takeTime': '',
+                                        'arrfood': []
                                     }
-                                } else {
-                                    oPsnl.Cart.arrfood.push({
-                                        'foodid': cfoodid,
-                                        'foodName': cfoodName,
-                                        'foodPrice': cfoodPrice,
-                                        'foodimg': cfoodimg,
-                                        'foodQty': 0
-                                    })
                                 }
-                                console.log(oPsnl.Cart);
-                                obj2addin.StatusAddin(oPsnl, "inputQty", 2, cfoodid)
+                                if (oPsnl.Cart.storeid == cstoreid) {
+                                    var i = oPsnl.Cart.arrfood.length
+                                    if (i != 0) {
+                                        for (var m = 0; m < i; m++) {
+                                            if (oPsnl.Cart.arrfood[m].foodid == cfoodid) {
+                                                break;
+                                            } else if (m == i - 1) {
+                                                oPsnl.Cart.arrfood.push({
+                                                    'foodid': cfoodid,
+                                                    'foodName': cfoodName,
+                                                    'foodPrice': cfoodPrice,
+                                                    'foodimg': cfoodimg,
+                                                    'foodQty': 0
+                                                })
+                                            }
+                                        }
+                                    } else {
+                                        oPsnl.Cart.arrfood.push({
+                                            'foodid': cfoodid,
+                                            'foodName': cfoodName,
+                                            'foodPrice': cfoodPrice,
+                                            'foodimg': cfoodimg,
+                                            'foodQty': 0
+                                        })
+                                    }
+                                    console.log(oPsnl.Cart);
+                                    obj2addin.StatusAddin(oPsnl, "inputQty", 2, cfoodid)
 
-                                event.reply("數量?");
-                            } else {
-                                var arr = []
-                                arr.push(lodash.cloneDeep(temp.temp_memInfo))
-                                arr[0].template.actions[0].label = "是";
-                                arr[0].template.actions[0].text = "是," + cstoreid;
-                                arr[0].template.actions[1].label = "否";
-                                arr[0].template.actions[1].text = "否," + oPsnl.Cart.storeid;
-                                arr[0].template.title = "購物車訊息"
-                                arr[0].template.text = "要改下訂這家店嗎 ?"
-                                obj2addin.StatusAddin(oPsnl, "changeStore", 1, '')
-                                event.reply(arr[0]);
+                                    event.reply("數量?");
+                                } else {
+                                    var arr = []
+                                    arr.push(lodash.cloneDeep(temp.temp_memInfo))
+                                    arr[0].template.actions[0].label = "是";
+                                    arr[0].template.actions[0].text = "是," + cstoreid;
+                                    arr[0].template.actions[1].label = "否";
+                                    arr[0].template.actions[1].text = "否," + oPsnl.Cart.storeid;
+                                    arr[0].template.title = "購物車訊息"
+                                    arr[0].template.text = "要改下訂這家店嗎 ?"
+                                    obj2addin.StatusAddin(oPsnl, "changeStore", 1, '')
+                                    event.reply(arr[0]);
+                                }
                             }
                         }
                     })

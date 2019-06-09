@@ -351,7 +351,7 @@ var temp_cart = {
                 },
                 {
                   "type": "text",
-                  "text": "價格",
+                  "text": "單價",
                   "size": "md",
                   "align": "end"
                 }
