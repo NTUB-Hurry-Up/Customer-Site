@@ -225,6 +225,41 @@ var temp_menu_repeat = {
   }
 
 }
+var temp_modCart_footer = {
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "flex": 0,
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "修改數量",
+          "text": "修改數量"
+        },
+        "height": "sm",
+        "style": "link"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "刪除",
+          "text": "刪除"
+        },
+        "color": "#EF4417",
+        "height": "sm",
+        "style": "link"
+      },
+      {
+        "type": "spacer",
+        "size": "sm"
+      }
+    ]
+  }
+}
 var temp_cart = {
   "type": "flex",
   "altText": "Flex Message",
@@ -741,212 +776,4 @@ var fetchOrder = {
 }
 
 //匯出
-module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder };
-var temp_cart_old = {
-  "type": "flex",
-  "altText": "Flex Message",
-  "contents": {
-    "type": "bubble",
-    "direction": "ltr",
-    "hero": {
-      "type": "image",
-      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
-      "size": "full",
-      "aspectRatio": "20:13",
-      "aspectMode": "cover"
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "spacing": "md",
-      "contents": [
-        {
-          "type": "text",
-          "text": "購物車",
-          "size": "xl",
-          "align": "start",
-          "weight": "bold"
-        },
-        {
-          "type": "box",
-          "layout": "horizontal",
-          "contents": [
-            {
-              "type": "text",
-              "text": "阿屎巴辣",
-              "size": "lg",
-              "align": "start",
-              "weight": "regular"
-            }
-          ]
-        },
-        {
-          "type": "separator"
-        },
-        {
-          "type": "box",
-          "layout": "horizontal",
-          "contents": [
-            {
-              "type": "text",
-              "text": "餐點名稱",
-              "size": "md"
-            },
-            {
-              "type": "text",
-              "text": "份量",
-              "size": "md",
-              "align": "center"
-            },
-            {
-              "type": "text",
-              "text": "價格",
-              "size": "md",
-              "align": "end"
-            }
-          ]
-        },
-        {//4
-          "type": "box",
-          "layout": "vertical",
-          "spacing": "sm",
-          "contents": [
-            {
-              "type": "box",
-              "layout": "baseline",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "food.foodName",
-                  "flex": 0,
-                  "margin": "sm",
-                  "size": "md",
-                  "weight": "bold"
-                },
-                {
-                  "type": "text",
-                  "text": "567",
-                  "size": "xs",
-                  "align": "center",
-                  "color": "#AAAAAA",
-                  "wrap": true
-                },
-                {
-                  "type": "text",
-                  "text": "$ 123",
-                  "size": "sm",
-                  "align": "end",
-                  "color": "#000000"
-                }
-              ]
-            }
-
-          ]
-        },
-        {
-          "type": "separator"
-        },
-        {
-          "type": "box",
-          "layout": "horizontal",
-          "contents": [
-            {
-              "type": "text",
-              "text": "取餐時間 : ",
-              "size": "sm",
-              "align": "start",
-              "weight": "regular"
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "contents": [
-            {
-              "type": "text",
-              "text": "總價 : $-3,400",
-              "size": "xl",
-              "align": "end",
-              "color": "#000000"
-            }
-          ]
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "清空購物車",
-            "text": "清空購物車"
-          },
-          "color": "#58290C"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "繼續點餐",
-            "text": "繼續點餐"
-          },
-          "color": "#58290C"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "datetimepicker",
-            "label": "設定取餐時間",
-            "mode": "datetime",
-            "data": "datetime",
-            "max": "2019-05-07T23:59",
-            "min": "2019-04-29T00:00"
-          },
-          "color": "#58290C"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "完成訂單",
-            "text": "購物車,送出訂單"
-          },
-          "color": "#58290C"
-        }
-      ]
-    }
-  }
-}
-var temp_cart_repeat_old = {
-  "type": "box",
-  "layout": "baseline",
-  "contents": [
-    {
-      "type": "text",
-      "text": 'Afood.foodName',
-      "flex": 0,
-      "margin": "sm",
-      "size": "md",
-      "weight": "bold"
-    },
-    {
-      "type": "text",
-      "text": 'Afood.foodQty',
-      "size": "xs",
-      "align": "center",
-      "color": "#AAAAAA",
-      "wrap": true
-    },
-    {
-      "type": "text",
-      "text": "$ " + 'Afood.foodPrice',
-      "size": "sm",
-      "align": "end",
-      "color": "#000000"
-    }
-  ]
-}
+module.exports = { temp_memInfo, temp_store, temp_store_repeat, temp_menu, temp_menu_repeat, temp_modCart_footer, temp_cart, temp_cart_repeat, orderComplete, orderCompleteRepeat, fetchOrder };

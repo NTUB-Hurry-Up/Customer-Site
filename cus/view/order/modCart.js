@@ -9,18 +9,19 @@ const obj2addin = require('./../../../obj2addin');
 var modCart = function (event, oCart) {
     event.source.profile().then(function (profile) {
 
-        // var arr = [];
-        // arr.push(lodash.cloneDeep(temp.temp_menu));
+        var arr = [];
+        arr.push(lodash.cloneDeep(temp.temp_menu));
         for (var i = 0; i < oCart.arrfood.length; i++) {
-            console.log(oCart.arrfood[i])
-            // console.log(data[i].foodid + " " + data[i].foodPrice + " " + data[i].foodName)
-            // arr[0].contents.contents[i] = lodash.cloneDeep(temp.temp_menu_repeat)
-            // if (data[i].foodimg != null) { arr[0].contents.contents[i].hero.url = data[i].foodimg }
-            // arr[0].contents.contents[i].body.contents[0].text = data[i].foodName
-            // arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = "NT$" + data[i].foodPrice
-            // arr[0].contents.contents[i].footer.contents[0].action.text = "店家,加入購物車," + data[i].storeid + "," + data[i].foodid
+            arr[0].contents.contents[i] = lodash.cloneDeep(temp.temp_menu_repeat)
+            if (data[i].foodimg != null) { arr[0].contents.contents[i].hero.url = oCart.arrfood[i].foodimg }
+            arr[0].contents.contents[i].body.contents[0].text = oCart.arrfood[i].foodName
+            arr[0].contents.contents[i].body.contents[1].contents[0].contents[1].text = "NT$" + oCart.arrfood[i].foodPrice
+
+            arr[0].contents.contents[i].footer=lodash.cloneDeep(temp.temp_modCart_footer)
+            arr[0].contents.contents[i].footer.contents[0].action.text = "購物車,修改餐點數量,"+oCart.arrfood[i].foodid
+            arr[0].contents.contents[i].footer.contents[1].action.text = "購物車,刪除餐點"+oCart.arrfood[i].foodid
         }
-        // event.reply(arr[0]);
+        event.reply(arr[0]);
     });
 }
 
