@@ -21,7 +21,7 @@ var modCart = function (event, oCart) {
 
             arr[0].contents.contents[i].footer = lodash.cloneDeep(temp.temp_modCart_footer)
             arr[0].contents.contents[i].footer.contents[0].action.text = "購物車,修改餐點數量," + oCart.arrfood[i].foodid
-            arr[0].contents.contents[i].footer.contents[1].action.text = "購物車,刪除餐點" + oCart.arrfood[i].foodid
+            arr[0].contents.contents[i].footer.contents[1].action.text = "購物車,刪除餐點," + oCart.arrfood[i].foodid
         }
         event.reply(arr[0]);
     });
