@@ -203,7 +203,7 @@ bot.on('postback', function (event) {
 });
 //--------------------------------
 // 使用者封鎖群組
-//--------------------------------
+// //--------------------------------
 bot.on('unfollow', function (event) {
     //取得使用者資料
     const userId = event.source.userId;

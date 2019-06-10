@@ -34,7 +34,7 @@ var deleteMember = async function (id) {
     let result;
 
     //刪除會員資料
-    await query('UPDATE member SET islegal = $2 member where userid = $1', [id, 'N'])
+    await query('UPDATE member SET islegal = $2 where userid = $1', [id, 'N'])
         .then((data) => {
             result = data.rowCount;  //刪除資料數 
         }, (error) => {
