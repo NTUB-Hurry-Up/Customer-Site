@@ -15,6 +15,7 @@ var memFirstIn = function (event, lodash) {
             if (data == -9) {
                 event.reply('執行錯誤A');
             } else {
+                console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA")
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
                 arr[0].template.actions[1].label = "加入電話"
