@@ -32,7 +32,7 @@ var editMember = async function (id, islegal) {
     let result;
 
     //刪除會員資料
-    await query('UPDATE member SET islegal = $2 where userid = $1', [id, islegal])
+    await query('UPDATE member SET islegal = $2 where userid = $1 RETURNING name,phone', [id, islegal])
         .then((data) => {
             result = data.rows[0];  //學生資料(物件)
         }, (error) => {
