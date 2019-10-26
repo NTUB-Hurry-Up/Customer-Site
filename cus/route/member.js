@@ -34,7 +34,7 @@ var editMember = async function (id, islegal) {
     //刪除會員資料
     await query('UPDATE member SET islegal = $2 where userid = $1', [id, islegal])
         .then((data) => {
-            result = data.rowCount;  //刪除資料數 
+            result = data.rows[0];  //學生資料(物件)
         }, (error) => {
             result = -9;  //執行錯誤
         });
