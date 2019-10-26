@@ -49,23 +49,6 @@ var memFirstIn = function (event, lodash) {
                 });
             }
         })
-
-        // member.addMember(userId, userName).then(data => {
-        //     if (data == -9) {
-        //         event.reply('執行錯誤A');
-        //     } else {
-        //         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-        //         var arr = []
-        //         arr.push(lodash.cloneDeep(temp.temp_memInfo))
-        //         arr[0].template.actions[1].label = "加入電話"
-        //         arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
-        //         event.reply([
-        //             { 'type': 'text', 'text': '已加入會員, Hi !' },
-        //             { 'type': 'text', 'text': '請更新您的會員資訊' },
-        //             arr[0]
-        //         ]);
-        //     }
-        // })
     });
 }
 var memInfo = function (event, lodash) {
