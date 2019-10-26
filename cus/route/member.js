@@ -9,11 +9,11 @@ const query = require('./asyncDB');
 var addMember = async function (id, name) {
     //存放結果
     let result;
-    query('select * from member where userid = $1', [id])
+    await query('select * from member where userid = $1', [id])
         .then((data) => {
             if (data.rows.length > 0) {
                 //result = data.rows[0];  學生資料(物件)
-                await query('UPDATE member SET islegal = $2 where userid = $1 RETURNING name,phone', [id, 'Y'])
+                query('UPDATE member SET islegal = $2 where userid = $1 RETURNING name,phone', [id, 'Y'])
                 .then((data) => {
                     result = data.data.rows[0];  //學生資料(物件)
                 }, (error) => {
@@ -23,7 +23,7 @@ var addMember = async function (id, name) {
             } else {
                 //result = -1;  找不到資料
                 //新增會員資料
-                await query('insert into member (userid, name, islegal) values ($1, $2, $3) RETURNING name,phone', [id, name, 'Y'])
+                query('insert into member (userid, name, islegal) values ($1, $2, $3) RETURNING name,phone', [id, name, 'Y'])
                     .then((data) => {
                         if (data.rows.length > 0) {
                             result = data.rows[0];  //學生資料(物件)
