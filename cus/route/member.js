@@ -19,7 +19,7 @@ var addMember = async function (id, name) {
                 }, (error) => {
                     result = -9;  //執行錯誤
                 });
-
+                return result;
             } else {
                 //result = -1;  找不到資料
                 //新增會員資料
@@ -27,6 +27,7 @@ var addMember = async function (id, name) {
                     .then((data) => {
                         if (data.rows.length > 0) {
                             result = data.rows[0];  //學生資料(物件)
+                            return result;
                         } else {
                             result = -1;  //找不到資料
                         }
@@ -40,7 +41,7 @@ var addMember = async function (id, name) {
         });
 
     //回傳執行結果
-    return result;
+    // return result;
 }
 
 //------------------------------------------
