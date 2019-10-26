@@ -9,13 +9,13 @@ const query = require('./asyncDB');
 var addMember = async function (id, name) {
     //存放結果
     let result;
-    await query('select * from member where userid = $1', [id])
+    query('select * from member where userid = $1', [id])
         .then((data) => {
             if (data.rows.length > 0) {
                 //result = data.rows[0];  學生資料(物件)
                 await query('UPDATE member SET islegal = $2 where userid = $1 RETURNING name,phone', [id, 'Y'])
                 .then((data) => {
-                    result = data.rowCount;  //刪除資料數 
+                    result = data.data.rows[0];  //學生資料(物件)
                 }, (error) => {
                     result = -9;  //執行錯誤
                 });
