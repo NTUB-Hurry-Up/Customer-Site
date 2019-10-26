@@ -15,7 +15,7 @@ var addMember = async function (id, name) {
                 //result = data.rows[0];  學生資料(物件)
                 query('UPDATE member SET islegal = $2 where userid = $1 RETURNING name,phone', [id, 'Y'])
                 .then((data) => {
-                    result = data.data.rows[0];  //學生資料(物件)
+                    result = data.rows[0];  //學生資料(物件)
                 }, (error) => {
                     result = -9;  //執行錯誤
                 });

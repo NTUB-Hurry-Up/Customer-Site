@@ -171,17 +171,17 @@ bot.on('message', function (event) {
                 var sendMsg1 = "y,"+msg;
                 bot.push(user1, sendMsg1);
             }
-            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "y"){
-                var user1 = 'Ub2fc9e2d0a4932b9d814bacb8df44565';
-                bot.push(user1, msg2);
-            }
-            if(userId == 'Uf39d8816611fb683a2ed16d81c1b8067'){
+            // if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "y"){
+            //     var user1 = 'Ub2fc9e2d0a4932b9d814bacb8df44565';
+            //     bot.push(user1, msg2);
+            // }
+            if(userId == 'U39d8ae7745e822bb3296f4d2d288e80b'){
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-                var sendMsg1 = "pan,"+msg;
+                var sendMsg1 = "joe,"+msg;
                 bot.push(user1, sendMsg1);
             }
-            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "pan"){
-                var user1 = 'Uf39d8816611fb683a2ed16d81c1b8067';
+            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "joe"){
+                var user1 = 'U39d8ae7745e822bb3296f4d2d288e80b';
                 bot.push(user1, msg2);
             }
         }
