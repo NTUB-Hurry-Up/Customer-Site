@@ -227,7 +227,7 @@ bot.on('unfollow', function (event) {
     const userId = event.source.userId;
 
     //呼叫API, 將使用者資料刪除
-    member.deleteMember(userId).then(data => {
+    member.editMember(userId,'N').then(data => {
         if (data == -9) {
             event.reply('執行錯誤');    //會員已封鎖群組, 本訊息無法送達
         } else {

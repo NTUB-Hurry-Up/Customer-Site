@@ -9,50 +9,30 @@ const query = require('./asyncDB');
 var addMember = async function (id, name) {
     //存放結果
     let result;
-    await query('select * from member where userid = $1', [id])
+    await query('insert into member (userid, name, islegal) values ($1, $2, $3) RETURNING name,phone', [id, name, 'Y'])
         .then((data) => {
             if (data.rows.length > 0) {
-                result = data.rows[0];
-                query('UPDATE member SET islegal = $2 where userid = $1', [id, 'Y'])
-                .then((data) => {
-                    // result = data.rows[0];  //學生資料(物件)
-                }, (error) => {
-                    result = -9;  //執行錯誤
-                });
+                result = data.rows[0];  //學生資料(物件)
                 return result;
             } else {
-                //result = -1;  找不到資料
-                //新增會員資料
-                query('insert into member (userid, name, islegal) values ($1, $2, $3) RETURNING name,phone', [id, name, 'Y'])
-                    .then((data) => {
-                        if (data.rows.length > 0) {
-                            result = data.rows[0];  //學生資料(物件)
-                            return result;
-                        } else {
-                            result = -1;  //找不到資料
-                        }
-                    }, (error) => {
-                        result = -9;  //執行錯誤
-                    });
-
+                result = -1;  //找不到資料
             }
         }, (error) => {
             result = -9;  //執行錯誤
         });
-
     //回傳執行結果
-    // return result;
+    return result;
 }
 
 //------------------------------------------
 // 刪除會員資料
 //------------------------------------------
-var deleteMember = async function (id) {
+var editMember = async function (id, islegal) {
     //存放結果
     let result;
 
     //刪除會員資料
-    await query('UPDATE member SET islegal = $2 where userid = $1', [id, 'N'])
+    await query('UPDATE member SET islegal = $2 where userid = $1', [id, islegal])
         .then((data) => {
             result = data.rowCount;  //刪除資料數 
         }, (error) => {
@@ -122,5 +102,5 @@ var UpdatePhone = async function (phone, id) {
 }
 
 //匯出
-module.exports = { addMember, deleteMember, fetchMember, UpdateName, UpdatePhone };
+module.exports = { addMember, editMember, fetchMember, UpdateName, UpdatePhone };
 

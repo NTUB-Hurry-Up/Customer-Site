@@ -11,22 +11,61 @@ var memFirstIn = function (event, lodash) {
     event.source.profile().then(function (profile) {
         const userId = profile.userId;
         const userName = profile.displayName;
-        member.addMember(userId, userName).then(data => {
-            if (data == -9) {
-                event.reply('執行錯誤A');
+
+        member.fetchMember(userid).then(data => {
+            if (data == -1) {
+                member.addMember(userId, userName).then(data => {
+                    if (data == -9) {
+                        event.reply('執行錯誤A');
+                    } else {
+                        var arr = []
+                        arr.push(lodash.cloneDeep(temp.temp_memInfo))
+                        arr[0].template.actions[1].label = "加入電話"
+                        arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+                        event.reply([
+                            { 'type': 'text', 'text': '已加入會員, Hi !' },
+                            { 'type': 'text', 'text': '請更新您的會員資訊' },
+                            arr[0]
+                        ]);
+                    }
+                })
+            } else if (data == -9) {
+                console.log("執行錯誤")
             } else {
-                console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-                var arr = []
-                arr.push(lodash.cloneDeep(temp.temp_memInfo))
-                arr[0].template.actions[1].label = "加入電話"
-                arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
-                event.reply([
-                    { 'type': 'text', 'text': '已加入會員, Hi !' },
-                    { 'type': 'text', 'text': '請更新您的會員資訊' },
-                    arr[0]
-                ]);
+                member.editMember(userId,'N').then(data => {
+                    if (data == -9) {
+                        event.reply('執行錯誤');    
+                    } else {
+                        var arr = []
+                        arr.push(lodash.cloneDeep(temp.temp_memInfo))
+                        arr[0].template.actions[1].label = "加入電話"
+                        arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+                        event.reply([
+                            { 'type': 'text', 'text': '歡迎回來, Hi !' },
+                            { 'type': 'text', 'text': '請更新您的會員資訊' },
+                            arr[0]
+                        ]); 
+                    }
+                });
             }
         })
+
+        // member.addMember(userId, userName).then(data => {
+        //     if (data == -9) {
+        //         event.reply('執行錯誤A');
+        //     } else {
+        //         console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        //         var arr = []
+        //         arr.push(lodash.cloneDeep(temp.temp_memInfo))
+        //         arr[0].template.actions[1].label = "加入電話"
+        //         arr[0].template.text = "姓名 : " + data.name + "\n電話 : " + data.phone
+        //         event.reply([
+        //             { 'type': 'text', 'text': '已加入會員, Hi !' },
+        //             { 'type': 'text', 'text': '請更新您的會員資訊' },
+        //             arr[0]
+        //         ]);
+        //     }
+        // })
     });
 }
 var memInfo = function (event, lodash) {
