@@ -12,7 +12,7 @@ var memFirstIn = function (event, lodash) {
         const userId = profile.userId;
         const userName = profile.displayName;
 
-        member.fetchMember(userid).then(data => {
+        member.fetchMember(userId).then(data => {
             if (data == -1) {
                 member.addMember(userId, userName).then(data => {
                     if (data == -9) {
