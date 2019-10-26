@@ -13,7 +13,7 @@ var memFirstIn = function (event, lodash) {
         const userName = profile.displayName;
         member.addMember(userId, userName).then(data => {
             if (data == -9) {
-                event.reply('執行錯誤');
+                event.reply('執行錯誤A');
             } else {
                 var arr = []
                 arr.push(lodash.cloneDeep(temp.temp_memInfo))
