@@ -166,15 +166,17 @@ bot.on('message', function (event) {
             } else {
                 event.reply('我不太懂你在說什麼 ?')
             }
-            if(userId == 'Uf39d8816611fb683a2ed16d81c1b8067'){
+            if(userId == 'U39d8ae7745e822bb3296f4d2d288e80b'){
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-                var sendMsg1 = "pan,"+msg;
+                var sendMsg1 = "joe,"+msg;
 
-                test2.push1(bot, user1, sendMsg1)
+                bot.push(user1, [msg2]);
+                // test2.push1(bot, user1, sendMsg1)
             }
-            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "joe.89"){
+            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "joe"){
                 var user1 = 'U39d8ae7745e822bb3296f4d2d288e80b';
-                test2.push1(bot, user1, msg2)
+                bot.push(userId, [msg2]);
+                // test2.push1(bot, user1, msg2)
             }
         }
     );
