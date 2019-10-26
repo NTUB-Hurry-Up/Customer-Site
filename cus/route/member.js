@@ -9,14 +9,31 @@ const query = require('./asyncDB');
 var addMember = async function (id, name) {
     //存放結果
     let result;
-
-    //新增會員資料
-    await query('insert into member (userid, name, islegal) values ($1, $2, $3) RETURNING name,phone', [id, name, 'Y'])
+    await query('select * from member where userid = $1', [id])
         .then((data) => {
             if (data.rows.length > 0) {
-                result = data.rows[0];  //學生資料(物件)
+                //result = data.rows[0];  學生資料(物件)
+                await query('UPDATE member SET islegal = $2 where userid = $1 RETURNING name,phone', [id, 'Y'])
+                .then((data) => {
+                    result = data.rowCount;  //刪除資料數 
+                }, (error) => {
+                    result = -9;  //執行錯誤
+                });
+
             } else {
-                result = -1;  //找不到資料
+                //result = -1;  找不到資料
+                //新增會員資料
+                await query('insert into member (userid, name, islegal) values ($1, $2, $3) RETURNING name,phone', [id, name, 'Y'])
+                    .then((data) => {
+                        if (data.rows.length > 0) {
+                            result = data.rows[0];  //學生資料(物件)
+                        } else {
+                            result = -1;  //找不到資料
+                        }
+                    }, (error) => {
+                        result = -9;  //執行錯誤
+                    });
+
             }
         }, (error) => {
             result = -9;  //執行錯誤
