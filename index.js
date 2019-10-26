@@ -172,8 +172,8 @@ bot.on('message', function (event) {
 
                 test2.push1(bot, user1, sendMsg1)
             }
-            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "pan"){
-                var user1 = 'Uf39d8816611fb683a2ed16d81c1b8067';
+            if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "joe.89"){
+                var user1 = 'U39d8ae7745e822bb3296f4d2d288e80b';
                 test2.push1(bot, user1, msg2)
             }
         }
