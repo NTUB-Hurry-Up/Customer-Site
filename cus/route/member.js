@@ -12,10 +12,10 @@ var addMember = async function (id, name) {
     await query('select * from member where userid = $1', [id])
         .then((data) => {
             if (data.rows.length > 0) {
-                //result = data.rows[0];  學生資料(物件)
-                query('UPDATE member SET islegal = $2 where userid = $1 RETURNING name,phone', [id, 'Y'])
+                result = data.rows[0];
+                query('UPDATE member SET islegal = $2 where userid = $1', [id, 'Y'])
                 .then((data) => {
-                    result = data.rows[0];  //學生資料(物件)
+                    // result = data.rows[0];  //學生資料(物件)
                 }, (error) => {
                     result = -9;  //執行錯誤
                 });
