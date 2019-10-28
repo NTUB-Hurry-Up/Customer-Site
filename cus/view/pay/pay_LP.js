@@ -31,7 +31,7 @@ var pay_LP = function (event) {
             }
         }
         
-        linePay.request(order).then(res => {
+        linePay.request(LP_order).then(res => {
             console.log(res)
         })
 
