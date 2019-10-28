@@ -719,6 +719,15 @@ var orderComplete = {
               "type": "text",
               "text": "地址 : 不告訴你"
             },
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "使用LINEPAY付款",
+                "text": "付款,LP"
+              },
+              "color": "#58290C"
+            }
             /*{
               "type": "box",
               "layout": "horizontal",
@@ -730,15 +739,6 @@ var orderComplete = {
               ]
             }*/
           ]
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "使用LINEPAY付款",
-            "text": "付款,LP"
-          },
-          "color": "#58290C"
         }
       ]
     }
