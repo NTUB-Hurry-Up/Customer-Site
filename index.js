@@ -18,6 +18,7 @@ const Cart = require('./cus/view/order/Cart');
 const sendOrder = require('./cus/view/order/sendOrder');
 const orderRecord = require('./cus/view/order/orderRecord');
 const modCart = require('./cus/view/order/modCart');
+const pay_LP = require('./cus/view/pay/pay_LP');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -154,6 +155,10 @@ bot.on('message', function (event) {
                 }
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
+            } else if (msg1 == "付款") {
+                if (msg2 == "LP") { 
+                    pay_LP.pay_LP(event);
+                }
             } else if (obj.arrPsnl[objLoc].Status.status != "") {
                 var s = obj.arrPsnl[objLoc].Status.status
                 if (s == "編輯姓名" || s == "編輯電話") {
@@ -165,26 +170,26 @@ bot.on('message', function (event) {
                 }
             } else {
                 //
-                    if(userId == 'Ub2fc9e2d0a4932b9d814bacb8df44565'){
-                        event.reply(["e04,工三小","好好講話"]);
-                    }
+                if (userId == 'Ub2fc9e2d0a4932b9d814bacb8df44565') {
+                    event.reply(["e04,工三小", "好好講話"]);
+                }
                 //
                 event.reply('我不太懂你在說什麼 ?')
             }
             //
-                if(userId != 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8'){
-                    var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
-                    var sendMsg1 = userName+", "+msg;
-                    bot.push(user1, sendMsg1);
+            if (userId != 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8') {
+                var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
+                var sendMsg1 = userName + ", " + msg;
+                bot.push(user1, sendMsg1);
+            }
+            if (userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "y") {
+                if (msg1 == "y") {
+                    var user1 = 'Ub2fc9e2d0a4932b9d814bacb8df44565';
+                } else if (msg1 == "joe") {
+                    var user1 = 'U39d8ae7745e822bb3296f4d2d288e80b';
                 }
-                if(userId == 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8' && msg1 == "y"){
-                    if(msg1 == "y"){
-                        var user1 = 'Ub2fc9e2d0a4932b9d814bacb8df44565';
-                    }else if(msg1 == "joe"){
-                        var user1 = 'U39d8ae7745e822bb3296f4d2d288e80b';
-                    }
-                    bot.push(user1, msg2);
-                }
+                bot.push(user1, msg2);
+            }
             //
         }
     );
@@ -229,7 +234,7 @@ bot.on('unfollow', function (event) {
     const userId = event.source.userId;
 
     //呼叫API, 將使用者資料刪除
-    member.editMember(userId,'N').then(data => {
+    member.editMember(userId, 'N').then(data => {
         if (data == -9) {
             event.reply('執行錯誤');    //會員已封鎖群組, 本訊息無法送達
         } else {
