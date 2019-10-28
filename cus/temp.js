@@ -731,14 +731,15 @@ var orderComplete = {
             }*/
           ]
         },
-        /*{
-          "type": "text",
-          "text": "顆顆顆顆顆",
-          "size": "xs",
-          "align": "start",
-          "color": "#CCCCCC",
-          "wrap": true
-        }*/
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "使用LINEPAY付款",
+            "text": "付款,LP"
+          },
+          "color": "#58290C"
+        }
       ]
     }
   }
