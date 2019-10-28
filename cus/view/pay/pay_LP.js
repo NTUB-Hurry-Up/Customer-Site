@@ -1,5 +1,8 @@
 const LinePay = require('line-pay-v3')
-
+const uuid = require('uuid4')
+const crypto = require('crypto-js')
+const axios = require('axios')
+console.log(uuid())
 let linePay = new LinePay({
     channelId: '1653387178',
     channelSecret: 'dcc3464a9e35c3da7278413e7e19bf8e',
@@ -7,10 +10,14 @@ let linePay = new LinePay({
 })
 var pay_LP = function (event) {
     event.source.profile().then(function (profile) {
-        const LP_order = {
+
+        let key = 'dcc3464a9e35c3da7278413e7e19bf8e'
+        let nonce = uuid()
+        let requestUri = '/v3/payments/request'
+        let order = {
             amount: 10,
             currency: 'TWD',
-            orderId: 'Order2019101500001',
+            orderId: '1234564561231245',
             packages: [
                 {
                     id: 'Item20191015001',
@@ -26,14 +33,27 @@ var pay_LP = function (event) {
                 }
             ],
             redirectUrls: {
-                confirmUrl: 'https://example.com/confirmUrl',
-                cancelUrl: 'https://example.com/cancelUrl'
+                confirmUrl: 'https://6ddcf789.ngrok.io/confitmUrl',
+                cancelUrl: 'https://6ddcf789.ngrok.io/cancelUrl'
             }
         }
-        
-        linePay.request(LP_order).then(res => {
-            console.log(res)
+        let encrypt = crypto.HmacSHA256(key + requestUri + JSON.stringify(order) + nonce, key)
+        let hmacBase64 = crypto.enc.Base64.stringify(encrypt)
+        let configs = {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-LINE-ChannelId': '1653387178',
+                'X-LINE-Authorization-Nonce': nonce,
+                'X-LINE-Authorization': hmacBase64
+            }
+        }
+        axios.post('https://sandbox-api-pay.line.me/v3/payments/request',order,configs).then(res => {
+            console.log(res.data)
         })
+
+        // linePay.request(order).then(res => {
+        //     console.log(res)
+        // })
 
     });
 }
