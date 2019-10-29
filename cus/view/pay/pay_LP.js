@@ -11,37 +11,37 @@ let linePay = new LinePay({
 var pay_LP = function (event) {
     event.source.profile().then(function (profile) {
 
-        let order = {
-            amount: 100,
-            currency: 'TWD',
-            orderId: '1234564561231245',
-            packages: [
-                {
-                    id: 'Item20191015001',
-                    amount: 100,
-                    name: 'testPackageName',
-                    products: [
-                        {
-                            name: 'testProductName',
-                            quantity: 1,
-                            price: 100
-                        }
-                    ]
-                }
-            ],
-            redirectUrls: {
-                confirmUrl: 'https://6ddcf789.ngrok.io/confitmUrl',
-                cancelUrl: 'https://6ddcf789.ngrok.io/cancelUrl'
-            }
-        }
-        linePay.request(order).then(res => {
-            console.log("res-->")
+        // let order = {
+        //     amount: 100,
+        //     currency: 'TWD',
+        //     orderId: '1234564561231245',
+        //     packages: [
+        //         {
+        //             id: 'Item20191015001',
+        //             amount: 100,
+        //             name: 'testPackageName',
+        //             products: [
+        //                 {
+        //                     name: 'testProductName',
+        //                     quantity: 1,
+        //                     price: 100
+        //                 }
+        //             ]
+        //         }
+        //     ],
+        //     redirectUrls: {
+        //         confirmUrl: 'https://6ddcf789.ngrok.io/confitmUrl',
+        //         cancelUrl: 'https://6ddcf789.ngrok.io/cancelUrl'
+        //     }
+        // }
+        // linePay.request(order).then(res => {
+        //     console.log("res-->")
+        //     console.log(res)
+        //     event.reply([res.info.paymentUrl.web, res.info.paymentUrl.app,res.info.transactionId])
+        // })
+        linePay.confrim({ amount: 100, currency: 'TWD' }, '2019103000071425300').then(res => {
+            console.log("res2-->")
             console.log(res)
-            event.reply([res.info.paymentUrl.web, res.info.paymentUrl.app,res.info.transactionId])
-            linePay.confrim({ amount: 100, currency: 'TWD' }, res.info.transactionId).then(res2 => {
-                console.log("res2-->")
-                console.log(res2)
-            })
         })
 
         // let key = 'dcc3464a9e35c3da7278413e7e19bf8e'
