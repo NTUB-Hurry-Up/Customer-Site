@@ -34,16 +34,13 @@ var pay_LP = function (event) {
                 cancelUrl: 'https://6ddcf789.ngrok.io/cancelUrl'
             }
         }
-        let result
-        await linePay.request(order).then(res => {
-            result=res
-            console.log(res)
+        linePay.request(order).then(res => {
+            console.log("res-->"+res)
+            event.reply([res.info.paymentUrl.web,res.info.paymentUrl.app,res.info.transactionId])
             linePay.confrim({ amount: 100, currency: 'TWD' }, res.info.transactionId).then(res2 => {
-                console.log(res2)
+                console.log("res2-->"+res2)
             })
         })
-        console.log("result--->"+result)
-        return result
 
         // let key = 'dcc3464a9e35c3da7278413e7e19bf8e'
         // let nonce = uuid()
