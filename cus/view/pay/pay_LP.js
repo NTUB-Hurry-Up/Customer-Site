@@ -35,10 +35,12 @@ var pay_LP = function (event) {
             }
         }
         linePay.request(order).then(res => {
-            console.log("res-->"+res)
-            event.reply([res.info.paymentUrl.web,res.info.paymentUrl.app,res.info.transactionId])
+            console.log("res-->")
+            console.log(res)
+            event.reply([res.info.paymentUrl.web, res.info.paymentUrl.app])
             linePay.confrim({ amount: 100, currency: 'TWD' }, res.info.transactionId).then(res2 => {
-                console.log("res2-->"+res2)
+                console.log("res2-->")
+                console.log(res2)
             })
         })
 
