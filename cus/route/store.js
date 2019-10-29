@@ -19,8 +19,8 @@ var fetchStore = async function () {
         }, (error) => {
             result = -9;  //執行錯誤
         });
-
     //回傳執行結果
+    console.log("result-->" + result)
     return result;
 }
 //------------------------------------------
