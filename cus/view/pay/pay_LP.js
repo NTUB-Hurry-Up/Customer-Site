@@ -39,7 +39,7 @@ var pay_LP = function (event) {
         //     console.log(res)
         //     event.reply([res.info.paymentUrl.web, res.info.paymentUrl.app,res.info.transactionId])
         // })
-        linePay.confrim({ amount: 100, currency: 'TWD' }, '2019103000071425300').then(res => {
+        linePay.confrim({ amount: 100, currency: 'TWD' }, '2019103000071425').then(res => {
             console.log("res2-->")
             console.log(res)
         })
