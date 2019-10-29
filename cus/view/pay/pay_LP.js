@@ -11,23 +11,20 @@ let linePay = new LinePay({
 var pay_LP = function (event) {
     event.source.profile().then(function (profile) {
 
-        // let key = 'dcc3464a9e35c3da7278413e7e19bf8e'
-        // let nonce = uuid()
-        // let requestUri = '/v3/payments/request'
         let order = {
-            amount: 10,
+            amount: 100,
             currency: 'TWD',
             orderId: '1234564561231245',
             packages: [
                 {
                     id: 'Item20191015001',
-                    amount: 10,
+                    amount: 100,
                     name: 'testPackageName',
                     products: [
                         {
                             name: 'testProductName',
                             quantity: 1,
-                            price: 10
+                            price: 100
                         }
                     ]
                 }
@@ -37,6 +34,21 @@ var pay_LP = function (event) {
                 cancelUrl: 'https://6ddcf789.ngrok.io/cancelUrl'
             }
         }
+        let result
+        linePay.request(order).then(res => {
+            result=res.rows[0]
+            console.log(res)
+            linePay.confrim({ amount: 100, currency: 'TWD' }, res.info.transactionId).then(res2 => {
+                console.log(res2)
+            })
+        })
+
+        console.log("result--->"+result)
+
+        // let key = 'dcc3464a9e35c3da7278413e7e19bf8e'
+        // let nonce = uuid()
+        // let requestUri = '/v3/payments/request'
+
         // let encrypt = crypto.HmacSHA256(key + requestUri + JSON.stringify(order) + nonce, key)
         // let hmacBase64 = crypto.enc.Base64.stringify(encrypt)
         // let configs = {
@@ -50,10 +62,6 @@ var pay_LP = function (event) {
         // axios.post('https://sandbox-api-pay.line.me/v3/payments/request',order,configs).then(res => {
         //     console.log(res.data)
         // })
-
-        linePay.request(order).then(res => {
-            console.log(res)
-        })
 
     });
 }

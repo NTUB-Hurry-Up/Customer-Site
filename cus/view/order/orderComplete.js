@@ -19,8 +19,18 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
         arr[0].contents.body.contents[5].contents[1].text = oCart.takeDate
         arr[0].contents.body.contents[5].contents[2].text = oCart.takeTime
         arr[0].contents.footer.contents[1].contents[1].text = "地址 : " + oCart.storeAdd
-        arr[0].contents.footer.contents[2].action.text = "付款,LP,"+cOrderid
-
+        // arr[0].contents.footer.contents[2].action.text = "付款,LP,"+cOrderid
+        
+        var paybtn={
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "使用LINEPAY付款",
+            "text": "付款,LP"+cOrderid
+          },
+          "color": "#58290C"
+        }
+        arr[0].contents.footer.contents[2]=paybtn
         for (var k = 0; k < i; k++) {
             var tempRe = lodash.cloneDeep(temp.orderCompleteRepeat)
             var Afood = oCart.arrfood[k]

@@ -730,15 +730,6 @@ var orderComplete = {
               ]
             }*/
           ]
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "message",
-            "label": "使用LINEPAY付款",
-            "text": "付款,LP"
-          },
-          "color": "#58290C"
         }
       ]
     }
