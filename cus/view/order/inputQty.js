@@ -21,7 +21,7 @@ var inputQty = function (event, oPsnl, msg1, statusText) {
                 );
             } else if (y) {
                 event.reply([
-                    { 'type': 'text', 'text': '請輸入大於0的數字啦 ! ' },
+                    { 'type': 'text', 'text': '請輸入大於0的數字 ! ' },
                     { 'type': 'text', 'text': '你還剩' + oPsnl.Status.statusTime + '次機會' }]
                 );
             } else {

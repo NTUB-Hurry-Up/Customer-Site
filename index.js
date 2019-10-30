@@ -36,8 +36,8 @@ const client = LineClient.connect({
     channelSecret: '633baa5dafd610ad5bb69a495df003a0',
     accessToken: 'gU+RO41W5nTJOrZrepX2AsvPOO9Qp+oC7eX3pYrcBaSIeD4+kYh30iN375Rh+6hJB5Bk5hotterHhDSF2GNzHC4poNA0i55YXayxMMnsmePMhKqsujJsgOnc+XR5HoAihNYaGwK54qRxD28M2ULx3gdB04t89/1O/w1cDnyilFU='
 });
-// {"richMenuId": "richmenu-70f1291d871d2dfbc30ba43c04553ff2"}//cus
-// {"richMenuId": "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"}//store
+// {"richMenuId": "richmenu-70f1291d871d2dfbc30ba43c04553ff2"}//cus//圖文選單,切換至顧客
+// {"richMenuId": "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"}//store//圖文選單,切換至店家
 //--------------------------------
 // 使用者加入群組或解除封鎖
 //--------------------------------
