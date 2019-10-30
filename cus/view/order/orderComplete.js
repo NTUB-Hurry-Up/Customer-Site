@@ -81,7 +81,7 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
     temp2.footer.contents[0].contents[1].text = "總價 : $" + cartTotalPrice
     arr2[0].contents.contents[0] = temp2
     event.reply(arr);
-    bot.push(oCart.storeid, arr2);
+    bot.push(oCart.storeid, ["新訂單 !",arr2]);
     // event.bot.push(oCart.storeid, "arr")
 
   });
