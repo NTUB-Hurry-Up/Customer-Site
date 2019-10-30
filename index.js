@@ -166,7 +166,7 @@ bot.on('message', function (event) {
                 orderRecord.orderRecord(event, lodash);
             } else if (msg1 == "付款") {
                 if (msg2 == "LP") {
-                    pay_LP.pay_LP(event);
+                    // pay_LP.pay_LP(event);
                 }
             } else if (obj.arrPsnl[objLoc].Status.status != "") {
                 var s = obj.arrPsnl[objLoc].Status.status
@@ -180,7 +180,7 @@ bot.on('message', function (event) {
             } else if (msg1 == "圖文選單") {
                 if (msg2 == "切換至店家") { client.linkRichMenu(userId, "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"); }//圖文選單,切換至店家
                 else if (msg2 == "切換至顧客") { client.linkRichMenu(userId, "richmenu-70f1291d871d2dfbc30ba43c04553ff2"); }//圖文選單,切換至顧客
-            } if (msg1 == "訂單") {
+            } else if (msg1 == "訂單") {
                 if (msg2 == "查詢") {
                     if (msg3 == "未接受") { store_orderRecord.orderRecord(event, userId, "未接單", lodash) }
                     else if (msg3 == "製作中") { store_orderRecord.orderRecord(event, userId, "製作中", lodash) }
