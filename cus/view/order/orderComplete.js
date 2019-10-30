@@ -1,7 +1,14 @@
 
 //引用操作資料庫的物件
+var linebot = require('linebot');
 var lodash = require('lodash');
 const temp = require('./../../temp');
+var bot = linebot({
+    channelId: '1553827455',
+    channelSecret: '633baa5dafd610ad5bb69a495df003a0',
+    channelAccessToken: 'gU+RO41W5nTJOrZrepX2AsvPOO9Qp+oC7eX3pYrcBaSIeD4+kYh30iN375Rh+6hJB5Bk5hotterHhDSF2GNzHC4poNA0i55YXayxMMnsmePMhKqsujJsgOnc+XR5HoAihNYaGwK54qRxD28M2ULx3gdB04t89/1O/w1cDnyilFU='
+});
+
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
@@ -48,8 +55,8 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
         }
         arr[0].contents.footer.contents[1].contents[0].text = "總價 : $" + cartTotalPrice
         event.reply(arr);
-        // bot.push(oCart.storeid, arr);
-        event.bot.push(oCart.storeid, "arr")
+        bot.push(oCart.storeid, "arr");
+        // event.bot.push(oCart.storeid, "arr")
 
     });
 }
