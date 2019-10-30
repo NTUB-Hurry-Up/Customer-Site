@@ -108,7 +108,7 @@ var orderRecord = function (event, storeid, order_status, lodash) {
                     de_tempRe.contents[2].text = data[i].unitPrice
                     arr[0].contents.contents[ocnt].body.contents.push(de_tempRe)
                     totalPrice += data[i].unitPrice * data[i].quantity
-                    arr[0].contents.contents[ocnt].footer.contents[0].contents[1].text = "總價 :" + totalPrice
+                    arr[0].contents.contents[ocnt].footer.contents[0].contents[1].text = "總價 : $" + totalPrice
                 }
                 event.reply(arr)
             }
