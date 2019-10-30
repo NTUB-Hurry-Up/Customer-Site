@@ -30,6 +30,7 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
     // arr[0].contents.footer.contents[2].action.text = "付款,LP,"+cOrderid
 
     var arr2 = []
+    arr2.push(lodash.cloneDeep(store_temp.temp_acceptOrder))
     temp2=lodash.cloneDeep(store_temp.temp_acceptOrder_repeat)
     temp2.body.contents[0].text = "未接單"
     temp2.body.contents[0].color = '#7BC5FE'
