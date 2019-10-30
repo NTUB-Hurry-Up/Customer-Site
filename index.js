@@ -20,6 +20,8 @@ const sendOrder = require('./cus/view/order/sendOrder');
 const orderRecord = require('./cus/view/order/orderRecord');
 const modCart = require('./cus/view/order/modCart');
 const pay_LP = require('./cus/view/pay/pay_LP');
+const store_orderRecord = require('./store/view/order/store_orderRecord');
+const store_updateOrder = require('./store/view/order/store_updateOrder');
 //----------------------------------------
 // 填入自己在Line Developers的channel值
 //----------------------------------------
@@ -176,8 +178,23 @@ bot.on('message', function (event) {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
             } else if (msg1 == "圖文選單") {
-                if (msg2 == "切換至店家") { client.linkRichMenu(userId, "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"); }
-                else if (msg2 == "切換至顧客") { client.linkRichMenu(userId, "richmenu-70f1291d871d2dfbc30ba43c04553ff2"); }
+                if (msg2 == "切換至店家") { client.linkRichMenu(userId, "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"); }//圖文選單,切換至店家
+                else if (msg2 == "切換至顧客") { client.linkRichMenu(userId, "richmenu-70f1291d871d2dfbc30ba43c04553ff2"); }//圖文選單,切換至顧客
+            } if (msg1 == "訂單") {
+                if (msg2 == "查詢") {
+                    if (msg3 == "未接受") { store_orderRecord.orderRecord(event, userId, "未接單", lodash) }
+                    else if (msg3 == "製作中") { store_orderRecord.orderRecord(event, userId, "製作中", lodash) }
+                    else if (msg3 == "等待取餐") { store_orderRecord.orderRecord(event, userId, "等待取餐", lodash) }
+                    else if (msg3 == "已取餐") { store_orderRecord.orderRecord(event, userId, "已取餐", lodash) }
+                    else if (msg3 == "已拒絕") { store_orderRecord.orderRecord(event, userId, "已拒絕", lodash) }
+                    else if (msg3 == "今日訂單") { store_orderRecord.orderRecord(event, userId, "今日訂單", lodash) }
+                } else if (msg2 == "更新進度") {
+                    if (msg3 == "接單" || msg3 == "拒絕" || msg3 == "等待取餐" || msg3 == "已取餐" || msg3 == "逾時未取餐") {
+                        var orderid = msg4
+                        var new_status = msg3
+                        store_updateOrder.updateOrder(event, userId, new_status, orderid, lodash)
+                    }
+                }
             } else {
                 //
                 if (userId == 'Ub2fc9e2d0a4932b9d814bacb8df44565') {
