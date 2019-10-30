@@ -2,6 +2,7 @@
 // 載入必要的模組
 //----------------------------------------
 var linebot = require('linebot');
+const { LineClient } = require('messaging-api-line');
 var express = require('express');
 var lodash = require('lodash');
 const temp = require('./cus/temp');
@@ -28,12 +29,13 @@ var bot = linebot({
     channelAccessToken: 'gU+RO41W5nTJOrZrepX2AsvPOO9Qp+oC7eX3pYrcBaSIeD4+kYh30iN375Rh+6hJB5Bk5hotterHhDSF2GNzHC4poNA0i55YXayxMMnsmePMhKqsujJsgOnc+XR5HoAihNYaGwK54qRxD28M2ULx3gdB04t89/1O/w1cDnyilFU='
 });
 
-// {
-//     "richMenuId": "richmenu-70f1291d871d2dfbc30ba43c04553ff2"
-// }
-// {
-//     "richMenuId": "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"
-// }
+// get accessToken and channelSecret from LINE developers website
+const client = LineClient.connect({
+    channelSecret: '633baa5dafd610ad5bb69a495df003a0',
+    accessToken: 'gU+RO41W5nTJOrZrepX2AsvPOO9Qp+oC7eX3pYrcBaSIeD4+kYh30iN375Rh+6hJB5Bk5hotterHhDSF2GNzHC4poNA0i55YXayxMMnsmePMhKqsujJsgOnc+XR5HoAihNYaGwK54qRxD28M2ULx3gdB04t89/1O/w1cDnyilFU='
+});
+// {"richMenuId": "richmenu-70f1291d871d2dfbc30ba43c04553ff2"}//cus
+// {"richMenuId": "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"}//store
 //--------------------------------
 // 使用者加入群組或解除封鎖
 //--------------------------------
@@ -161,7 +163,7 @@ bot.on('message', function (event) {
             } else if (msg1 == "訂單查詢") {
                 orderRecord.orderRecord(event, lodash);
             } else if (msg1 == "付款") {
-                if (msg2 == "LP") { 
+                if (msg2 == "LP") {
                     pay_LP.pay_LP(event);
                 }
             } else if (obj.arrPsnl[objLoc].Status.status != "") {
@@ -173,6 +175,9 @@ bot.on('message', function (event) {
                 } else if (s == "changeStore") {
                     changeStore.changeStore(event, obj.arrPsnl[objLoc], msg1, msg2, lodash)
                 }
+            } else if (msg1 == "圖文選單") {
+                if (msg2 == "切換至店家") { client.linkRichMenu(userId, "richmenu-fa2df501cd1a455e79d804b5f4bfb9b2"); }
+                else if (msg2 == "切換至顧客") { client.linkRichMenu(userId, "richmenu-70f1291d871d2dfbc30ba43c04553ff2"); }
             } else {
                 //
                 if (userId == 'Ub2fc9e2d0a4932b9d814bacb8df44565') {
@@ -181,6 +186,7 @@ bot.on('message', function (event) {
                 //
                 event.reply('我不太懂你在說什麼 ?')
             }
+
             //
             if (userId != 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8') {
                 var user1 = 'Ud7d55fbcfc8d4c4a86a35ff8ec60e2b8';
