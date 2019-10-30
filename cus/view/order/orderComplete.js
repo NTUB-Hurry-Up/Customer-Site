@@ -55,7 +55,7 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
         }
         arr[0].contents.footer.contents[1].contents[0].text = "總價 : $" + cartTotalPrice
         event.reply(arr);
-        bot.push(oCart.storeid, "arr");
+        bot.push(oCart.storeid, arr);
         // event.bot.push(oCart.storeid, "arr")
 
     });
