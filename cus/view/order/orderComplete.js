@@ -73,7 +73,6 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
       tempRe2.contents[0].text = cfoodName
       tempRe2.contents[1].text = cfoodQty
       tempRe2.contents[2].text = cfoodPrice
-      arr[0].contents[6].body.contents.push(tempRe2)
       temp2.body.contents.push(tempRe2)
       console.log("k = " + k);
     }
