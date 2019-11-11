@@ -31,8 +31,8 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
 
     var arr2 = []
     arr2.push(lodash.cloneDeep(store_temp.temp_acceptOrder))
-    temp2=lodash.cloneDeep(store_temp.temp_acceptOrder_repeat)
-    temp2.body.contents[0].text = "未接單"
+    temp2 = lodash.cloneDeep(store_temp.temp_acceptOrder_repeat)
+    temp2.body.contents[0].text = "新訂單 !"
     temp2.body.contents[0].color = '#7BC5FE'
     temp2.body.contents[1].contents[1].text = cOrderid
     temp2.body.contents[2].contents[1].text = cOrderDate
@@ -81,8 +81,7 @@ var orderComplete = function (event, oCart, cOrderid, cOrderDate, cOrderTime) {
     temp2.footer.contents[0].contents[1].text = "總價 : $" + cartTotalPrice
     arr2[0].contents.contents[0] = temp2
     event.reply(arr);
-    bot.push(oCart.storeid, "新訂單 !");
-    bot.push(oCart.storeid,arr2);
+    bot.push(oCart.storeid, arr2[0]);
     // event.bot.push(oCart.storeid, "arr")
 
   });
