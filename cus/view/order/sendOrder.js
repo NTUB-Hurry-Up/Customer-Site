@@ -46,12 +46,15 @@ var sendOrder = function (event, oCart, cUserid) {
                     var cfoodPrice = Afood.foodPrice;
                     var cfoodQty = Afood.foodQty;
                     var foodAmt = cfoodPrice * cfoodQty;
+                    var cnt = 0;
                     order.addOrderDetail(cOrderid, cfoodid, cfoodPrice, cfoodQty, foodAmt).then(data => {
+
                         if (data == -9) {
                             event.reply("執行錯誤b");
-                        } else {
+                        } else if (cnt < 1) {
                             orderComplete.orderComplete(event, oCart, cOrderid, cOrderDate, cOrderTime)
-                        }
+                        } else { }
+                        cnt += 1
                     })
                 }
             }
