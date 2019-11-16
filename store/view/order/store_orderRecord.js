@@ -1,7 +1,7 @@
 
 //引用操作資料庫的物件
-const store_temp = require('./../../view/store_temp');
-const store_order = require('./../../route/store_order');
+const store_temp = require('../store_temp');
+const store_order = require('../../route/store_order');
 
 //------------------------------------------
 // today formate
@@ -22,17 +22,16 @@ var cMonth = (today.getMonth() + 1 < 10 ? '0' : '') + (today.getMonth() + 1);
 var cDay = (today.getDate() < 10 ? '0' : '') + today.getDate();
 var cMinutes = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
 var cSecond = (today.getSeconds() < 10 ? '0' : '') + today.getMinutes();
-var fetchDate = ""
+var fetchDate = today.getFullYear() + "-" + cMonth + "-" + cDay
 //------------------------------------------
 // 查詢所有的店家
 //------------------------------------------
 var orderRecord = function (event, storeid, order_status, lodash) {
     event.source.profile().then(function (profile) {
-        if (order_status == "今日訂單") { fetchDate = today.getFullYear() + "-" + cMonth + "-" + cDay;}
-        console.log("--------------------------------------" + order_status + ", " + fetchDate)
+        console.log(order_status + ", " + fetchDate)
         store_order.fetchOrderRecord(storeid, order_status, fetchDate).then(data => {
             if (data == -1) {
-                event.reply('沒有紀錄');
+                event.reply('尚無訂單');
             } else if (data == -9) {
                 event.reply('執行錯誤');
             } else {
@@ -44,7 +43,7 @@ var orderRecord = function (event, storeid, order_status, lodash) {
                 for (var i = 0; i < data.length; i++) {
                     if (order_id != data[i].orderid) {
                         ocnt++
-                        console.log("!=================" + data[i].orderid);
+                        console.log(data[i].orderid);
                         var temp_re = lodash.cloneDeep(store_temp.temp_acceptOrder_repeat)
                         temp_re.body.contents[0].text = data[i].status
 
