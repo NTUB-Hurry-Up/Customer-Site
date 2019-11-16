@@ -66,7 +66,7 @@ var updateOrder = function (event, storeid, action_status, orderid, lodash) {
                                             temp_re.footer.contents[2].action.text = "訂單,更新進度,逾時未取餐," + data1[i].orderid
                                             temp_re.footer.contents.push(lodash.cloneDeep(temp_re.footer.contents[2]))
                                             temp_re.footer.contents[3].action.label = "提醒顧客取餐"
-                                            temp_re.footer.contents[3].action.text = "訂單,更新進度,提醒顧客取餐," + data1[i].orderid
+                                            temp_re.footer.contents[3].action.text = "訂單,提醒顧客取餐," + data1[i].orderid
                                             temp_re.footer.contents[3].color = "#000000"
                                         } else if (data2.status == "已取餐") {
                                             temp_re.body.contents[0].color = '#63BB72'
