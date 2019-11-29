@@ -2,7 +2,7 @@
 //引用操作資料庫的物件
 var lodash = require('lodash');
 const temp = require('../../temp');
-const store_order = require('../../route/store_order');
+const store_order = require('../../../store/route/store_order');
 var linebot = require('linebot');
 var bot = linebot({
     channelId: '1553827455',
