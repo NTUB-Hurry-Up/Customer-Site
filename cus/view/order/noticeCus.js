@@ -60,7 +60,7 @@ var noticeCus = function (orderid) {
 
             //cus
             var cusid = data[0].userid
-            // bot.push(cusid, ["可前往商店取餐了 !", arr[0], { type: 'sticker', packageId: '11537', stickerId: '52002745' }]);
+            bot.push(cusid, ["可前往商店取餐了 !", arr[0], { type: 'sticker', packageId: '11537', stickerId: '52002745' }]);
             console.log(cusid + " 可前往商店取餐了 !")
 
         }
