@@ -2,6 +2,7 @@
 //引用操作資料庫的物件
 var linebot = require('linebot');
 var lodash = require('lodash');
+const axios = require('axios');
 const temp = require('./../../temp');
 const store_temp = require('./../../../store/view/store_temp');
 var bot = linebot({
